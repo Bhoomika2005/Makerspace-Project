@@ -1,7 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
-from . import views
+from django.urls import path
+from .views import CourseListView
 
 urlpatterns = [
-    path('',views.getData),
+    path('courses/', CourseListView.as_view(), name='course-list'),
+    # path('api/courses/', CourseListView.as_view(), name='course-list'),
 ]

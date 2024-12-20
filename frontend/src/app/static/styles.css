@@ -1,0 +1,23 @@
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Center align the text */
+  letter-spacing: .05em; /* Adjust as needed */
+  width: 0; /* Initial width set to 0 */
+  animation: 
+    typing 5.5s steps(40, end) infinite, /* Infinite typing loop */
+    blink-caret .75s step-end infinite; /* Infinite blinking cursor */
+  animation-fill-mode: forwards; /* Keeps the final state of the animation */
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}
