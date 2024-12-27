@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
+import uuid
 
 class Course(models.Model):
     course_id = models.CharField(max_length=10, unique=True)
@@ -11,3 +14,37 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+
+class UserSession(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    refresh_token = models.CharField(max_length=255, unique=True)
+    access_token = models.CharField(max_length=255, unique=True)
+    refresh_token_expires_at = models.DateTimeField()
+    access_token_expires_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def create_tokens(cls, user):
+        # Generate tokens
+        access_token = str(uuid.uuid4())
+        refresh_token = str(uuid.uuid4())
+        
+        # Set expiration times
+        access_token_expires_at = timezone.now() + timezone.timedelta(hours=1)
+        refresh_token_expires_at = timezone.now() + timezone.timedelta(days=90)
+        
+        # Create session
+        session = cls.objects.create(
+            user=user,
+            access_token=access_token,
+            refresh_token=refresh_token,
+            access_token_expires_at=access_token_expires_at,
+            refresh_token_expires_at=refresh_token_expires_at
+        )
+        
+        return {
+            'access_token': access_token,
+            'refresh_token': refresh_token,
+            'access_token_expires_at': access_token_expires_at,
+            'refresh_token_expires_at': refresh_token_expires_at
+        }
