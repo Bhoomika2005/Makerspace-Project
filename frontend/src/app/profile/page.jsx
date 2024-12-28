@@ -14,17 +14,20 @@ export default function LoginPage() {
       try{
         const token = Cookies.get('access')
         console.log("token : ", token)
+
         if(!token){
           setIsLoggedIn(false)
-        }else{  
-          setIsLoggedIn(true)
-          const UserCookie = Cookies.get('user')
-          if(UserCookie){
-            const userDetails = JSON.parse(UserCookie)
-            setUser(userDetails)
-            console.log("user : " , user)
-          }
+          return
         }
+
+        const userCookie = Cookies.get('user')
+        if(userCookie){
+          const userDetails = JSON.parse(userCookie)
+          // console.log("user : ",userDetails)
+          setIsLoggedIn(true)
+          setUser(userDetails)
+        }
+
       }catch(error){
         console.error("Error checking the user status : ", error)
         setIsLoggedIn(false)
@@ -51,7 +54,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen">
         {isLoggedIn ? (
           <div>
-              <h2>Welcome, {user?.username || 'User'}!</h2>
+              <h2>Welcome, {user?.firstName || 'User'}!</h2>
               <button onClick={handleSignOut} className="px-4 py-2 mt-4 bg-red-500 text-white rounded">
                   Sign Out
               </button>

@@ -26,20 +26,25 @@ export default function AuthCallback() {
           });
 
           const data = await response.json();
+          console.log("Data : ",data)
 
           if (response.ok) {
-            // Store tokens and user data
+
             // const result = await response.json();
+            
             Cookies.set('access', data.access);
             Cookies.set('refresh', data.refresh);
             const userDetails = jwtDecode(data.access);
-            Cookies.set('user', JSON.stringify(userDetails));
-            
-            // Add token to Authorization header for subsequent requests
-            // const token = data.access;
-            // if (token) {
-            //   Cookies.set('Authorization', `Bearer ${token}`);
-            // }
+
+            // console.log("decoded token : ", userDetails);
+            // console.log("email : ",userDetails.email);
+
+            Cookies.set('user', JSON.stringify({
+              id : userDetails.user_id,
+              firstName : userDetails.first_name,
+              lastName : userDetails.last_name,
+              email : userDetails.email
+            }));
 
             router.push('/');
           } else {

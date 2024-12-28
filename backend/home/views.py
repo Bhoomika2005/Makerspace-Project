@@ -19,14 +19,9 @@ from .serializers import (
     CustomTokenRefreshSerializer,
     UserSerializer
 )
-from google.auth.transport.requests import Request
-from django.shortcuts import redirect
-from rest_framework.exceptions import AuthenticationFailed
-from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
 from rest_framework.authtoken.models import Token
-
-import jwt
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 User = get_user_model()
 
@@ -37,6 +32,17 @@ class CourseListView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        token['first_name'] = user.first_name
+        token['last_name'] = user.last_name
+        token['email'] = user.email
+        
+        return token
+    
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
@@ -105,20 +111,30 @@ class GoogleLoginView(APIView):
                 }
             )
 
-            print("user : ", user)
+            # print("user : ", user)
 
             # token = Token.objects.create(user = user)
             token, created = Token.objects.get_or_create(user=user)
 
-            print("token : ", token)
+            # print("token : ", token)
             
             # Generate JWT tokens
             refresh = RefreshToken.for_user(user)
+
+            refresh['username'] = user.username
+            refresh['first_name'] = user.first_name
+            refresh['last_name'] = user.last_name
+            refresh['email'] = user.email
             
             return Response({
                 'refresh': str(refresh),
                 'access': str(refresh.access_token),
-                'user': UserSerializer(user).data
+                'user': {
+                    'id': user.id,
+                    'username': user.username,
+                    'first_name': user.first_name,
+                    'last_name': user.last_name,
+                }
             })
             
         except Exception as e:
