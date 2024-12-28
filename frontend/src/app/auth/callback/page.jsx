@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { jwtDecode } from "jwt-decode";
+import Cookies from 'js-cookie';
 
 export default function AuthCallback() {
   const router = useRouter();
@@ -11,7 +13,6 @@ export default function AuthCallback() {
   useEffect(() => {
     const handleCallback = async () => {
       const code = searchParams.get('code');
-      console.log("Received code from Google:", code);
 
       if (code) {
         try {
@@ -20,25 +21,26 @@ export default function AuthCallback() {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ code: code }),
+            body: JSON.stringify({ code }),
             credentials: 'include',
           });
 
-          const responseText = await response.text();
-          console.log("Raw backend response:", responseText);
-
-          let data;
-          try {
-            data = JSON.parse(responseText);
-          } catch (e) {
-            console.error("Failed to parse JSON response:", responseText);
-            throw new Error("Invalid server response format");
-          }
+          const data = await response.json();
 
           if (response.ok) {
-            console.log("Authentication successful:", data);
-            localStorage.setItem('accessToken', data.access);
-            localStorage.setItem('refreshToken', data.refresh);
+            // Store tokens and user data
+            // const result = await response.json();
+            Cookies.set('access', data.access);
+            Cookies.set('refresh', data.refresh);
+            const userDetails = jwtDecode(data.access);
+            Cookies.set('user', JSON.stringify(userDetails));
+            
+            // Add token to Authorization header for subsequent requests
+            // const token = data.access;
+            // if (token) {
+            //   Cookies.set('Authorization', `Bearer ${token}`);
+            // }
+
             router.push('/');
           } else {
             throw new Error(data.error || 'Authentication failed');
@@ -47,13 +49,11 @@ export default function AuthCallback() {
           console.error('Authentication error:', error);
           router.push(`/login?error=${encodeURIComponent(error.message)}`);
         }
-      } else {
-        router.push('/login?error=no_code');
       }
     };
 
     handleCallback();
-  }, [searchParams]);
+  }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen">

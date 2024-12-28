@@ -24,6 +24,7 @@ from django.shortcuts import redirect
 from rest_framework.exceptions import AuthenticationFailed
 from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
+from rest_framework.authtoken.models import Token
 
 import jwt
 
@@ -82,7 +83,8 @@ class GoogleLoginView(APIView):
             id_info = id_token.verify_oauth2_token(
                 token_data['id_token'],
                 request_object,  # Use the request object here
-                settings.GOOGLE_CLIENT_ID
+                settings.GOOGLE_CLIENT_ID,
+                clock_skew_in_seconds=10
             )
             
             # Verify email domain (for IITI restriction)
@@ -104,6 +106,11 @@ class GoogleLoginView(APIView):
             )
 
             print("user : ", user)
+
+            # token = Token.objects.create(user = user)
+            token, created = Token.objects.get_or_create(user=user)
+
+            print("token : ", token)
             
             # Generate JWT tokens
             refresh = RefreshToken.for_user(user)
