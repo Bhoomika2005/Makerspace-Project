@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course
-from .serializers import CourseSerializer
+from .models import Course , FormDocument
+from .serializers import CourseSerializer , FormDocumentSerializer
 
 from django.conf import settings
 from google.oauth2 import id_token
@@ -13,7 +13,7 @@ from .models import UserSession
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated , AllowAny , IsAdminUser
 from .serializers import (
     CustomTokenObtainPairSerializer, 
     CustomTokenRefreshSerializer,
@@ -22,6 +22,10 @@ from .serializers import (
 from google.oauth2 import id_token
 from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from django.shortcuts import get_object_or_404
+import os
+from django.http import FileResponse
+from rest_framework import permissions
 
 User = get_user_model()
 
@@ -143,3 +147,161 @@ class GoogleLoginView(APIView):
                 {'error': str(e)},
                 status=status.HTTP_400_BAD_REQUEST
             )
+        
+
+
+
+def get_content_type(file_path):
+    file_name, file_extension = os.path.splitext(file_path)
+    
+    content_types = {
+        '.pdf': 'application/pdf',
+        '.doc': 'application/msword',
+        '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    }
+    
+    return content_types.get(file_extension.lower(), 'application/octet-stream')
+        
+class IsAdminEmail(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user and request.user.email == settings.ADMIN_EMAIL
+
+class FormListCreateView(APIView):
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        # return [IsAuthenticated()]
+        return [IsAdminEmail()]
+
+    def get(self , request):
+        forms = FormDocument.objects.all()
+        serializer = FormDocumentSerializer(forms , many = True)
+        return Response(serializer.data)
+    
+
+    def post(self , request):
+        try:
+            serializer = FormDocumentSerializer(data=request.data)
+            if serializer.is_valid():
+                form_doc = serializer.save()
+            
+                if 'file' in request.FILES:
+                    form_doc.file = request.FILES['file']
+                    form_doc.save()
+                
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(
+                {'error': str(e)}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+
+class FormDetailView(APIView):
+    def get_permissions(self):
+        if self.request.method in ['DELETE']:
+            return [IsAdminEmail()]
+        elif self.request.method in ['GET']:
+            return [IsAuthenticated()]
+        return [AllowAny()]
+
+    def get_object(self,pk):
+        try:
+            return FormDocument.objects.get(pk = pk)
+        except FormDocument.DoesNotExist:
+            return None
+        
+    def get(self, request ,pk):
+        form = self.get_object(pk)
+        serializer = FormDocumentSerializer(form)
+        return Response(serializer.data)
+        
+    def delete(self , request, pk):
+        form = self.get_object(pk)
+        if form.file and os.path.exists(form.file.path):
+            os.remove(form.file.path)
+        form.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+class FormDownloadView(APIView):
+    permission_classes = [IsAuthenticated]
+    # print("download called")
+    def get(self , request , pk):
+        try:
+            form = get_object_or_404(FormDocument , pk=pk)
+
+            # print("form : ", form)
+
+            if not form.file:
+                return Response(
+                    {'error' : 'No file associated with this form'},
+                    status = status.HTTP_404_NOT_FOUND
+                )
+            
+            if not os.path.exists(form.file.path):
+                return Response(
+                    {'error' : 'File not found'},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+            
+            content_type = get_content_type(form.file.path)
+            
+            response = FileResponse(
+                open(form.file.path, 'rb'),
+                content_type = content_type
+            )
+            response['Content-Disposition'] = f'attachment; filename="{os.path.basename(form.file.name)}"'
+            return response
+
+        except Exception as e:
+            return Response(
+                {'error' : str(e)},
+                status = status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+
+class FormViewerView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, pk):
+        try:
+            form = get_object_or_404(FormDocument, pk=pk)
+            
+            if not form.file:
+                return Response(
+                    {'error': 'No file associated with this form'}, 
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            if not os.path.exists(form.file.path):
+                return Response(
+                    {'error': 'File not found'}, 
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            content_type = get_content_type(form.file.path)
+            
+            viewable_types = ['application/pdf']
+            content_disposition = 'inline' if content_type in viewable_types else 'attachment'
+
+            response = FileResponse(
+                open(form.file.path, 'rb'),
+                content_type=content_type
+            )
+            response['Content-Disposition'] = content_disposition
+            return response
+
+        except Exception as e:
+            return Response(
+                {'error': str(e)}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+
+
+    
+
+
+    

@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
-from .models import Course
+from .models import Course , FormDocument
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,3 +50,9 @@ class CustomTokenRefreshSerializer(TokenRefreshSerializer):
         access_token['id'] = user.id
         data['access'] = str(access_token)
         return data
+    
+
+class FormDocumentSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = FormDocument
+        fields = '__all__'

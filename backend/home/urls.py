@@ -9,4 +9,8 @@ urlpatterns = [
     path('user/', UserDetailsView.as_view(), name='user_details'),
     
     path('auth/google/callback/', GoogleLoginView.as_view(), name='google-callback'),
+    path('forms/' , FormListCreateView.as_view() , name='form-list-create'),
+    path('forms/<int:pk>/' , FormDetailView.as_view() , name='form-detail'),
+    path('forms/<int:pk>/download/', FormDownloadView.as_view(), name='form-download'),
+    path('forms/<int:pk>/view/', FormViewerView.as_view(), name='form-view'),
 ]
