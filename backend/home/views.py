@@ -304,4 +304,30 @@ class FormViewerView(APIView):
     
 
 
-    
+    from rest_framework.generics import (
+    ListCreateAPIView, 
+    RetrieveUpdateDestroyAPIView
+)
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .models import Course
+from rest_framework import generics
+from .serializers import CourseSerializer
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+
+
+class CourseListCreateView(ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class CourseDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_object(self):
+        return generics.get_object_or_404(Course, courseId=self.kwargs['courseId'])

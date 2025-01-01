@@ -4,16 +4,23 @@ from django.utils import timezone
 import uuid
 
 class Course(models.Model):
-    course_id = models.CharField(max_length=10, unique=True)
+    courseId = models.CharField(max_length=10, unique=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    offered_by = models.CharField(max_length=100)
-    offered_to = models.CharField(max_length=100)
+    offeredBy = models.CharField(max_length=100)
+    offeredTo = models.CharField(max_length=100)
     duration = models.CharField(max_length=50)
     schedule = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        # Auto-generate course_id if not provided
+        if not self.courseId:
+            self.courseId = str(uuid.uuid4())[:8]
+        super().save(*args, **kwargs)
+
 
 class UserSession(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -52,9 +59,8 @@ class UserSession(models.Model):
 
 class FormDocument(models.Model):
     title = models.CharField(max_length=100)
-    file = models.FileField(upload_to = 'forms/')
+    file = models.FileField(upload_to='forms/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
-    

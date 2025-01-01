@@ -2,18 +2,41 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
-from .models import Course , FormDocument
+from .models import Course, FormDocument
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = '__all__'
+        fields = [
+            'courseId',
+            'title',
+            'description',
+            'offeredBy',
+            'offeredTo',
+            'duration',
+            'schedule',
+        ]
 
 
 class UserSerializer(serializers.ModelSerializer):
-    class Meta(object):
-        model = User 
-        fields = ['id','username','first_name' , 'last_name' ,'password']
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'first_name', 'last_name', 'password']
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        user = User.objects.create(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
+
+    def update(self, instance, validated_data):
+        password = validated_data.pop('password', None)
+        if password:
+            instance.set_password(password)
+        return super().update(instance, validated_data)
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -26,17 +49,13 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         access['id'] = self.user.id
         data['refresh'] = str(refresh)
         data['access'] = str(access)
-        
         return data
 
     @classmethod
     def get_token(cls, user):
-        """
-        Create a token for the given user. This method is called automatically
-        by the superclass, and here we can add custom claims to the token.
-        """
         token = RefreshToken.for_user(user)
         return token
+
 
 class CustomTokenRefreshSerializer(TokenRefreshSerializer):
     def validate(self, attrs):
@@ -44,15 +63,14 @@ class CustomTokenRefreshSerializer(TokenRefreshSerializer):
         refresh_token = RefreshToken(attrs['refresh'])
         access_token = refresh_token.access_token
         user = self.context['request'].user
-        print(user)
         access_token['username'] = user.username
         access_token['email'] = user.email
         access_token['id'] = user.id
         data['access'] = str(access_token)
         return data
-    
+
 
 class FormDocumentSerializer(serializers.ModelSerializer):
-    class Meta :
+    class Meta:
         model = FormDocument
-        fields = '__all__'
+        fields = ['title', 'file', 'uploaded_at']
