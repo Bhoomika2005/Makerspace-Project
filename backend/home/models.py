@@ -64,3 +64,14 @@ class FormDocument(models.Model):
 
     def __str__(self):
         return self.title
+
+class Equipment(models.Model):
+    name = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='equipment_images/', null=True, blank=True)
+    quantity = models.IntegerField()
+    manufacturer = models.CharField(max_length=100)
+    model_number = models.CharField(max_length=100)
+    notes = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name

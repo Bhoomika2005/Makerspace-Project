@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
-from .models import Course, FormDocument
+from .models import *
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -74,3 +74,8 @@ class FormDocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = FormDocument
         fields = ['title', 'file', 'uploaded_at']
+
+class EquipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Equipment
+        fields = ['name', 'image', 'quantity', 'manufacturer', 'model_number', 'notes']

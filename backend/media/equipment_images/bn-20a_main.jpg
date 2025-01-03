@@ -1,0 +1,2179 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html  lang="en" class="ie ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <style>
+        :root {
+            --bs-gutter-y: 0px;
+            --bs-gutter-x: 12px;
+        }
+    </style>
+
+    
+<meta name="VIcurrentDateTime" content="638714347119867560" />
+<meta name="VirtualFolder" content="/" />
+<script type="text/javascript" src="/layouts/system/VisitorIdentification.js"></script>
+
+    <!-- Analytics Head -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJ5DH7Z');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="https://customer.cludo.com/assets/10001142/10001911/cludo-stylesheet.css">
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ockaubt51v");
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1070496757"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1070496757');
+</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title>404 Error | Roland DG</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="canonical" href="https://www.rolanddg.com.au/404" />
+
+
+        <link rel="alternate" href="https://www.rolanddg.com.au/404" hreflang="en" />
+        <link rel="alternate" href="https://www.rolanddg.com.au/404" hreflang="x-default" />
+
+    <meta name="robots" content="nofollow,noindex" />
+
+<link rel="image_src" href="" />
+<meta property="og:title" content="404 Error | Roland DG" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://www.rolanddg.com.au/404" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="Roland Website" />
+<meta property="og:type" content="website" />
+
+
+    <link rel="shortcut icon" href="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/icons/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/icons/favicon_png.png" type="image/png">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/icons/ios_76.png" >
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/icons/ios_120.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/icons/ios_152.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/icons/ios_180.png">
+    <script>
+  (function(d) {
+    var config = {
+      kitId: 'fol8ycg',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<link href="/bundles/css/vendor?v=SC5sBkH1CF8Su_UK96fCuVXuhdbib9X8W3oMlngjA5w1" rel="stylesheet"/>
+
+
+<script src="https://kit.fontawesome.com/4141c79c6e.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://kit.fontawesome.com/4141c79c6e.css" crossorigin="anonymous" />
+
+<link href="/bundles/css/local/das?v=11dhn7221Mh8_tukRG7tESN6XHXB07hvGpftVHRYfl81" rel="stylesheet"/>
+
+<link href="/bundles/css/vendor-jquery-ui?v=j6dYEFzIKT1H-tqfA_KZlPs1HeNV8obVy5i4SoZqsmE1" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+
+
+<script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>(window.jQuery)||document.write('<script src="/bundles/js/vendor-jquery"><\/script>');</script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>(window.jQuery.ui)||document.write('<script src="/bundles/js/vendor-jquery-ui"><\/script>');</script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>(window.bootstrap)||document.write('<script src="/bundles/js/vendor-bootstrap"><\/script>');</script>
+<script src='/bundles/js/vendor?v=oY5nl7-cBOB2JicJKFNr3Cgm3x9iyq5wRyoQGNxlNb01'></script>
+
+<script src='/bundles/js/local?v=x3VCzh0WhyrWWsvxxJ_s477Xk01_ZDz2gizA_e0pQe01'></script>
+
+
+
+
+    
+
+</head>
+<body data-template="Inner Page">
+    <!-- Analytics Body Top -->
+<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ5DH7Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
+    <header class="rd rd-header sticky-enabled">
+        <nav class="nav__utility">
+        <div class="container-fluid">
+            <div class="nav__utility-wrapper">
+                <!-- device only -->
+                <button class="nav-toggler clickable--reset">
+                    <span class="nav-toggler__icon"></span>
+                </button>
+
+                <div class="nav__utility-brand">
+<a target="_parent" href="https://www.rolanddg.com.au/"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/brandg_corporate_roland_online_ver1_0.png?h=36&amp;iar=0&amp;w=239&amp;hash=DEF22E16A61B12D99D927387D0882CEA" class="img-responsive" alt="" width="239" height="36" loading="lazy" /></a>                </div>
+                <div class="nav__utility-menus">
+
+                    
+
+
+<a class="bold text-orange nav__utility-menus-item link--pill desktop-only no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/blog">Blog</a>
+
+<a class="nav__utility-menus-item link--pill desktop-only no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/product-registration">Product Registration</a>
+
+<a class="nav__utility-menus-item link--pill desktop-only no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/customer-support-form">Request Service/Support</a>
+
+<a class="nav__utility-menus-item link--pill desktop-only no-thumbnail" href="https://www.rolanddg.com.au/dealers">Find a Dealer</a>                                <div class="nav__utility-lang-selector desktop-only region-selector-wrapper">
+                                    
+
+<span class="flag flag-au"></span>
+
+    <img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/regionselector_globe.svg" alt="language icon" />
+
+<a href="https://www.rolanddg.com.au/regions" title="Change country" >Australia</a>
+    <span class="language-separator">-</span>
+
+    <span class="region-language">English</span>
+
+<div class="rd-dropdown" role="menu">
+</div>
+                                </div>
+
+
+<a class="tablet-and-below btn btn--orange nav__utility-menus-item link--pill desktop-only no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/company/contact">Contact Us</a>
+                    
+                                <div class="utility-search tablet-and-below">
+                                    <!-- search overlay trigger - only for mobile -->
+                                    <button class="search-overlay-toggle-btn clickable--reset mobile-only">
+                                        <svg id="SearchOverlayTogglerIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.298 17.298" fill="currentColor">
+                                            <path id="Path_2" data-name="Path 2" d="M2.162,7.568A5.353,5.353,0,0,1,7.568,2.162a5.353,5.353,0,0,1,5.406,5.406,5.353,5.353,0,0,1-5.406,5.406A5.353,5.353,0,0,1,2.162,7.568Zm13.3,9.406a1.07,1.07,0,1,0,1.514-1.514l-3.351-3.351a7.4,7.4,0,0,0,1.514-4.541A7.521,7.521,0,0,0,7.568,0,7.521,7.521,0,0,0,0,7.568a7.521,7.521,0,0,0,7.568,7.568,7.4,7.4,0,0,0,4.541-1.514Z"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="utility-search__form-wrapper">
+                                        <form id="cludo-search-form-mobile" role="search">
+                                            <input type="search"
+                                                   class="search-input"
+                                                   aria-label="Search"
+                                                   aria-describedby="autocomplete_hint"
+                                                   placeholder="Search" />
+                                            <button type="submit" class="search-button clickable--reset" id="search-button">
+                                                <svg id="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.298 17.298">
+                                                    <path id="Path_2"
+                                                          data-name="Path 2"
+                                                          d="M2.162,7.568A5.353,5.353,0,0,1,7.568,2.162a5.353,5.353,0,0,1,5.406,5.406,5.353,5.353,0,0,1-5.406,5.406A5.353,5.353,0,0,1,2.162,7.568Zm13.3,9.406a1.07,1.07,0,1,0,1.514-1.514l-3.351-3.351a7.4,7.4,0,0,0,1.514-4.541A7.521,7.521,0,0,0,7.568,0,7.521,7.521,0,0,0,0,7.568a7.521,7.521,0,0,0,7.568,7.568,7.4,7.4,0,0,0,4.541-1.514Z"
+                                                          fill="#757575" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                        <button class="clickable--reset search-overlay-close-btn mobile-only">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!--Cludo Start-->
+<script type="text/javascript" src="https://customer.cludo.com/scripts/bundles/search-script.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var CludoSearch;
+        var cludoSettings = {
+            customerId: 10001142,
+            engineId: 10001911,
+            searchUrl: '/search',
+            language: 'en',
+            searchInputs: ["cludo-search-form-desktop", "cludo-search-form-mobile", "cludo-search-form-results"],
+            template: 'InlineBasicImages',
+            focusOnResultsAfterSearch: true,
+            type: 'inline',
+            enableRelatedSearches: true,
+            disableAutocomplete: false
+        };
+        CludoSearch = new Cludo(cludoSettings);
+        CludoSearch.init();
+    });
+</script>
+
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+<!-- Cludo End -->
+                                </div>
+
+
+<a class="tablet-and-below  nav--icon" target="_parent" href="https://www.rolanddg.com.au/dealers"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/bsicon_geoaltfill.png?h=23&amp;iar=0&amp;w=17&amp;hash=A70411767AFDEEB570BAD88BDF2D5D48" class="img-responsive" alt="icon geo" width="17" height="23" loading="lazy" /></a>                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="nav__main">
+    <div class="container-fluid">
+        <div class="nav__main-wrapper">
+                <ul class="nav__main-menus" role="menubar">
+                            <li class="nav__main-menus-item ">
+                                <div class="rd-dropdown rd-dropdown--hover-intent rd-dropdown--mega" role="menu">
+                                    <button class="rd-dropdown__trigger link--pill">
+                                        
+
+            <span>Products</span>
+
+                                        <span class="rd-dropdown__trigger-icon"></span>
+                                    </button>
+
+                                    <div class="rd-dropdown__menu ">
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <!-- rd-dropdown__menu-lvl__toggle-section -->
+                                                        <ul class="" data-parent="">
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{1FE1B584-E30E-4447-987D-53CA3240571C}">
+                                                                        <button class="clickable--reset mm-toggler ">By Type</button>
+                                                                    </li>
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{B23C6830-B0C6-42C9-B010-126BA6BA5A09}">
+                                                                        <button class="clickable--reset mm-toggler ">By Brand</button>
+                                                                    </li>
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{9CDC5740-8506-4A86-B219-BE3F326F64EB}">
+                                                                        <button class="clickable--reset mm-toggler ">New Products</button>
+                                                                    </li>
+                                                                    <li role="menuitem">
+                                                                        
+
+<a class="btn btn--orange no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products">Help Me Choose</a>
+                                                                    </li>
+                                                                    <li role="menuitem">
+                                                                        
+
+<a class="btn btn--orange no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/promo">Promos</a>
+                                                                    </li>
+                                                        </ul>
+                                            </div>
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <!-- rd-dropdown__menu-lvl__toggle-section -->
+                                                        <ul class="rd-dropdown__menu-lvl__toggle-section" data-parent="{1FE1B584-E30E-4447-987D-53CA3240571C}">
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{30A6C03B-9E74-4E2C-AED6-90280A323B14}">
+                                                                        <button class="clickable--reset mm-toggler ">Printers</button>
+                                                                    </li>
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{2CAF8185-1B0A-48E1-A468-232EE5929869}">
+                                                                        <button class="clickable--reset mm-toggler ">Cutters</button>
+                                                                    </li>
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{68F915ED-D46A-499D-A499-AB687CCB65F5}">
+                                                                        <button class="clickable--reset mm-toggler ">Engravers + Decorators</button>
+                                                                    </li>
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{2843430A-0F1B-421C-AC72-0EDE35E1F09F}">
+                                                                        <button class="clickable--reset mm-toggler ">Milling Machines</button>
+                                                                    </li>
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{CEA5D796-644E-4334-BBF7-359A2F03C5E7}">
+                                                                        <button class="clickable--reset mm-toggler ">Dental Solutions</button>
+                                                                    </li>
+                                                                    <li role="menuitem">
+                                                                        
+
+<a class="semibold no-thumbnail" href="https://www.rolanddg.com.au/products/inks">Ink</a>
+                                                                    </li>
+                                                                    <li role="menuitem">
+                                                                        
+
+<a class="semibold no-thumbnail" href="https://www.rolanddg.com.au/products/software">Software</a>
+                                                                    </li>
+                                                        </ul>
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{B23C6830-B0C6-42C9-B010-126BA6BA5A09}">
+
+                                                                                                                            <div class="col">
+                                                                    <div class="col-section">
+                                                                        <ul>
+                                                                                <li>
+                                                                                    
+
+<a class="has-subtitle no-thumbnail" href="https://www.rolanddg.com.au/products/printers/truevis-brand-family">            <span class="nav__title">TrueVIS</span>
+            <span class="nav__subtitle">Wide-Format Printers</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="has-subtitle no-thumbnail" target="_top" href="https://www.rolanddg.com.au/products/printers/versastudio">            <span class="nav__title">VersaSTUDIO</span>
+            <span class="nav__subtitle">Desktop Digital Devices</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="has-subtitle no-thumbnail" target="_top" href="https://www.rolanddg.com.au/products/printers/versaobject">            <span class="nav__title">VersaOBJECT</span>
+            <span class="nav__subtitle">Direct-to-Object Printers</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="has-subtitle no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-series">            <span class="nav__title">DGSHAPE</span>
+            <span class="nav__subtitle">Dental Solutions</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="has-subtitle no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products/vinyl-cutters/camm-1-gr2-large-format-cutters?brand=camm1">            <span class="nav__title">CAMM-1</span>
+            <span class="nav__subtitle">Wide-Format Cutters</span>
+</a>
+                                                                                </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                                                                    </div>
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{9CDC5740-8506-4A86-B219-BE3F326F64EB}">
+
+                                                                                                                            <div class="col">
+                                                                    <div class="col-section">
+                                                                        <ul>
+                                                                                <li>
+                                                                                    
+
+<a class="cta-grid has-subtitle" target="_parent"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/resin/ap-640.png?h=55&amp;iar=0&amp;w=100&amp;hash=1FF825623F28B11378BAC6A3D90798CB" class="img-responsive" alt="AP-640" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS </span>
+            <span class="nav__subtitle">AP-640</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="cta-grid has-subtitle" target="_parent"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/lg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=19428048143E3055E8122459DC72E8D3" class="img-responsive" alt="LG Series" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS </span>
+            <span class="nav__subtitle">LG Series</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="cta-grid has-subtitle" target="_parent"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/mg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=453D70950DC5E5647D49781DD55B26D1" class="img-responsive" alt="MG Series" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS </span>
+            <span class="nav__subtitle">MG Series</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn2-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/versastudio-bn2-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=5F5A7E57EFF71FC81318B99836699405" class="img-responsive" alt="VersaSTUDIO BN2 Series" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO</span>
+            <span class="nav__subtitle">BN2 Series</span>
+</a>
+                                                                                </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                                                                    </div>
+                                            </div>
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{30A6C03B-9E74-4E2C-AED6-90280A323B14}">
+
+                                                                                                                                <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="col-section-heading no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products/printers/eco-solvent">            <span class="nav__title">Eco-Solvent Printer Cutters</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-vg3-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/truevis-vg3-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=FA3415E4B4A36E2DEECCF0FCDBF3B607" class="img-responsive" alt="VG3" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS </span>
+            <span class="nav__subtitle">VG3  Series</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-sg3-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/truevis-sg3-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=6C551873A793ED1A0B81118F73933CAB" class="img-responsive" alt="SG3" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS </span>
+            <span class="nav__subtitle">SG3 Series</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn2-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/versastudio-bn2-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=5F5A7E57EFF71FC81318B99836699405" class="img-responsive" alt="VersaSTUDIO BN2 Series" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO</span>
+            <span class="nav__subtitle">BN2 Series</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn-20-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/versastudio-bn-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=8179F99A01BA3D60F7D8CA59F63D8361" class="img-responsive" alt="BN Series" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO </span>
+            <span class="nav__subtitle">BN Series</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="col-section-heading no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-ap-640">            <span class="nav__title">Latex Printers</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-ap-640"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/resin/ap-640.png?h=55&amp;iar=0&amp;w=100&amp;hash=1FF825623F28B11378BAC6A3D90798CB" class="img-responsive" alt="AP-640" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS</span>
+            <span class="nav__subtitle">AP-640</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="col-section-heading no-thumbnail" href="https://www.rolanddg.com.au/products/printers/versauv">            <span class="nav__title">UV Printer Cutters</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-lg-mg-series-uv-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/lg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=19428048143E3055E8122459DC72E8D3" class="img-responsive" alt="LG Series" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS</span>
+            <span class="nav__subtitle">LG Series</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-lg-mg-series-uv-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/mg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=453D70950DC5E5647D49781DD55B26D1" class="img-responsive" alt="MG Series" width="100" height="55" loading="lazy" />            <span class="nav__title">TrueVIS</span>
+            <span class="nav__subtitle">MG Series</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="col-section-heading no-thumbnail" href="https://www.rolanddg.com.au/products/printers/versauv">            <span class="nav__title">UV Flatbed Printers</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="semibold cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bd-8"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvflatbedprinters/bd8-megamenu.png?h=55&amp;iar=0&amp;w=100&amp;hash=E3652AE960D9926B32C5D7AB6C4878E8" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO</span>
+            <span class="nav__subtitle">BD-8</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="semibold cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versaobject-mo-240"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvflatbedprinters/mo240-icomegamenu.png?h=55&amp;iar=0&amp;w=100&amp;hash=CF1BFD84BA15D54AB758A4DB0B9F80EF" class="img-responsive" alt="MO-240" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaOBJECT</span>
+            <span class="nav__subtitle">MO-240</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versaobject-co-i-series-flatbed-uv-printer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvflatbedprinters/co640i_front.png?h=55&amp;iar=0&amp;w=100&amp;hash=19AD9184AF75CF9BF4D50C48175395E9" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaOBJECT</span>
+            <span class="nav__subtitle">CO-i Series</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" href="https://www.rolanddg.com.au/products/printers/eu-1000mf-uv-flatbed-printer"><img src="https://www.rolanddg.com.au/-/media/roland/images/navigation-redesign/products/printers/uvflatbedprinters/eu1000mf.png?h=55&amp;iar=0&amp;w=100&amp;hash=893A17330BDFA59D7E87E36637022941" class="img-responsive" alt="EU-1000MF" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaOBJECT</span>
+            <span class="nav__subtitle">EU-1000MF</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="col-section-heading no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn-20d-direct-transfer-system">            <span class="nav__title">Direct-to-Film Printers</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn-20d-direct-transfer-system"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/dtf/versastudio-bn-20d.png?h=55&amp;iar=0&amp;w=100&amp;hash=72BA56AD39CD709E0DB4A164EE9C7766" class="img-responsive" alt="BN-20D" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO</span>
+            <span class="nav__subtitle">BN-20D</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-by-20"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/textile/by20-megamenu.png?h=55&amp;iar=0&amp;w=100&amp;hash=57CC04824B569985F5A922FDA6756C21" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO</span>
+            <span class="nav__subtitle">BY-20</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="col-section-heading no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products/printers/dimensor-s-printer">            <span class="nav__title">Texture Printers</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/printers/dimensor-s-printer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/dimense/dimenseor-s.png?h=55&amp;iar=0&amp;w=100&amp;hash=64492914EB15482F8CD2FFCD647F1DDE" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">DIMENSE</span>
+            <span class="nav__subtitle">Dimensor S</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                                                                    </div>
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{2CAF8185-1B0A-48E1-A468-232EE5929869}">
+
+                                                                                                                            <div class="col">
+                                                                    <div class="col-section">
+                                                                        <ul>
+                                                                                <li>
+                                                                                    
+
+<a class="col-section-heading no-thumbnail" href="https://www.rolanddg.com.au/products/vinyl-cutters">            <span class="nav__title">Wide-Format Cutters</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/vinyl-cutters/camm-1-gr2-large-format-cutters"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/cutters/gr2-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=1C457DFD86936D3B9BAC3EDCECF002ED" class="img-responsive" alt="GR2 Series" width="100" height="55" loading="lazy" />            <span class="nav__title">CAMM-1 </span>
+            <span class="nav__subtitle">GR2 Series</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+        <div class="d-block col-section-heading no-thumbnail">
+                <span class="nav__title">Compact Cutters</span>
+                    </div>
+
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/vinyl-cutters/versastudio-gs2-24"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/cutters/gs224.png?h=55&amp;iar=0&amp;w=100&amp;hash=D2F40551D2D7E902C6F531BD0A208181" class="img-responsive" alt="GS2-24" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO </span>
+            <span class="nav__subtitle">GS2-24</span>
+</a>
+                                                                                </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                                                                    </div>
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{68F915ED-D46A-499D-A499-AB687CCB65F5}">
+
+                                                                                                                                <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+        <div class="d-block col-section-heading no-thumbnail">
+                <span class="nav__title">Rotary Engravers</span>
+                    </div>
+
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" href="https://www.rolanddg.com.au/products/engraving-machines/de3-desktop-engraver"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/de3.png?h=55&amp;iar=0&amp;w=100&amp;hash=E8ACD812999D6E36B707CE642F5C6099" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">DGSHAPE</span>
+            <span class="nav__subtitle">DE-3</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+        <div class="d-block col-section-heading no-thumbnail">
+                <span class="nav__title">Laser Engravers</span>
+                    </div>
+
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="semibold cta-grid" href="https://www.rolanddg.com.au/products/engraving-machines/lv-series-laser-engravers"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/lv-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=6ACBA7504419527E32C19E59127BAEBC" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">LV Series</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+        <div class="d-block col-section-heading no-thumbnail">
+                <span class="nav__title">Laser Decorators</span>
+                    </div>
+
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="semibold cta-grid" target="_parent" href="https://www.rolanddg.com.au/products/engraving-machines/ld-300-laser-decorator"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/ld300.png?h=55&amp;iar=0&amp;w=100&amp;hash=290326E6E75C07D0DFD1396C0AAE7785" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">LD-300</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+        <div class="d-block col-section-heading no-thumbnail">
+                <span class="nav__title">Impact Printer</span>
+                    </div>
+
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" href="https://www.rolanddg.com.au/products/engraving-machines/mpx-90s-desktop-metal-printer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/mpx-90s.png?h=55&amp;iar=0&amp;w=100&amp;hash=15B72C821F50882F369505951361989D" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">VersaSTUDIO </span>
+            <span class="nav__subtitle">MPX-90S</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                                                                    </div>
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{2843430A-0F1B-421C-AC72-0EDE35E1F09F}">
+
+                                                                                                                                <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+        <div class="d-block col-section-heading no-thumbnail">
+                <span class="nav__title">Benchtop Mills</span>
+                    </div>
+
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="semibold cta-grid" target="_parent" href="https://www.rolanddg.com.au/products/3d-printers-and-milling-machines/mdx-50-benchtop-cnc-mill"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/milling/mdx50.png?h=55&amp;iar=0&amp;w=100&amp;hash=438947FCF46E7764A98605F36CAA7A68" class="img-responsive" alt="MDX-50" width="100" height="55" loading="lazy" />            <span class="nav__title">MDX-50</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+        <div class="d-block col-section-heading no-thumbnail">
+                <span class="nav__title">Compact Mills</span>
+                    </div>
+
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="semibold cta-grid" href="https://www.rolanddg.com.au/products/3d-printers-and-milling-machines/srm-20"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/milling/compact-mills_srm-20.png?h=55&amp;iar=0&amp;w=100&amp;hash=1A74E0D2F19301B84EE52C212AF14CC6" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">SRM 20</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                                                                    </div>
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{CEA5D796-644E-4334-BBF7-359A2F03C5E7}">
+
+                                                                                                                                <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="col-section-heading no-thumbnail" href="https://www.rolanddg.com.au/products/dental/dwx-series">            <span class="nav__title">Dental Mills</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-53d"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx53d.png?h=55&amp;iar=0&amp;w=100&amp;hash=7DA01E02963AEEF9B693C6C9A39D17B7" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">DGSHAPE </span>
+            <span class="nav__subtitle">DWX-53D</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-53dc-5-axis-dry-dental-milling-with-automatic-disc-changer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx53dc.png?h=55&amp;iar=0&amp;w=100&amp;hash=927657925F98B6608F7DA18D468DC313" class="img-responsive" alt="DWX-53DC" width="100" height="55" loading="lazy" />            <span class="nav__title">DGSHAPE </span>
+            <span class="nav__subtitle">DWX-53DC</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-52dci-5-axis-dental-mill-with-automatic-disc-changer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx52dci.png?h=55&amp;iar=0&amp;w=100&amp;hash=9CEFB4D810177EA791FEFDB76F43E857" class="img-responsive" alt="DWX-52DCi" width="100" height="55" loading="lazy" />            <span class="nav__title">DGSHAPE </span>
+            <span class="nav__subtitle">DWX-52DCi</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-52d-5-axis-dental-milling-machine"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx52d.png?h=55&amp;iar=0&amp;w=100&amp;hash=D4A5041144A43CB4404B8B4483838A55" class="img-responsive" alt="DWX-52D" width="100" height="55" loading="lazy" />            <span class="nav__title">DGSHAPE</span>
+            <span class="nav__subtitle">DWX-52D Plus</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-42w-wet-dental-milling-machine"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx42w.png?h=55&amp;iar=0&amp;w=100&amp;hash=372446F84F964A853867EB60322C3E5B" class="img-responsive" alt="DWX-42W" width="100" height="55" loading="lazy" />            <span class="nav__title">DGSHAPE</span>
+            <span class="nav__subtitle"> DWX-42W Plus</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="cta-grid has-subtitle" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-4-dental-milling-system"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx4.png?h=55&amp;iar=0&amp;w=100&amp;hash=70FAFE3E96D2F0EA22968571C6A7B3F1" class="img-responsive" alt="" width="100" height="55" loading="lazy" />            <span class="nav__title">DGSHAPE</span>
+            <span class="nav__subtitle">DWX-4</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                                                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav__main-menus-item ">
+                                <div class="rd-dropdown rd-dropdown--hover-intent rd-dropdown--mega" role="menu">
+                                    <button class="rd-dropdown__trigger link--pill">
+                                        
+
+            <span>Applications</span>
+
+                                        <span class="rd-dropdown__trigger-icon"></span>
+                                    </button>
+
+                                    <div class="rd-dropdown__menu ">
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <!-- rd-dropdown__menu-lvl__toggle-section -->
+                                                        <ul class="" data-parent="">
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{985576A5-DAF6-4675-A729-93F74EFB36AD}">
+                                                                        <button class="clickable--reset mm-toggler ">Applications</button>
+                                                                    </li>
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{CF28BCFD-CF12-43E5-B895-E5C084D493BC}">
+                                                                        <button class="clickable--reset mm-toggler ">Industries</button>
+                                                                    </li>
+                                                        </ul>
+                                            </div>
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section multi-col-display--with-title" data-parent="{985576A5-DAF6-4675-A729-93F74EFB36AD}">
+<a class="col-section-heading" href="https://www.rolanddg.com.au/applications">View All Applications</a>
+                                                                 <div class="multi-col-display-inner">
+                                                                                                                                <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/awards-and-gifts">            <span class="nav__title">Awards and Gifts</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/banners">            <span class="nav__title">Banners</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/commercial-printing">            <span class="nav__title">Commercial Printing</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/custom-apparel">            <span class="nav__title">Custom Apparel</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/dental-cad-cam">            <span class="nav__title">Dental CAD-CAM</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/fine-art-and-photography">            <span class="nav__title">Fine Art and Photography</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/industrial-marking">            <span class="nav__title">Industrial Marking</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/medical">            <span class="nav__title">Medical</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/packaging-and-label-solutions">            <span class="nav__title">Packaging and Label Solutions</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/personalisation">            <span class="nav__title">Personalisation</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/photo-impact-printing">            <span class="nav__title">Photo Impact Printing</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                                <div class="col-section">
+                                                                                    <ul>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/print-and-cut">            <span class="nav__title">Print and Cut</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/printing-on-glass">            <span class="nav__title">Printing On Glass</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/promotional-products">            <span class="nav__title">Promotional Products</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/rapid-prototyping">            <span class="nav__title">Rapid Prototyping</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/signage">            <span class="nav__title">Signage</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/social-distancing-signage">            <span class="nav__title">Social Distancing Signage</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/stickers">            <span class="nav__title">Stickers</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/sites/uv-printing-for-industry">            <span class="nav__title">UV Printing for Industry</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/vehicle-graphics">            <span class="nav__title">Vehicle Graphics</span>
+</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/applications/printing-wall-graphics">            <span class="nav__title">Wall Graphics</span>
+</a>
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                    </div>
+                                                                                                                         </div>
+                                                        </div>
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{CF28BCFD-CF12-43E5-B895-E5C084D493BC}">
+
+                                                                                                                            <div class="col">
+                                                                    <div class="col-section">
+                                                                        <ul>
+                                                                                <li>
+                                                                                    
+
+<a class="col-section-heading no-thumbnail" href="https://www.rolanddg.com.au/industry">            <span class="nav__title">View All Industries</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/apparel">            <span class="nav__title">Apparel</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/wide-format-commercial-printing">            <span class="nav__title">Commercial Printing</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-series">            <span class="nav__title">Dental</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/education">            <span class="nav__title">Education</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/home-based-business">            <span class="nav__title">Home Based Business</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/interior-design">            <span class="nav__title">Interior Design</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/print-and-copy-shops">            <span class="nav__title">Print &amp; Copy Shop</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/promotional-products">            <span class="nav__title">Promotional Products</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/industry/screen-printing">            <span class="nav__title">Screen Printing</span>
+</a>
+                                                                                </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                                                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav__main-menus-item ">
+                                <div class="rd-dropdown rd-dropdown--hover-intent rd-dropdown--mega" role="menu">
+                                    <button class="rd-dropdown__trigger link--pill">
+                                        
+
+            <span>Gallery</span>
+
+                                        <span class="rd-dropdown__trigger-icon"></span>
+                                    </button>
+
+                                    <div class="rd-dropdown__menu ">
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <!-- rd-dropdown__menu-lvl__toggle-section -->
+                                                        <ul class="" data-parent="">
+                                                                    <li role="menuitem" class="rd-dropdown__menuitem" id="{5AD5848E-1D79-4E4C-AEA5-350FCC736D04}">
+                                                                        <button class="clickable--reset mm-toggler ">Case Studies</button>
+                                                                    </li>
+                                                                    <li role="menuitem">
+                                                                        
+
+<a class="no-thumbnail" target="_parent" href="https://www.youtube.com/user/RolandDGAustralia">Videos</a>
+                                                                    </li>
+                                                                    <li role="menuitem">
+                                                                        
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/gallery/creative-centre">Creative Centre</a>
+                                                                    </li>
+                                                        </ul>
+                                            </div>
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="{5AD5848E-1D79-4E4C-AEA5-350FCC736D04}">
+
+                                                                                                                            <div class="col">
+                                                                    <div class="col-section">
+                                                                        <ul>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/gallery/case-studies">            <span class="nav__title">Customer Success Stories</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/gallery/dealer-profiles">            <span class="nav__title">Partner Profiles</span>
+</a>
+                                                                                </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                                                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav__main-menus-item ">
+                                <div class="rd-dropdown rd-dropdown--hover-intent rd-dropdown--mega" role="menu">
+                                    <button class="rd-dropdown__trigger link--pill">
+                                        
+
+            <span>Support</span>
+
+                                        <span class="rd-dropdown__trigger-icon"></span>
+                                    </button>
+
+                                    <div class="rd-dropdown__menu ">
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="">
+
+                                                                                                                            <div class="col">
+                                                                    <div class="col-section">
+                                                                        <ul>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support">            <span class="nav__title">Support Home</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/product-registration">            <span class="nav__title">Product Registration</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/warranties">            <span class="nav__title">Warranty Information</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/roland-academy">            <span class="nav__title">Training Solutions</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/roland-dg-engage">            <span class="nav__title">Roland DG Engage</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/support/roland-service-information/fixed-price-scheduled-servicing">            <span class="nav__title">Fixed Price Scheduled Servicing</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/support/roland-service-information">            <span class="nav__title">Service Information</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/online-resources">            <span class="nav__title">Online Resources</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/msds-documents">            <span class="nav__title">Material Safety Data Sheets</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/customer-support-form">            <span class="nav__title">Contact Support</span>
+</a>
+                                                                                </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                                                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav__main-menus-item ">
+                                <div class="rd-dropdown rd-dropdown--hover-intent rd-dropdown--mega" role="menu">
+                                    <button class="rd-dropdown__trigger link--pill">
+                                        
+
+            <span>Company</span>
+
+                                        <span class="rd-dropdown__trigger-icon"></span>
+                                    </button>
+
+                                    <div class="rd-dropdown__menu ">
+                                            <!-- LVL N -->
+                                            <div class="rd-dropdown__menu-lvl">
+                                                        <div class="multi-col-display rd-dropdown__menu-lvl__toggle-section " data-parent="">
+
+                                                                                                                            <div class="col">
+                                                                    <div class="col-section">
+                                                                        <ul>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/company">            <span class="nav__title">About</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/company/pressroom">            <span class="nav__title">News</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/company/tradeshows">            <span class="nav__title">Events</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/company/recycle">            <span class="nav__title">Cartridge Recycle</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/company/dgshape-finance">            <span class="nav__title">DGSHAPE Finance</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/company/environmental-commitment">            <span class="nav__title">Environment</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/company/roland-rental">            <span class="nav__title">Roland Rental</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/company/timeline">            <span class="nav__title">History</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/company/contact">            <span class="nav__title">Contact</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/regions">            <span class="nav__title">International Partners</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/company/employment">            <span class="nav__title">Career Opportunities</span>
+</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/newsletters">            <span class="nav__title">Newsletter</span>
+</a>
+                                                                                </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                                                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </li>
+                </ul>
+                            <ul class="nav__main__right-links" role="menubar">
+                        <li>
+<link href="/bundles/css/local/cludosearch?v=t9dLHq4EWkP71fNqZfQ88b_fDk9x4KazwoQdwOtdLH81" rel="stylesheet"/>
+<link href="/bundles/css/vendor/cludosearch?v=UTZjiFle03yPkBwoajQ6X_0wPGYmg1bctJgCDa9TH7I1" rel="stylesheet"/>
+                                <!-- cludo search: desktop -->
+                                <form id="cludo-search-form-desktop" role="search">
+                                    <input type="search"
+                                           class="search-input"
+                                           aria-label="Search"
+                                           aria-describedby="autocomplete_hint"
+                                           placeholder="Search" />
+                                    <button type="submit" class="search-button clickable--reset" id="search-button">
+                                        <svg id="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.298 17.298">
+                                            <path id="Path_2" d="M2.162,7.568A5.353,5.353,0,0,1,7.568,2.162a5.353,5.353,0,0,1,5.406,5.406,5.353,5.353,0,0,1-5.406,5.406A5.353,5.353,0,0,1,2.162,7.568Zm13.3,9.406a1.07,1.07,0,1,0,1.514-1.514l-3.351-3.351a7.4,7.4,0,0,0,1.514-4.541A7.521,7.521,0,0,0,7.568,0,7.521,7.521,0,0,0,0,7.568a7.521,7.521,0,0,0,7.568,7.568,7.4,7.4,0,0,0,4.541-1.514Z"
+                                                  fill="#757575" />
+                                        </svg>
+                                    </button>
+                                </form>
+                        </li>
+                        <li>
+
+
+<a class="desktop-only btn btn--orange no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/company/contact">Contact Us</a>                        </li>
+                </ul>
+        </div>
+    </div>
+</nav>
+</header>
+
+<nav class="rd rd-slide-nav">
+    <button class="rd-slide-nav__close clickable--reset"></button>
+
+    <!-- mobile nav menus and links -->
+        <div class="rd-slide-nav__menu">
+                <div class="rd-slide-nav__menu-lvl selected" data-parent="">
+
+                        <ul>
+                                <li role="menuitem" class="selected " id="{8E935DEA-E34C-4E66-A710-0105D6D0B751}">
+                                        <button class="clickable--reset sn-toggler">Products</button>
+                                </li>
+                                <li role="menuitem" class=" " id="{4DF64555-0D6F-4999-A2AC-A97413DF0C85}">
+                                        <button class="clickable--reset sn-toggler">Applications</button>
+                                </li>
+                                <li role="menuitem" class=" " id="{C495D31D-AA8C-4047-88A4-4C15F95D0B48}">
+                                        <button class="clickable--reset sn-toggler">Gallery</button>
+                                </li>
+                                <li role="menuitem" class=" " id="{9FD6B277-7FB1-48F1-B494-E90AB87FB4B9}">
+                                        <button class="clickable--reset sn-toggler">Support</button>
+                                </li>
+                                <li role="menuitem" class=" " id="{E5D0CE52-A3EB-4C6E-8F60-2DC75881A77E}">
+                                        <button class="clickable--reset sn-toggler">Company</button>
+                                </li>
+                        </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{8E935DEA-E34C-4E66-A710-0105D6D0B751}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">All</button>
+
+                        <div class="accordion-container">
+                                    <div class="ac">
+                                        <button type="button" class="ac-trigger">By Type</button>
+                                        <ul class="ac-panel">
+                                                    <li role="menuitem" id="{30A6C03B-9E74-4E2C-AED6-90280A323B14}">
+                                                        <button class="clickable--reset sn-toggler">Printers</button>
+                                                    </li>
+                                                    <li role="menuitem" id="{2CAF8185-1B0A-48E1-A468-232EE5929869}">
+                                                        <button class="clickable--reset sn-toggler">Cutters</button>
+                                                    </li>
+                                                    <li role="menuitem" id="{68F915ED-D46A-499D-A499-AB687CCB65F5}">
+                                                        <button class="clickable--reset sn-toggler">Engravers + Decorators</button>
+                                                    </li>
+                                                    <li role="menuitem" id="{2843430A-0F1B-421C-AC72-0EDE35E1F09F}">
+                                                        <button class="clickable--reset sn-toggler">Milling Machines</button>
+                                                    </li>
+                                                    <li role="menuitem" id="{CEA5D796-644E-4334-BBF7-359A2F03C5E7}">
+                                                        <button class="clickable--reset sn-toggler">Dental Solutions</button>
+                                                    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/products/inks">                    <span class="rd-slide-nav__cta__title semibold">Ink</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/products/software">                    <span class="rd-slide-nav__cta__title semibold">Software</span>
+</a>    </li>
+                                        </ul>
+                                    </div>
+                                    <div class="ac">
+                                        <button type="button" class="ac-trigger">By Brand</button>
+                                        <ul class="ac-panel">
+    <li class="rd-slide-nav__cta ">
+<a href="https://www.rolanddg.com.au/products/printers/truevis-brand-family">                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS</span>
+                    <span class="rd-slide-nav__cta__subtitle">Wide-Format Printers</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta ">
+<a target="_top" href="https://www.rolanddg.com.au/products/printers/versastudio">                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO</span>
+                    <span class="rd-slide-nav__cta__subtitle">Desktop Digital Devices</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta ">
+<a target="_top" href="https://www.rolanddg.com.au/products/printers/versaobject">                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaOBJECT</span>
+                    <span class="rd-slide-nav__cta__subtitle">Direct-to-Object Printers</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta ">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-series">                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE</span>
+                    <span class="rd-slide-nav__cta__subtitle">Dental Solutions</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta ">
+<a target="_parent" href="https://www.rolanddg.com.au/products/vinyl-cutters/camm-1-gr2-large-format-cutters?brand=camm1">                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">CAMM-1</span>
+                    <span class="rd-slide-nav__cta__subtitle">Wide-Format Cutters</span>
+                 </div>
+</a>    </li>
+                                        </ul>
+                                    </div>
+                                    <div class="ac">
+                                        <button type="button" class="ac-trigger">New Products</button>
+                                        <ul class="ac-panel">
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/resin/ap-640.png?h=55&amp;iar=0&amp;w=100&amp;hash=1FF825623F28B11378BAC6A3D90798CB" alt="AP-640" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS </span>
+                    <span class="rd-slide-nav__cta__subtitle">AP-640</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/lg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=19428048143E3055E8122459DC72E8D3" alt="LG Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS </span>
+                    <span class="rd-slide-nav__cta__subtitle">LG Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/mg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=453D70950DC5E5647D49781DD55B26D1" alt="MG Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS </span>
+                    <span class="rd-slide-nav__cta__subtitle">MG Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn2-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/versastudio-bn2-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=5F5A7E57EFF71FC81318B99836699405" alt="VersaSTUDIO BN2 Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO</span>
+                    <span class="rd-slide-nav__cta__subtitle">BN2 Series</span>
+                 </div>
+</a>    </li>
+                                        </ul>
+                                    </div>
+
+
+<a class="btn btn--orange no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/products">Help Me Choose</a>
+
+<a class="btn btn--orange no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/promo">Promos</a>                        </div>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{4DF64555-0D6F-4999-A2AC-A97413DF0C85}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">All</button>
+
+                        <ul>
+                                <li role="menuitem" class="selected " id="{985576A5-DAF6-4675-A729-93F74EFB36AD}">
+                                        <button class="clickable--reset sn-toggler">Applications</button>
+                                </li>
+                                <li role="menuitem" class=" " id="{CF28BCFD-CF12-43E5-B895-E5C084D493BC}">
+                                        <button class="clickable--reset sn-toggler">Industries</button>
+                                </li>
+                        </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{C495D31D-AA8C-4047-88A4-4C15F95D0B48}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Gallery</button>
+
+                        <ul>
+                                <li role="menuitem" class="selected " id="{5AD5848E-1D79-4E4C-AEA5-350FCC736D04}">
+                                        <button class="clickable--reset sn-toggler">Case Studies</button>
+                                </li>
+                                <li role="menuitem" class=" " id="{EA1BCAF4-E7E4-4F20-A2CA-ADDA39EEABFA}">
+
+
+<a class="no-thumbnail" target="_parent" href="https://www.youtube.com/user/RolandDGAustralia">Videos</a>                                </li>
+                                <li role="menuitem" class=" " id="{61102816-E9E3-4461-B96E-B0F16CA0E695}">
+
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/gallery/creative-centre">Creative Centre</a>                                </li>
+                        </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{9FD6B277-7FB1-48F1-B494-E90AB87FB4B9}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">All</button>
+
+                            <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support">                    <span class="rd-slide-nav__cta__title ">Support Home</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support/product-registration">                    <span class="rd-slide-nav__cta__title ">Product Registration</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support/warranties">                    <span class="rd-slide-nav__cta__title ">Warranty Information</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support/roland-academy">                    <span class="rd-slide-nav__cta__title ">Training Solutions</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support/roland-dg-engage">                    <span class="rd-slide-nav__cta__title ">Roland DG Engage</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/support/roland-service-information/fixed-price-scheduled-servicing">                    <span class="rd-slide-nav__cta__title ">Fixed Price Scheduled Servicing</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/support/roland-service-information">                    <span class="rd-slide-nav__cta__title ">Service Information</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support/online-resources">                    <span class="rd-slide-nav__cta__title ">Online Resources</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support/msds-documents">                    <span class="rd-slide-nav__cta__title ">Material Safety Data Sheets</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/support/customer-support-form">                    <span class="rd-slide-nav__cta__title ">Contact Support</span>
+</a>    </li>
+                            </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{E5D0CE52-A3EB-4C6E-8F60-2DC75881A77E}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Company</button>
+
+                            <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/company">                    <span class="rd-slide-nav__cta__title ">About</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/company/pressroom">                    <span class="rd-slide-nav__cta__title ">News</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/company/tradeshows">                    <span class="rd-slide-nav__cta__title ">Events</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/company/recycle">                    <span class="rd-slide-nav__cta__title ">Cartridge Recycle</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/company/dgshape-finance">                    <span class="rd-slide-nav__cta__title ">DGSHAPE Finance</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/company/environmental-commitment">                    <span class="rd-slide-nav__cta__title ">Environment</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/company/roland-rental">                    <span class="rd-slide-nav__cta__title ">Roland Rental</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/company/timeline">                    <span class="rd-slide-nav__cta__title ">History</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/company/contact">                    <span class="rd-slide-nav__cta__title ">Contact</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/regions">                    <span class="rd-slide-nav__cta__title ">International Partners</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/company/employment">                    <span class="rd-slide-nav__cta__title ">Career Opportunities</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/newsletters">                    <span class="rd-slide-nav__cta__title ">Newsletter</span>
+</a>    </li>
+                            </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{30A6C03B-9E74-4E2C-AED6-90280A323B14}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Printers</button>
+
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/eco-solvent">                    <span class="rd-slide-nav__cta__title col-section-heading">Eco-Solvent Printer Cutters</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-vg3-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/truevis-vg3-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=FA3415E4B4A36E2DEECCF0FCDBF3B607" alt="VG3" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS </span>
+                    <span class="rd-slide-nav__cta__subtitle">VG3  Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-sg3-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/truevis-sg3-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=6C551873A793ED1A0B81118F73933CAB" alt="SG3" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS </span>
+                    <span class="rd-slide-nav__cta__subtitle">SG3 Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn2-series-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/versastudio-bn2-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=5F5A7E57EFF71FC81318B99836699405" alt="VersaSTUDIO BN2 Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO</span>
+                    <span class="rd-slide-nav__cta__subtitle">BN2 Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn-20-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/ecosolprintercutters/versastudio-bn-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=8179F99A01BA3D60F7D8CA59F63D8361" alt="BN Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO </span>
+                    <span class="rd-slide-nav__cta__subtitle">BN Series</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-ap-640">                    <span class="rd-slide-nav__cta__title col-section-heading">Latex Printers</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-ap-640"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/resin/ap-640.png?h=55&amp;iar=0&amp;w=100&amp;hash=1FF825623F28B11378BAC6A3D90798CB" alt="AP-640" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS</span>
+                    <span class="rd-slide-nav__cta__subtitle">AP-640</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/products/printers/versauv">                    <span class="rd-slide-nav__cta__title col-section-heading">UV Printer Cutters</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-lg-mg-series-uv-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/lg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=19428048143E3055E8122459DC72E8D3" alt="LG Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS</span>
+                    <span class="rd-slide-nav__cta__subtitle">LG Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/truevis-lg-mg-series-uv-printer-cutter"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvprintercutters/mg-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=453D70950DC5E5647D49781DD55B26D1" alt="MG Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">TrueVIS</span>
+                    <span class="rd-slide-nav__cta__subtitle">MG Series</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/products/printers/versauv">                    <span class="rd-slide-nav__cta__title col-section-heading">UV Flatbed Printers</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bd-8"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvflatbedprinters/bd8-megamenu.png?h=55&amp;iar=0&amp;w=100&amp;hash=E3652AE960D9926B32C5D7AB6C4878E8" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title semibold">VersaSTUDIO</span>
+                    <span class="rd-slide-nav__cta__subtitle">BD-8</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versaobject-mo-240"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvflatbedprinters/mo240-icomegamenu.png?h=55&amp;iar=0&amp;w=100&amp;hash=CF1BFD84BA15D54AB758A4DB0B9F80EF" alt="MO-240" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title semibold">VersaOBJECT</span>
+                    <span class="rd-slide-nav__cta__subtitle">MO-240</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versaobject-co-i-series-flatbed-uv-printer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/uvflatbedprinters/co640i_front.png?h=55&amp;iar=0&amp;w=100&amp;hash=19AD9184AF75CF9BF4D50C48175395E9" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaOBJECT</span>
+                    <span class="rd-slide-nav__cta__subtitle">CO-i Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a href="https://www.rolanddg.com.au/products/printers/eu-1000mf-uv-flatbed-printer"><img src="https://www.rolanddg.com.au/-/media/roland/images/navigation-redesign/products/printers/uvflatbedprinters/eu1000mf.png?h=55&amp;iar=0&amp;w=100&amp;hash=893A17330BDFA59D7E87E36637022941" alt="EU-1000MF" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaOBJECT</span>
+                    <span class="rd-slide-nav__cta__subtitle">EU-1000MF</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn-20d-direct-transfer-system">                    <span class="rd-slide-nav__cta__title col-section-heading">Direct-to-Film Printers</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-bn-20d-direct-transfer-system"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/dtf/versastudio-bn-20d.png?h=55&amp;iar=0&amp;w=100&amp;hash=72BA56AD39CD709E0DB4A164EE9C7766" alt="BN-20D" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO</span>
+                    <span class="rd-slide-nav__cta__subtitle">BN-20D</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/versastudio-by-20"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/textile/by20-megamenu.png?h=55&amp;iar=0&amp;w=100&amp;hash=57CC04824B569985F5A922FDA6756C21" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO</span>
+                    <span class="rd-slide-nav__cta__subtitle">BY-20</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/dimensor-s-printer">                    <span class="rd-slide-nav__cta__title col-section-heading">Texture Printers</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/printers/dimensor-s-printer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/printers/dimense/dimenseor-s.png?h=55&amp;iar=0&amp;w=100&amp;hash=64492914EB15482F8CD2FFCD647F1DDE" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DIMENSE</span>
+                    <span class="rd-slide-nav__cta__subtitle">Dimensor S</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{2CAF8185-1B0A-48E1-A468-232EE5929869}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Cutters</button>
+
+                            <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/products/vinyl-cutters">                    <span class="rd-slide-nav__cta__title col-section-heading">Wide-Format Cutters</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/vinyl-cutters/camm-1-gr2-large-format-cutters"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/cutters/gr2-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=1C457DFD86936D3B9BAC3EDCECF002ED" alt="GR2 Series" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">CAMM-1 </span>
+                    <span class="rd-slide-nav__cta__subtitle">GR2 Series</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta ">
+                    <span class="rd-slide-nav__cta__title col-section-heading">Compact Cutters</span>
+    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/vinyl-cutters/versastudio-gs2-24"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/cutters/gs224.png?h=55&amp;iar=0&amp;w=100&amp;hash=D2F40551D2D7E902C6F531BD0A208181" alt="GS2-24" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO </span>
+                    <span class="rd-slide-nav__cta__subtitle">GS2-24</span>
+                 </div>
+</a>    </li>
+                            </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{68F915ED-D46A-499D-A499-AB687CCB65F5}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Engravers + Decorators</button>
+
+                                    <ul>
+    <li class="rd-slide-nav__cta ">
+                    <span class="rd-slide-nav__cta__title col-section-heading">Rotary Engravers</span>
+    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a href="https://www.rolanddg.com.au/products/engraving-machines/de3-desktop-engraver"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/de3.png?h=55&amp;iar=0&amp;w=100&amp;hash=E8ACD812999D6E36B707CE642F5C6099" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE</span>
+                    <span class="rd-slide-nav__cta__subtitle">DE-3</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta ">
+                    <span class="rd-slide-nav__cta__title col-section-heading">Laser Engravers</span>
+    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a href="https://www.rolanddg.com.au/products/engraving-machines/lv-series-laser-engravers"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/lv-series.png?h=55&amp;iar=0&amp;w=100&amp;hash=6ACBA7504419527E32C19E59127BAEBC" alt="" width="100" height="55" loading="lazy" />                    <span class="rd-slide-nav__cta__title semibold">LV Series</span>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta ">
+                    <span class="rd-slide-nav__cta__title col-section-heading">Laser Decorators</span>
+    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/engraving-machines/ld-300-laser-decorator"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/ld300.png?h=55&amp;iar=0&amp;w=100&amp;hash=290326E6E75C07D0DFD1396C0AAE7785" alt="" width="100" height="55" loading="lazy" />                    <span class="rd-slide-nav__cta__title semibold">LD-300</span>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta ">
+                    <span class="rd-slide-nav__cta__title col-section-heading">Impact Printer</span>
+    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a href="https://www.rolanddg.com.au/products/engraving-machines/mpx-90s-desktop-metal-printer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/engravers-decorators/mpx-90s.png?h=55&amp;iar=0&amp;w=100&amp;hash=15B72C821F50882F369505951361989D" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">VersaSTUDIO </span>
+                    <span class="rd-slide-nav__cta__subtitle">MPX-90S</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{2843430A-0F1B-421C-AC72-0EDE35E1F09F}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Milling Machines</button>
+
+                                    <ul>
+    <li class="rd-slide-nav__cta ">
+                    <span class="rd-slide-nav__cta__title col-section-heading">Benchtop Mills</span>
+    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/3d-printers-and-milling-machines/mdx-50-benchtop-cnc-mill"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/milling/mdx50.png?h=55&amp;iar=0&amp;w=100&amp;hash=438947FCF46E7764A98605F36CAA7A68" alt="MDX-50" width="100" height="55" loading="lazy" />                    <span class="rd-slide-nav__cta__title semibold">MDX-50</span>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta ">
+                    <span class="rd-slide-nav__cta__title col-section-heading">Compact Mills</span>
+    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a href="https://www.rolanddg.com.au/products/3d-printers-and-milling-machines/srm-20"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/milling/compact-mills_srm-20.png?h=55&amp;iar=0&amp;w=100&amp;hash=1A74E0D2F19301B84EE52C212AF14CC6" alt="" width="100" height="55" loading="lazy" />                    <span class="rd-slide-nav__cta__title semibold">SRM 20</span>
+</a>    </li>
+                                    </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{CEA5D796-644E-4334-BBF7-359A2F03C5E7}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Dental Solutions</button>
+
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/products/dental/dwx-series">                    <span class="rd-slide-nav__cta__title col-section-heading">Dental Mills</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-53d"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx53d.png?h=55&amp;iar=0&amp;w=100&amp;hash=7DA01E02963AEEF9B693C6C9A39D17B7" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE </span>
+                    <span class="rd-slide-nav__cta__subtitle">DWX-53D</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-53dc-5-axis-dry-dental-milling-with-automatic-disc-changer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx53dc.png?h=55&amp;iar=0&amp;w=100&amp;hash=927657925F98B6608F7DA18D468DC313" alt="DWX-53DC" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE </span>
+                    <span class="rd-slide-nav__cta__subtitle">DWX-53DC</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-52dci-5-axis-dental-mill-with-automatic-disc-changer"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx52dci.png?h=55&amp;iar=0&amp;w=100&amp;hash=9CEFB4D810177EA791FEFDB76F43E857" alt="DWX-52DCi" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE </span>
+                    <span class="rd-slide-nav__cta__subtitle">DWX-52DCi</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-52d-5-axis-dental-milling-machine"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx52d.png?h=55&amp;iar=0&amp;w=100&amp;hash=D4A5041144A43CB4404B8B4483838A55" alt="DWX-52D" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE</span>
+                    <span class="rd-slide-nav__cta__subtitle">DWX-52D Plus</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-42w-wet-dental-milling-machine"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx42w.png?h=55&amp;iar=0&amp;w=100&amp;hash=372446F84F964A853867EB60322C3E5B" alt="DWX-42W" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE</span>
+                    <span class="rd-slide-nav__cta__subtitle"> DWX-42W Plus</span>
+                 </div>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--with-image">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-4-dental-milling-system"><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/products/dental/dwx4.png?h=55&amp;iar=0&amp;w=100&amp;hash=70FAFE3E96D2F0EA22968571C6A7B3F1" alt="" width="100" height="55" loading="lazy" />                 <div class="rd-slide-nav__cta__content-wrap">
+                    <span class="rd-slide-nav__cta__title ">DGSHAPE</span>
+                    <span class="rd-slide-nav__cta__subtitle">DWX-4</span>
+                 </div>
+</a>    </li>
+                                    </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{985576A5-DAF6-4675-A729-93F74EFB36AD}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Applications</button>
+
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/awards-and-gifts">                    <span class="rd-slide-nav__cta__title ">Awards and Gifts</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/banners">                    <span class="rd-slide-nav__cta__title ">Banners</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/commercial-printing">                    <span class="rd-slide-nav__cta__title ">Commercial Printing</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/custom-apparel">                    <span class="rd-slide-nav__cta__title ">Custom Apparel</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/dental-cad-cam">                    <span class="rd-slide-nav__cta__title ">Dental CAD-CAM</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/fine-art-and-photography">                    <span class="rd-slide-nav__cta__title ">Fine Art and Photography</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/industrial-marking">                    <span class="rd-slide-nav__cta__title ">Industrial Marking</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/medical">                    <span class="rd-slide-nav__cta__title ">Medical</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/packaging-and-label-solutions">                    <span class="rd-slide-nav__cta__title ">Packaging and Label Solutions</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/personalisation">                    <span class="rd-slide-nav__cta__title ">Personalisation</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/photo-impact-printing">                    <span class="rd-slide-nav__cta__title ">Photo Impact Printing</span>
+</a>    </li>
+                                    </ul>
+                                    <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/print-and-cut">                    <span class="rd-slide-nav__cta__title ">Print and Cut</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/printing-on-glass">                    <span class="rd-slide-nav__cta__title ">Printing On Glass</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/promotional-products">                    <span class="rd-slide-nav__cta__title ">Promotional Products</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/rapid-prototyping">                    <span class="rd-slide-nav__cta__title ">Rapid Prototyping</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/signage">                    <span class="rd-slide-nav__cta__title ">Signage</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/social-distancing-signage">                    <span class="rd-slide-nav__cta__title ">Social Distancing Signage</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/stickers">                    <span class="rd-slide-nav__cta__title ">Stickers</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/sites/uv-printing-for-industry">                    <span class="rd-slide-nav__cta__title ">UV Printing for Industry</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/vehicle-graphics">                    <span class="rd-slide-nav__cta__title ">Vehicle Graphics</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/applications/printing-wall-graphics">                    <span class="rd-slide-nav__cta__title ">Wall Graphics</span>
+</a>    </li>
+                                    </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{CF28BCFD-CF12-43E5-B895-E5C084D493BC}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Industries</button>
+
+                            <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/industry">                    <span class="rd-slide-nav__cta__title col-section-heading">View All Industries</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/apparel">                    <span class="rd-slide-nav__cta__title ">Apparel</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/wide-format-commercial-printing">                    <span class="rd-slide-nav__cta__title ">Commercial Printing</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/products/dental/dwx-series">                    <span class="rd-slide-nav__cta__title ">Dental</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/education">                    <span class="rd-slide-nav__cta__title ">Education</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/home-based-business">                    <span class="rd-slide-nav__cta__title ">Home Based Business</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/interior-design">                    <span class="rd-slide-nav__cta__title ">Interior Design</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/print-and-copy-shops">                    <span class="rd-slide-nav__cta__title ">Print &amp; Copy Shop</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/promotional-products">                    <span class="rd-slide-nav__cta__title ">Promotional Products</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a target="_parent" href="https://www.rolanddg.com.au/industry/screen-printing">                    <span class="rd-slide-nav__cta__title ">Screen Printing</span>
+</a>    </li>
+                            </ul>
+                </div>
+                <div class="rd-slide-nav__menu-lvl " data-parent="{5AD5848E-1D79-4E4C-AEA5-350FCC736D04}">
+                        <button class="rd-slide-nav__menu-lvl__back clickable--reset">Case Studies</button>
+
+                            <ul>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/gallery/case-studies">                    <span class="rd-slide-nav__cta__title ">Customer Success Stories</span>
+</a>    </li>
+    <li class="rd-slide-nav__cta  rd-slide-nav__cta--normal-link">
+<a href="https://www.rolanddg.com.au/gallery/dealer-profiles">                    <span class="rd-slide-nav__cta__title ">Partner Profiles</span>
+</a>    </li>
+                            </ul>
+                </div>
+        </div>
+
+
+    <!-- mobile utility links -->
+        <div class="rd-slide-nav__utility">
+            <ul>
+                        <li>
+                            
+
+<a class="bold text-orange no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/blog">Blog</a>
+                        </li>
+                        <li>
+                            
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/product-registration">Product Registration</a>
+                        </li>
+                        <li>
+                            
+
+<a class="no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/support/customer-support-form">Request Service/Support</a>
+                        </li>
+                        <li>
+                            
+
+<a class="no-thumbnail" href="https://www.rolanddg.com.au/dealers">Find a Dealer</a>
+                        </li>
+                        <li class="region">
+                            <span class="flag flag-au"></span>
+<a href="https://www.rolanddg.com.au/regions" class="nav--icon nav--icon-unrestricted" title="Change country" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/regionselector_globe.svg?h=20&amp;iar=0&amp;w=20&amp;hash=BFF0CF88FC6377995872A08B4A29D4C3" class="language-selector-icon" alt="language selector globe icon" width="20" height="20" />                                <span>
+Australia -                                     English                                    
+                                </span>
+</a>                        </li>
+                        <li>
+                            
+
+<a class="tablet-and-below btn btn--orange no-thumbnail" target="_parent" href="https://www.rolanddg.com.au/company/contact">Contact Us</a>
+                        </li>
+            </ul>
+        </div>
+</nav>
+
+
+
+<script src="/Include/Roland/Local/Scripts/Navigation/roland.redesign-header.min.js"></script>
+    
+    <main>
+        <link href="/bundles/css/local/common?v=b5DJhsOygFEQFenhYLKws2Tq4dKYt83IMCUgutZXuyI1" rel="stylesheet"/>
+
+
+
+<div id="content" class="single-column">
+    
+
+<link href="/bundles/css/local/navigation?v=KpfAoe66SQmqgAyTvkOLS6FwgYnl2l7wy4Ob_jgGeDg1" rel="stylesheet"/>
+
+
+    <style type="text/css">.breadcrumb.dark > li + li:before { color: #666666; }</style>
+
+
+
+    
+
+    <div class="container-fluid custom-container">
+        <div class="row">
+            <div id="content-main" class="col-12">
+                <link href="/bundles/css/local/products?v=DTUb2gc48ohbxH5aKpng9i_Cr6s0gpkC-bsd98abkJk1" rel="stylesheet"/>
+
+
+<div class="custom-container content-body">
+    <div style="padding: 30px; overflow: hidden;">
+<table width="100%" border="0" cellspacing="0" cellpadding="4">
+    <tbody>
+        <tr>
+            <td>
+            <img alt="" width="320" height="309" src="https://www.rolanddg.com.au/-/media/roland/images/global/404.jpg"></td>
+            <td>
+            <div style="color: rgb(102, 102, 102); line-height: normal; font-size: 80px; font-weight: 900; margin-bottom: -8px;">404 Error</div>
+            <div style="margin-bottom: 30px;"><span style="font-size: 30px; font-weight: 600;">File Not Found</span></div>
+            <p style="line-height: normal; font-size: 18px;">Sorry about that. Not unlike this ColorCAMM from 1995, the page you're looking for cannot be found. </p>
+            <p style="line-height: normal; font-size: 18px;">Luckily our site has many other pages you can check out:</p>
+            <div style="text-align: center;">
+            <p style="line-height: normal; font-size: 18px; font-weight: 300;"><a href="/">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/products">Products</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://www.rolanddg.com.au/support">Support</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://www.rolanddg.com.au/applications">Applications</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://www.rolanddg.com.au/gallery">Gallery</a></p>
+            </div>
+            <p style="line-height: normal; font-size: 18px;">&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div><!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html"></script>
+<![endif]-->
+<script id="cludo-404-script" data-cid="10001142" data-eid="10001911">
+(function () {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://customer.cludo.com/scripts/404/cludo-404.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+})();
+</script>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="content-bottom" class="col-12">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+    <footer class="footer rd-footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 logo">
+<a href="https://www.rolanddg.com.au/" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/navigation-redesign/brandg_corporate_roland_footer_1,-d-,1.png?la=en&amp;h=36&amp;w=239&amp;hash=BE973BBACF467C4DA47B10F6B2E7BD35" class="img-responsive" alt="" /></a>            </div>
+            <div class="col-md-9 social-icons">
+<a href="http://www.facebook.com/rolanddgaustralia" target="_blank" rel="noopener noreferrer" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/social-media-icons/bw/facebook_bw.png?la=en&amp;h=24&amp;w=24&amp;hash=F45A228700518961A3DAF2F965435CBB" height="24" alt="Facebook" width="24" /></a><a href="http://www.youtube.com/user/RolandDGAustralia" target="_blank" rel="noopener noreferrer" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/social-media-icons/bw/youtube_bw.png?la=en&amp;h=24&amp;w=24&amp;hash=BC8A7C10D6A66B2867FC00B4EF1EA88B" height="24" alt="YouTube" width="24" /></a><a href="http://instagram.com/rolanddgaus/" target="_blank" rel="noopener noreferrer" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/social-media-icons/bw/instagram_bw_2.png?la=en&amp;h=24&amp;w=24&amp;hash=04633DF2E3E3B65EE6EA946482A7EB65" height="24" alt="Instagram" width="24" /></a><a href="https://au.linkedin.com/company/roland-dg-australia-pty-ltd-" target="_blank" rel="noopener noreferrer" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/social-media-icons/bw/linkedin_bw_1.png?la=en&amp;h=24&amp;w=24&amp;hash=6F06CB2EFECE8E8FE7E14CFD8C0BBBFD" height="24" alt="LinkedIn" width="24" /></a>
+            </div>
+        </div>
+
+        <div class="row footer-links">
+                <div class="footer-link-group">
+        <h2 class="heading-h2">
+<a href="https://www.rolanddg.com.au/products/printers" >PRINTING & CUTTING</a>        </h2>
+
+            <ul class="list-unstyled">
+                    <li>
+<a href="https://www.rolanddg.com.au/products/printers/eco-solvent" title="Eco-Solvent Printers and Printer Cutters" >Eco-Solvent Printers/Cutters</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/products/printers/sublimation" title="Sublimation Printers" >Sublimation & Textile Printers</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/products/printers/versauv" title="UV Printers and Printer Cutters" >UV Printers/Cutters</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/products/vinyl-cutters" >Wide Format Cutters</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/products/vinyl-cutters/desktop-vinyl-cutters" title="Desktop Cutters" >Desktop Cutters</a>                    </li>
+            </ul>
+    </div>
+    <div class="footer-link-group">
+        <h2 class="heading-h2">
+<a href="https://www.rolanddg.com.au/products" >MILLS & ENGRAVERS</a>        </h2>
+
+            <ul class="list-unstyled">
+                    <li>
+<a href="https://www.rolanddg.com.au/products/dental" title="Dental Milling" >Dental Milling</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/products/3d-printers-and-milling-machines" title="3D Milling Machines" >3D Milling Machines</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/products/engraving-machines" title="Engravers" >Engravers</a>                    </li>
+                    <li>
+<a href="" title="Impact Printers" >Impact Printers</a>                    </li>
+            </ul>
+    </div>
+    <div class="footer-link-group">
+        <h2 class="heading-h2">
+<a href="https://www.rolanddg.com.au/support" title="SUPPORT" >SUPPORT</a>        </h2>
+
+            <ul class="list-unstyled">
+                    <li>
+<a href="https://www.rolanddg.com.au/support/customer-support-form" >Contact Support</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/support/warranties" >Extended Warranty</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/sites/resources" >Partner Resources</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/support/roland-service-information" >Service</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/support/roland-academy" title="Training" >Training</a>                    </li>
+            </ul>
+    </div>
+    <div class="footer-link-group">
+        <h2 class="heading-h2">
+<a href="https://www.rolanddg.com.au/company" >COMPANY</a>        </h2>
+
+            <ul class="list-unstyled">
+                    <li>
+<a href="https://www.rolanddg.com.au/company/contact" title="Contact" >Contact Us</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/company/pressroom" title="News/Press" >News/Press</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/dealers" title="Dealer Locator" >Dealer Locator</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/company/employment" >Career Opportunities</a>                    </li>
+            </ul>
+    </div>
+    <div class="footer-link-group">
+        <h2 class="heading-h2">
+SITES        </h2>
+
+            <ul class="list-unstyled">
+                    <li>
+<a href="http://www.rolandprofilecentre.com.au/" target="_blank" rel="noopener noreferrer" >Roland Profile Centre</a>                    </li>
+                    <li>
+<a href="https://www.rolanddg.com.au/regions" >International Partners</a>                    </li>
+            </ul>
+    </div>
+
+        </div>
+
+        <div class="row footer-affiliates">
+            <div class="col-sm-12">
+                    <h2 class="heading-h2">Affiliates:</h2>
+    <div class="affiliate-row">
+                <div class="affiliate-item col-md-2 col-sm-12">
+<a href="http://www.visualconnections.org.au/" target="_blank" rel="noopener noreferrer" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/company/ecologo/logo_visualconnectionsinverse.png?la=en&amp;h=74&amp;w=250&amp;hash=D157ECA09B3B19A6E9CD0D4711DB1524" class="img-responsive" alt="Visual Connections" /></a>                </div>
+                <div class="affiliate-item col-md-2 col-sm-12">
+<a href="http://www.signs.org.au/" target="_blank" rel="noopener noreferrer" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/company/asgalogo11.png?la=en&amp;h=90&amp;w=250&amp;hash=57E8994536F7EE006DD4F1FE306935C8" class="img-responsive" alt="" /></a>                </div>
+                <div class="affiliate-item col-md-2 col-sm-12">
+<a href="https://www.adia.org.au/" ><img src="https://www.rolanddg.com.au/-/media/roland-apac/das/images/global/logos/adia-logo.png?la=en&amp;h=75&amp;w=205&amp;hash=EAE7939E57EB92A1144DEC42872AC9D7" class="img-responsive" alt="" /></a>                </div>
+    </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-unstyled list-inline list-justified">
+        <li>
+<a href="https://www.rolanddg.com.au/company/privacy-policy" >Privacy Statement</a>        </li>
+        <li>
+<a href="https://www.rolanddg.com.au/company/code-of-conduct" >Code of Conduct</a>        </li>
+        <li>
+<a href="https://www.rolanddg.com.au/company/legal" title="Legal" >Legal</a>        </li>
+        <li>
+<a href="https://www.rolanddg.com.au/dealers" >Dealer Locator</a>        </li>
+    </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <ul class="text-start list-unstyled list-inline region-selector">
+    <li class="link region dropup">
+        <span class="flag flag-au"></span>
+<a href="https://www.rolanddg.com.au/regions" title="Change country" >Australia</a>        -        <link href="/bundles/css/local/navigation?v=KpfAoe66SQmqgAyTvkOLS6FwgYnl2l7wy4Ob_jgGeDg1" rel="stylesheet"/>
+
+
+    <span class="region-language">English</span>
+
+    </li>
+</ul>
+            </div>
+            <div class="col-md-7">
+                <ul class="list-unstyled list-inline copyright">
+                    <li>Copyright © 2023 Roland DG Australia </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Analytics Body Bottom -->
+
+<!--Active Campaign tracking code-->
+<script type="text/javascript">
+// Set to false if opt-in required
+var trackByDefault = true;
+
+function acEnableTracking() {
+	var expiration = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 30);
+	document.cookie = "ac_enable_tracking=1; expires= " + expiration + "; path=/";
+	acTrackVisit();
+}
+
+function acTrackVisit() {
+	var trackcmp_email = '';
+	var trackcmp = document.createElement("script");
+	trackcmp.async = true;
+	trackcmp.type = 'text/javascript';
+	trackcmp.src = '//trackcmp.net/visit?actid=609983236&e='+encodeURIComponent(trackcmp_email)+'&r='+encodeURIComponent(document.referrer)+'&u='+encodeURIComponent(window.location.href);
+	var trackcmp_s = document.getElementsByTagName("script");
+	if (trackcmp_s.length) {
+		trackcmp_s[0].parentNode.appendChild(trackcmp);
+	} else {
+		var trackcmp_h = document.getElementsByTagName("head");
+		trackcmp_h.length && trackcmp_h[0].appendChild(trackcmp);
+	}
+}
+
+if (trackByDefault || /(^|; )ac_enable_tracking=([^;]+)/.test(document.cookie)) {
+	acEnableTracking();
+}
+</script>
+
+<script>
+    (function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
+    vgo('setAccount', '609983236');
+    vgo('setTrackByDefault', true);
+
+    vgo('process');
+</script>
+
+    
+
+</body>
+</html>

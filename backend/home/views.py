@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course , FormDocument
-from .serializers import CourseSerializer , FormDocumentSerializer
+from .models import Course , FormDocument, Equipment
+from .serializers import CourseSerializer , FormDocumentSerializer, EquipmentSerializer
 
 from django.conf import settings
 from google.oauth2 import id_token
@@ -331,3 +331,71 @@ class CourseDetailView(RetrieveUpdateDestroyAPIView):
 
     def get_object(self):
         return generics.get_object_or_404(Course, courseId=self.kwargs['courseId'])
+
+class IsAdminOrReadOnly(IsAdminUser):
+    def has_permission(self, request, view):
+        if request.method in ['GET', 'HEAD', 'OPTIONS']:
+            return True
+        return super().has_permission(request, view)
+
+class EquipmentListCreateView(APIView):
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        # return [IsAuthenticated()]
+        return [IsAdminEmail()]
+
+    def get(self, request):
+        equipment = Equipment.objects.all()
+        serializer = EquipmentSerializer(equipment, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = EquipmentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class EquipmentDetailView(APIView):
+    def get_permissions(self):
+        if self.request.method in ['DELETE']:
+            return [IsAdminEmail()]
+        elif self.request.method in ['GET']:
+            return [IsAuthenticated()]
+        return [AllowAny()]
+
+    def get_object(self, pk):
+        try:
+            return Equipment.objects.get(pk=pk)
+        except Equipment.DoesNotExist:
+            return None
+
+    def get(self, request, pk):
+        equipment = self.get_object(pk)
+        if equipment is None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = EquipmentSerializer(equipment)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        print("hi")
+        print(self.request.user)
+        equipment = self.get_object(pk)
+        if equipment is None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = EquipmentSerializer(equipment, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        equipment = self.get_object(pk)
+        if equipment is None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        if equipment.image:
+            if os.path.isfile(equipment.image.path):
+                os.remove(equipment.image.path)
+        equipment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
