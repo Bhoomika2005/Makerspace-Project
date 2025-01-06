@@ -84,7 +84,7 @@ export default function FormsPage() {
       }
 
       const data = await response.json();
-      // console.log("forms data : ", data)
+      console.log("forms data : ", data)
       setForms(data);
       setError(null);
     } catch (error) {
@@ -143,9 +143,13 @@ export default function FormsPage() {
   };
 
   const handleDelete = async () => {
+    console.log("called")
+    console.log(selectedFormId)
     if (!selectedFormId) return;
+    console.log("proceeded")
 
     const token = Cookies.get('access');
+    console.log("token : ",token)
     try {
       const response = await fetch(`http://localhost:8000/api/forms/${selectedFormId}/`, {
         method: 'DELETE',
@@ -153,6 +157,8 @@ export default function FormsPage() {
           'Authorization': `Bearer ${token}`,
         },
       });
+
+      // console.log("response : ",response)
 
       if (!response.ok) {
         throw new Error('Failed to delete form');

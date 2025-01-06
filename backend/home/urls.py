@@ -1,16 +1,5 @@
 from django.urls import path
-from .views import (
-    CourseListCreateView, 
-    CourseDetailView, 
-    CustomTokenObtainPairView, 
-    CustomTokenRefreshView, 
-    UserDetailsView, 
-    GoogleLoginView, 
-    FormListCreateView, 
-    FormDetailView, 
-    FormDownloadView, 
-    FormViewerView
-)
+from .views import *
 
 urlpatterns = [
     # Courses
@@ -30,4 +19,9 @@ urlpatterns = [
     path('forms/<int:pk>/', FormDetailView.as_view(), name='form-detail'),
     path('forms/<int:pk>/download/', FormDownloadView.as_view(), name='form-download'),
     path('forms/<int:pk>/view/', FormViewerView.as_view(), name='form-view'),
+
+    #machinery
+    path('machinery/', EquipmentListCreateView.as_view(), name='equipment-list-create'),
+    path('machinery/<int:pk>/', EquipmentDetailView.as_view(), name='equipment-detail'),
+
 ]

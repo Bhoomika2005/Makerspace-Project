@@ -1,15 +1,14 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course , FormDocument
-from .serializers import CourseSerializer , FormDocumentSerializer
+from .models import Course , FormDocument , EquipmentsModel , UserSession
+from .serializers import CourseSerializer , FormDocumentSerializer , EquipmentSerializer
 
 from django.conf import settings
 from google.oauth2 import id_token
 from google.auth.transport import requests
 import requests as http_requests
 from django.contrib.auth import get_user_model
-from .models import UserSession
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.authentication import JWTAuthentication
@@ -185,10 +184,10 @@ class FormListCreateView(APIView):
             if serializer.is_valid():
                 form_doc = serializer.save()
             
-                if 'file' in request.FILES:
-                    form_doc.file = request.FILES['file']
-                    form_doc.save()
+                # if 'file' in request.FILES:
+                #     form_doc.file = request.FILES['file']
                 
+                # form_doc.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
@@ -219,6 +218,7 @@ class FormDetailView(APIView):
         
     def delete(self , request, pk):
         form = self.get_object(pk)
+        print(self.request.user)
         if form.file and os.path.exists(form.file.path):
             os.remove(form.file.path)
         form.delete()
@@ -304,14 +304,12 @@ class FormViewerView(APIView):
     
 
 
-    from rest_framework.generics import (
+from rest_framework.generics import (
     ListCreateAPIView, 
     RetrieveUpdateDestroyAPIView
 )
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from .models import Course
 from rest_framework import generics
-from .serializers import CourseSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 
@@ -331,3 +329,104 @@ class CourseDetailView(RetrieveUpdateDestroyAPIView):
 
     def get_object(self):
         return generics.get_object_or_404(Course, courseId=self.kwargs['courseId'])
+    
+
+from rest_framework.generics import (
+    ListCreateAPIView, 
+    RetrieveUpdateDestroyAPIView
+)
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework import generics
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+
+
+class CourseListCreateView(ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class CourseDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_object(self):
+        return generics.get_object_or_404(Course, courseId=self.kwargs['courseId'])
+
+class IsAdminOrReadOnly(IsAdminUser):
+    def has_permission(self, request, view):
+        if request.method in ['GET', 'HEAD', 'OPTIONS']:
+            return True
+        return super().has_permission(request, view)
+
+class EquipmentListCreateView(APIView):
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        # return [IsAuthenticated()]
+        return [IsAdminEmail()]
+
+    def get(self, request):
+        equipment = EquipmentsModel.objects.all()
+        serializer = EquipmentSerializer(equipment, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        print("post request called")
+        print("data : ", request.data)
+        serializer = EquipmentSerializer(data=request.data)
+        print("serializer : " , serializer)
+        if serializer.is_valid():
+            print("is valid")
+            serializer.save()
+            print("saved")
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class EquipmentDetailView(APIView):
+    def get_permissions(self):
+        if self.request.method in ['DELETE']:
+            return [IsAdminEmail()]
+        elif self.request.method in ['GET']:
+            return [IsAuthenticated()]
+        return [AllowAny()]
+
+    def get_object(self, pk):
+        try:
+            return EquipmentsModel.objects.get(pk=pk)
+        except EquipmentsModel.DoesNotExist:
+            return None
+
+    def get(self, request, pk):
+        equipment = self.get_object(pk)
+        if equipment is None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = EquipmentSerializer(equipment)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        # print("hi")
+        # print(self.request.user)
+        equipment = self.get_object(pk)
+        if equipment is None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = EquipmentSerializer(equipment, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        equipment = self.get_object(pk)
+        if equipment is None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        if equipment.image:
+            if os.path.isfile(equipment.image.path):
+                os.remove(equipment.image.path)
+        equipment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
