@@ -75,11 +75,14 @@ export default function CoursePage() {
     checkAdminStatus();
   }, []);
 
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     fetchCourses();
+  //   }
+  // }, [isLoggedIn]);
   useEffect(() => {
-    if (isLoggedIn) {
-      fetchCourses();
-    }
-  }, [isLoggedIn]);
+    fetchCourses(); // Fetch courses regardless of login status
+  }, []);
 
   const fetchCourses = async () => {
     try {
