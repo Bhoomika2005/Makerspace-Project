@@ -36,7 +36,7 @@ interface Equipment {
   image: string | null;
   quantity: number;
   manufacturer: string;
-  model_number: string;
+  model_name: string;
   notes: string;
 }
 
@@ -55,7 +55,7 @@ export default function MachineryPage() {
     image: null as File | null,
     quantity: 0,
     manufacturer: '',
-    model_number: '',
+    model_name: '',
     notes: '',
   });
   
@@ -122,7 +122,7 @@ export default function MachineryPage() {
     formData.append('name', equipmentData.name);
     formData.append('quantity', equipmentData.quantity.toString());
     formData.append('manufacturer', equipmentData.manufacturer);
-    formData.append('model_number', equipmentData.model_number);
+    formData.append('model_name', equipmentData.model_name);
     formData.append('notes', equipmentData.notes);
     if (equipmentData.image) {
       formData.append('image', equipmentData.image);
@@ -151,7 +151,7 @@ export default function MachineryPage() {
         name: '',
         quantity: 0,
         manufacturer: '',
-        model_number: '',
+        model_name: '',
         notes: '',
         image: null,
       });
@@ -185,7 +185,7 @@ export default function MachineryPage() {
     formData.append('name', equipmentData.name);
     formData.append('quantity', equipmentData.quantity.toString());
     formData.append('manufacturer', equipmentData.manufacturer);
-    formData.append('model_number', equipmentData.model_number);
+    formData.append('model_name', equipmentData.model_name);
     formData.append('notes', equipmentData.notes);
     if (equipmentData.image) {
       formData.append('image', equipmentData.image);
@@ -210,7 +210,7 @@ export default function MachineryPage() {
         name: '',
         quantity: 0,
         manufacturer: '',
-        model_number: '',
+        model_name: '',
         notes: '',
         image: null,
       });
@@ -252,7 +252,7 @@ export default function MachineryPage() {
       name: equipment.name,
       quantity: equipment.quantity,
       manufacturer: equipment.manufacturer,
-      model_number: equipment.model_number,
+      model_name: equipment.model_name,
       notes: equipment.notes,
       image: null,
     });
@@ -306,11 +306,11 @@ export default function MachineryPage() {
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="model_number" className="text-right">Model Number</Label>
+                <Label htmlFor="model_name" className="text-right">Model Name</Label>
                 <Input
-                  id="model_number"
-                  value={equipmentData.model_number}
-                  onChange={(e) => setEquipmentData({...equipmentData, model_number: e.target.value})}
+                  id="model_name"
+                  value={equipmentData.model_name}
+                  onChange={(e) => setEquipmentData({...equipmentData, model_name: e.target.value})}
                   className="col-span-3"
                 />
               </div>
@@ -352,7 +352,7 @@ export default function MachineryPage() {
                 <div className="p-6 space-y-4">
                   <div className="aspect-square relative overflow-hidden rounded-md mb-4">
                     <Image
-                      src={item.image || '/placeholder.svg?height=300&width=300'}
+                      src={item.image ? `http://localhost:8000${item.image}` : '/placeholder.svg?height=300&width=500'}
                       alt={item.name}
                       fill
                       className="object-cover"
@@ -372,8 +372,8 @@ export default function MachineryPage() {
                       <span className="ml-2">{item.manufacturer}</span>
                     </div>
                     <div>
-                      <span className="font-semibold">Model Number:</span>
-                      <span className="ml-2">{item.model_number}</span>
+                      <span className="font-semibold">Model Name:</span>
+                      <span className="ml-2">{item.model_name}</span>
                     </div>
                     {isAdmin && (
                       <div className="flex gap-2 pt-2">
@@ -443,11 +443,11 @@ export default function MachineryPage() {
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="edit-model_number" className="text-right">Model Number</Label>
+              <Label htmlFor="edit-model_name" className="text-right">Model Name</Label>
               <Input
-                id="edit-model_number"
-                value={equipmentData.model_number}
-                onChange={(e) => setEquipmentData({...equipmentData, model_number: e.target.value})}
+                id="edit-model_name"
+                value={equipmentData.model_name}
+                onChange={(e) => setEquipmentData({...equipmentData, model_name: e.target.value})}
                 className="col-span-3"
               />
             </div>
