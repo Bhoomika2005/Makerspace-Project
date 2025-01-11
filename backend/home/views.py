@@ -364,11 +364,8 @@ class IsAdminOrReadOnly(IsAdminUser):
         return super().has_permission(request, view)
 
 class EquipmentListCreateView(APIView):
-    def get_permissions(self):
-        if self.request.method == 'GET':
-            return [AllowAny()]
-        # return [IsAuthenticated()]
-        return [IsAdminEmail()]
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
 
     def get(self, request):
         equipment = EquipmentsModel.objects.all()
@@ -388,12 +385,8 @@ class EquipmentListCreateView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class EquipmentDetailView(APIView):
-    def get_permissions(self):
-        if self.request.method in ['DELETE']:
-            return [IsAdminEmail()]
-        elif self.request.method in ['GET']:
-            return [IsAuthenticated()]
-        return [AllowAny()]
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
 
     def get_object(self, pk):
         try:

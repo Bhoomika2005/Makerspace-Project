@@ -80,7 +80,7 @@ class FormDocumentSerializer(serializers.ModelSerializer):
 class EquipmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = EquipmentsModel
-        # fields = ['id', 'name', 'quantity', 'manufacturer', 'model_number', 'is_available', 'image']
+        # fields = ['id', 'name', 'quantity', 'manufacturer', 'model_name', 'is_available', 'image']
         fields = '__all__'
 
 class AdminEquipmentSerializer(serializers.ModelSerializer):
@@ -88,4 +88,4 @@ class AdminEquipmentSerializer(serializers.ModelSerializer):
         model = EquipmentsModel
         fields = '__all__'
 
-        # fields = ['name', 'image', 'quantity', 'manufacturer', 'model_number', 'notes']
+        # fields = ['name', 'image', 'quantity', 'manufacturer', 'model_name', 'notes']
