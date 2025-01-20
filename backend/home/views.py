@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course , FormDocument , EquipmentsModel , UserSession
-from .serializers import CourseSerializer , FormDocumentSerializer , EquipmentSerializer
+from .models import Course , FormDocument , EquipmentsModel , UserSession, Event, EventImage
+from .serializers import CourseSerializer , FormDocumentSerializer , EquipmentSerializer, EventSerializer
 
 from django.conf import settings
 from google.oauth2 import id_token
@@ -423,3 +423,67 @@ class EquipmentDetailView(APIView):
         equipment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+class EventListCreateView(APIView):
+    # parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get(self, request):
+        events = Event.objects.all()
+        serializer = EventSerializer(events, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        event_data = {
+            'title': request.data.get('title'),
+            'event_date': request.data.get('event_date'),
+            'description': request.data.get('description'),
+        }
+        
+        serializer = EventSerializer(data=event_data)
+        if serializer.is_valid():
+            event = serializer.save()
+            
+            # Handle multiple images
+            images = request.FILES.getlist('images')
+            for image in images:
+                EventImage.objects.create(event=event, image=image)
+            
+            # Get updated event with images
+            updated_serializer = EventSerializer(event)
+            return Response(updated_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class EventDetailView(APIView):
+    # parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_object(self, pk):
+        return get_object_or_404(Event, pk=pk)
+
+    def put(self, request, pk):
+        event = self.get_object(pk)
+        event_data = {
+            'title': request.data.get('title'),
+            'event_date': request.data.get('event_date'),
+            'description': request.data.get('description'),
+        }
+        
+        serializer = EventSerializer(event, data=event_data)
+        if serializer.is_valid():
+            event = serializer.save()
+            
+            # Handle new images
+            new_images = request.FILES.getlist('images')
+            for image in new_images:
+                EventImage.objects.create(event=event, image=image)
+            
+            # Get updated event with images
+            updated_serializer = EventSerializer(event)
+            return Response(updated_serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        event = self.get_object(pk)
+        # This will automatically delete related images due to CASCADE
+        event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

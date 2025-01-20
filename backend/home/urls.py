@@ -24,4 +24,9 @@ urlpatterns = [
     path('machinery/', EquipmentListCreateView.as_view(), name='equipment-list-create'),
     path('machinery/<int:pk>/', EquipmentDetailView.as_view(), name='equipment-detail'),
 
+    #events
+    path('events/', EventListCreateView.as_view(), name='event-list-create'),
+    path('events/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
+
+
 ]
