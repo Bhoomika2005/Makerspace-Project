@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
-from .models import Course, FormDocument , EquipmentsModel
+from .models import Course, FormDocument , EquipmentsModel, Event, EventImage
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -80,7 +80,7 @@ class FormDocumentSerializer(serializers.ModelSerializer):
 class EquipmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = EquipmentsModel
-        # fields = ['id', 'name', 'quantity', 'manufacturer', 'model_name', 'is_available', 'image']
+         # fields = ['name', 'image', 'quantity', 'manufacturer', 'model_name', 'notes']
         fields = '__all__'
 
 class AdminEquipmentSerializer(serializers.ModelSerializer):
@@ -96,3 +96,20 @@ class FacultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
         fields = ['id', 'name', 'role', 'email', 'location', 'image']
+# class EventSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Event
+#         # fields = ['title', 'event_date', 'description', 'image']
+#         fields = '__all__'
+
+class EventImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EventImage
+        fields = ['id', 'image']
+
+class EventSerializer(serializers.ModelSerializer):
+    images = EventImageSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = Event
+        fields = '__all__'

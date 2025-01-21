@@ -30,4 +30,10 @@ urlpatterns = [
     path('faculty/add/', views.add_faculty, name='add_faculty'),
     path('faculty/edit/<int:pk>/', views.EditFaculty.as_view(), name='edit_faculty'),
     path('faculty/delete/<int:pk>/', views.DeleteFaculty.as_view(), name='delete_faculty'),
+
+    #events
+    path('events/', EventListCreateView.as_view(), name='event-list-create'),
+    path('events/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
+
+
 ]
