@@ -267,7 +267,7 @@ export default function FacultyPage() {
         <div className="mb-8">
         <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
           <DialogTrigger asChild>
-            <Button className="bg-blue-600 hover:bg-blue-700">Add New Faculty Member</Button>
+            <Button className="mb-4">Add Faculty</Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
@@ -330,7 +330,6 @@ export default function FacultyPage() {
             </div>
           </DialogContent>
         </Dialog>
-        </div>
       )}
 
       {/* Edit Faculty Dialog */}
@@ -439,79 +438,52 @@ export default function FacultyPage() {
           </Card>
         ))}
       </div> */}
- <div className="grid gap-8">
-        {faculty.map(item => (
-          <Card key={item.id} className="overflow-hidden transition-shadow duration-300 hover:shadow-lg">
-            <CardContent className="p-0">
-              <div className="flex items-center p-6">
-                <div className="w-48 h-48 relative rounded-full overflow-hidden border-4 border-gray-100 flex-shrink-0">
-                  <Image
-                    src={item.image ? `http://localhost:8000${item.image}` : '/placeholder.svg?height=300&width=300'}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                
-                <div className="ml-8 flex-grow grid grid-cols-2 gap-8">
-                  {/* Left Column - Name and Role */}
-                  <div className="border-r border-gray-200 pr-8">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
-                    <p className="text-lg text-blue-600 font-medium">{item.role}</p>
-                  </div>
-                  
-                  {/* Right Column - Contact Information */}
-                  <div className="flex flex-col space-y-4">
-                    <div className="flex items-center text-gray-600">
-                      <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                      <a href={`mailto:${item.email}`} className="text-base text-blue-600 hover:underline">
-                      {item.email}
-                    </a>
-                    </div>
-                    {item.location && (
-                      <div className="flex items-center text-gray-600">
-                        <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <span className="text-base">{item.location}</span>
-                      </div>
-                    )}
+      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
+  {faculty.map(item => (
+    <Card
+      key={item.id}
+      className="w-full shadow-md border border-gray-200 rounded-lg overflow-hidden"
+    >
+      <CardContent className="flex items-center p-6">
+        {/* Name Section */}
+        <div className="w-1/3 flex flex-col justify-center items-start pr-4 border-r border-gray-300">
+          <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2>
+        </div>
 
-                  </div>
-                </div>
+        {/* Role and Email Section */}
+        <div className="w-1/3 flex flex-col justify-center items-start px-4 border-r border-gray-300">
+          <div className="text-sm font-medium text-gray-600">{item.role}</div>
+          <div className="text-sm text-gray-500">{item.email}</div>
+        </div>
 
+        {/* Image Section */}
+        <div className="w-1/3 flex justify-center items-center px-4">
+          <div className="h-20 w-20 relative overflow-hidden rounded-full border border-gray-300">
+            <Image
+              src={item.image ? `http://localhost:8000${item.image}` : '/placeholder.svg?height=300&width=500'}
+              alt={item.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+        <div>
                 {isAdmin && (
-                  <div className="ml-8 flex flex-col space-y-3">
-                    <Button 
-                      variant="outline" 
-                      className="w-24"
-                      onClick={() => {
-                        setSelectedFacultyId(item.id);
-                        initializeEditForm(item);
-                      }}
-                    >
+                  <div className="flex flex-col justify-between p-6 space-y-4">
+                    <Button variant="outline" onClick={() => {setSelectedFacultyId(item.id); initializeEditForm(item);}}>
+                      
                       Edit
                     </Button>
-                    <Button 
-                      variant="outline" 
-                      className="w-24 text-red-600 hover:bg-red-50"
-                      onClick={() => {
-                        setSelectedFacultyId(item.id);
-                        setShowDeleteDialog(true);
-                      }}
-                    >
+                    <Button variant="outline" onClick={() => { setSelectedFacultyId(item.id); setShowDeleteDialog(true); }}>
                       Delete
                     </Button>
                   </div>
                 )}
               </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      </CardContent>
+    </Card>
+  ))}
+</div>
 
 
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>

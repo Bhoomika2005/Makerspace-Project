@@ -89,3 +89,10 @@ class AdminEquipmentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
         # fields = ['name', 'image', 'quantity', 'manufacturer', 'model_name', 'notes']
+
+from .models import Faculty
+
+class FacultySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Faculty
+        fields = ['id', 'name', 'role', 'email', 'location', 'image']

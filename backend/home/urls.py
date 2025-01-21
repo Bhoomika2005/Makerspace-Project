@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from . import views
 
 urlpatterns = [
     # Courses
@@ -23,5 +24,10 @@ urlpatterns = [
     #machinery
     path('machinery/', EquipmentListCreateView.as_view(), name='equipment-list-create'),
     path('machinery/<int:pk>/', EquipmentDetailView.as_view(), name='equipment-detail'),
-
+    
+    #faculty
+    path('faculty/', FacultyListView.as_view(), name='faculty-list'),
+    path('faculty/add/', views.add_faculty, name='add_faculty'),
+    path('faculty/edit/<int:pk>/', views.EditFaculty.as_view(), name='edit_faculty'),
+    path('faculty/delete/<int:pk>/', views.DeleteFaculty.as_view(), name='delete_faculty'),
 ]
