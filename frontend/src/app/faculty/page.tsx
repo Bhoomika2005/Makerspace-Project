@@ -440,10 +440,12 @@ export default function FacultyPage() {
         ))}
       </div> */}
  <div className="grid gap-8">
-        {faculty.map(item => (
-          <Card key={item.id} className="overflow-hidden transition-shadow duration-300 hover:shadow-lg">
+        {faculty.map((item, index) => (
+          <Card key={item.id} className="overflow-hidden transition-shadow duration-300 hover:shadow-lg w-11/12 mx-auto" style={{ maxWidth: "800px" }}>
             <CardContent className="p-0">
-              <div className="flex items-center p-6">
+              <div className={`flex items-center p-6 ${
+            index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+          }`}>
                 <div className="w-48 h-48 relative rounded-full overflow-hidden border-4 border-gray-100 flex-shrink-0">
                   <Image
                     src={item.image ? `http://localhost:8000${item.image}` : '/placeholder.svg?height=300&width=300'}
