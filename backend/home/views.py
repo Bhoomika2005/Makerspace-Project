@@ -423,6 +423,56 @@ class EquipmentDetailView(APIView):
         equipment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+from .models import Faculty
+from .serializers import FacultySerializer
+
+class FacultyListView(APIView):
+    def get(self, request):
+        faculty = Faculty.objects.all()
+        serializer = FacultySerializer(faculty, many=True)
+        return Response(serializer.data)
+    
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import FacultySerializer
+from rest_framework.exceptions import NotFound
+
+@api_view(['POST'])
+def add_faculty(request):
+    if request.method == 'POST':
+        serializer = FacultySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()  # Save the new faculty data to the database
+            return Response(serializer.data, status=status.HTTP_201_CREATED)  # Respond with the created data
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Return errors if validation fails
+
+class EditFaculty(APIView):
+    def get_object(self, pk):
+        try:
+            return Faculty.objects.get(pk=pk)
+        except Faculty.DoesNotExist:
+            raise NotFound(detail="Faculty not found", code=404)
+
+    def put(self, request, pk, format=None):
+        faculty = self.get_object(pk)
+        serializer = FacultySerializer(faculty, data=request.data)  # Update with new data
+        if serializer.is_valid():
+            serializer.save()  # Save the updated data to the database
+            return Response(serializer.data)  # Respond with updated data
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Validation failed, send errors  
+    
+class DeleteFaculty(APIView):
+    def get_object(self, pk):
+        try:
+            return Faculty.objects.get(pk=pk)
+        except Faculty.DoesNotExist:
+            raise NotFound(detail="Faculty not found", code=404)
+
+    def delete(self, request, pk, format=None):
+        faculty = self.get_object(pk)
+        faculty.delete()  # Delete the faculty member
+        return Response(status=status.HTTP_204_NO_CONTENT)  # No content in the response as it's a deletion
 class EventListCreateView(APIView):
     # parser_classes = (MultiPartParser, FormParser)
     permission_classes = [IsAuthenticatedOrReadOnly]

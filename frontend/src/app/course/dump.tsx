@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
@@ -6,8 +6,6 @@ import CourseCard from "../../components/CourseCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ModernSplitCard, StackedAccentCard, ExpandableCard } from '@/components/carddesign';
-
 import {
   Dialog,
   DialogContent,
@@ -325,7 +323,7 @@ export default function CoursePage() {
       )}
       {error && <div className="text-red-500 mb-4">{error}</div>}
 
-      {/* <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
         {courses.map((course) => (
           <div key={course.courseId} className="border p-4 rounded">
             <CourseCard {...course} />
@@ -352,43 +350,7 @@ export default function CoursePage() {
             )}
           </div>
         ))}
-      </div> */}
-      <div className="grid md:grid-cols-2 gap-8">
-      {courses.map((course) => (
-        <div key={course.courseId} className="relative">
-          {/* Choose one of the card variants: */}
-          <ModernSplitCard {...course} />
-         
-          {/* <StackedAccentCard {...course} /> */}
-         
-         {/* <ExpandableCard {...course} /> */}
-          
-          {isAdmin && (
-            <div className="absolute top-4 right-4 flex gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-white"
-                onClick={() => handleEditCourse(course)}
-              >
-                Edit
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-white text-red-600"
-                onClick={() => {
-                  setSelectedCourse(course);
-                  setShowDeleteDialog(true);
-                }}
-              >
-                Delete
-              </Button>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
+      </div>
 
       {/* Add/Edit Dialog */}
      <Dialog open={showAddEditDialog} onOpenChange={setShowAddEditDialog}>

@@ -77,6 +77,17 @@ class EquipmentsModel(models.Model):
     def __str__(self):
         return self.name
 
+
+
+class Faculty(models.Model):
+    name = models.CharField(max_length=255)
+    role = models.CharField(max_length=255)
+    email = models.EmailField()
+    location = models.CharField(max_length=255, blank=True, null=True)
+    image = models.ImageField(upload_to='faculty_images/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 # class Event(models.Model):
 #     title = models.CharField(max_length=100)
 #     event_date = models.DateField()
