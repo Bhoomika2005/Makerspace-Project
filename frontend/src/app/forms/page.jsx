@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
+import { Button,ButtonProps } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Download, Eye } from 'lucide-react';
@@ -23,6 +23,19 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
+const ActionButton = ({ variant, ...props }) => (
+  <Button
+    variant={variant}
+    size="sm"
+    className={`${
+      variant === 'destructive'
+        ? 'text-red-500 hover:text-red-600'
+        : 'text-blue-500 hover:text-blue-600'
+    } focus:outline-none`}
+    {...props}
+  />
+);
 
 export default function FormsPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -219,12 +232,120 @@ export default function FormsPage() {
     }
   };
 
+  // return (
+  //   <div className="p-4">
+  //     {error && (
+  //       <Alert className="mb-4" variant="destructive">
+  //         <AlertDescription>{error}</AlertDescription>
+  //       </Alert>
+  //     )}
+
+  //     {isAdmin && (
+  //       <Dialog open={showUploadDialog} onOpenChange={setShowUploadDialog}>
+  //         <DialogTrigger asChild>
+  //           <Button className="mb-4">Add Form</Button>
+  //         </DialogTrigger>
+  //         <DialogContent>
+  //           <DialogHeader>
+  //             <DialogTitle>Upload New Form</DialogTitle>
+  //           </DialogHeader>
+  //           <div className="grid gap-4 py-4">
+  //             <div className="grid grid-cols-4 items-center gap-4">
+  //               <Label htmlFor="title" className="text-right">Title</Label>
+  //               <Input
+  //                 id="title"
+  //                 value={formTitle}
+  //                 onChange={(e) => setFormTitle(e.target.value)}
+  //                 className="col-span-3"
+  //               />
+  //             </div>
+  //             <div className="grid grid-cols-4 items-center gap-4">
+  //               <Label htmlFor="file" className="text-right">File</Label>
+  //               <Input
+  //                 id="file"
+  //                 type="file"
+  //                 onChange={(e) => setSelectedFile(e.target.files[0])}
+  //                 accept=".pdf,.doc,.docx"
+  //                 className="col-span-3"
+  //               />
+  //             </div>
+  //           </div>
+  //           <div className="flex justify-end gap-2">
+  //             <Button variant="outline" onClick={() => setShowUploadDialog(false)}>
+  //               Cancel
+  //             </Button>
+  //             <Button onClick={handleFileUpload}>Upload</Button>
+  //           </div>
+  //         </DialogContent>
+  //       </Dialog>
+  //     )}
+
+  //     <div className="grid gap-4">
+  //       {forms.map(form => (
+  //         <div key={form.id} className="flex items-center justify-between p-4 border rounded">
+  //           <span className="font-medium">{form.title}</span>
+  //           <div className="flex gap-2">
+  //             <Button
+  //               variant="outline"
+  //               size="sm"
+  //               onClick={() => handleView(form.id)}
+  //             >
+  //               <Eye className="w-4 h-4 mr-2" />
+  //               View
+  //             </Button>
+              
+  //             {isLoggedIn && (
+  //               <Button
+  //                 variant="outline"
+  //                 size="sm"
+  //                 onClick={() => handleDownload(form.id)}
+  //               >
+  //                 <Download className="w-4 h-4 mr-2" />
+  //                 Download
+  //               </Button>
+  //             )}
+
+  //             {isAdmin && (
+  //               <Button
+  //                 variant="destructive"
+  //                 size="sm"
+  //                 onClick={() => {
+  //                   setSelectedFormId(form.id);
+  //                   setShowDeleteDialog(true);
+  //                 }}
+  //               >
+  //                 Delete
+  //               </Button>
+  //             )}
+  //           </div>
+  //         </div>
+  //       ))}
+  //     </div>
+
+  //     <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+  //       <AlertDialogContent>
+  //         <AlertDialogHeader>
+  //           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+  //           <AlertDialogDescription>
+  //             This action cannot be undone. This will permanently delete the form.
+  //           </AlertDialogDescription>
+  //         </AlertDialogHeader>
+  //         <AlertDialogFooter>
+  //           <AlertDialogCancel>Cancel</AlertDialogCancel>
+  //           <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
+  //         </AlertDialogFooter>
+  //       </AlertDialogContent>
+  //     </AlertDialog>
+  //   </div>
+  // );
   return (
-    <div className="p-4">
+    <div className="container mx-auto my-8 px-4 sm:px-6 lg:px-8">
       {error && (
-        <Alert className="mb-4" variant="destructive">
-          <AlertDescription>{error}</AlertDescription>
-        </Alert>
+        <div className="mb-4">
+          <Alert variant="destructive">
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        </div>
       )}
 
       {isAdmin && (
@@ -268,42 +389,38 @@ export default function FormsPage() {
       )}
 
       <div className="grid gap-4">
-        {forms.map(form => (
-          <div key={form.id} className="flex items-center justify-between p-4 border rounded">
-            <span className="font-medium">{form.title}</span>
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleView(form.id)}
-              >
-                <Eye className="w-4 h-4 mr-2" />
-                View
-              </Button>
-              
-              {isLoggedIn && (
-                <Button
+        {forms.map((form) => (
+          <div key={form.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h2 className="text-lg font-medium mb-2">{form.title}</h2>
+              <div className="flex justify-end space-x-4">
+                <ActionButton
                   variant="outline"
-                  size="sm"
-                  onClick={() => handleDownload(form.id)}
+                  onClick={() => handleView(form.id)}
                 >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download
-                </Button>
-              )}
-
-              {isAdmin && (
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={() => {
-                    setSelectedFormId(form.id);
-                    setShowDeleteDialog(true);
-                  }}
-                >
-                  Delete
-                </Button>
-              )}
+                  View
+                </ActionButton>
+                {isLoggedIn && (
+                  <ActionButton
+                    variant="outline"
+                    onClick={() => handleDownload(form.id)}
+                  >
+                    Download
+                  </ActionButton>
+                )}
+                {isAdmin && (
+                  <ActionButton
+                    variant="destructive"
+                      className="text-red-300 hover:text-red-700 focus:ring-2 focus:ring-red-500"
+                    onClick={() => {
+                      setSelectedFormId(form.id);
+                      setShowDeleteDialog(true);
+                    }}
+                  >
+                    Delete
+                  </ActionButton>
+                )}
+              </div>
             </div>
           </div>
         ))}
