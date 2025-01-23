@@ -87,6 +87,7 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
     event_date = models.DateField()
     description = models.TextField()
+    
 
 class EventImage(models.Model):
     event = models.ForeignKey(Event, related_name='images', on_delete=models.CASCADE)

@@ -1,0 +1,136 @@
+.navbarContainer {
+    position: sticky; /* Sticky behavior */
+    top: 0; /* Sticks at the top of the viewport */
+    z-index: 10; /* Ensures it stays above other elements */
+    background: var(--background); /* Matches the background for a seamless look */
+}
+
+.navbar {
+    height: 10vh;
+    width: 70%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* top: 0;
+    z-index: 10;  */
+    margin: 0 auto;
+    transition: all 0.5s ease;
+}
+
+.navbar::before,
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 36px;
+    height: 64px;
+    background: #4e4e4e;
+    z-index: 0; /* Middle layer */
+    transform: translateY(11px) skewY(30deg);
+    transition: all 0.5s ease;
+}
+
+.navbar::before {
+    left: 0;
+    transform: translateY(11px) skewY(30deg);
+}
+
+.navbar::after {
+    right: 0;
+    transform: translateY(11px) skewY(-30deg);
+}
+
+.decor1,
+.decor2 {
+    position: absolute;
+    width: 100px;
+    border: 32px solid;
+    top: 22px;
+    z-index: 98; /* Bottommost layer */
+    transition: all 0.5s ease;
+}
+
+.decor1 {
+    right: calc(100% - 36px);
+    border-color: #000 #000 #000 transparent;
+}
+
+.decor2 {
+    left: calc(100% - 36px);
+    border-color: #000 transparent #000 #000;
+}
+
+/* Styles for when header is hidden */
+.navbar.headerHidden {
+    width: 100%;
+}
+
+.navbar.headerHidden::before,
+.navbar.headerHidden::after,
+.navbar.headerHidden .decor1,
+.navbar.headerHidden .decor2 {
+    transition: width 0.5s ease, opacity 1s ease 0.5s; /* Delay opacity transition by 1s */
+    visibility: hidden;
+}
+
+.navbar.headerHidden .decor1,
+.navbar.headerHidden .decor2 {
+    width: 700px; /* Expand to 700px width */
+    visibility: hidden; /* Make the decor hidden once the transition completes */
+    opacity: 0; /* After delay, opacity will be 0 */
+}
+
+/* Navbar links */
+.navbar nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar nav a {
+    font-size: 16px;
+    margin: 0 25px;
+    color: #f3f4f6;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 8px 0;
+}
+
+/* Enhanced hover effect */
+.navbar nav a:hover {
+    color: #ffffff;
+    transform: translateY(-2px) scale(1.05);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Modern underline animation */
+.navbar nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+
+/* Active state for better UX */
+.navbar nav a:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.navbar.headerHidden nav a {
+    margin: 0 40px; /* Increase margin between sections */
+    transition: margin 0.5s ease, transform 0.5s ease;
+}

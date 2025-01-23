@@ -69,7 +69,7 @@ export default function HomePage() {
             ? 'opacity-100 translate-x-0' 
             : 'opacity-0 -translate-x-20'}`}
       >
-        <h1 className="text-4xl font-bold mb-4 ">Welcome to MakerSpace...</h1>
+        <h1 className="text-4xl font-bold mb-4 ">Welcome to MakerSpace</h1>
         <p className="text-xl mb-8">Innovate, Create, and Learn at IIT Indore's Premier Fabrication Lab</p>
       </section>
 
@@ -95,7 +95,7 @@ export default function HomePage() {
             </p>
             <p className="text-gray-600">
               You can learn these machines by taking part in weekly scheduled training
-              sessions. MakerSpace is open to the entire IIT Indore community.
+              sessions. MakerSpace is open to the entire IIT Indore community.  
             </p>
             <Link
               href="/about"
@@ -117,7 +117,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section 
+      {/* <section 
         id="features-section"
         className={`animate-on-scroll mb-16 transition-all duration-1000
           ${scrollVisibility['features-section'] 
@@ -153,7 +153,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+    
       <section 
         id="cta-section"
         className={`animate-on-scroll bg-[#1e3c72] text-white rounded-lg p-8 text-center transition-all duration-1000
@@ -170,7 +170,7 @@ export default function HomePage() {
           Get Started
           <ArrowRight className="ml-2 h-5 w-5" />
         </Link>
-      </section>
+      </section> */}
     </div>
   )
 }

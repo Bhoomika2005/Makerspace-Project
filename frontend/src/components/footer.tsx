@@ -1,59 +1,58 @@
-import { Mail, MapPin } from 'lucide-react';
+import React from 'react';
+import { MailIcon, MapPinIcon } from 'lucide-react';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-[#1e3c72] text-white py-6">
-      <div className="container mx-auto px-4">
-        {/* Top Section: Left and Right Halves */}
-        <div className="flex flex-col md:flex-row justify-between gap-6">
-          {/* Left Half: Contact Us */}
-          <div className="w-full md:w-1/2 space-y-4">
-            <h2 className="text-xl font-semibold">Contact Us</h2>
-            <div className="flex items-center gap-2">
-              <Mail className="h-4 w-4" />
-              <a href="mailto:makerspace@iiti.ac.in" className="hover:underline">
+    <footer className="w-full relative h-24 bg-transparent mt-10 mb-0 border-b border-black">
+      <div className="absolute inset-0 bg-[#1a1a1a]">
+        <div className="h-full flex flex-col justify-between">
+          <div className="flex justify-center items-center gap-8 py-4">
+            <div className="flex items-center gap-2 text-gray-300">
+              <MailIcon className="h-4 w-4" />
+              <a href="mailto:makerspace@iiti.ac.in" className="hover:text-white">
                 makerspace@iiti.ac.in
               </a>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              <address className="not-italic">
-                IIT Indore, Khandwa Road, Simrol, Indore 453552
-              </address>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              <a
-                href="https://www.google.com/maps/place/IIT+Indore/@22.520215,75.9192283,17z/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                View on Google Maps
-              </a>
+            <div className="flex items-center gap-2 text-gray-300">
+              <MapPinIcon className="h-4 w-4" />
+              <p>IIT Indore, Khandwa Road, Simrol</p>
             </div>
           </div>
-
-          {/* Right Half: Google Maps */}
-          <div className="w-full md:w-1/2">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.0845672789676!2d75.91922831500338!3d22.52021508520051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962e51b24612a3d%3A0x562b30c8c02f4cfa!2sIIT%20Indore!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%"
-              height="200"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
+          <div className="text-center py-2 border-t border-gray-700 text-gray-300">
+            <p className="text-sm">
+              © 2025 MakerSpace, IIT Indore. All rights reserved.
+            </p>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Section: Copyrights */}
-        <div className="mt-6 text-center text-sm">
-          © {new Date().getFullYear()} MakerSpace, Indian Institute of Technology Indore.
-          <br />
-          All rights reserved.
-        </div>
+      <div
+        className="absolute left-0 bottom-0 w-[200px] lg:w-[300px] h-32 flex items-center justify-center bg-gray-200"
+        style={{ 
+          clipPath: "polygon(0% 100%, 100% 100%, 80% 0, 0 0)",
+        }}
+      >
+        <img
+          src="/images/iiti.png"
+          className="object-contain w-[120px] h-[120px] lg:w-[130px] lg:h-[130px] py-2"
+          alt="IITI Logo"
+        />
+      </div>
+
+      <div
+        className="absolute right-0 bottom-0 w-[200px] lg:w-[300px] h-32 flex items-center justify-center bg-gray-200"
+        style={{ 
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 20% 0)",
+        }}
+      >
+        <img
+          src="/images/ms_logo.png"
+          className="object-contain w-[120px] h-[120px] lg:w-[130px] lg:h-[130px] py-2"
+          alt="MakerSpace Logo"
+        />
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
