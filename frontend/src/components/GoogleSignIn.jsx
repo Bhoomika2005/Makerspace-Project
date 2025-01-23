@@ -23,7 +23,7 @@ export default function GoogleSignIn() {
   return (
     <button
       onClick={handleGoogleLogin}
-      className="flex items-center justify-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50"
+      className="flex items-center justify-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50 w-full"
     >
       <FcGoogle className="text-xl" /> 
       Sign in with Google
