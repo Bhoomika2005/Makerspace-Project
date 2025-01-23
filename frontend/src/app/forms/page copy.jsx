@@ -338,238 +338,108 @@ export default function FormsPage() {
   //     </AlertDialog>
   //   </div>
   // );
-  // return (
-  //   <div className="container mx-auto my-8 px-4 sm:px-6 lg:px-8">
-  //     {error && (
-  //       <div className="mb-4">
-  //         <Alert variant="destructive">
-  //           <AlertDescription>{error}</AlertDescription>
-  //         </Alert>
-  //       </div>
-  //     )}
-
-  //     {isAdmin && (
-  //       <Dialog open={showUploadDialog} onOpenChange={setShowUploadDialog}>
-  //         <DialogTrigger asChild>
-  //           <Button className="mb-4">Add Form</Button>
-  //         </DialogTrigger>
-  //         <DialogContent>
-  //           <DialogHeader>
-  //             <DialogTitle>Upload New Form</DialogTitle>
-  //           </DialogHeader>
-  //           <div className="grid gap-4 py-4">
-  //             <div className="grid grid-cols-4 items-center gap-4">
-  //               <Label htmlFor="title" className="text-right">Title</Label>
-  //               <Input
-  //                 id="title"
-  //                 value={formTitle}
-  //                 onChange={(e) => setFormTitle(e.target.value)}
-  //                 className="col-span-3"
-  //               />
-  //             </div>
-  //             <div className="grid grid-cols-4 items-center gap-4">
-  //               <Label htmlFor="file" className="text-right">File</Label>
-  //               <Input
-  //                 id="file"
-  //                 type="file"
-  //                 onChange={(e) => setSelectedFile(e.target.files[0])}
-  //                 accept=".pdf,.doc,.docx"
-  //                 className="col-span-3"
-  //               />
-  //             </div>
-  //           </div>
-  //           <div className="flex justify-end gap-2">
-  //             <Button variant="outline" onClick={() => setShowUploadDialog(false)}>
-  //               Cancel
-  //             </Button>
-  //             <Button onClick={handleFileUpload}>Upload</Button>
-  //           </div>
-  //         </DialogContent>
-  //       </Dialog>
-  //     )}
-
-  //     <div className="grid gap-4">
-  //       {forms.map((form) => (
-  //         <div key={form.id} className="bg-white shadow-md rounded-lg overflow-hidden">
-  //           <div className="px-6 py-4 border-b border-gray-200">
-  //             <h2 className="text-lg font-medium mb-2">{form.title}</h2>
-  //             <div className="flex justify-end space-x-4">
-  //               <ActionButton
-  //                 variant="outline"
-  //                 onClick={() => handleView(form.id)}
-  //               >
-  //                 View
-  //               </ActionButton>
-  //               {isLoggedIn && (
-  //                 <ActionButton
-  //                   variant="outline"
-  //                   onClick={() => handleDownload(form.id)}
-  //                 >
-  //                   Download
-  //                 </ActionButton>
-  //               )}
-  //               {isAdmin && (
-  //                 <ActionButton
-  //                   variant="destructive"
-  //                     className="text-red-300 hover:text-red-700 focus:ring-2 focus:ring-red-500"
-  //                   onClick={() => {
-  //                     setSelectedFormId(form.id);
-  //                     setShowDeleteDialog(true);
-  //                   }}
-  //                 >
-  //                   Delete
-  //                 </ActionButton>
-  //               )}
-  //             </div>
-  //           </div>
-  //         </div>
-  //       ))}
-  //     </div>
-
-  //     <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-  //       <AlertDialogContent>
-  //         <AlertDialogHeader>
-  //           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-  //           <AlertDialogDescription>
-  //             This action cannot be undone. This will permanently delete the form.
-  //           </AlertDialogDescription>
-  //         </AlertDialogHeader>
-  //         <AlertDialogFooter>
-  //           <AlertDialogCancel>Cancel</AlertDialogCancel>
-  //           <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
-  //         </AlertDialogFooter>
-  //       </AlertDialogContent>
-  //     </AlertDialog>
-  //   </div>
-  // );
   return (
     <div className="container mx-auto my-8 px-4 sm:px-6 lg:px-8">
-  {error && (
-    <div className="mb-4">
-      <Alert variant="destructive">
-        <AlertDescription>{error}</AlertDescription>
-      </Alert>
+      {error && (
+        <div className="mb-4">
+          <Alert variant="destructive">
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        </div>
+      )}
+
+      {isAdmin && (
+        <Dialog open={showUploadDialog} onOpenChange={setShowUploadDialog}>
+          <DialogTrigger asChild>
+            <Button className="mb-4">Add Form</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Upload New Form</DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="title" className="text-right">Title</Label>
+                <Input
+                  id="title"
+                  value={formTitle}
+                  onChange={(e) => setFormTitle(e.target.value)}
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="file" className="text-right">File</Label>
+                <Input
+                  id="file"
+                  type="file"
+                  onChange={(e) => setSelectedFile(e.target.files[0])}
+                  accept=".pdf,.doc,.docx"
+                  className="col-span-3"
+                />
+              </div>
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline" onClick={() => setShowUploadDialog(false)}>
+                Cancel
+              </Button>
+              <Button onClick={handleFileUpload}>Upload</Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
+
+      <div className="grid gap-4">
+        {forms.map((form) => (
+          <div key={form.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h2 className="text-lg font-medium mb-2">{form.title}</h2>
+              <div className="flex justify-end space-x-4">
+                <ActionButton
+                  variant="outline"
+                  onClick={() => handleView(form.id)}
+                >
+                  View
+                </ActionButton>
+                {isLoggedIn && (
+                  <ActionButton
+                    variant="outline"
+                    onClick={() => handleDownload(form.id)}
+                  >
+                    Download
+                  </ActionButton>
+                )}
+                {isAdmin && (
+                  <ActionButton
+                    variant="destructive"
+                      className="text-red-300 hover:text-red-700 focus:ring-2 focus:ring-red-500"
+                    onClick={() => {
+                      setSelectedFormId(form.id);
+                      setShowDeleteDialog(true);
+                    }}
+                  >
+                    Delete
+                  </ActionButton>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the form.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
-  )}
-
-  {isAdmin && (
-    <Dialog open={showUploadDialog} onOpenChange={setShowUploadDialog}>
-      <DialogTrigger asChild>
-        <Button className="mb-4">Add Form</Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Upload New Form</DialogTitle>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="title" className="text-right">Title</Label>
-            <Input
-              id="title"
-              value={formTitle}
-              onChange={(e) => setFormTitle(e.target.value)}
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="file" className="text-right">File</Label>
-            <Input
-              id="file"
-              type="file"
-              onChange={(e) => setSelectedFile(e.target.files[0])}
-              accept=".pdf,.doc,.docx"
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <div className="flex justify-end gap-2">
-          <Button variant="outline" onClick={() => setShowUploadDialog(false)}>
-            Cancel
-          </Button>
-          <Button onClick={handleFileUpload}>Upload</Button>
-        </div>
-      </DialogContent>
-    </Dialog>
-  )}
-
-  <div className="w-4/5 mx-auto shadow-lg rounded-lg overflow-hidden">
-  <table className="w-full border-collapse text-sm font-sans">
-  <thead>
-    <tr>
-    <th className="w-[70%] px-4 py-6 text-center font-bold text-lg text-gray-800 bg-white">
-  Form Title
-</th>
-<th className="w-[30%] px-4 py-6 text-center font-bold text-lg text-gray-800 border-l border-gray-400 bg-white">
-  Actions
-</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    {forms.map((form, index) => (
-      <tr
-        key={form.id}
-        className={`${
-          index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-        } border-t text-gray-800`}
-      >
-        <td className="px-4 py-6 truncate text-base">{form.title}</td>
-        <td className="px-4 py-6 border-l border-gray-400">
-          <div className="flex justify-center gap-4">
-            <ActionButton
-              variant="outline"
-              className="text-sm font-medium"
-              onClick={() => handleView(form.id)}
-            >
-              View
-            </ActionButton>
-            {isLoggedIn && (
-              <ActionButton
-                variant="outline"
-                className="text-sm font-medium"
-                onClick={() => handleDownload(form.id)}
-              >
-                Download
-              </ActionButton>
-            )}
-            {isAdmin && (
-              <ActionButton
-                variant="destructive"
-                className="text-sm font-medium"
-                onClick={() => {
-                  setSelectedFormId(form.id);
-                  setShowDeleteDialog(true);
-                }}
-              >
-                Delete
-              </ActionButton>
-            )}
-          </div>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
-
-
-
-    <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete the form.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-  </div>
-</div>
-
   );
 }
