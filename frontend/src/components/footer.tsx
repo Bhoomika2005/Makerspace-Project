@@ -13,10 +13,18 @@ const Footer = () => {
                 makerspace@iiti.ac.in
               </a>
             </div>
-            <div className="flex items-center gap-2 text-gray-300">
-              <MapPinIcon className="h-4 w-4" />
-              <p>IIT Indore, Khandwa Road, Simrol</p>
-            </div>
+            <a
+                href="https://maps.app.goo.gl/VnFN8QrtVmstQkAf8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300"
+              >
+                <div className="flex items-center gap-2">
+                  <MapPinIcon className="h-4 w-4" />
+                  <p>IIT Indore, Khandwa Road, Simrol</p>
+                </div>
+              </a>
+
           </div>
           <div className="text-center py-2 border-t border-gray-700 text-gray-300">
             <p className="text-sm">
