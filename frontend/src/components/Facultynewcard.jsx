@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Facultynewcard = ({ name, role, image, email, location }) => {
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${email}`;  // Opens the default email client with the email address
+  };
   return (
     <StyledWrapper>
       <div className="card">
@@ -26,7 +29,7 @@ const Facultynewcard = ({ name, role, image, email, location }) => {
           </button>
 
           {/* Email Box */}
-          <div className="email-box">
+          <div className="email-box" onClick={handleEmailClick}>
             <span>{email}</span>
           </div>
         </div>
@@ -43,6 +46,7 @@ const Facultynewcard = ({ name, role, image, email, location }) => {
         <div className="bottom">
           <div className="content">
             <span className="role">{role}</span>
+            <span className="name">{name}</span>
             <span className="about-me">{location}</span>
           </div>
           <div className="bottom-bottom">
@@ -59,10 +63,11 @@ const StyledWrapper = styled.div`
     width: 300px;
     height: 350px;
     background: white;
-    border-radius: 32px;
+    border-radius: 16px; /* Rounded corners for the card */
     padding: 3px;
     position: relative;
-    box-shadow: #604b4a30 0px 70px 30px -50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px -10px; /* Lighter, softer shadow */
+    border: 2px solid #dcdcdc; /* Subtle border around the card */
     transition: all 0.5s ease-in-out;
   }
 
@@ -78,12 +83,12 @@ const StyledWrapper = styled.div`
   }
 
   .card .mail svg {
-    stroke: #fbb9b6;
-    stroke-width: 3px;
+    stroke: #555; /* Remove the pink color and use a neutral color for the icon */
+    stroke-width: 2px;
   }
 
   .card .mail svg:hover {
-    stroke: #f55d56;
+    stroke: #333; /* Slightly darker color on hover */
   }
 
   .card .profile-pic {
@@ -253,7 +258,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     top: -1.5rem; /* Position it outside of the card */
     right: -2rem; /* Shift it outside to the right */
-    background-color: #fbb9b6;
+    background-color:rgb(56, 53, 53);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
