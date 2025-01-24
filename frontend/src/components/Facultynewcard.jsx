@@ -45,9 +45,8 @@ const Facultynewcard = ({ name, role, image, email, location }) => {
         {/* Card Bottom Section */}
         <div className="bottom">
           <div className="content">
-            <span className="role">{role}</span>
-            <span className="name">{name}</span>
-            <span className="about-me">{location}</span>
+            <span className="role"> 💼 {role}</span>
+            <span className="about-me">📍 {location}</span>
           </div>
           <div className="bottom-bottom">
             <span className="name">{name}</span>
