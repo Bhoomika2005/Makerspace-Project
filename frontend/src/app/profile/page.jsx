@@ -6,6 +6,7 @@ import { useState , useEffect } from 'react'
 import Cookies from 'js-cookie'
 import LoginComponent from '@/components/LoginComponent'
 
+
 export default function LoginPage() {
 
   const [ isLoggedIn , setIsLoggedIn ] = useState(false)
@@ -115,6 +116,8 @@ export default function LoginPage() {
   //   </div>
   // );
   return (
+    <>
+    
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
@@ -149,6 +152,7 @@ export default function LoginPage() {
         )}
       </div>
     </div>
+  </>
   );
   
 }
