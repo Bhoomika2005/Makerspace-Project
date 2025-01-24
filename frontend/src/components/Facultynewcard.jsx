@@ -5,17 +5,44 @@ const Facultynewcard = ({ name, role, image, email, location }) => {
   return (
     <StyledWrapper>
       <div className="card">
-       
+        {/* Mail icon and email box container */}
+        <div className="mail-container">
+          <button className="mail">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-mail"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </button>
+
+          {/* Email Box */}
+          <div className="email-box">
+            <span>{email}</span>
+          </div>
+        </div>
+
+        {/* Profile Image */}
         <div className="profile-pic">
           <img
             src={image ? `http://localhost:8000${image}` : '/placeholder.svg?height=300&width=500'}
             alt="profile-pic"
           />
         </div>
+
+        {/* Card Bottom Section */}
         <div className="bottom">
           <div className="content">
             <span className="role">{role}</span>
-            <span className="name">{email}</span>
             <span className="about-me">{location}</span>
           </div>
           <div className="bottom-bottom">
@@ -39,10 +66,13 @@ const StyledWrapper = styled.div`
     transition: all 0.5s ease-in-out;
   }
 
-  .card .mail {
+  .card .mail-container {
     position: absolute;
-    right: 2rem;
+    right: -2rem; /* Shift the container outside of the card */
     top: 1.4rem;
+  }
+
+  .card .mail {
     background: transparent;
     border: none;
   }
@@ -79,16 +109,16 @@ const StyledWrapper = styled.div`
 
   .card .bottom {
     position: absolute;
-    bottom: 0;  /* Align it to the bottom of the card */
+    bottom: 0;
     left: 3px;
     right: 3px;
     background: rgb(170, 165, 164);
-    top: 85%;  /* Position it lower */
+    top: 85%;
     border-radius: 29px;
     z-index: 2;
     box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
     overflow: hidden;
-    height: 50px;  /* Reduced height for when not hovered */
+    height: 50px;
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   }
 
@@ -174,7 +204,7 @@ const StyledWrapper = styled.div`
   .card:hover .bottom {
     top: 20%;
     border-radius: 80px 29px 29px 29px;
-    height: auto;  /* Make the height expand on hover */
+    height: auto;
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
   }
 
@@ -186,7 +216,7 @@ const StyledWrapper = styled.div`
     left: 10px;
     border-radius: 50%;
     z-index: 3;
-    border: 7px solidrgb(69, 66, 66);
+    border: 7px solid rgb(69, 66, 66);
     box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
     transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
   }
@@ -206,9 +236,37 @@ const StyledWrapper = styled.div`
     transform: scale(2.5);
     transition: all 0.5s ease-in-out 0.5s;
   }
-  .name{
-  font-weight: bold;
-  font-size:20px}
+
+  .name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  /* Mail box visibility on hover over mail container */
+  .card .mail-container:hover .email-box {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s;
+  }
+
+  .card .email-box {
+    position: absolute;
+    top: -1.5rem; /* Position it outside of the card */
+    right: -2rem; /* Shift it outside to the right */
+    background-color: #fbb9b6;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+    font-size: 1rem;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+  }
+
+  .card .email-box span {
+    word-wrap: break-word;
+  }
 
   /* Make content visible when hovered */
   .card:hover .bottom .content {
