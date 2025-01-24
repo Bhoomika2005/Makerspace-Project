@@ -499,7 +499,7 @@ export default function FormsPage() {
     <th className="w-[70%] px-4 py-6 text-center font-bold text-lg text-gray-800 bg-white">
   Form Title
 </th>
-<th className="w-[30%] px-4 py-6 text-center font-bold text-lg text-gray-800 border-l border-gray-400 bg-white">
+<th className="w-[30%] px-4 py-6 text-center font-bold text-lg text-gray-800  bg-white">
   Actions
 </th>
 
@@ -514,7 +514,7 @@ export default function FormsPage() {
         } border-t text-gray-800`}
       >
         <td className="px-4 py-6 truncate text-base">{form.title}</td>
-        <td className="px-4 py-6 border-l border-gray-400">
+        <td className="px-4 py-6 ">
           <div className="flex justify-center gap-4">
             <ActionButton
               variant="outline"
