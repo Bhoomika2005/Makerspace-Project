@@ -1,78 +1,81 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Telescope, Link, Lightbulb } from "lucide-react"
-import { motion } from "framer-motion"
+import Image from "next/image";
+import { Telescope, Link, Lightbulb } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
-    <header className="relative w-full pt-5">
-      <div className="max-w-4xl mx-auto bg-gray-200 border-2 border-black rounded-t-lg shadow-lg backdrop-blur-md backdrop-saturate-150"> {/* Changed border color to black */}
-        <div className="flex flex-col items-center py-3 px-4"> {/* Reduced padding here */}
-          <div className="flex items-center space-x-3"> {/* Reduced space between logo and text */}
-            <div className="relative w-32 h-32">
+    <header className="relative w-full pt-3">
+      <div className="max-w-6xl mx-auto rounded-t-lg shadow-[0_4px_30px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-md bg-white/20">
+        <div className="flex flex-col items-center py-3 px-2">
+          <div className="flex items-center space-x-3">
+            {/* <div className="relative w-20 h-20 p-2 backdrop-filter backdrop-blur-md bg-white/10 rounded-xl"> */}
+            <div className="relative w-20 h-20 p-2">
               <Image
                 src="/images/iiti.png"
                 alt="IIT Indore MakerSpace Logo"
-                width={120}
-                height={120}
+                width={80}
+                height={80}
                 className="object-contain"
               />
             </div>
 
             <div className="flex flex-col items-center">
-              {/* MakerSpace text with partial slide-out animation */}
               <h1 className="text-5xl font-bold tracking-wide mb-1 font-sans">
-                <span className="text-[#0211ad]">M</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  M
+                </span>
                 <motion.span
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="text-[#0211ad]"
+                  className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                 >
                   aker
                 </motion.span>
-                <span className="text-[#0211ad]">S</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  S
+                </span>
                 <motion.span
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
-                  className="text-[#0211ad]"
+                  className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                 >
                   pace
                 </motion.span>
               </h1>
 
-              {/* Institute name bold and without animation */}
-              <p className="text-gray-700 text-lg font-bold tracking-wider text-center font-sans">
+              <p className="text-gray-200 text-lg font-bold tracking-wider text-center font-sans">
                 INDIAN INSTITUTE OF TECHNOLOGY INDORE
               </p>
             </div>
 
-            <div className="relative w-35 h-35">
+            {/* <div className="relative w-20 h-20 p-1 backdrop-filter backdrop-blur-md bg-white/10 rounded-xl"> */}
+            <div className="relative w-20 h-20 p-1">
               <Image
                 src="/images/ms_logo.png"
                 alt="IIT Indore MakerSpace Logo"
-                width={140}
-                height={140}
+                width={100}
+                height={100}
                 className="object-contain"
               />
             </div>
-
           </div>
 
-          <div className="w-full mt-4 border-t-2 border-black pt-2">
-            <div className="flex justify-center items-center space-x-8 text-gray-700 w-full mx-3 pt-1">
-              <IconCard icon={<Telescope className="w-5 h-5" />} text="CURIOSITY" />
-              <IconCard icon={<Link className="w-5 h-5" />} text="CONNECTS" />
-              <IconCard icon={<Lightbulb className="w-5 h-5" />} text="CREATIVITY" />
+          {/* <div className="w-full mt-2 border-t-2 border-black pt-2">
+            <div className="flex justify-center items-center space-x-6 text-gray-700 w-full mx-3 pt-1">
+              <IconCard icon={<Telescope className="w-4 h-4" />} text="CURIOSITY" />
+              <IconCard icon={<Link className="w-4 h-4" />} text="CONNECTS" />
+              <IconCard icon={<Lightbulb className="w-4 h-4" />} text="CREATIVITY" />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
 const IconCard = ({ icon, text }: { icon: React.ReactNode; text: string }) => {
   return (
@@ -81,7 +84,7 @@ const IconCard = ({ icon, text }: { icon: React.ReactNode; text: string }) => {
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300, damping: 15 }}
     >
-      <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md cursor-pointer">
+      <div className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-md cursor-pointer">
         {icon}
       </div>
       <motion.div
@@ -93,7 +96,7 @@ const IconCard = ({ icon, text }: { icon: React.ReactNode; text: string }) => {
         <p className="font-sans font-medium tracking-wide">{text}</p>
       </motion.div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

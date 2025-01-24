@@ -1,21 +1,22 @@
 .navbarContainer {
-    position: sticky; /* Sticky behavior */
-    top: 0; /* Sticks at the top of the viewport */
-    z-index: 10; /* Ensures it stays above other elements */
-    background: var(--background); /* Matches the background for a seamless look */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: transparent;
 }
 
 .navbar {
     height: 10vh;
-    width: 70%;
-    background: #000;
+    width: 75%;
+    background:  rgba(255, 255, 255, 0.2);
+    /* background-image: linear-gradient(135deg, #027cc4, #0610ab); */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    /* top: 0;
-    z-index: 10;  */
     margin: 0 auto;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.7); /* Soft shadow for depth */
+    backdrop-filter: blur(10px);
     transition: all 0.5s ease;
 }
 
@@ -26,8 +27,9 @@
     top: 0;
     width: 36px;
     height: 64px;
-    background: #4e4e4e;
-    z-index: 0; /* Middle layer */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 0; 
     transform: translateY(11px) skewY(30deg);
     transition: all 0.5s ease;
 }
@@ -50,16 +52,20 @@
     top: 22px;
     z-index: 98; /* Bottommost layer */
     transition: all 0.5s ease;
+    /* background: rgba(255, 255, 255, 0.2);  */
+    backdrop-filter: blur(10px);
 }
 
 .decor1 {
     right: calc(100% - 36px);
-    border-color: #000 #000 #000 transparent;
+    border-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) transparent;
+    backdrop-filter: blur(10px);
 }
 
 .decor2 {
     left: calc(100% - 36px);
-    border-color: #000 transparent #000 #000;
+    border-color: rgba(255, 255, 255, 0.3) transparent rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 /* Styles for when header is hidden */
@@ -92,7 +98,7 @@
 .navbar nav a {
     font-size: 16px;
     margin: 0 25px;
-    color: #f3f4f6;
+    color: #fff; /* Changed text color to black */
     text-decoration: none;
     position: relative;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -101,7 +107,7 @@
 
 /* Enhanced hover effect */
 .navbar nav a:hover {
-    color: #ffffff;
+    color: #000; /* Updated hover color for text */
     transform: translateY(-2px) scale(1.05);
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
@@ -114,7 +120,7 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #ffffff;
+    background-color: #000; /* Updated underline color to #000 */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     opacity: 0;
     transform: translateX(-50%);

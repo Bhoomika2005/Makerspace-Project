@@ -87,6 +87,6 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: gray !important;
+  background: rgba(0,0,0,0.8) !important;
   border-radius: 40px !important;
 }
