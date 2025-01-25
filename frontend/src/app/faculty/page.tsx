@@ -30,6 +30,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import Header from '@/components/Header';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/footer';
+
 interface Faculty {
   id: number;
   name: string;
@@ -258,6 +262,10 @@ export default function FacultyPage() {
 
   return (
     <>
+    <div>
+      <Header/>
+      <Navbar/>
+    
         <div className="max-w-7xl mx-auto p-6">
       {error && (
         <div className="text-red-500 mb-4">
@@ -277,6 +285,8 @@ export default function FacultyPage() {
           />
         ))}
       </div>
+    </div>
+    <Footer/>
     </div>
     </>
   );

@@ -2,12 +2,13 @@
 
 import { useRef, useEffect, useState } from "react"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
-import Header from "@/components/header"
-import Navbar from "@/components/navbar"
-import TariffCards from "@/components/tariffCard"
-import OfferCard from "@/components/offerCard"
+import Header from "@/components/Header"
+import Navbar from "@/components/Navbar"
+import TariffCards from "@/components/TariffCards"
+import OfferCard from "@/components/OfferCard"
 import { Cog, GraduationCap, Users } from "lucide-react"
 import styles from "@/components/OfferCard.module.css"
+import Footer from "@/components/footer"
 
 export default function Home() {
   const ref = useRef(null)
@@ -182,9 +183,9 @@ export default function Home() {
       </motion.div>
 
       {/* What we Offer section */}
-      <div id="offer-section" className="w-full min-h-screen bg-white/90 backdrop-blur-sm">
+      <div id="offer-section" className="w-full min-h-screen bg-white/80 backdrop-blur-sm">
         <div className="container mx-auto px-8 py-28 h-full flex flex-col items-center justify-center">
-          <h2 className="text-5xl font-bold text-center mb-48 bg-gradient-to-r from-[#027cc4] to-[#0610ab] text-transparent bg-clip-text">
+          <h2 className="text-5xl font-bold text-center mb-40 bg-gradient-to-r from-[#027cc4] to-[#0610ab] text-transparent bg-clip-text">
             What we Offer!
           </h2>
           <div className="flex flex-row justify-center items-start gap-16">
@@ -204,7 +205,9 @@ export default function Home() {
               icon={<Users size={64} strokeWidth={1.5} className={styles.machineIcon} />}
             />
           </div>
+          
         </div>
+        <Footer/>
       </div>
     </div>
   )

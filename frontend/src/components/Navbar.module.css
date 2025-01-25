@@ -3,6 +3,7 @@
     top: 0;
     z-index: 10;
     background: transparent;
+    transition: background-image 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
 .navbar {
@@ -15,7 +16,7 @@
     align-items: center;
     position: relative;
     margin: 0 auto;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.7); /* Soft shadow for depth */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     transition: all 0.5s ease;
 }
@@ -120,7 +121,7 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #000; /* Updated underline color to #000 */
+    background-color: #fff; /* Updated underline color to #000 */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     opacity: 0;
     transform: translateX(-50%);

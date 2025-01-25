@@ -9,20 +9,24 @@ const UserProfile = (props) => {
   const isAdmin = adminEmails.includes(email);
 
   return (
-    <div className="p-6 bg-gray-100 rounded shadow-md max-w-md w-full">
-  <h2 className="text-xl font-bold mb-4 text-gray-700">User Profile</h2>
-  <div className="flex flex-col gap-3">
+    <div
+  className="p-6 bg-gray-100 rounded shadow-md max-w-md w-full"
+  style={{
+    boxShadow: 'inset 0 4px 10px rgba(0, 0, 0, 0.7)', // Inset shadow for outer div
+  }}
+>
+  <div className="flex flex-col gap-3 rounded-md">
     <div>
-      <span className="font-semibold text-gray-600">First Name:</span> {firstName}
+      <span className="font-semibold text-[#0610ab]">First Name:</span> {firstName}
     </div>
     <div>
-      <span className="font-semibold text-gray-600">Last Name:</span> {lastName}
+      <span className="font-semibold text-[#0610ab]">Last Name:</span> {lastName}
     </div>
     <div>
-      <span className="font-semibold text-gray-600">Email:</span> {email}
+      <span className="font-semibold text-[#0610ab]">Email:</span> {email}
     </div>
     <div>
-      <span className="font-semibold text-gray-600">Admin Status:</span> {isAdmin ? "Admin" : "User"}
+      <span className="font-semibold text-[#0610ab]">Status:</span> {isAdmin ? "Admin" : "User"}
     </div>
   </div>
 </div>

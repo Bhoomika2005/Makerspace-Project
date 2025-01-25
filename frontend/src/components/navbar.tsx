@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation" // Import this to get the current path
 import { Home, Users, BookOpen, Wrench, FileText, Image, UserCircle } from "lucide-react"
 import styles from "./Navbar.module.css"
 
@@ -19,9 +20,9 @@ const NavItem: React.FC<NavItemProps> = ({ href, icon, text }) => (
 )
 
 const Navbar: React.FC = () => {
+  const pathname = usePathname() // Get the current path
   const [isHeaderHidden, setIsHeaderHidden] = useState(false)
   const [isOfferSection, setIsOfferSection] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     const header = document.querySelector("header")
@@ -37,8 +38,6 @@ const Navbar: React.FC = () => {
         const rect = offerSection.getBoundingClientRect()
         setIsOfferSection(rect.top <= 64 && rect.bottom >= 64)
       }
-
-      setLastScrollY(currentScrollY)
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -58,10 +57,16 @@ const Navbar: React.FC = () => {
     { href: "/profile", icon: <UserCircle size={20} />, text: "Profile" },
   ]
 
+  // Determine if the background should change
+  const isSpecialPage = pathname === "/" || pathname === "/profile"
+
   return (
     <div className={styles.navbarContainer}>
       <div
         className={`${styles.navbar} ${isHeaderHidden ? styles.headerHidden : ""} ${isOfferSection ? styles.offerSection : ""}`}
+        style={{
+          backgroundImage: isSpecialPage ? undefined : "linear-gradient(135deg, #027cc4, #0610ab)",
+        }}
       >
         <nav>
           {navItems.map((item) => (
@@ -74,4 +79,3 @@ const Navbar: React.FC = () => {
 }
 
 export default Navbar
-

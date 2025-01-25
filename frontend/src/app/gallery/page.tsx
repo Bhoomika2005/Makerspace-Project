@@ -23,6 +23,8 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import Header from "@/components/Header"
+import Navbar from "@/components/Navbar"
 
 interface EventImage {
   id: number
@@ -346,6 +348,9 @@ export default function GalleryPage() {
     };
 
   return (
+    <div>
+      <Header/>
+      <Navbar/>
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Events & Gallery</h1>
@@ -632,7 +637,7 @@ export default function GalleryPage() {
         </AlertDialogContent>
       </AlertDialog>
   </div>
-  
+  </div>
   
   );
 }

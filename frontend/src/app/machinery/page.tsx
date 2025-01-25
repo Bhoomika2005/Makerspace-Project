@@ -20,6 +20,9 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import Header from "@/components/Header"
+import Navbar from "@/components/Navbar"
+import Head from "next/head"
 
 interface Equipment {
   id: number
@@ -229,6 +232,10 @@ function MachineryPage() {
   }
 
   return (
+    <div>
+      <Header/>
+      <Navbar/>
+    
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         {isAdmin && (
@@ -494,6 +501,7 @@ function MachineryPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+    </div>
     </div>
   )
 }

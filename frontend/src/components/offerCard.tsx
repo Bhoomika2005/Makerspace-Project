@@ -1,10 +1,10 @@
-import React from "react"
-import styles from "./offerCard.module.css"
+import React from "react";
+import styles from "./OfferCard.module.css";
 
 interface OfferCardProps {
-  title: string
-  description: string
-  icon: React.ReactNode
+  title: string;
+  description: string;
+  icon: React.ReactNode;
 }
 
 export default function OfferCard({ title, description, icon }: OfferCardProps) {
@@ -18,16 +18,14 @@ export default function OfferCard({ title, description, icon }: OfferCardProps) 
         </div>
       </div>
 
-      <div className={styles.card2}>
+      <div className={`${styles.card2} ${styles.hidden}`}>
         <div className={styles.upper}>
           <div className={styles.titleText}>{title}</div>
         </div>
-
         <div className={styles.lower}>
           <div className={styles.descriptionText}>{description}</div>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
