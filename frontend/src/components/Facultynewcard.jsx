@@ -213,8 +213,8 @@ const StyledWrapper = styled.div`
   }
 
   .card:hover .profile-pic img {
-    transform: scale(2.5);
-    object-position: 0px 25px;
+    transform: scale(1);
+    object-position: 0px 15px;
     transition: all 0.5s ease-in-out 0.5s;
   }
 
