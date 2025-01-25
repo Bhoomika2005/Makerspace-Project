@@ -59,35 +59,31 @@ const Facultynewcard = ({ name, role, image, email, location }) => {
 
 const StyledWrapper = styled.div`
   .card {
-    width: 300px;
-    height: 350px;
+    width: 280px;
+    height: 280px;
     background: white;
-    border-radius: 16px; /* Rounded corners for the card */
+    border-radius: 32px;
     padding: 3px;
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px -10px; /* Lighter, softer shadow */
-    border: 2px solid #dcdcdc; /* Subtle border around the card */
+    box-shadow: #604b4a30 0px 70px 30px -50px;
     transition: all 0.5s ease-in-out;
   }
 
-  .card .mail-container {
-    position: absolute;
-    right: -2rem; /* Shift the container outside of the card */
-    top: 1.4rem;
-  }
-
   .card .mail {
+    position: absolute;
+    right: 2rem;
+    top: 1.4rem;
     background: transparent;
     border: none;
   }
 
   .card .mail svg {
-    stroke: #555; /* Remove the pink color and use a neutral color for the icon */
-    stroke-width: 2px;
+    stroke: #fbb9b6;
+    stroke-width: 3px;
   }
 
   .card .mail svg:hover {
-    stroke: #333; /* Slightly darker color on hover */
+    stroke: #f55d56;
   }
 
   .card .profile-pic {
@@ -113,61 +109,48 @@ const StyledWrapper = styled.div`
 
   .card .bottom {
     position: absolute;
-    bottom: 0;
+    bottom: 3px;
     left: 3px;
     right: 3px;
-    background: rgb(170, 165, 164);
-    top: 85%;
+    background: #fbb9b6;
+    top: 80%;
     border-radius: 29px;
     z-index: 2;
     box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
     overflow: hidden;
-    height: 50px;
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   }
 
   .card .bottom .content {
     position: absolute;
-    bottom: 100px;
+    bottom: 0;
     left: 1.5rem;
     right: 1.5rem;
-    height: 120px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    word-wrap: break-word;
+    height: 160px;
   }
 
   .card .bottom .content .name {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: white;
     font-weight: bold;
   }
 
-  .card .bottom .content .role {
-    display: block;
-    font-size: 1.2rem;
-    color: white;
-    margin-top: 0.5rem;
-  }
-
   .card .bottom .content .about-me {
     display: block;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: white;
     margin-top: 1rem;
   }
 
   .card .bottom .bottom-bottom {
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 1rem;
     left: 1.5rem;
     right: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0.5rem 0;
+    justify-content: space-between;
   }
 
   .card .bottom .bottom-bottom .social-links-container {
@@ -182,13 +165,13 @@ const StyledWrapper = styled.div`
   }
 
   .card .bottom .bottom-bottom .social-links-container svg:hover {
-    fill: rgb(164, 156, 156);
+    fill: #f55d56;
     transform: scale(1.2);
   }
 
   .card .bottom .bottom-bottom .button {
     background: white;
-    color: rgb(179, 169, 168);
+    color: #fbb9b6;
     border: none;
     border-radius: 20px;
     font-size: 0.6rem;
@@ -197,7 +180,7 @@ const StyledWrapper = styled.div`
   }
 
   .card .bottom .bottom-bottom .button:hover {
-    background: rgb(193, 182, 182);
+    background: #f55d56;
     color: white;
   }
 
@@ -208,7 +191,6 @@ const StyledWrapper = styled.div`
   .card:hover .bottom {
     top: 20%;
     border-radius: 80px 29px 29px 29px;
-    height: auto;
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
   }
 
@@ -220,7 +202,7 @@ const StyledWrapper = styled.div`
     left: 10px;
     border-radius: 50%;
     z-index: 3;
-    border: 7px solid rgb(69, 66, 66);
+    border: 7px solid #fbb9b6;
     box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
     transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
   }
@@ -241,12 +223,7 @@ const StyledWrapper = styled.div`
     transition: all 0.5s ease-in-out 0.5s;
   }
 
-  .name {
-    font-weight: bold;
-    font-size: 20px;
-  }
-
-  /* Mail box visibility on hover over mail container */
+  /* Make the email box visible only when hovered */
   .card .mail-container:hover .email-box {
     visibility: visible;
     opacity: 1;
@@ -257,7 +234,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     top: -1.5rem; /* Position it outside of the card */
     right: -2rem; /* Shift it outside to the right */
-    background-color:rgb(56, 53, 53);
+    background-color: rgb(56, 53, 53);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
@@ -270,12 +247,6 @@ const StyledWrapper = styled.div`
 
   .card .email-box span {
     word-wrap: break-word;
-  }
-
-  /* Make content visible when hovered */
-  .card:hover .bottom .content {
-    opacity: 1;
-    visibility: visible;
   }
 `;
 
