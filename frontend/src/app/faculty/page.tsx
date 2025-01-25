@@ -30,9 +30,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import Header from '@/components/Header';
+import Header from '@/components/HeaderReplica';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/footer';
 
 interface Faculty {
   id: number;
@@ -286,7 +285,7 @@ export default function FacultyPage() {
         ))}
       </div>
     </div>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
     </>
   );

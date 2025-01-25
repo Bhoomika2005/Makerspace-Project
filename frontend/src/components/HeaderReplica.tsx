@@ -6,10 +6,11 @@ import { motion } from "framer-motion";
 const Header = () => {
   return (
     <header className="relative w-full pt-3">
-      <div className="max-w-6xl mx-auto rounded-t-lg shadow-[0_4px_7px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-md bg-white/20">
+      <div className="max-w-6xl mx-auto rounded-t-lg shadow-[0_4px_7px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] bg-gradient-to-r from-[#027cc4] to-[#0610ab]">
+
         <div className="flex flex-col items-center py-3 px-2">
           <div className="flex items-center space-x-3">
-            {/* <div className="relative w-20 h-20 p-2 backdrop-filter backdrop-blur-md bg-white/10 rounded-xl"> */}
+            <div className="relative w-24 h-22 px-2 backdrop-filter backdrop-blur-md bg-gray-200 shadow-[inset_0_4px_7px_rgba(0,0,0,0.3)]">
             <div className="relative w-20 h-20 p-2">
               <Image
                 src="/images/iiti.png"
@@ -18,6 +19,7 @@ const Header = () => {
                 height={80}
                 className="object-contain"
               />
+            </div>
             </div>
 
             <div className="flex flex-col items-center">
@@ -51,7 +53,7 @@ const Header = () => {
               </p>
             </div>
 
-            {/* <div className="relative w-20 h-20 p-1 backdrop-filter backdrop-blur-md bg-white/10 rounded-xl"> */}
+            <div className="relative w-24 h-22 px-2 backdrop-filter backdrop-blur-md bg-gray-200 shadow-[inset_0_4px_7px_rgba(0,0,0,0.3)]">
             <div className="relative w-20 h-20 p-1">
               <Image
                 src="/images/ms_logo.png"
@@ -60,6 +62,7 @@ const Header = () => {
                 height={100}
                 className="object-contain"
               />
+            </div>
             </div>
           </div>
         </div>

@@ -20,9 +20,8 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import Header from "@/components/Header"
+import Header from "@/components/HeaderReplica"
 import Navbar from "@/components/Navbar"
-import Head from "next/head"
 
 interface Equipment {
   id: number

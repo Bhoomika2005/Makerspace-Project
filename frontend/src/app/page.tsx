@@ -184,7 +184,7 @@ export default function Home() {
 
       {/* What we Offer section */}
       <div id="offer-section" className="w-full min-h-screen bg-white/80 backdrop-blur-sm">
-        <div className="container mx-auto px-8 py-28 h-full flex flex-col items-center justify-center">
+        <div className="container mx-auto px-8 py-28 h-[90vh] flex flex-col items-center justify-center">
           <h2 className="text-5xl font-bold text-center mb-40 bg-gradient-to-r from-[#027cc4] to-[#0610ab] text-transparent bg-clip-text">
             What we Offer!
           </h2>
@@ -207,7 +207,7 @@ export default function Home() {
           </div>
           
         </div>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     </div>
   )

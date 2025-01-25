@@ -30,9 +30,8 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
-import Header from "@/components/Header";
+import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/footer";
 
 // Interfaces for TypeScript
 interface Course {
@@ -413,7 +412,7 @@ export default function CoursePage() {
         </AlertDialogContent>
       </AlertDialog>
     </div>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
   );
 }
