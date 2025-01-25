@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+.cardm {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  margin: 2rem;
+}
+
+.card {
+  position: absolute;
+  border:#027cc4;
+  width: 300px;
+  height: 150px;
+  border-radius: 25px;
+  background: whitesmoke;
+  color:#026bc0;
+  z-index: 2;
+  transition: .4s ease-in-out;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.machineIcon {
+  stroke: #0610ab;
+  transition: all .4s ease-in-out;
+}
+
+.card2 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  height: 50px;
+  border-radius: 35px;
+  background: white;
+  z-index: -1;
+  transition: .4s ease-in-out;
+}
+
+.card:hover {
+  background: linear-gradient(135deg, #027cc4, #0610ab);
+  cursor: pointer;
+}
+
+.card:hover .machineIcon {
+  stroke: white;
+}
+
+.card:hover + .card2 {
+  height: 200px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.card:hover + .card2 .lower {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.upper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: black;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.titleText {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.lower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: black;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all .4s ease-in-out;
+}
+
+.descriptionText {
+  font-family: "Inter", sans-serif;
+  font-size: 1em;
+  text-align: center;
+  line-height: 1.6;
+}
+
