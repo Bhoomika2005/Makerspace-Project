@@ -6,7 +6,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Facultynewcard from '@/components/Facultynewcard'
+import Facultynewcard from '@/components/Facultynewcard';
 import { Textarea } from "@/components/ui/textarea"; // Removed: `bio` dependency
 import {
   Card,
@@ -32,6 +32,7 @@ import {
 
 import Header from '@/components/HeaderReplica';
 import Navbar from '@/components/Navbar';
+import { Plus } from 'lucide-react';
 
 interface Faculty {
   id: number;
@@ -264,29 +265,242 @@ export default function FacultyPage() {
     <div>
       <Header/>
       <Navbar/>
-    
-        <div className="max-w-7xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-6">
       {error && (
-        <div className="text-red-500 mb-4">
-          <p>{error}</p>
-        </div>
+        <Alert className="mb-6" variant="destructive">
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
       )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {faculty.map((item) => (
-          <Facultynewcard
-            key={item.id}
-            name={item.name}
-            role={item.role}
-            image={item.image}
-            email={item.email}
-            location={item.location}
-          />
-        ))}
+<div className="mb-8 flex justify-between items-center">
+<h1 className="text-xl font-bold">Our Faculty Members</h1>
+      {isAdmin && (
+        <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
+          <DialogTrigger asChild>
+          <div className="relative group">
+      <Button  className="bg-[#026bc0]  text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200">
+      <Plus className="h-5 w-5" />
+      </Button>
+      {/* Tooltip */}
+      <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-sm rounded-md px-3 py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
+        Add New Faculty
       </div>
     </div>
-    {/* <Footer/> */}
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Add New Faculty</DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">Name</Label>
+                <Input
+                  id="name"
+                  value={facultyData.name}
+                  onChange={(e) => setFacultyData({...facultyData, name: e.target.value})}
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">Role</Label>
+                <Input
+                  id="role"
+                  value={facultyData.role}
+                  onChange={(e) => setFacultyData({...facultyData, role: e.target.value})}
+                  className="col-span-3"
+                />
+              </div>
+             
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="email" className="text-right">Email</Label>
+                <Input
+                  id="email"
+                  value={facultyData.email}
+                  onChange={(e) => setFacultyData({...facultyData, email: e.target.value})}
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="location" className="text-right">location</Label>
+                <Input
+                  id="location"
+                  value={facultyData.location}
+                  onChange={(e) => setFacultyData({...facultyData, location: e.target.value})}
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="image" className="text-right">Image</Label>
+                <Input
+                  id="image"
+                  type="file"
+                  onChange={(e) => setFacultyData({...facultyData, image: e.target.files?.[0] || null})}
+                  accept="image/*"
+                  className="col-span-3"
+                />
+              </div>
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline" onClick={() => setShowAddDialog(false)}>
+                Cancel
+              </Button>
+              <Button onClick={handleAddFaculty}>Add Faculty</Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
+      </div>
+
+      {/* Edit Faculty Dialog */}
+      {selectedFaculty && (
+  <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
+    <DialogTrigger asChild>
+      <Button className="mb-4">Edit Faculty</Button>
+    </DialogTrigger>
+    <DialogContent className="sm:max-w-[425px]">
+      <DialogHeader>
+        <DialogTitle>Edit Faculty</DialogTitle>
+      </DialogHeader>
+
+      {/* Edit Faculty Form */}
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            value={facultyData.name}
+            onChange={(e) => setFacultyData({ ...facultyData, name: e.target.value })}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="role">Role</Label>
+          <Input
+            id="role"
+            value={facultyData.role}
+            onChange={(e) => setFacultyData({ ...facultyData, role: e.target.value })}
+          />
+        </div>
+       
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            value={facultyData.email}
+            onChange={(e) => setFacultyData({ ...facultyData, email: e.target.value })}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="location">location</Label>
+          <Input
+            id="location"
+            value={facultyData.location}
+            onChange={(e) => setFacultyData({ ...facultyData, location: e.target.value })}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="image">Image</Label>
+          <Input
+            id="image"
+            type="file"
+            accept="image/*"
+            onChange={(e) => setFacultyData({ ...facultyData, image: e.target.files ? e.target.files[0] : null })}
+          />
+        </div>
+      </div>
+
+      <div className="flex justify-end gap-2 mt-4">
+        <Button variant="outline" onClick={() => setShowEditDialog(false)}>
+          Cancel
+        </Button>
+        <Button onClick={handleEditFaculty}>Save Changes</Button>
+      </div>
+    </DialogContent>
+  </Dialog>
+)}
+
+
+      {/* <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+        {faculty.map(item => (
+          <Card key={item.id} className="overflow-hidden w-full">
+            <CardContent className="p-0">
+              <div className="grid md:grid-cols-2 h-full">
+                <div className="p-6 space-y-4">
+                  <div className="aspect-square relative overflow-hidden rounded-md mb-4">
+                    <Image
+                      src={item.image ? `http://localhost:8000${item.image}` : '/placeholder.svg?height=300&width=500'}
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-lg font-medium">{item.name}</div>
+                    <div>{item.email}</div>
+                    <div>{item.role}</div>
+                    <div>{item.location}</div>
+                  </div>
+                </div>
+                {isAdmin && (
+                  <div className="flex flex-col justify-between p-6 space-y-4">
+                    <Button variant="outline" onClick={() => {setSelectedFacultyId(item.id); initializeEditForm(item);}}>
+                      
+                      Edit
+                    </Button>
+                    <Button variant="outline" onClick={() => { setSelectedFacultyId(item.id); setShowDeleteDialog(true); }}>
+                      Delete
+                    </Button>
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div> */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {faculty.map((item) => (
+    <div key={item.id}>
+      <Facultynewcard
+        name={item.name}
+        role={item.role}
+        image={item.image}
+        email={item.email}
+        location={item.location}
+        onEdit={() => {
+          setSelectedFacultyId(item.id);
+          initializeEditForm(item);
+        }}
+        onDelete={() => {
+          setSelectedFacultyId(item.id);
+          setShowDeleteDialog(true);
+        }}
+      />
     </div>
+  ))}
+</div>
+
+
+
+      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setShowDeleteDialog(false)}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}>
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </div>
+    </div>
+    {/* <Footer/> */}
     </>
   );
 }

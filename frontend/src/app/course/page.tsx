@@ -32,6 +32,7 @@ import {
 
 import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/Navbar";
+import { Plus } from "lucide-react";
 
 // Interfaces for TypeScript
 interface Course {
@@ -211,17 +212,26 @@ export default function CoursePage() {
       <Navbar/>
     
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Our Courses</h1>
-      {isAdmin && (
-        <Button className="mb-4" onClick={handleAddCourse}>
-          Add Course
-        </Button>
-      )}
+    <div className="flex justify-between items-center mb-8">
+  <h1 className="text-3xl font-bold text-left">Our Courses</h1>
+  {isAdmin && (
+    <div className="relative group">
+      <Button className="mb-4 mr-20 bg-[#026bc0] p-2  text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200" onClick={handleAddCourse}>
+      <Plus className="h-5 w-5" />
+      </Button>
+      <div className="absolute bottom-full right-0 mb-2 hidden group-hover:flex items-center justify-center px-2 py-1 bg-[#0610ab] text-white text-sm rounded">
+        Add a new course
+      </div>
+    </div>
+  )}
+</div>
+
+
       {error && <div className="text-red-500 mb-4">{error}</div>}
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-1 gap-8">
         {courses.map((course) => (
-          <div key={course.courseId} className="relative">
+          <div key={course.courseId} className="relative ml-12">
             {/* Choose one of the card variants: */}
             <ModernSplitCard {...course} />
 
@@ -230,7 +240,7 @@ export default function CoursePage() {
             {/* <ExpandableCard {...course} /> */}
 
             {isAdmin && (
-              <div className="absolute top-4 right-4 flex gap-2">
+              <div className="absolute top-8 right-80 flex flex-col gap-2">
                 <Button
                   variant="outline"
                   size="sm"

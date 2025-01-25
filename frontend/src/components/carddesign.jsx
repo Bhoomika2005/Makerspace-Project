@@ -64,20 +64,28 @@ import { Clock, Calendar, Users, Building2, BookOpen, ChevronDown } from "lucide
 //     </Card>
 //   );
 // };
-export const ModernSplitCard = ({ courseId, title, description, offeredBy, offeredTo, duration, schedule }) => {
+export const ModernSplitCard = ({
+  courseId,
+  title,
+  description,
+  offeredBy,
+  offeredTo,
+  duration,
+  schedule,
+}) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   return (
-    <Card className="bg-gradient-to-br from-white to-gray-50 overflow-hidden relative">
+    <Card className="bg-gradient-to-br from-white to-gray-50 overflow-hidden relative" style={{ width: '70%' ,mx: 'auto'}}>
       {/* Quarter Circle in the top-right corner */}
       {/* <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-br-full opacity-10" /> */}
       <div className="absolute top-0 right-0 w-32 h-32 transform translate-x-16 -translate-y-16">
-        <div className="absolute inset-0 bg-blue-600 opacity-10 rounded-full" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#027cc4] to-[#0610ab]opacity-10 rounded-full" />
       </div>
 
       <div className="grid md:grid-cols-3 h-full">
         {/* Left Column - Primary Info */}
-        <div className="md:col-span-1 bg-blue-400 p-6 text-white">
+        <div className="md:col-span-1 bg-gradient-to-br from-[#027cc4] to-[#0610ab] p-6 text-white">
           <span className="inline-block px-2 py-1 bg-blue-500 rounded text-sm mb-4">
             {courseId}
           </span>
