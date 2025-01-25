@@ -71,13 +71,16 @@ const ImageCarousel = ({ images, onClose, event }: { images: EventImage[]; onClo
   };
 
   const getPositionClass = (index: number) => {
-    if (index === currentIndex) return "translate-x-0 scale-100 opacity-100 z-10";
-    if (index === (currentIndex - 1 + images.length) % images.length)
-      return "-translate-x-[16rem] scale-90 opacity-80 z-0"; // Left image
-    if (index === (currentIndex + 1) % images.length)
-      return "translate-x-[16rem] scale-90 opacity-80 z-0"; // Right image
-    return "hidden"; // Hide other images
-  };
+  if (index === currentIndex) return "translate-x-0 scale-100 opacity-100 z-10"; // Current image
+  if (index === (currentIndex - 1 + images.length) % images.length)
+    return "-translate-x-[16rem] scale-90 opacity-80 z-0"; // Left image
+  if (index === (currentIndex + 1) % images.length)
+    return "translate-x-[16rem] scale-90 opacity-80 z-0"; // Right image
+
+  // Ensure no black space by keeping images hidden properly
+  return "opacity-0 scale-75 absolute"; // Hide other images but keep them ready off-screen
+};
+
 
   if (!images.length) return null;
 
@@ -394,7 +397,7 @@ export default function GalleryPage() {
                   <div className="flex gap-2">
                     <Button
                       variant="outline"
-                      size="sm"
+                      size="lg"
                       onClick={(e) => {
                         e.stopPropagation()
                         setSelectedEventId(event.id)
@@ -405,7 +408,7 @@ export default function GalleryPage() {
                     </Button>
                     <Button
                       variant="destructive"
-                      size="sm"
+                      size="lg"
                       onClick={(e) => {
                         e.stopPropagation()
                         setSelectedEventId(event.id)
