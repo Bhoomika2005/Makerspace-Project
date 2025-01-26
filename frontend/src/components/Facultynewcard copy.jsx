@@ -4,59 +4,66 @@ import styled from 'styled-components';
 
 const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete, isAdmin }) => {
   const [copyMessage, setCopyMessage] = useState('');
+  const [hoverEmailMessage, setHoverEmailMessage] = useState('');
 
   const handleEmailClick = async () => {
     try {
-      await navigator.clipboard.writeText(email);
-      setCopyMessage('Email copied!');
-      setTimeout(() => setCopyMessage(''), 5000);
+      await navigator.clipboard.writeText(email); // Copies the email to clipboard
+      setCopyMessage('Email copied!'); // Show notification that the email has been copied
+      setTimeout(() => setCopyMessage(''), 5000); // Clear message after 2 seconds
     } catch (error) {
       console.error('Failed to copy email: ', error);
-      setCopyMessage('Failed to copy');
-      setTimeout(() => setCopyMessage(''), 5000);
+      setCopyMessage('Failed to copy'); // In case copying fails
+      setTimeout(() => setCopyMessage(''), 5000); // Clear message after 2 seconds
     }
+  };
+
+  const handleMailHover = () => {
+    setHoverEmailMessage(email); // Show the email when the mail icon is hovered
+    setTimeout(() => setHoverEmailMessage(''), 5000); // Hide the email after 5 seconds
   };
 
   return (
     <StyledWrapper>
       <div className="card">
         <div className="actions-row">
-          {isAdmin && (
-            <>
-              <div className="edit-action">
-                <button
-                  className="action-btn"
-                  onClick={onEdit}
-                >
-                  <Pencil className="text-[#026bc0] group-hover:text-white transition-colors duration-200" />
-                </button>
-                <div className="tooltip">
-                  Edit
-                </div>
-              </div>
+        {isAdmin && (
+  <>
+    <div className="edit-action">
+      <button
+        className="action-btn"
+        onClick={onEdit}
+      >
+        <Pencil className="text-[#026bc0] group-hover:text-white transition-colors duration-200" />
+      </button>
+      <div className="tooltip">
+        Edit
+      </div>
+    </div>
 
-              <div className="delete-action">
-                <button
-                  className="action-btn delete"
-                  onClick={onDelete}
-                >
-                  <Trash className="text-[#c5303c] group-hover:text-white transition-colors duration-200" />
-                </button>
-                <div className="tooltip">
-                  Delete
-                </div>
-              </div>
-            </>
-          )}
+    <div className="delete-action">
+      <button
+        className="action-btn delete"
+        onClick={onDelete}
+      >
+        <Trash className="text-[#c5303c] group-hover:text-white transition-colors duration-200" />
+      </button>
+      <div className="tooltip">
+        Delete
+      </div>
+    </div>
+  </>
+)}
 
-          <div className="email-action">
-            <button className="action-btn" onClick={handleEmailClick} >
-              <Mail className=" text-[#026bc0]  group-hover:text-[#034a8f] transition-colors duration-200" />
-            </button>
-            <div className="tooltip">
-              {email}
-            </div>
-          </div>
+<div className="email-action">
+  <button className="action-btn" onClick={handleEmailClick} title="Copy Email">
+    <Mail className="group-hover:text-[#034a8f] transition-colors duration-200" />
+  </button>
+  <div className="tooltip">
+    Copy Email
+  </div>
+</div>
+        
         </div>
 
         {copyMessage && (
@@ -65,6 +72,7 @@ const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete, 
           </div>
         )}
 
+        {/* Profile Image */}
         <div className="profile-pic">
           <img
             src={image ? `http://localhost:8000${image}` : '/placeholder.svg?height=300&width=500'}
@@ -72,13 +80,14 @@ const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete, 
           />
         </div>
 
+        {/* Card Bottom Section */}
         <div className="bottom">
           <div className="content">
             <span className="role about-me"> 💼 {role}</span>
             <br />
             <span className="about-me">📍 {location}</span>
           </div>
-          <div className="bottom-bottom">
+          <div className="bottom-bottom ">
             <div className="name">{name}</div>
           </div>
         </div>
@@ -98,7 +107,8 @@ const StyledWrapper = styled.div`
     box-shadow: #604b4a30 0px 70px 30px -50px;
     transition: all 0.5s ease-in-out;
   }
-     .card .profile-pic {
+
+  .card .profile-pic {
     position: absolute;
     width: calc(100% - 6px);
     height: calc(100% - 6px);
@@ -244,111 +254,94 @@ const StyledWrapper = styled.div`
   }
 
   .actions-row {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-    z-index: 10;
-  }
-
-  .card:hover .actions-row {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .edit-action, 
-  .delete-action, 
-  .email-action {
-    position: relative;
-  }
-
-  .action-btn {
-    background-color: transparent;
-    padding: 0.2rem 0.4rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s;
-  }
-
-  .action-btn:hover svg {
-    transform: scale(1.1);
-  }
-    .action-btn.delete:hover {
-  background-color: transparent; /* Ensure the background stays transparent */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 15px;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Hide by default */
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Smooth transition */
 }
 
-  .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: calc(100% + 5px);
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #0610ab;
-    color: white;
-    font-size: 0.9rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: visibility 0.2s, opacity 0.3s;
-    z-index: 10;
-    white-space: nowrap;
-  }
+.card:hover .actions-row {
+  opacity: 1; /* Show on hover */
+  visibility: visible; /* Ensure it is visible */
+}
 
-  .edit-action:hover .tooltip,
-  .delete-action:hover .tooltip,
-  .email-action:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-  }
+.edit-action, .delete-action, .email-action {
+  position: relative;
+}
 
-  .email-action {
-    opacity: 0;
-  }
+.action-btn {
+  padding: 0.4rem 0.6rem;
+  background-color: white;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-  .card:hover .email-action {
-    opacity: 1;
-  }
+/* Icons appearance on hover */
+.card:hover .action-btn {
+  visibility: visible;
+}
 
-  /* Rest of the existing styles remain the same... */
-  /* (Profile pic, bottom section, hover effects, etc.) */
- 
+/* Tooltips for individual actions */
+.edit-action .tooltip, 
+.delete-action .tooltip, 
+.email-action .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0610ab;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: visibility 0.2s, opacity 0.3s;
+  z-index: 10;
+}
+
+/* Show tooltips on hover */
+.edit-action:hover .tooltip,
+.delete-action:hover .tooltip,
+.email-action:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Action button hover styles */
+.edit-action .action-btn:hover {
+  background-color: #026bc0;
+}
+
+.delete-action .action-btn:hover {
+  background-color: #c5303c;
+}
+
+.email-action .action-btn:hover {
+  background-color: #0e91d5;
+}
+
+/* Copy email notification */
 .copy-notification {
-  position: fixed; /* Fixed position to stay at the bottom-right of the page */
-  bottom: 20px; /* Distance from the bottom of the page */
-  right: 20px; /* Distance from the right side of the page */
-  background-color: #0e91d5; /* Background color for the notification */
-  color: white; /* Text color */
-  padding: 0.8rem 1.2rem; /* Padding for better visibility */
-  border-radius: 8px; /* Rounded corners */
-  font-size: 1rem; /* Font size for readability */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  z-index: 1000; /* Ensure it appears on top of other elements */
-  opacity: 1; /* Fully visible when shown */
-  animation: fadeout 5s ease-in-out; /* Fade-out animation */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0e91d5;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
-
-@keyframes fadeout {
-  0%, 90% {
-    opacity: 1; /* Fully visible at the start */
-  }
-  100% {
-    opacity: 0; /* Fully faded out at the end */
-  }
-}
-
-  /* Additional bottom section and hover effects... */
-  .card:hover .bottom {
-    top: 30%;
-    border-radius: 80px 29px 29px 29px;
-    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
   }
 `;
 
