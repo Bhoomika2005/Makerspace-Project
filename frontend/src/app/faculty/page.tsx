@@ -275,17 +275,22 @@ export default function FacultyPage() {
 <h1 className="text-xl font-bold">Our Faculty Members</h1>
       {isAdmin && (
         <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
-          <DialogTrigger asChild>
-          <div className="relative group">
-      <Button  className="bg-[#026bc0]  text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200">
-      <Plus className="h-5 w-5" />
-      </Button>
-      {/* Tooltip */}
-      <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-sm rounded-md px-3 py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
-        Add New Faculty
-      </div>
-    </div>
-          </DialogTrigger>
+        
+          <div className="relative group ">
+                <DialogTrigger asChild>
+                  <Button
+                    size="icon"
+                    className="bg-[#026bc0] p-2 rounded-full text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200"
+                  >
+                    <Plus className="h-5 w-5" />
+                  </Button>
+                </DialogTrigger>
+                <div className="absolute top-1/2 left-full ml-2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-sm rounded-md px-3 py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
+                Add New Faculty
+                </div>
+              </div>
+    
+         
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Add New Faculty</DialogTitle>

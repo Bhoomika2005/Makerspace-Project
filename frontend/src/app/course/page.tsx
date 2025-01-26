@@ -215,14 +215,21 @@ export default function CoursePage() {
     <div className="flex justify-between items-center mb-8">
   <h1 className="text-3xl font-bold text-left">Our Courses</h1>
   {isAdmin && (
-    <div className="relative group">
-      <Button className="mb-4 mr-20 bg-[#026bc0] p-2  text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200" onClick={handleAddCourse}>
+    <div className="relative group mx-12">
+    <Button
+      size="icon"
+      className="bg-[#026bc0] p-2 rounded-full text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200"
+      onClick={handleAddCourse}
+    >
       <Plus className="h-5 w-5" />
-      </Button>
-      <div className="absolute bottom-full right-0 mb-2 hidden group-hover:flex items-center justify-center px-2 py-1 bg-[#0610ab] text-white text-sm rounded">
-        Add a new course
-      </div>
+    </Button>
+  
+    {/* Tooltip */}
+    <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-sm rounded-md px-3 py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
+      Add a new course
     </div>
+  </div>
+  
   )}
 </div>
 
