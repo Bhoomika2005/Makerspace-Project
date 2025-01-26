@@ -272,7 +272,7 @@ export default function FacultyPage() {
         </Alert>
       )}
 <div className="mb-8 flex justify-between items-center">
-<div className="flex items-center p-5 backdrop-blur-sm">
+<div className="flex items-center p-5 backdrop-blur-sm" >
             <Users className="mr-2 h-6 w-6 text-[#026bc0]" />
             <h2 className="text-[#026bc0] text-2xl font-bold">Faculty Members </h2>
           </div>
@@ -463,7 +463,10 @@ export default function FacultyPage() {
           </Card>
         ))}
       </div> */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div
+ className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6"
+
+ >
   {faculty.map((item) => (
     <div key={item.id}>
       <Facultynewcard
