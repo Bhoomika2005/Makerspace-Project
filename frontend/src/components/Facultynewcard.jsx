@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete }) => {
+const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete,isAdmin }) => {
   const [copyMessage, setCopyMessage] = useState('');
   const [hoverEmailMessage, setHoverEmailMessage] = useState('');
 
@@ -51,54 +51,44 @@ const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete }
             <span>{email}</span>
           </div>
         </div> */}
-        <div className="actions-row  ">
-          <div className="edit-action ">
-            <button className="action-btn" onClick={onEdit}>
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50">
-                <path d="M 43.125 2 C 41.878906 2 40.636719 2.488281 39.6875 3.4375 L 38.875 4.25 L 45.75 11.125 C 45.746094 11.128906 46.5625 10.3125 46.5625 10.3125 C 48.464844 8.410156 48.460938 5.335938 46.5625 3.4375 C 45.609375 2.488281 44.371094 2 43.125 2 Z M 37.34375 6.03125 C 37.117188 6.0625 36.90625 6.175781 36.75 6.34375 L 4.3125 38.8125 C 4.183594 38.929688 4.085938 39.082031 4.03125 39.25 L 2.03125 46.75 C 1.941406 47.09375 2.042969 47.457031 2.292969 47.707031 C 2.542969 47.957031 2.90625 48.058594 3.25 47.96875 L 10.75 45.96875 C 10.917969 45.914063 11.070313 45.816406 11.1875 45.6875 L 43.65625 13.25 C 44.054688 12.863281 44.058594 12.226563 43.671875 11.828125 C 43.285156 11.429688 42.648438 11.425781 42.25 11.8125 L 9.96875 44.09375 L 5.90625 40.03125 L 38.1875 7.75 C 38.488281 7.460938 38.578125 7.011719 38.410156 6.628906 C 38.242188 6.246094 37.855469 6.007813 37.4375 6.03125 C 37.40625 6.03125 37.375 6.03125 37.34375 6.03125 Z"></path>
-              </svg>
-
-            </button>
-            <div className="edit-box" >
-              <span>Edit</span>
-            </div>
-          </div>
-          <div className="delete-action ">
-            <button className="action-btn delete" onClick={onDelete}>
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30">
-                <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"></path>
-              </svg>
-            </button>
-
-            <div className="deletebox" >
-              <span>Delete</span>
-            </div>
-          </div>
-          <div className="email-action " onClick={handleEmailClick}>
-            <button className="action-btn " onClick={handleEmailClick}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-mail"
-              >
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-            </button>
-            <div className="email-box" >
-              <span>{email}</span>
-            </div>
-
-          </div>
+     <div className="actions-row">
+  {isAdmin && (
+    <>
+      <div className="edit-action">
+        <button className="action-btn" onClick={onEdit}>
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50">
+            <path d="M 43.125 2 C 41.878906 2 40.636719 2.488281 39.6875 3.4375 L 38.875 4.25 L 45.75 11.125 C 45.746094 11.128906 46.5625 10.3125 46.5625 10.3125 C 48.464844 8.410156 48.460938 5.335938 46.5625 3.4375 C 45.609375 2.488281 44.371094 2 43.125 2 Z M 37.34375 6.03125 C 37.117188 6.0625 36.90625 6.175781 36.75 6.34375 L 4.3125 38.8125 C 4.183594 38.929688 4.085938 39.082031 4.03125 39.25 L 2.03125 46.75 C 1.941406 47.09375 2.042969 47.457031 2.292969 47.707031 C 2.542969 47.957031 2.90625 48.058594 3.25 47.96875 L 10.75 45.96875 C 10.917969 45.914063 11.070313 45.816406 11.1875 45.6875 L 43.65625 13.25 C 44.054688 12.863281 44.058594 12.226563 43.671875 11.828125 C 43.285156 11.429688 42.648438 11.425781 42.25 11.8125 L 9.96875 44.09375 L 5.90625 40.03125 L 38.1875 7.75 C 38.488281 7.460938 38.578125 7.011719 38.410156 6.628906 C 38.242188 6.246094 37.855469 6.007813 37.4375 6.03125 C 37.40625 6.03125 37.375 6.03125 37.34375 6.03125 Z"></path>
+          </svg>
+        </button>
+        <div className="edit-box">
+          <span>Edit</span>
         </div>
+      </div>
+      <div className="delete-action">
+        <button className="action-btn delete" onClick={onDelete}>
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30">
+            <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"></path>
+          </svg>
+        </button>
+        <div className="deletebox">
+          <span>Delete</span>
+        </div>
+      </div>
+    </>
+  )}
+
+  <div className="email-action" onClick={handleEmailClick}>
+    <button className="action-btn" onClick={handleEmailClick}>
+    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
+<path d="M 10.5 8 C 6.9280619 8 4 10.928062 4 14.5 L 4 33.5 C 4 37.071938 6.9280619 40 10.5 40 L 37.5 40 C 41.071938 40 44 37.071938 44 33.5 L 44 14.5 C 44 10.928062 41.071938 8 37.5 8 L 10.5 8 z M 10.5 11 L 37.5 11 C 39.450062 11 41 12.549938 41 14.5 L 41 15.605469 L 24 24.794922 L 7 15.605469 L 7 14.5 C 7 12.549938 8.5499381 11 10.5 11 z M 7 19.015625 L 23.287109 27.820312 A 1.50015 1.50015 0 0 0 24.712891 27.820312 L 41 19.015625 L 41 33.5 C 41 35.450062 39.450062 37 37.5 37 L 10.5 37 C 8.5499381 37 7 35.450062 7 33.5 L 7 19.015625 z"></path>
+</svg>
+    </button>
+    <div className="email-box">
+      <span>{email}</span>
+    </div>
+  </div>
+</div>
+
 
         {copyMessage && (
           <div className="copy-notification">
@@ -122,7 +112,7 @@ const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete }
             <span className="about-me">📍 {location}</span>
           </div>
           <div className="bottom-bottom ">
-            <span className="name">{name}</span>
+            <div className="name">{name}</div>
           </div>
         </div>
       </div>
@@ -206,17 +196,17 @@ const StyledWrapper = styled.div`
   }
 
 .card .bottom .bottom-bottom .name {
+    width: 100%;
   display: block;
-  font-size: 25px; /* Increased font size */
+  font-size: 20px; /* Increased font size */
   color: white; /* Make the text white */
-  font-weight: bold;
   text-align: center; /* Center-align text */
   margin-top: 1rem; /* Add spacing at the top for better placement */
   margin-bottom: 2rem; /* Add spacing at the top for better placement */
   position: absolute;
    /* Position the name vertically */
-   top:50%
-  left: 50%; /* Position the name horizontally */
+  
+   /* Position the name horizontally */
   /* Perfectly center it both horizontally and vertically */
 }
 
@@ -276,7 +266,7 @@ const StyledWrapper = styled.div`
   }
 
   .card .bottom .bottom-bottom .button:hover {
-    background: #026bc0;
+      background: #026bc0;
     color: white;
   }
 
@@ -384,6 +374,7 @@ const StyledWrapper = styled.div`
 
   .card .email-box span {
     word-wrap: break-word;
+   
   }
       .copy-notification {
     position: fixed;
@@ -416,14 +407,14 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     position: absolute;
     top: 1rem;
     right: 1rem;
   }
 
   .action-btn {
-    background: #026bc0;
+    background: white;
     color: white;
     border: none;
     border-radius: 8px;
@@ -438,20 +429,13 @@ const StyledWrapper = styled.div`
   }
 
   .action-btn.delete {
-    background: #e63946;
+    background: white;
   }
 
   .action-btn.delete:hover {
     background: #c5303c;
   }
-//     .email-action:hover .email-box,
-//   .edit-action:hover .edit,
-// .delete-action:hover .deletebox {
-//   visibility: visible;
-//   opacity: 1;
-//   transition: opacity 0.3s ease, visibility 0s;
-// }
-/* Adjust the position of the popup box */
+
 
 .card  .email-box {
   position: absolute;
@@ -467,21 +451,7 @@ const StyledWrapper = styled.div`
   opacity: 0;
   transition: visibility 0s, opacity 0.3s ease;
 }
-// .card .edit-box,
-//  {
-//   position: absolute;
-//   top: -1rem; /* Adjust the distance above the button */
-//   right: 2rem; /* Adjust the distance to the right of the button */
-//   background-color: rgb(56, 53, 53);
-//   padding: 0.5rem 1rem;
-//   border-radius: 8px;
-//   box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
-//   font-size: 1rem;
-//   color: white;
-//   visibility: hidden;
-//   opacity: 0;
-//   transition: visibility 0s, opacity 0.3s ease;
-// }
+
 
  .card .edit-box {
   position: absolute;

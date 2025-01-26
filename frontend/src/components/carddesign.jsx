@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Clock, Calendar, Users, Building2, BookOpen, ChevronDown } from "lucide-react";
+import { Clock, Calendar, Users, Building2, BookOpen, ChevronDown, Trash } from "lucide-react";
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 // Modern Split Design
 // export const ModernSplitCard = ({ courseId, title, description, offeredBy, offeredTo, duration, schedule }) => {
@@ -72,16 +73,57 @@ export const ModernSplitCard = ({
   offeredTo,
   duration,
   schedule,
+   onEdit, onDelete ,isAdmin
 }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   return (
-    <Card className="bg-gradient-to-br from-white to-gray-50 overflow-hidden relative" style={{ width: '70%' ,mx: 'auto'}}>
+    <Card className="bg-gradient-to-br from-white to-gray-50 overflow-hidden relative w-[70%] mx-auto" >
       {/* Quarter Circle in the top-right corner */}
       {/* <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-br-full opacity-10" /> */}
       <div className="absolute top-0 right-0 w-32 h-32 transform translate-x-16 -translate-y-16">
         <div className="absolute inset-0 bg-gradient-to-br from-[#027cc4] to-[#0610ab]opacity-10 rounded-full" />
+        
       </div>
+   
+
+      
+
+      <div className="absolute top-4 right-4 flex space-x-2">
+    {isAdmin && (
+      <>
+        <div className="relative group">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onEdit}
+            className="bg-transparent border-none hover:bg-transparent focus:outline-none"
+          >
+            <FaEdit className="text-[#0610ab]" />
+          </Button>
+          <div className="absolute top-full mt-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-xs rounded px-2 py-1 transition">
+            Edit
+          </div>
+        </div>
+        <div className="relative group">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onDelete}
+            className="bg-transparent border-none hover:bg-transparent focus:outline-none"
+          >
+            <FaTrash className="text-red-600" />
+          </Button>
+          <div className="absolute top-full mt-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-xs rounded px-2 py-1 transition">
+            Delete
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+
+
+
 
       <div className="grid md:grid-cols-3 h-full">
         {/* Left Column - Primary Info */}

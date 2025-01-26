@@ -32,7 +32,8 @@ import {
 
 import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/Navbar";
-import { Plus } from "lucide-react";
+import { BookOpen, FileText, Plus } from "lucide-react";
+import { isDataView } from "util/types";
 
 // Interfaces for TypeScript
 interface Course {
@@ -213,7 +214,11 @@ export default function CoursePage() {
     
     <div className="container mx-auto px-4 py-8">
     <div className="flex justify-between items-center mb-8">
-  <h1 className="text-3xl font-bold text-left">Our Courses</h1>
+    <div className="flex items-center p-5 backdrop-blur-sm">
+            <BookOpen className="mr-2 h-6 w-6 text-[#026bc0]" />
+            <h2 className="text-[#026bc0] text-2xl font-bold">Our Courses</h2>
+          </div>
+  {/* <h1 className=" text-[#026bc0] text-2xl font-bold ml-8 ">Our Courses</h1> */}
   {isAdmin && (
     <div className="relative group mx-12">
     <Button
@@ -238,15 +243,20 @@ export default function CoursePage() {
 
       <div className="grid md:grid-cols-1 gap-8">
         {courses.map((course) => (
-          <div key={course.courseId} className="relative ml-12">
+          <div key={course.courseId} className="relative w-full">
             {/* Choose one of the card variants: */}
-            <ModernSplitCard {...course} />
+            <ModernSplitCard {...course} 
+          onEdit={() => handleEditCourse(course)}
+
+            onDelete={() => handleDeleteCourse}
+            isAdmin={isAdmin}
+            />
 
             {/* <StackedAccentCard {...course} /> */}
 
             {/* <ExpandableCard {...course} /> */}
 
-            {isAdmin && (
+            {/* {isAdmin && (
               <div className="absolute top-8 right-80 flex flex-col gap-2">
                 <Button
                   variant="outline"
@@ -268,7 +278,7 @@ export default function CoursePage() {
                   Delete
                 </Button>
               </div>
-            )}
+            )} */}
           </div>
         ))}
       </div>

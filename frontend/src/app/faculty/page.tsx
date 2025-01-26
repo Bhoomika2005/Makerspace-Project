@@ -32,7 +32,7 @@ import {
 
 import Header from '@/components/HeaderReplica';
 import Navbar from '@/components/Navbar';
-import { Plus } from 'lucide-react';
+import { Plus, Users } from 'lucide-react';
 
 interface Faculty {
   id: number;
@@ -272,7 +272,11 @@ export default function FacultyPage() {
         </Alert>
       )}
 <div className="mb-8 flex justify-between items-center">
-<h1 className="text-xl font-bold">Our Faculty Members</h1>
+<div className="flex items-center p-5 backdrop-blur-sm">
+            <Users className="mr-2 h-6 w-6 text-[#026bc0]" />
+            <h2 className="text-[#026bc0] text-2xl font-bold">Faculty Members </h2>
+          </div>
+{/* <h1 className=" text-[#026bc0] text-2xl font-bold"> <Users size={20} />Our Faculty Members</h1> */}
       {isAdmin && (
         <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
         
@@ -358,9 +362,7 @@ export default function FacultyPage() {
       {/* Edit Faculty Dialog */}
       {selectedFaculty && (
   <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
-    <DialogTrigger asChild>
-      <Button className="mb-4">Edit Faculty</Button>
-    </DialogTrigger>
+   
     <DialogContent className="sm:max-w-[425px]">
       <DialogHeader>
         <DialogTitle>Edit Faculty</DialogTitle>
@@ -478,6 +480,7 @@ export default function FacultyPage() {
           setSelectedFacultyId(item.id);
           setShowDeleteDialog(true);
         }}
+        isAdmin={isAdmin}
       />
     </div>
   ))}
