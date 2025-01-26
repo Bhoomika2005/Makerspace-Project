@@ -290,7 +290,7 @@ export default function FacultyPage() {
                   </Button>
                 </DialogTrigger>
                 <div className="absolute top-1/2 left-full ml-2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-sm rounded-md px-3 py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
-                Add New Faculty
+                Add a New Faculty
                 </div>
               </div>
     
@@ -352,7 +352,7 @@ export default function FacultyPage() {
               <Button variant="outline" onClick={() => setShowAddDialog(false)}>
                 Cancel
               </Button>
-              <Button onClick={handleAddFaculty}>Add Faculty</Button>
+              <Button onClick={() =>handleAddFaculty()}>Add Faculty</Button>
             </div>
           </DialogContent>
         </Dialog>
