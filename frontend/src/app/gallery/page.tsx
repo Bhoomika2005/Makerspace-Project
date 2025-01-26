@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, X } from "lucide-react"
+import { Plus,ChevronLeft, ChevronRight, X } from "lucide-react"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -349,295 +349,376 @@ export default function GalleryPage() {
 
   return (
     <div>
-      <Header/>
-      <Navbar/>
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Events & Gallery</h1>
-        {isAdmin && <Button onClick={() => setShowAddDialog(true)}>Add Event</Button>}
-      </div>
+      <Header />
+      <Navbar />
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-[#026bc0]">
+            Events & Gallery
+          </h1>
 
-      {error && (
-        <Alert className="mb-6" variant="destructive">
-          <AlertDescription>{error}</AlertDescription>
-        </Alert>
-      )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {events.map((event) => (
-          <Card
-            key={event.id}
-            className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
-            onClick={() => {
-              setSelectedEvent(event)
-              setShowCarousel(true)
-            }}
-          >
-            <CardContent className="p-4 space-y-4">
-              <div className="aspect-video relative overflow-hidden rounded-md">
-                {event.images && event.images.length > 0 ? (
-                  <Image
-                    src={`http://localhost:8000${event.images[0].image}`}
-                    alt={event.title}
-                    fill
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                    <span className="text-gray-400">No image</span>
-                  </div>
-                )}
-              </div>
-              <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-xl line-clamp-1">{event.title}</h3>
-              <p className="text-lg text-gray-500">{new Date(event.event_date).toLocaleDateString()}</p>
-                          </div>
-                          <div className="h-1 w-16 bg-blue-500 mt-2"></div>
-            <div>
-              <p className="text-gray-600 leading-relaxed">{event.description}</p>
-            </div>
-
-              <div className="flex justify-between items-center">
-                {isAdmin && (
-                  <div className="flex gap-2">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setSelectedEventId(event.id)
-                        initializeEditForm(event)
-                      }}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      variant="destructive"
-                      size="lg"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setSelectedEventId(event.id)
-                        setShowDeleteDialog(true)
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {/* Image Carousel Modal */}
-      <Dialog open={showCarousel} onOpenChange={setShowCarousel}>
-        <DialogContent className="max-w-none w-screen h-screen p-0 bg-black/90 backdrop-blur-md">
-          <DialogTitle className="sr-only">Image Gallery</DialogTitle>
-          <div className="relative w-full h-full flex items-center justify-center">
-            {selectedEvent && (
-              <>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="absolute top-4 right-4 bg-white/80 hover:bg-white rounded-full z-50"
-                  onClick={() => setShowCarousel(false)}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-                <ImageCarousel
-                  images={selectedEvent.images}
-                  event={selectedEvent}
-                  onClose={() => setShowCarousel(false)}
-                />
-              </>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
-
-            {/* Add Dialog */}
-      <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
-        <DialogContent className="sm:max-w-[600px]">
-          <DialogHeader>
-            <DialogTitle>Add New Event</DialogTitle>
-          </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="title" className="text-right">Title</Label>
-              <Input
-                id="title"
-                value={eventData.title}
-                onChange={(e) => setEventData({...eventData, title: e.target.value})}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="event_date" className="text-right">Date</Label>
-              <Input
-                id="event_date"
-                type="date"
-                value={eventData.event_date}
-                onChange={(e) => setEventData({...eventData, event_date: e.target.value})}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="description" className="text-right">Description</Label>
-              <Textarea
-                id="description"
-                value={eventData.description}
-                onChange={(e) => setEventData({...eventData, description: e.target.value})}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-start gap-4">
-              <Label htmlFor="images" className="text-right pt-2">Images</Label>
-              <div className="col-span-3 space-y-4">
-                <Input
-                  id="images"
-                  type="file"
-                  onChange={(e) => {
-                    const files = Array.from(e.target.files || []);
-                    setEventData(prev => ({
-                      ...prev,
-                      images: [...prev.images, ...files],
-                    }));
-                  }}
-                  accept="image/*"
-                  multiple
-                  className="w-full"
-                />
-                {eventData.images.length > 0 && (
-                  <div className="bg-gray-50 p-3 rounded-md">
-                    <p className="text-sm text-gray-500 mb-2">Selected images:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {eventData.images.map((file, index) => (
-                        <div key={index} className="flex items-center bg-white px-3 py-1 rounded-md shadow-sm">
-                          <span className="text-sm truncate max-w-[200px]">{file.name}</span>
-                          <button
-                            onClick={() => removeImage(index)}
-                            className="ml-2 text-gray-400 hover:text-red-500"
-                            type="button"
-                          >
-                            <X className="h-4 w-4" />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-end gap-2">
-            <Button variant="outline" onClick={() => setShowAddDialog(false)}>
-              Cancel
-            </Button>
-            <Button onClick={handleAddEvent}>Add Event</Button>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* Edit Dialog */}
-      <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
-  <DialogContent className="sm:max-w-[600px]">
-    <DialogHeader>
-      <DialogTitle>Edit Event</DialogTitle>
-    </DialogHeader>
-    <div className="grid gap-4 py-4">
-      <div className="grid grid-cols-4 items-center gap-4">
-        <Label htmlFor="edit-title" className="text-right">Title</Label>
-        <Input
-          id="edit-title"
-          value={eventData.title}
-          onChange={(e) => setEventData({ ...eventData, title: e.target.value })}
-          className="col-span-3"
-        />
-      </div>
-      <div className="grid grid-cols-4 items-center gap-4">
-        <Label htmlFor="edit-event_date" className="text-right">Date</Label>
-        <Input
-          id="edit-event_date"
-          type="date"
-          value={eventData.event_date}
-          onChange={(e) => setEventData({ ...eventData, event_date: e.target.value })}
-          className="col-span-3"
-        />
-      </div>
-      <div className="grid grid-cols-4 items-center gap-4">
-        <Label htmlFor="edit-description" className="text-right">Description</Label>
-        <Textarea
-          id="edit-description"
-          value={eventData.description}
-          onChange={(e) => setEventData({ ...eventData, description: e.target.value })}
-          className="col-span-3"
-        />
-      </div>
-      {/* Handle image uploads similarly */}
-      <div className="grid grid-cols-4 items-start gap-4">
-        <Label htmlFor="edit-images" className="text-right pt-2">Images</Label>
-        <div className="col-span-3 space-y-4">
-          <Input
-            id="edit-images"
-            type="file"
-            onChange={(e) => {
-              const files = Array.from(e.target.files || []);
-              setEventData(prev => ({
-                ...prev,
-                images: [...prev.images, ...files],
-              }));
-            }}
-            accept="image/*"
-            multiple
-            className="w-full"
-          />
-          {eventData.images.length > 0 && (
-            <div className="bg-gray-50 p-3 rounded-md">
-              <p className="text-sm text-gray-500 mb-2">New images to add:</p>
-              <div className="flex flex-wrap gap-2">
-                {eventData.images.map((file, index) => (
-                  <div key={index} className="flex items-center bg-white px-3 py-1 rounded-md shadow-sm">
-                    <span className="text-sm truncate max-w-[200px]">{file.name}</span>
-                    <button
-                      onClick={() => removeImage(index)}  // Remove function for uploaded image
-                      className="ml-2 text-gray-400 hover:text-red-500"
-                      type="button"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
-                  </div>
-                ))}
+          {isAdmin && (
+            <div className="relative group">
+              <button
+                className="bg-[#026bc0] p-2 rounded-full text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200"
+                onClick={() => setShowAddDialog(true)}
+              >
+                <Plus className="h-5 w-5" />
+              </button>
+              <div className="absolute top-1/2 mx-2 right-full transform -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-sm rounded-md px-3 py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
+                Add Event
               </div>
             </div>
           )}
         </div>
+
+        {error && (
+          <Alert className="mb-6" variant="destructive">
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {events.map((event) => (
+            <Card
+              key={event.id}
+              className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+              onClick={() => {
+                setSelectedEvent(event);
+                setShowCarousel(true);
+              }}
+            >
+              <CardContent className="p-4 space-y-4">
+                <div className="aspect-video relative overflow-hidden rounded-md">
+                  {event.images && event.images.length > 0 ? (
+                    <Image
+                      src={`http://localhost:8000${event.images[0].image}`}
+                      alt={event.title}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                      <span className="text-gray-400">No image</span>
+                    </div>
+                  )}
+                </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold text-xl line-clamp-1">
+                    {event.title}
+                  </h3>
+                  <p className="text-lg text-gray-500">
+                    {new Date(event.event_date).toLocaleDateString()}
+                  </p>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-tr from-[#027cc4] to-[#0610ab] mt-2"></div>
+                <div>
+                  <p className="text-gray-600 leading-relaxed">
+                    {event.description}
+                  </p>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  {isAdmin && (
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedEventId(event.id);
+                          initializeEditForm(event);
+                        }}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        variant="destructive"
+                        size="lg"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedEventId(event.id);
+                          setShowDeleteDialog(true);
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Image Carousel Modal */}
+        <Dialog open={showCarousel} onOpenChange={setShowCarousel}>
+          <DialogContent className="max-w-none w-screen h-screen p-0 bg-black/90 backdrop-blur-md">
+            <DialogTitle className="sr-only">Image Gallery</DialogTitle>
+            <div className="relative w-full h-full flex items-center justify-center">
+              {selectedEvent && (
+                <>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute top-4 right-4 bg-white/80 hover:bg-white rounded-full z-50"
+                    onClick={() => setShowCarousel(false)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                  <ImageCarousel
+                    images={selectedEvent.images}
+                    event={selectedEvent}
+                    onClose={() => setShowCarousel(false)}
+                  />
+                </>
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Add Dialog */}
+        <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
+          <DialogContent className="sm:max-w-[600px]">
+            <DialogHeader>
+              <DialogTitle className="text-center text-xl text-[#026bc0]">
+                Add New Event
+              </DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="title" className="text-right">
+                  Title
+                </Label>
+                <Input
+                  id="title"
+                  value={eventData.title}
+                  onChange={(e) =>
+                    setEventData({ ...eventData, title: e.target.value })
+                  }
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="event_date" className="text-right">
+                  Date
+                </Label>
+                <Input
+                  id="event_date"
+                  type="date"
+                  value={eventData.event_date}
+                  onChange={(e) =>
+                    setEventData({ ...eventData, event_date: e.target.value })
+                  }
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="description" className="text-right">
+                  Description
+                </Label>
+                <Textarea
+                  id="description"
+                  value={eventData.description}
+                  onChange={(e) =>
+                    setEventData({ ...eventData, description: e.target.value })
+                  }
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-start gap-4">
+                <Label htmlFor="images" className="text-right pt-2">
+                  Images
+                </Label>
+                <div className="col-span-3 space-y-4">
+                  <Input
+                    id="images"
+                    type="file"
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files || []);
+                      setEventData((prev) => ({
+                        ...prev,
+                        images: [...prev.images, ...files],
+                      }));
+                    }}
+                    accept="image/*"
+                    multiple
+                    className="w-full"
+                  />
+                  {eventData.images.length > 0 && (
+                    <div className="bg-gray-50 p-3 rounded-md">
+                      <p className="text-sm text-gray-500 mb-2">
+                        Selected images:
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {eventData.images.map((file, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center bg-white px-3 py-1 rounded-md shadow-sm"
+                          >
+                            <span className="text-sm truncate max-w-[200px]">
+                              {file.name}
+                            </span>
+                            <button
+                              onClick={() => removeImage(index)}
+                              className="ml-2 text-gray-400 hover:text-red-500"
+                              type="button"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button
+                variant={"outline"}
+                onClick={() => setShowAddDialog(false)}
+              >
+                Cancel
+              </Button>
+              <Button variant={"outline"} onClick={handleAddEvent}>
+                Add Event
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Edit Dialog */}
+        <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
+          <DialogContent className="sm:max-w-[600px]">
+            <DialogHeader>
+              <DialogTitle className="text-center text-xl text-[#026bc0]">
+                Edit Event
+              </DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="edit-title" className="text-right">
+                  Title
+                </Label>
+                <Input
+                  id="edit-title"
+                  value={eventData.title}
+                  onChange={(e) =>
+                    setEventData({ ...eventData, title: e.target.value })
+                  }
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="edit-event_date" className="text-right">
+                  Date
+                </Label>
+                <Input
+                  id="edit-event_date"
+                  type="date"
+                  value={eventData.event_date}
+                  onChange={(e) =>
+                    setEventData({ ...eventData, event_date: e.target.value })
+                  }
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="edit-description" className="text-right">
+                  Description
+                </Label>
+                <Textarea
+                  id="edit-description"
+                  value={eventData.description}
+                  onChange={(e) =>
+                    setEventData({ ...eventData, description: e.target.value })
+                  }
+                  className="col-span-3"
+                />
+              </div>
+              {/* Handle image uploads similarly */}
+              <div className="grid grid-cols-4 items-start gap-4">
+                <Label htmlFor="edit-images" className="text-right pt-2">
+                  Images
+                </Label>
+                <div className="col-span-3 space-y-4">
+                  <Input
+                    id="edit-images"
+                    type="file"
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files || []);
+                      setEventData((prev) => ({
+                        ...prev,
+                        images: [...prev.images, ...files],
+                      }));
+                    }}
+                    accept="image/*"
+                    multiple
+                    className="w-full"
+                  />
+                  {eventData.images.length > 0 && (
+                    <div className="bg-gray-50 p-3 rounded-md">
+                      <p className="text-sm text-gray-500 mb-2">
+                        New images to add:
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {eventData.images.map((file, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center bg-white px-3 py-1 rounded-md shadow-sm"
+                          >
+                            <span className="text-sm truncate max-w-[200px]">
+                              {file.name}
+                            </span>
+                            <button
+                              onClick={() => removeImage(index)} // Remove function for uploaded image
+                              className="ml-2 text-gray-400 hover:text-red-500"
+                              type="button"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button
+                variant="outline"
+                onClick={() => setShowEditDialog(false)}
+              >
+                Cancel
+              </Button>
+              <Button variant="outline" onClick={handleEditEvent}>
+                Save Changes
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Delete Dialog */}
+        <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete the
+                event and all associated images.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={handleDelete}>
+                Delete
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
-    <div className="flex justify-end gap-2">
-      <Button variant="outline" onClick={() => setShowEditDialog(false)}>Cancel</Button>
-      <Button onClick={handleEditEvent}>Save Changes</Button>
-    </div>
-  </DialogContent>
-</Dialog>
-
-      {/* Delete Dialog */}
-      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the event and all associated images.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-  </div>
-  </div>
-  
   );
 }

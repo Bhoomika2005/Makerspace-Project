@@ -244,7 +244,7 @@ export default function CoursePage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="bg-white"
+                  
                   onClick={() => handleEditCourse(course)}
                 >
                   Edit
