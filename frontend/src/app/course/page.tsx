@@ -175,7 +175,9 @@ export default function CoursePage() {
   };
 
   const handleDeleteCourse = async () => {
-    if (!selectedCourse?.courseId) return;
+    if (!selectedCourse?.courseId) {
+      console.log("bad link");
+      return};
 
     const token = Cookies.get("access");
     if (!token) {
@@ -248,7 +250,8 @@ export default function CoursePage() {
             <ModernSplitCard {...course} 
           onEdit={() => handleEditCourse(course)}
 
-            onDelete={() => handleDeleteCourse}
+            onDelete={() => {setSelectedCourse(course);
+              setShowDeleteDialog(true);}}
             isAdmin={isAdmin}
             />
 
