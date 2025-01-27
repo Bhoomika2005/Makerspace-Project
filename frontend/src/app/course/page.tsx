@@ -210,7 +210,13 @@ export default function CoursePage() {
   };
 
   return (
-    <div>
+    <div style={{
+      backgroundImage: 'url("/images/backg.jpg")', // Replace with your image path
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '100vh',
+    }}>
       <Header/>
       <Navbar/>
     
