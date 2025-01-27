@@ -245,7 +245,7 @@ export default function CoursePage() {
 
       <div className="grid md:grid-cols-1 gap-8">
         {courses.map((course) => (
-          <div key={course.courseId} className="relative w-full">
+          <div key={course.courseId} className="relative w-full hover:scale-105">
             {/* Choose one of the card variants: */}
             <ModernSplitCard {...course} 
           onEdit={() => handleEditCourse(course)}
