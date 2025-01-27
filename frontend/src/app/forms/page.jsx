@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Cookies from "js-cookie"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Plus, Eye, Download, Trash, FileText } from "lucide-react"
+import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Plus, Eye, Download, Trash, FileText } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,95 +16,101 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+} from "@/components/ui/alert-dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-import Header from "@/components/HeaderReplica"
-import Navbar from "@/components/Navbar"
+import Header from "@/components/HeaderReplica";
+import Navbar from "@/components/Navbar";
 
 export default function FormsPage() {
-  const [isAdmin, setIsAdmin] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [user, setUser] = useState(null)
-  const [forms, setForms] = useState([])
-  const [showDeleteDialog, setShowDeleteDialog] = useState(false)
-  const [showUploadDialog, setShowUploadDialog] = useState(false)
-  const [selectedFormId, setSelectedFormId] = useState(null)
-  const [error, setError] = useState(null)
-  const [formTitle, setFormTitle] = useState("")
-  const [selectedFile, setSelectedFile] = useState(null)
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const [forms, setForms] = useState([]);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [showUploadDialog, setShowUploadDialog] = useState(false);
+  const [selectedFormId, setSelectedFormId] = useState(null);
+  const [error, setError] = useState(null);
+  const [formTitle, setFormTitle] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     async function checkAdminStatus() {
       try {
-        const token = Cookies.get("access")
+        const token = Cookies.get("access");
 
         if (!token) {
-          setIsLoggedIn(false)
-          setIsAdmin(false)
-          return
+          setIsLoggedIn(false);
+          setIsAdmin(false);
+          return;
         }
 
-        setIsLoggedIn(true)
-        const userCookie = Cookies.get("user")
+        setIsLoggedIn(true);
+        const userCookie = Cookies.get("user");
         if (userCookie) {
-          const userDetails = JSON.parse(userCookie)
-          setUser(userDetails)
-          setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL)
+          const userDetails = JSON.parse(userCookie);
+          setUser(userDetails);
+          setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
         }
       } catch (error) {
-        console.error("Error checking the user status:", error)
-        setIsLoggedIn(false)
-        setIsAdmin(false)
+        console.error("Error checking the user status:", error);
+        setIsLoggedIn(false);
+        setIsAdmin(false);
       }
     }
-    checkAdminStatus()
-  }, [])
+    checkAdminStatus();
+  }, []);
 
   useEffect(() => {
-    fetchForms()
-  }, []) //Removed isLoggedIn from dependency array
+    fetchForms();
+  }, []); //Removed isLoggedIn from dependency array
 
   const fetchForms = async () => {
     try {
-      const token = Cookies.get("access")
+      const token = Cookies.get("access");
       const response = await fetch("http://localhost:8000/api/forms/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
         cache: "no-store",
-      })
+      });
 
       if (!response.ok) {
-        throw new Error("Failed to fetch forms")
+        throw new Error("Failed to fetch forms");
       }
 
-      const data = await response.json()
-      setForms(data)
-      setError(null)
+      const data = await response.json();
+      setForms(data);
+      setError(null);
     } catch (error) {
-      console.error("Error fetching forms:", error)
-      setError("Failed to fetch forms")
+      console.error("Error fetching forms:", error);
+      setError("Failed to fetch forms");
     }
-  }
+  };
 
   const handleFileUpload = async () => {
     if (!selectedFile || !formTitle.trim()) {
-      setError("Please provide both title and file")
-      return
+      setError("Please provide both title and file");
+      return;
     }
 
     if (!isAdmin) {
-      setError("You must be an admin to upload forms")
-      return
+      setError("You must be an admin to upload forms");
+      return;
     }
 
-    const formData = new FormData()
-    formData.append("file", selectedFile)
-    formData.append("title", formTitle.trim())
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("title", formTitle.trim());
 
-    const token = Cookies.get("access")
+    const token = Cookies.get("access");
     try {
       const response = await fetch("http://localhost:8000/api/forms/", {
         method: "POST",
@@ -112,111 +118,118 @@ export default function FormsPage() {
           Authorization: `Bearer ${token}`,
         },
         body: formData,
-      })
+      });
 
       if (response.status === 401) {
-        setError("Your session has expired. Please log in again.")
-        setIsLoggedIn(false)
-        return
+        setError("Your session has expired. Please log in again.");
+        setIsLoggedIn(false);
+        return;
       }
 
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(JSON.stringify(errorData))
+        const errorData = await response.json();
+        throw new Error(JSON.stringify(errorData));
       }
 
-      await fetchForms()
-      setShowUploadDialog(false)
-      setFormTitle("")
-      setSelectedFile(null)
-      setError(null)
+      await fetchForms();
+      setShowUploadDialog(false);
+      setFormTitle("");
+      setSelectedFile(null);
+      setError(null);
     } catch (err) {
-      console.error("Error uploading:", err)
-      setError("Failed to upload form: " + err.message)
+      console.error("Error uploading:", err);
+      setError("Failed to upload form: " + err.message);
     }
-  }
+  };
 
   const handleDelete = async () => {
-    if (!selectedFormId) return
+    if (!selectedFormId) return;
 
-    const token = Cookies.get("access")
+    const token = Cookies.get("access");
     try {
-      const response = await fetch(`http://localhost:8000/api/forms/${selectedFormId}/`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      const response = await fetch(
+        `http://localhost:8000/api/forms/${selectedFormId}/`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!response.ok) {
-        throw new Error("Failed to delete form")
+        throw new Error("Failed to delete form");
       }
 
-      await fetchForms()
-      setShowDeleteDialog(false)
-      setError(null)
+      await fetchForms();
+      setShowDeleteDialog(false);
+      setError(null);
     } catch (err) {
-      setError("Failed to delete form")
+      setError("Failed to delete form");
     }
-  }
+  };
 
   const handleDownload = async (formId) => {
-    const token = Cookies.get("access")
+    const token = Cookies.get("access");
     try {
-      const response = await fetch(`http://localhost:8000/api/forms/${formId}/download/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      const response = await fetch(
+        `http://localhost:8000/api/forms/${formId}/download/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!response.ok) {
-        throw new Error("Failed to download form")
+        throw new Error("Failed to download form");
       }
 
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const a = document.createElement("a")
-      a.href = url
-      a.download = `form-${formId}.pdf`
-      document.body.appendChild(a)
-      a.click()
-      window.URL.revokeObjectURL(url)
-      document.body.removeChild(a)
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `form-${formId}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
     } catch (error) {
-      console.error("Error downloading form:", error)
-      setError("Failed to download form")
+      console.error("Error downloading form:", error);
+      setError("Failed to download form");
     }
-  }
+  };
 
   const handleView = async (formId) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/forms/${formId}/view/`)
+      const response = await fetch(
+        `http://localhost:8000/api/forms/${formId}/view/`
+      );
 
       if (!response.ok) {
-        throw new Error("Failed to view form")
+        throw new Error("Failed to view form");
       }
 
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      window.open(url, "_blank")
-      window.URL.revokeObjectURL(url)
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      window.open(url, "_blank");
+      window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error("Error viewing form:", error)
-      setError("Failed to view form")
+      console.error("Error viewing form:", error);
+      setError("Failed to view form");
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-[#f8faff] relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-4 -right-4 w-72 h-72 bg-[#026bc0]/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/4 -left-12 w-72 h-72 bg-[#0610ab]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-[#026bc0]/5 rounded-full blur-3xl"></div>
-      </div>
-
+    <div className="min-h-[80vh] bg-[#f8faff] relative overflow-hidden">
       <Header />
       <Navbar />
+      {/* Decorative background elements */}
+      {/* <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-4 -right-4 w-72 bg-[#026bc0]/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 -left-12 w-72 bg-[#0610ab]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-12 w-96 bg-[#026bc0]/5 rounded-full blur-3xl"></div>
+      </div> */}
 
       <div className="container mx-auto my-8 px-4 sm:px-6 lg:px-8 max-w-7xl relative">
         {error && (
@@ -230,7 +243,9 @@ export default function FormsPage() {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center p-5 backdrop-blur-sm">
             <FileText className="mr-2 h-6 w-6 text-[#026bc0]" />
-            <h2 className="text-[#026bc0] text-2xl font-bold">Forms Available </h2>
+            <h2 className="text-[#026bc0] text-2xl font-bold">
+              Forms Available{" "}
+            </h2>
           </div>
           {isAdmin && (
             <div className="relative group">
@@ -247,12 +262,16 @@ export default function FormsPage() {
           )}
         </div>
 
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 mb-8">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg">
           <table className="w-full border-collapse text-sm font-sans">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="w-[70%] px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Form Title</th>
-                <th className="w-[30%] px-6 py-4 text-center font-bold text-lg text-[#026bc0]">Actions</th>
+                <th className="w-[70%] px-6 py-4 text-left font-bold text-lg text-[#026bc0]">
+                  Form Title
+                </th>
+                <th className="w-[30%] px-6 py-4 text-center font-bold text-lg text-[#026bc0]">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -291,8 +310,8 @@ export default function FormsPage() {
                         <button
                           className="flex items-center text-sm font-medium text-red-500 hover:text-red-600 transition-colors duration-200"
                           onClick={() => {
-                            setSelectedFormId(form.id)
-                            setShowDeleteDialog(true)
+                            setSelectedFormId(form.id);
+                            setShowDeleteDialog(true);
                           }}
                         >
                           <Trash className="mr-2 h-4 w-4" />
@@ -319,12 +338,16 @@ export default function FormsPage() {
             <AlertDialogHeader>
               <AlertDialogTitle>Are you sure?</AlertDialogTitle>
               <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete the form.
+                This action cannot be undone. This will permanently delete the
+                form.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete} className="bg-red-500 hover:bg-red-600 text-white">
+              <AlertDialogAction
+                onClick={handleDelete}
+                className="bg-red-500 hover:bg-red-600 text-white"
+              >
                 Delete
               </AlertDialogAction>
             </AlertDialogFooter>
@@ -334,7 +357,9 @@ export default function FormsPage() {
         <Dialog open={showUploadDialog} onOpenChange={setShowUploadDialog}>
           <DialogContent className="bg-white/95 backdrop-blur-sm">
             <DialogHeader>
-              <DialogTitle className="text-center text-xl text-[#026bc0]">Upload New Form</DialogTitle>
+              <DialogTitle className="text-center text-xl text-[#026bc0]">
+                Upload New Form
+              </DialogTitle>
             </DialogHeader>
             <div className="grid gap-6 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
@@ -361,12 +386,18 @@ export default function FormsPage() {
                     accept=".pdf,.doc,.docx"
                     className="cursor-pointer"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Accepted formats: PDF, DOC, DOCX</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Accepted formats: PDF, DOC, DOCX
+                  </p>
                 </div>
               </div>
             </div>
             <div className="flex justify-end gap-3">
-              <Button variant="outline" onClick={() => setShowUploadDialog(false)} className="hover:bg-gray-100">
+              <Button
+                variant="outline"
+                onClick={() => setShowUploadDialog(false)}
+                className="hover:bg-gray-100"
+              >
                 Cancel
               </Button>
               <Button
@@ -380,6 +411,5 @@ export default function FormsPage() {
         </Dialog>
       </div>
     </div>
-  )
+  );
 }
-

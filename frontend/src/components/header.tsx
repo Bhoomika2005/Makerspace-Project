@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Header = () => {
   return (
     <header className="relative w-full pt-3">
       <div className="max-w-6xl mx-auto rounded-t-lg shadow-[0_4px_7px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-md bg-white/20">
+      <Link href='/'>
         <div className="flex py-2 px-2 ml-44">
           <div className="relative w-32 self-stretch flex items-center justify-center">
             <Image
@@ -73,6 +75,7 @@ const Header = () => {
             />
           </div>
         </div>
+        </Link>
       </div>
     </header>
   );
