@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
     { href: "/machinery", icon: <Wrench size={20} />, text: "Machinery" },
     { href: "/forms", icon: <FileText size={20} />, text: "Forms" },
     { href: "/gallery", icon: <Image size={20} />, text: "Gallery" },
-    { href: "/profile", icon: <UserCircle size={20} />, text: "Profile" },
+    // { href: "/profile", icon: <UserCircle size={20} />, text: "Profile" },
   ]
 
   // Determine if the background should change

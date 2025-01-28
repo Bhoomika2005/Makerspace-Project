@@ -25,6 +25,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import { useRouter } from "next/navigation";
+
 import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/Navbar";
 
@@ -39,6 +41,7 @@ export default function FormsPage() {
   const [error, setError] = useState(null);
   const [formTitle, setFormTitle] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const router = useRouter()
 
   useEffect(() => {
     async function checkAdminStatus() {
@@ -174,11 +177,11 @@ export default function FormsPage() {
     try {
       const response = await fetch(
         `http://localhost:8000/api/forms/${formId}/download/`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        // {
+        //   headers: {
+        //     Authorization: `Bearer ${token}`,
+        //   },
+        // }
       );
 
       if (!response.ok) {
@@ -219,6 +222,35 @@ export default function FormsPage() {
       setError("Failed to view form");
     }
   };
+
+  const handleSignOut = () => {
+    Cookies.remove("access");
+    Cookies.remove("refresh");
+    Cookies.remove("user");
+
+    setIsLoggedIn(false);
+    setUser(null);
+    window.location.href = "/";
+  };
+
+  if (isLoggedIn && !isAdmin) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <h1 className="text-2xl font-bold text-red-600 mb-4">
+          Sorry! You do not have Admin Access !!
+        </h1>
+        <Button
+          className="bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg hover:bg-blue-800"
+          onClick={() => {
+            handleSignOut();
+            router.push("/");
+          }}
+        >
+          Go Back to Home Page
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[80vh] bg-[#f8faff] relative overflow-hidden">
@@ -297,7 +329,14 @@ export default function FormsPage() {
                         <Eye className="mr-2 h-4 w-4" />
                         View
                       </button>
-                      {isLoggedIn && (
+                      <button
+                          className="flex items-center text-sm font-medium text-[#026bc0] hover:text-[#0610ab] transition-colors duration-200"
+                          onClick={() => handleDownload(form.id)}
+                        >
+                          <Download className="mr-2 h-4 w-4" />
+                          Download
+                        </button>
+                      {/* {isLoggedIn && (
                         <button
                           className="flex items-center text-sm font-medium text-[#026bc0] hover:text-[#0610ab] transition-colors duration-200"
                           onClick={() => handleDownload(form.id)}
@@ -305,7 +344,7 @@ export default function FormsPage() {
                           <Download className="mr-2 h-4 w-4" />
                           Download
                         </button>
-                      )}
+                      )} */}
                       {isAdmin && (
                         <button
                           className="flex items-center text-sm font-medium text-red-500 hover:text-red-600 transition-colors duration-200"

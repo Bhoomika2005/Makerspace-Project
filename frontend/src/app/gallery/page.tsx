@@ -26,6 +26,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import Header from "@/components/HeaderReplica"
 import Navbar from "@/components/Navbar"
 
+import { useRouter } from "next/navigation"
+
 interface EventImage {
   id: number
   image: string
@@ -37,6 +39,11 @@ interface Event {
   event_date: string
   description: string
   images: EventImage[]
+}
+
+interface User {
+  email: string;
+  [key: string]: any;
 }
 
 
@@ -157,8 +164,10 @@ const ImageCarousel = ({ images, onClose, event }: { images: EventImage[]; onClo
 
 
 export default function GalleryPage() {
+  const router = useRouter()
   const [isAdmin, setIsAdmin] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [user, setUser] = useState<User | null>(null)
   const [events, setEvents] = useState<Event[]>([])
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
   const [showAddDialog, setShowAddDialog] = useState(false)
@@ -346,6 +355,35 @@ export default function GalleryPage() {
       images: prev.images.filter((_, i) => i !== index),
     }));
     };
+
+    const handleSignOut = () => {
+      Cookies.remove("access");
+      Cookies.remove("refresh");
+      Cookies.remove("user");
+  
+      setIsLoggedIn(false);
+      setUser(null);
+      window.location.href = "/";
+    };
+  
+    if (isLoggedIn && !isAdmin) {
+      return (
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">
+            Sorry! You do not have Admin Access !!
+          </h1>
+          <Button
+            className="bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg hover:bg-blue-800"
+            onClick={() => {
+              handleSignOut();
+              router.push("/");
+            }}
+          >
+            Go Back to Home Page
+          </Button>
+        </div>
+      );
+    }
 
   return (
     <div>

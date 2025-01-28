@@ -90,3 +90,12 @@ html {
   background: #0610ab !important;
   border-radius: 40px !important;
 }
+
+.admin-button, .maker-button {
+  background: linear-gradient(135deg, #027cc4, #0610ab);
+}
+
+.admin-button:hover, .maker-button:hover {
+  background: white;
+  color: #0610ab;
+}
