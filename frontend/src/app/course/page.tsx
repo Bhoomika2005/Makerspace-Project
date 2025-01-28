@@ -210,13 +210,7 @@ export default function CoursePage() {
   };
 
   return (
-    <div style={{
-      backgroundImage: 'url("/images/backg.jpg")', // Replace with your image path
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      minHeight: '100vh',
-    }}>
+    <div >
       <Header/>
       <Navbar/>
     
@@ -251,7 +245,7 @@ export default function CoursePage() {
 
       <div className="grid md:grid-cols-1 gap-8">
         {courses.map((course) => (
-          <div key={course.courseId} className="relative w-full hover:scale-105">
+          <div key={course.courseId} className="relative w-full transition-transform transform  hover:scale-105">
             {/* Choose one of the card variants: */}
             <ModernSplitCard {...course} 
           onEdit={() => handleEditCourse(course)}
