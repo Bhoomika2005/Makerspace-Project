@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Plus } from "lucide-react";
+import { Plus, Wrench } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -57,7 +57,7 @@ function MachineryPage() {
     image: null as File | null,
     quantity: 0,
     manufacturer: "",
-    model_number: "",
+    model_name: "",
     notes: "",
   });
 
@@ -114,7 +114,7 @@ function MachineryPage() {
     formData.append("name", equipmentData.name);
     formData.append("quantity", equipmentData.quantity.toString());
     formData.append("manufacturer", equipmentData.manufacturer);
-    formData.append("model_name", equipmentData.model_number);
+    formData.append("model_name", equipmentData.model_name);
     formData.append("notes", equipmentData.notes);
     if (equipmentData.image) {
       formData.append("image", equipmentData.image);
@@ -140,7 +140,7 @@ function MachineryPage() {
         name: "",
         quantity: 0,
         manufacturer: "",
-        model_number: "",
+        model_name: "",
         notes: "",
         image: null,
       });
@@ -166,7 +166,7 @@ function MachineryPage() {
     formData.append("name", equipmentData.name);
     formData.append("quantity", equipmentData.quantity.toString());
     formData.append("manufacturer", equipmentData.manufacturer);
-    formData.append("model_name", equipmentData.model_number);
+    formData.append("model_name", equipmentData.model_name);
     formData.append("notes", equipmentData.notes);
     if (equipmentData.image) {
       formData.append("image", equipmentData.image);
@@ -195,7 +195,7 @@ function MachineryPage() {
         name: "",
         quantity: 0,
         manufacturer: "",
-        model_number: "",
+        model_name: "",
         notes: "",
         image: null,
       });
@@ -244,7 +244,7 @@ function MachineryPage() {
       name: equipment.name,
       quantity: equipment.quantity,
       manufacturer: equipment.manufacturer,
-      model_number: equipment.model_name,
+      model_name: equipment.model_name,
       notes: equipment.notes,
       image: null,
     });
@@ -257,10 +257,22 @@ function MachineryPage() {
       <Navbar />
 
       <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold mx-auto  text-[#026bc0]">
-            Equipment
-          </h1>
+        <div className="flex justify-center items-center mb-8">
+          {!isAdmin && (
+            <div className="flex justify-center items-center">
+              <Wrench className="mr-2 h-6 w-6 text-[#026bc0]" />
+              <h2 className="text-3xl font-bold text-[#026bc0]">Equipment</h2>
+            </div>
+          )}
+          {isAdmin && (
+            <div className="flex justify-center mx-auto items-center">
+              <Wrench className="mr-2 h-6 w-6 text-[#026bc0]" />
+              <h2 className="text-3xl font-bold text-[#026bc0]">
+                Equipment
+              </h2>
+            </div>
+          )}
+        
           {isAdmin && (
             <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
               <div className="relative group mx-auto">
@@ -335,15 +347,15 @@ function MachineryPage() {
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
                     <Label htmlFor="model_number" className="text-right">
-                      Model Number
+                      Model Name
                     </Label>
                     <Input
                       id="model_number"
-                      value={equipmentData.model_number}
+                      value={equipmentData.model_name}
                       onChange={(e) =>
                         setEquipmentData({
                           ...equipmentData,
-                          model_number: e.target.value,
+                          model_name: e.target.value,
                         })
                       }
                       className="col-span-3"
@@ -405,79 +417,91 @@ function MachineryPage() {
           </Alert>
         )}
 
-        <div className="flex flex-col gap-6 max-w-4xl mx-auto">
-          {equipment.map((item, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 max-w-4xl mx-auto">
+          {equipment.map((item) => (
             <Card
               key={item.id}
-              className="overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 rounded-xl "
+              className="relative w-full bg-white rounded-lg overflow-hidden shadow-md group cursor-pointer"
             >
-              <CardContent className="p-0">
-                <div className={`grid md:grid-cols-5 p-8`}>
-                  <div className="md:col-span-2 aspect-[4/3] relative overflow-hidden border rounded-lg">
-                    <Image
-                      src={
-                        item.image
-                          ? `http://localhost:8000${item.image}`
-                          : "/placeholder.svg?height=300&width=400"
-                      }
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="md:col-span-3 p-6">
-                    <div className="space-y-4">
-                      <div>
-                        <h3 className="text-2xl font-semibold">{item.name}</h3>
-                        <div className="h-1 w-16 bg-gradient-to-tr from-[#027cc4] to-[#0610ab] mt-2"></div>
+              {/* Static Image Content (Visible by default) */}
+              <div className="relative">
+                <div className="bg-gradient-to-tr from-[#027cc4] to-[#0610ab] text-white p-3 text-center text-lg font-medium">
+                  {item.name}
+                </div>
+                <div className="relative aspect-[4/3] bg-white">
+                  <Image
+                    src={
+                      item.image
+                        ? `http://localhost:8000${item.image}`
+                        : "/placeholder.svg?height=300&width=400"
+                    }
+                    alt={item.name}
+                    fill
+                    className="object-contain p-3"
+                  />
+                </div>
+              </div>
+
+              {/* Details Content (Hidden until hover) */}
+              <div
+                className={`absolute top-0 left-0 w-full h-full origin-left
+          transition-transform duration-500 ease-in-out
+          [transform:rotateY(180deg)]
+          group-hover:[transform:rotateY(0deg)]
+          [transform-style:preserve-3d] bg-white`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#219afc] to-[#0262b1] shadow-lg p-4 [backface-visibility:hidden] flex flex-col justify-between border border-gray-300 rounded-lg">
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between py-2">
+                        <span className="font-bold text-white">Quantity</span>
+                        <span className="text-white">{item.quantity}</span>
                       </div>
-                      <div className="space-y-2 text-gray-600">
-                        <div className="flex items-center justify-between border-b border-gray-100 py-2">
-                          <span className="font-medium">Quantity</span>
-                          <span>{item.quantity}</span>
-                        </div>
-                        <div className="flex items-center justify-between border-b border-gray-100 py-2">
-                          <span className="font-medium">Manufacturer</span>
-                          <span>{item.manufacturer}</span>
-                        </div>
-                        <div className="flex items-center justify-between border-b border-gray-100 py-2">
-                          <span className="font-medium">Model</span>
-                          <span>{item.model_name}</span>
-                        </div>
+                      <div className="flex items-center justify-between py-2">
+                        <span className="font-bold text-white">
+                          Manufacturer
+                        </span>
+                        <span className="text-white">{item.manufacturer}</span>
                       </div>
-                      <div>
-                        <p className="text-gray-600 leading-relaxed">
-                          {item.notes}
-                        </p>
+                      <div className="flex items-center justify-between py-2">
+                        <span className="font-bold text-white">Model</span>
+                        <span className="text-white">{item.model_name}</span>
                       </div>
-                      {isAdmin && (
-                        <div className="flex gap-2 pt-4">
-                          <Button
-                            variant="outline"
-                            size="lg"
-                            onClick={() => {
-                              setSelectedEquipmentId(item.id);
-                              initializeEditForm(item);
-                            }}
-                          >
-                            Edit
-                          </Button>
-                          <Button
-                            variant="destructive"
-                            size="lg"
-                            onClick={() => {
-                              setSelectedEquipmentId(item.id);
-                              setShowDeleteDialog(true);
-                            }}
-                          >
-                            Delete
-                          </Button>
-                        </div>
-                      )}
+                    </div>
+                    <div className="mt-2">
+                      <p className="text-white leading-relaxed mt-2">
+                        {item.notes}
+                      </p>
                     </div>
                   </div>
+                  {/* Admin Controls */}
+                  {isAdmin && (
+                    <div className="flex justify-center gap-4 mt-4">
+                      <Button
+                        size="lg"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedEquipmentId(item.id);
+                          initializeEditForm(item);
+                        }}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        variant="destructive"
+                        size="lg"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedEquipmentId(item.id);
+                          setShowDeleteDialog(true);
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                  )}
                 </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>
@@ -537,16 +561,16 @@ function MachineryPage() {
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="edit-model_number" className="text-right">
-                  Model Number
+                <Label htmlFor="edit-model_name" className="text-right">
+                  Model Name
                 </Label>
                 <Input
-                  id="edit-model_number"
-                  value={equipmentData.model_number}
+                  id="edit-model_name"
+                  value={equipmentData.model_name}
                   onChange={(e) =>
                     setEquipmentData({
                       ...equipmentData,
-                      model_number: e.target.value,
+                      model_name: e.target.value,
                     })
                   }
                   className="col-span-3"

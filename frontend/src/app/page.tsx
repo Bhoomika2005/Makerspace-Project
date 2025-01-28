@@ -20,6 +20,7 @@ export default function Home() {
     amount: 0.2,
   });
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [isAnimationDelayed, setIsAnimationDelayed] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -30,6 +31,13 @@ export default function Home() {
     if (header) {
       setHeaderHeight(header.offsetHeight);
     }
+
+    // Set animation delay (5 seconds)
+    const timeout = setTimeout(() => {
+      setIsAnimationDelayed(true);
+    }, 5000);
+
+    return () => clearTimeout(timeout); // Cleanup timeout on component unmount
   }, []);
 
   const textVariants = {
@@ -111,7 +119,7 @@ export default function Home() {
         {/* Glass Parallelogram Overlay */}
         <motion.div
           initial="hidden"
-          animate="visible"
+          animate={isAnimationDelayed ? "visible" : "hidden"}
           variants={textVariants}
           className="absolute top-[15%] left-[37%] transform -translate-x-1/2 -translate-y-2/3 w-96 h-64"
         >
@@ -145,6 +153,7 @@ export default function Home() {
         </motion.div>
       </div>
 
+      {/* Remaining content */}
       {/* About Us Section with TariffCards */}
       <motion.div
         ref={mechanicalSectionRef}
@@ -155,97 +164,9 @@ export default function Home() {
         style={{ background: "linear-gradient(135deg, #027cc4, #0610ab)" }}
       >
         <div className="w-3/5 p-12 flex flex-col justify-center">
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl font-bold mb-6 text-gray-200"
-          >
-            About MakerSpace
-          </motion.h2>
-          <motion.ul
-            variants={textVariants}
-            className="list-disc pl-6 space-y-4 text-lg text-gray-200"
-          >
-            <motion.li
-              variants={itemVariants}
-              className="flex items-start space-x-2"
-            >
-              <span>💡</span>
-              <span>
-                IIT Indore MakerSpace is a DIY facility for people who like to
-                make things, are curious about how stuff works, or would like to
-                learn new skills in tinkering.
-              </span>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              className="flex items-start space-x-2"
-            >
-              <span>🔧</span>
-              <span>
-                Our space is equipped with state-of-the-art machines such as
-                laser cutters, waterjet cutters, CNC routers, 3D printers, PCB
-                prototyping stations, soldering stations, welding kits, and
-                various hand and power tools.
-              </span>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              className="flex items-start space-x-2"
-            >
-              <span>📅</span>
-              <span>
-                You can learn these machines by taking part in weekly scheduled
-                training sessions.
-              </span>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              className="flex items-start space-x-2"
-            >
-              <span>🏫</span>
-              <span>
-                MakerSpace is open to the entire IIT Indore community and
-                believes in the principle , <br></br>
-                <strong>Curiosity-Connects-Creativity</strong>.
-              </span>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              className="flex items-start space-x-2"
-            >
-              <span>🌟</span>
-              <span>
-                MakerSpace encourages collaboration and teamwork, fostering an
-                environment where ideas are shared, and creativity thrives
-                through collective efforts.
-              </span>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              className="flex items-start space-x-2"
-            >
-              <span>🚀</span>
-              <span>
-                Members have access to mentorship from experts in engineering,
-                design, and prototyping, helping turn innovative ideas into
-                reality.
-              </span>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              className="flex items-start space-x-2"
-            >
-              <span>🌍</span>
-              <span>
-                By participating in various projects, workshops, and
-                competitions, MakerSpace helps students gain hands-on experience
-                and prepares them for real-world challenges.
-              </span>
-            </motion.li>
-          </motion.ul>
+          {/* Content */}
         </div>
 
-        {/* Right Side - TariffCards with Scroll Animation */}
         <motion.div
           style={{
             x: tariffCardX,

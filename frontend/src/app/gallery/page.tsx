@@ -148,7 +148,7 @@ const ImageCarousel = ({ images, onClose, event }: { images: EventImage[]; onClo
           className="text-white hover:underline text-sm"
           onClick={(e) => e.stopPropagation()}
         >
-          View event details
+          View Gallery
         </Link>
       </div>
     </Card>
