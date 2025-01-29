@@ -153,13 +153,14 @@ export default function Home() {
           {/* Background Video */}
           <div className="fixed inset-0 -z-10">
             <video
-              src="/images/bg_video.mp4"
+              // src="/images/final.mp4"
+              src="/images/home_page_bg.mp4"
               autoPlay
               loop
               muted
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent"></div>
           </div>
 
           {/* Header (not sticky) */}
@@ -172,8 +173,8 @@ export default function Home() {
 
           {/* Landing screen content */}
           <div className="relative min-h-screen flex items-center justify-center">
-            {/* Glass Parallelogram Overlay */}
-            <motion.div
+            
+            {/* <motion.div
               initial="hidden"
               animate={isAnimationDelayed ? "visible" : "hidden"}
               variants={textVariants}
@@ -206,7 +207,7 @@ export default function Home() {
                   </motion.div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Button for Lab Tour */}
             <div className="absolute bottom-12 right-12">
