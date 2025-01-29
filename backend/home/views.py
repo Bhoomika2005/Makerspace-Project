@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course ,CourseHeader, FormDocument , EquipmentsModel , UserSession, Event, EventImage
-from .serializers import CourseSerializer ,CourseHeaderSerializer, FormDocumentSerializer , EquipmentSerializer, EventSerializer
+from .models import Course ,CourseHeader, FormDocument , EquipmentsModel , UserSession, Event, EventImage,Project
+from .serializers import CourseSerializer ,CourseHeaderSerializer, FormDocumentSerializer , EquipmentSerializer, EventSerializer,ProjectSerializer
 
 from django.conf import settings
 from google.oauth2 import id_token
@@ -592,4 +592,62 @@ class EventDetailView(APIView):
         event = self.get_object(pk)
         # This will automatically delete related images due to CASCADE
         event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+from rest_framework import viewsets    
+def projects(request):
+    projects = Project.objects.all().values('id', 'project_name', 'faculty_mentors', 'selected_students')
+    return Response(list(projects))
+
+
+class ProjectListCreateView(APIView):
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]  # Public read access
+        return [IsAdminEmail()]  # Admin required for create
+
+    def get(self, request):
+        projects = Project.objects.all()
+        serializer = ProjectSerializer(projects, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        try:
+            serializer = ProjectSerializer(data=request.data)
+            if serializer.is_valid():
+                project = serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+# Retrieve or delete a specific project
+class ProjectDetailView(APIView):
+    def get_permissions(self):
+        if self.request.method == 'DELETE':
+            return [IsAdminEmail()]  # Only admins can delete
+        elif self.request.method == 'GET':
+            return [IsAuthenticated()]  # Authenticated users can view
+        return [AllowAny()]  # Public access for other methods
+
+    def get_object(self, pk):
+        try:
+            return Project.objects.get(pk=pk)
+        except Project.DoesNotExist:
+            return None
+
+    def get(self, request, pk):
+        project = self.get_object(pk)
+        if project is None:
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+        serializer = ProjectSerializer(project)
+        return Response(serializer.data)
+
+    def delete(self, request, pk):
+        project = self.get_object(pk)
+        if project is None:
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+        
+        project.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

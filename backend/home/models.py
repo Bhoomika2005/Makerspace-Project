@@ -111,3 +111,11 @@ class Event(models.Model):
 class EventImage(models.Model):
     event = models.ForeignKey(Event, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='gallery/')
+
+class Project(models.Model):
+    project_name = models.CharField(max_length=255)
+    faculty_mentors = models.TextField()
+    selected_students = models.TextField()  # store emails as a comma-separated string
+
+    def __str__(self):
+        return self.project_name

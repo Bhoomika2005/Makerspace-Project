@@ -42,4 +42,7 @@ urlpatterns = [
     path('events/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
 
 
+    path('projects/', ProjectListCreateView.as_view(), name='project-list-create'),
+    path('projects/<int:pk>/', ProjectDetailView.as_view(), name='project-detail'),
+
 ]
