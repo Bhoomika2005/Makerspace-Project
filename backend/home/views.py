@@ -1,8 +1,9 @@
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course , FormDocument , EquipmentsModel , UserSession, Event, EventImage
-from .serializers import CourseSerializer , FormDocumentSerializer , EquipmentSerializer, EventSerializer
+from .models import Course ,CourseHeader, FormDocument , EquipmentsModel , UserSession, Event, EventImage
+from .serializers import CourseSerializer ,CourseHeaderSerializer, FormDocumentSerializer , EquipmentSerializer, EventSerializer
 
 from django.conf import settings
 from google.oauth2 import id_token
@@ -328,7 +329,7 @@ class CourseDetailView(RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get_object(self):
-        return generics.get_object_or_404(Course, courseId=self.kwargs['courseId'])
+        return generics.get_object_or_404(Course, course_header_id=self.kwargs['header_id'],id=self.kwargs['id'])  
     
 
 from rest_framework.generics import (
@@ -349,13 +350,68 @@ class CourseListCreateView(ListCreateAPIView):
         serializer.save()
 
 
-class CourseDetailView(RetrieveUpdateDestroyAPIView):
-    queryset = Course.objects.all()
-    serializer_class = CourseSerializer
+# class CourseDetailView(RetrieveUpdateDestroyAPIView):
+#     queryset = Course.objects.all()
+#     serializer_class = CourseSerializer
+#     permission_classes = [IsAuthenticatedOrReadOnly]
+
+#     def get_object(self):
+#         return generics.get_object_or_404(Course, courseId=self.kwargs['courseId'])
+
+# @api_view(["GET"])
+# def course_headers(request):
+#     headers = CourseHeader.objects.all()
+#     serializer = CourseHeaderSerializer(headers, many=True)
+#     return Response(serializer.data)
+
+# @api_view(["GET"])
+# def courses_by_header(request, header_id):
+#     # Check if CourseHeader exists before querying courses
+#     if not CourseHeader.objects.filter(id=header_id).exists():
+#         return Response({"error": "Course header not found"}, status=404)
+    
+#     # Fetch courses linked to this CourseHeader
+#     courses = Course.objects.filter(course_header_id=header_id)
+#     serializer = CourseSerializer(courses, many=True)
+#     return Response(serializer.data)
+class CourseHeaderListCreateView(generics.ListCreateAPIView):
+    queryset = CourseHeader.objects.all()
+    serializer_class = CourseHeaderSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+# View for listing courses under a specific course header
+class CoursesByHeaderView(generics.ListAPIView, generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    
+    def get_serializer_class(self):
+        # Use different serializers based on the HTTP method
+        if self.request.method == 'GET' and 'header_id' in self.kwargs:
+            return CourseSerializer  # For listing courses
+        return CourseHeaderSerializer  # For handling single course header (PUT, PATCH, DELETE)
+
+    def get_queryset(self):
+        if self.request.method == 'GET' and 'header_id' in self.kwargs:
+            header_id = self.kwargs['header_id']
+            return Course.objects.filter(course_header_id=header_id)  # Fetch courses under specific header
+        return CourseHeader.objects.all()  # Fetch all course headers (for PUT/PATCH/DELETE)
+
+    def get_object(self):
+        # This method is used for GET, PUT, PATCH, DELETE for individual CourseHeader
+        if self.request.method in ['PUT', 'PATCH', 'DELETE']:
+            return generics.get_object_or_404(CourseHeader, id=self.kwargs['header_id'])
+        return super().get_object()
+# View for retrieving, updating, or deleting a specific course header
+class CourseHeaderDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CourseHeader.objects.all()
+    serializer_class = CourseHeaderSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get_object(self):
-        return generics.get_object_or_404(Course, courseId=self.kwargs['courseId'])
+        return generics.get_object_or_404(CourseHeader, course_header_id=self.kwargs['pk'])
+
 
 class IsAdminOrReadOnly(IsAdminUser):
     def has_permission(self, request, view):

@@ -2,21 +2,19 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
-from .models import Course, FormDocument , EquipmentsModel, Event, EventImage
+from .models import Course,CourseHeader, FormDocument , EquipmentsModel, Event, EventImage
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = [
-            'courseId',
-            'title',
-            'description',
-            'offeredBy',
-            'offeredTo',
-            'duration',
-            'schedule',
-        ]
+        fields = "__all__"
 
+class CourseHeaderSerializer(serializers.ModelSerializer):
+    courses = CourseSerializer(many=True, read_only=True)  # Include related courses
+
+    class Meta:
+        model = CourseHeader
+        fields = ["id", "title", "description", "courses"]  # Include child courses
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

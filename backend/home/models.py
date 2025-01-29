@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
 
+# Parent model for course headers
+class CourseHeader(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
+
 class Course(models.Model):
     courseId = models.CharField(max_length=10, unique=True)
     title = models.CharField(max_length=100)
@@ -11,7 +19,7 @@ class Course(models.Model):
     offeredTo = models.CharField(max_length=100)
     duration = models.CharField(max_length=50)
     schedule = models.CharField(max_length=100)
-
+    course_header = models.ForeignKey(CourseHeader, on_delete=models.CASCADE, related_name="courses")
     def __str__(self):
         return self.title
 

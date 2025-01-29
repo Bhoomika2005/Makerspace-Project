@@ -4,8 +4,14 @@ from . import views
 
 urlpatterns = [
     # Courses
-    path('courses/', CourseListCreateView.as_view(), name='course-list-create'),
-    path('courses/<str:courseId>/', CourseDetailView.as_view(), name='course-detail'),
+    path("courses/", CourseHeaderListCreateView.as_view(), name="course-headers"),  # List or create CourseHeaders
+    path("courses/<int:header_id>/", CoursesByHeaderView.as_view(), name="courses-by-header"),  # List courses under a specific header
+    # path("courses/<int:pk>/", CourseHeaderDetailView.as_view(), name="course-header-detail"),  # Retrieve, update, or delete a specific CourseHeader
+    #  path("courses/", course_headers, name="course-headers"),  # Fetch all course headers
+    # path("courses/<int:header_id>/", courses_by_header, name="courses-by-header"),  # Fetch courses under a header
+    # path("courses/detail/<int:pk>/", course_detail, name="course-detail"),  # Fetch single course details
+    path('courses/<int:header_id>/list/', CourseListCreateView.as_view(), name='course-list-create'),
+    path('courses/<int:header_id>/<int:id>/', CourseDetailView.as_view(), name='course-detail'),
 
     # Tokens
     path('token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),

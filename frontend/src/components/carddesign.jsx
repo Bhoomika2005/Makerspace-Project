@@ -73,6 +73,7 @@ export const ModernSplitCard = ({
   offeredTo,
   duration,
   schedule,
+  
    onEdit, onDelete ,isAdmin
 }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
