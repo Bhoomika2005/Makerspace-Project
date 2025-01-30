@@ -295,7 +295,7 @@ export default function CoursePage() {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                             <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={handleDeleteHeader}>
+                            <AlertDialogAction onClick={handleDeleteHeader} className="bg-red-500 hover:bg-red-600 text-white">
                                 Delete
                             </AlertDialogAction>
                         </AlertDialogFooter>

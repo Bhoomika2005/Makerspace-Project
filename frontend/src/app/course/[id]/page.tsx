@@ -209,7 +209,7 @@ if (courseId === null) {
 
         try {
             const response = await fetch(
-                `${API_URL}/api/courses/${selectedCourse.courseId}/`,
+                `${API_URL}/api/courses/${id}/${selectedCourse.id}/`,
                 {
                     method: "DELETE",
                     headers: {
@@ -308,13 +308,13 @@ if (courseId === null) {
                     ))}
                 </div>
                 <Dialog open={showAddEditDialog} onOpenChange={setShowAddEditDialog}>
-                    <DialogContent>
+                    <DialogContent style={{ maxHeight: '800px', overflowY: 'auto' }}> 
                         <DialogHeader>
                             <DialogTitle>
                                 {selectedCourse?.courseId ? "Edit Course" : "Add Course"}
                             </DialogTitle>
                         </DialogHeader>
-                        <div className="grid gap-4 py-4">
+                        <div className="grid gap-4 ">
                         <div>
                             <Label htmlFor="course_header">Under</Label>
                             <Input
@@ -463,7 +463,7 @@ if (courseId === null) {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                             <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={handleDeleteCourse}>
+                            <AlertDialogAction onClick={handleDeleteCourse} className="bg-red-500 hover:bg-red-600 text-white">
                                 Delete
                             </AlertDialogAction>
                         </AlertDialogFooter>
