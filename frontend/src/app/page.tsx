@@ -153,8 +153,7 @@ export default function Home() {
           {/* Background Video */}
           <div className="fixed inset-0 -z-10">
             <video
-              // src="/images/final.mp4"
-              src="/images/home_page_bg.mp4"
+              src="/images/makerspace_tour.mp4"
               autoPlay
               loop
               muted
