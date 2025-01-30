@@ -77,9 +77,9 @@ class FormDocument(models.Model):
 class EquipmentsModel(models.Model):
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='equipment_images/', null=True, blank=True)
-    quantity = models.IntegerField()
-    manufacturer = models.CharField(max_length=100)
-    model_name = models.CharField(max_length=100)
+    quantity = models.IntegerField(blank=True)
+    manufacturer = models.CharField(max_length=100, blank=True)
+    model_name = models.CharField(max_length=100, blank=True)
     notes = models.TextField(blank=True)
 
     def _str_(self):
@@ -109,8 +109,8 @@ class Faculty(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
-    event_date = models.DateField()
-    description = models.TextField()
+    event_date = models.DateField(blank=True)
+    description = models.TextField(blank=True)
     
 
 class EventImage(models.Model):

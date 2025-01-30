@@ -130,18 +130,20 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   }
 
   return (
-    <Card className="w-full max-w-4xl bg-black/90 border-none">
+    <Card className="w-full max-w-[90vw] bg-black/90 border-none">
       <div className="relative w-full h-full flex flex-col items-center justify-center gap-8 p-8">
-        <div className="relative w-full h-64 flex items-center justify-center overflow-hidden">
-          <div className="relative flex items-center justify-center w-full transition-transform duration-1000 ease-in-out">
+        <div className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+          <div
+            className={`relative flex items-center justify-center w-full transition-transform duration-1000 ease-[cubic-bezier(0.25, 1, 0.5, 1)]`}
+          >
             {products.map((product, index) => (
               <div
                 key={product.id}
-                className={`absolute transition-all duration-1000 ease-in-out ${getPositionClass(
+                className={`absolute transition-all duration-1000 ease-[cubic-bezier(0.25, 1, 0.5, 1)] ${getPositionClass(
                   index
                 )}`}
               >
-                <div className="relative w-96 h-64 rounded-2xl overflow-hidden shadow-lg">
+                <div className="relative w-[600px] h-[400px] rounded-2xl overflow-hidden shadow-lg">
                   <Image
                     src={`http://localhost:8000${product.product}`}
                     alt={`Product image ${index + 1} for ${equipment.name}`}
@@ -952,7 +954,7 @@ function MachineryPage() {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete}>
+              <AlertDialogAction onClick={handleDelete} className="bg-red-500 hover:bg-red-700">
                 Delete
               </AlertDialogAction>
             </AlertDialogFooter>

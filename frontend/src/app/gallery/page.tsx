@@ -750,7 +750,7 @@ export default function GalleryPage() {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete}>
+              <AlertDialogAction onClick={handleDelete} className="bg-red-500 hover:bg-red-700">
                 Delete
               </AlertDialogAction>
             </AlertDialogFooter>
