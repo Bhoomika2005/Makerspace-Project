@@ -72,12 +72,6 @@ export default function ProjectsPage() {
       [id]: !prev[id],
     }));
   };
-  const handleRowHover = (projectId: number, isHovered: boolean) => {
-    setExpandedRows(prev => ({
-      ...prev,
-      [projectId]: isHovered
-    }));
-  };
 
   useEffect(() => {
     async function checkAdminStatus() {
@@ -282,116 +276,92 @@ export default function ProjectsPage() {
           )}
         </div>
 
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-sm font-sans table-fixed">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="w-12 px-6 py-4 text-center font-bold text-lg text-[#026bc0]"></th>
-                  <th className="w-1/4 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Project Name</th>
-                  <th className="w-1/4 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Faculty Mentors</th>
-                  <th className="w-1/4 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Selected Students</th>
-                  {isAdmin && (
-                    <th className="w-1/4 px-6 py-4 text-center font-bold text-lg text-[#026bc0]">Actions</th>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {projects.map((project, index) => (
-                  <React.Fragment key={project.id}>
-                    <tr 
-                      className={`${
-                        index % 2 === 0 ? "bg-[#f2f4ff]" : "bg-[#e7eeff]"
-                      } border-t group hover:bg-white transition-all duration-300 ease-in-out`}
-                      onMouseEnter={() => handleRowHover(project.id, true)}
-                      onMouseLeave={() => handleRowHover(project.id, false)}
-                    >
-                      <td className="w-12 px-4 py-4 text-center align-top">
-                        <button 
-                          onClick={() => toggleRow(project.id)}
-                          className="transition-transform duration-300"
-                        >
-                          {expandedRows[project.id] ? (
-                            <ChevronDown className="h-5 w-5 text-[#0610ab]" />
-                          ) : (
-                            <ChevronRight className="h-5 w-5 text-[#0610ab]" />
-                          )}
-                        </button>
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg">
+          <table className="w-full border-collapse text-sm font-sans">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th className="px-6 py-4 text-center font-bold text-lg text-[#026bc0]"></th>
+                <th className="px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Project Name</th>
+                <th className="px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Faculty Mentors</th>
+                <th className="px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Selected Students</th>
+                {isAdmin && (
+                  <th className="px-6 py-4 text-center font-bold text-lg text-[#026bc0]">Actions</th>
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {projects.map((project, index) => (
+                <React.Fragment key={project.id}>
+                  {/* Main Row */}
+                  <tr className={`${index % 2 === 0 ? "bg-[#f2f4ff]" : "bg-[#e7eeff]"} border-t hover:bg-white`}>
+                    <td className="px-4 py-4 text-center" onMouseEnter={() => setExpandedRows((prev) => ({ ...prev, [project.id]: true }))}
+      onMouseLeave={() => setExpandedRows((prev) => ({ ...prev, [project.id]: false }))}>
+                      <button onClick={() => toggleRow(project.id)}>
+                        {expandedRows[project.id] ? (
+                          <ChevronDown className="h-5 w-5 text-[#0610ab]" />
+                        ) : (
+                          <ChevronRight className="h-5 w-5 text-[#0610ab]" />
+                        )}
+                      </button>
+                    </td>
+                    <td className="px-6 py-4 text-base text-[#0610ab]">{project.project_name}</td>
+                    <td className="px-6 py-4 text-base">
+                      {project.faculty_mentors.split(",").map((mentor, idx) => (
+                        <div key={idx}>{mentor.trim()}</div>
+                      ))}
+                    </td>
+                    <td className="px-6 py-4 text-base">
+                      {!expandedRows[project.id] && (
+                        <span className="text-gray-600">
+                          +{project.selected_students.split(",").length} Students
+                        </span>
+                      )}
+                    </td>
+                    {isAdmin && (
+                      <td className="px-6 py-4">
+                        <div className="flex justify-center gap-6">
+                          <button
+                            className="flex items-center text-sm font-medium text-[#026bc0] hover:text-[#0610ab] transition-colors duration-200"
+                            onClick={() => handleEdit(project)}
+                          >
+                            <Edit className="mr-2 h-4 w-4" />
+                            Edit
+                          </button>
+                          <button
+                            className="flex items-center text-sm font-medium text-red-500 hover:text-red-600 transition-colors duration-200"
+                            onClick={() => {
+                              setSelectedProjectId(project.id);
+                              setShowDeleteDialog(true);
+                            }}
+                          >
+                            <Trash className="mr-2 h-4 w-4" />
+                            Delete
+                          </button>
+                        </div>
                       </td>
-                      <td className="w-1/4 px-6 py-4 text-base text-[#0610ab] align-top">{project.project_name}</td>
-                      <td className="w-1/4 px-6 py-4 text-base align-top">
-                        <div className="space-y-1">
-                          {project.faculty_mentors.split(",").map((mentor, idx) => (
-                            <div key={idx} className="line-clamp-1">{mentor.trim()}</div>
+                    )}
+                  </tr>
+
+                  {/* Expandable Row */}
+                  {expandedRows[project.id] && (
+                    <tr className="bg-[#eef2ff]">
+                      <td></td>
+                      <td colSpan={isAdmin ? 4 : 3} className="px-6 py-3">
+                        <strong>Students:</strong>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-2">
+                          {project.selected_students.split(",").map((student, idx) => (
+                            <div key={idx} className="bg-[#cde0ff] px-3 py-1 rounded-lg">
+                              {student.trim()}
+                            </div>
                           ))}
                         </div>
                       </td>
-                      <td className="w-1/4 px-6 py-4 text-base align-top">
-                        {!expandedRows[project.id] && (
-                          <span className="text-gray-600">
-                            +{project.selected_students.split(",").length} Students
-                          </span>
-                        )}
-                      </td>
-                      {isAdmin && (
-                        <td className="w-1/4 px-6 py-4 align-top">
-                          <div className="flex justify-center gap-6">
-                            <button
-                              className="flex items-center text-sm font-medium text-[#026bc0] hover:text-[#0610ab] transition-colors duration-200"
-                              onClick={() => handleEdit(project)}
-                            >
-                              <Edit className="mr-2 h-4 w-4" />
-                              Edit
-                            </button>
-                            <button
-                              className="flex items-center text-sm font-medium text-red-500 hover:text-red-600 transition-colors duration-200"
-                              onClick={() => {
-                                setSelectedProjectId(project.id);
-                                setShowDeleteDialog(true);
-                              }}
-                            >
-                              <Trash className="mr-2 h-4 w-4" />
-                              Delete
-                            </button>
-                          </div>
-                        </td>
-                      )}
                     </tr>
-
-                    {/* Expanded content */}
-                    <tr className="transition-all duration-300 ease-in-out">
-                      <td colSpan={isAdmin ? 5 : 4} className="p-0">
-                        <div 
-                          className="bg-[#eef2ff] overflow-hidden transition-all duration-300 ease-in-out"
-                          style={{
-                            maxHeight: expandedRows[project.id] ? '500px' : '0',
-                            opacity: expandedRows[project.id] ? 1 : 0,
-                          }}
-                        >
-                          <div className="px-6 py-4 transition-transform duration-300 ease-in-out"
-                               style={{
-                                 transform: expandedRows[project.id] ? 'translateY(0)' : 'translateY(-10px)'
-                               }}>
-                            <strong className="text-[#0610ab]">Students:</strong>
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-2">
-                              {project.selected_students.split(",").map((student, idx) => (
-                                <div 
-                                  key={idx} 
-                                  className="bg-[#cde0ff] px-3 py-1 rounded-lg text-sm"
-                                >
-                                  {student.trim()}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </tbody>
+          </table>
 
           {projects.length === 0 && (
             <div className="text-center py-12">

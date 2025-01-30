@@ -639,8 +639,8 @@ class ProjectDetailView(APIView):
     def get_permissions(self):
         if self.request.method == 'DELETE':
             return [IsAdminEmail()]  # Only admins can delete
-        elif self.request.method == 'GET':
-            return [IsAuthenticated()]  # Authenticated users can view
+        elif self.request.method in ['GET', 'PUT']:
+            return [IsAuthenticated()]  # Authenticated users can view and edit
         return [AllowAny()]  # Public access for other methods
 
     def get_object(self, pk):
@@ -655,6 +655,17 @@ class ProjectDetailView(APIView):
             return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
         serializer = ProjectSerializer(project)
         return Response(serializer.data)
+    
+    def put(self, request, pk):
+        project = self.get_object(pk)
+        if project is None:
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+        
+        serializer = ProjectSerializer(project, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
         project = self.get_object(pk)

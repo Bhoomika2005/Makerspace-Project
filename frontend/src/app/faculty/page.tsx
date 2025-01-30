@@ -108,8 +108,10 @@ export default function FacultyPage() {
       if (!response.ok) {
         throw new Error('Failed to fetch faculty');
       }
-      const data = await response.json();
-      setFaculty(data);
+      // const data = await response.json();
+      const data: Faculty[] = await response.json();
+      const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
+      setFaculty(sortedData);
       setError(null);
     } catch (error) {
       console.error("Error fetching faculty:", error);

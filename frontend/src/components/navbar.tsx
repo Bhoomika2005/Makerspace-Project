@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation" // Import this to get the current path
-import { Home, Users, BookOpen, Wrench, FileText, Image, UserCircle } from "lucide-react"
+import { Home, Users, BookOpen, Wrench, FileText, Image, UserCircle,Scroll } from "lucide-react"
+
 import styles from "./Navbar.module.css"
 
 interface NavItemProps {
@@ -53,6 +54,7 @@ const Navbar: React.FC = () => {
     { href: "/course", icon: <BookOpen size={20} />, text: "Courses" },
     { href: "/machinery", icon: <Wrench size={20} />, text: "Machinery" },
     { href: "/forms", icon: <FileText size={20} />, text: "Forms" },
+    { href: "/projects", icon: <Scroll size={20} />, text: "Projects" },
     { href: "/gallery", icon: <Image size={20} />, text: "Gallery" },
     // { href: "/profile", icon: <UserCircle size={20} />, text: "Profile" },
   ]
