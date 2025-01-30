@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation" // Import this to get the current path
-import { Home, Users, BookOpen, Wrench, FileText, Image, UserCircle,Scroll } from "lucide-react"
+import { Home, Users, BookOpen, Wrench, FileText, Image, UserCircle,Scroll, Phone } from "lucide-react"
 
 import styles from "./Navbar.module.css"
 
@@ -56,8 +56,9 @@ const Navbar: React.FC = () => {
     { href: "/forms", icon: <FileText size={20} />, text: "Forms" },
     { href: "/projects", icon: <Scroll size={20} />, text: "Projects" },
     { href: "/gallery", icon: <Image size={20} />, text: "Gallery" },
+    { href: "/contact", icon: <Phone size={20} />, text: "Contact" },
     // { href: "/profile", icon: <UserCircle size={20} />, text: "Profile" },
-  ]
+  ];
 
   // Determine if the background should change
   const isSpecialPage = pathname === "/" || pathname === "/profile"
