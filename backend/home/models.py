@@ -82,8 +82,13 @@ class EquipmentsModel(models.Model):
     model_name = models.CharField(max_length=100)
     notes = models.TextField(blank=True)
 
-    def __str__(self):
+    def _str_(self):
         return self.name
+
+class EquipmentProduct(models.Model):
+    equipment = models.ForeignKey(EquipmentsModel, related_name='products', on_delete=models.CASCADE)
+    product = models.ImageField(upload_to='equipment_product/')
+
 
 
 

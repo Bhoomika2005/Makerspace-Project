@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course ,CourseHeader, FormDocument , EquipmentsModel , UserSession, Event, EventImage,Project
-from .serializers import CourseSerializer ,CourseHeaderSerializer, FormDocumentSerializer , EquipmentSerializer, EventSerializer,ProjectSerializer
+from .models import Course ,CourseHeader, FormDocument , EquipmentsModel , UserSession, Event, EventImage,Project, EquipmentProduct
+from .serializers import CourseSerializer ,CourseHeaderSerializer, FormDocumentSerializer , EquipmentSerializer, EventSerializer,ProjectSerializer, EquipmentProductSerializer
 
 from django.conf import settings
 from google.oauth2 import id_token
@@ -432,13 +432,19 @@ class EquipmentListCreateView(APIView):
         print("post request called")
         print("data : ", request.data)
         serializer = EquipmentSerializer(data=request.data)
+        products = request.FILES.getlist('products')
+        for product in products:
+            EquipmentProduct.objects.create(equipment=equipment, product=product)
+
         print("serializer : " , serializer)
         if serializer.is_valid():
             print("is valid")
             serializer.save()
             print("saved")
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            updated_serializer = EquipmentSerializer(equipment)
+            return Response(updated_serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class EquipmentDetailView(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
@@ -463,11 +469,17 @@ class EquipmentDetailView(APIView):
         equipment = self.get_object(pk)
         if equipment is None:
             return Response(status=status.HTTP_404_NOT_FOUND)
+        new_products = request.FILES.getlist('products')
+        for product in new_products:
+            EquipmentProduct.objects.create(equipment=equipment, product=product)
         serializer = EquipmentSerializer(equipment, data=request.data)
         if serializer.is_valid():
             serializer.save()
+            updated_serializer = EquipmentSerializer(equipment)
+            return Response(updated_serializer.data)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
     def delete(self, request, pk):
         equipment = self.get_object(pk)

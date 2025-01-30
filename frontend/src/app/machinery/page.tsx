@@ -8,8 +8,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Plus, Wrench } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Plus,
+  Wrench,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  FileEditIcon,
+  Trash,
+} from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,6 +39,11 @@ import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/navigation";
 
+interface EquipmentProduct {
+  id: number;
+  product: string;
+}
+
 interface Equipment {
   id: number;
   name: string;
@@ -39,6 +52,7 @@ interface Equipment {
   manufacturer: string;
   model_name: string;
   notes: string;
+  products: EquipmentProduct[];
 }
 
 interface User {
@@ -46,19 +60,146 @@ interface User {
   [key: string]: any;
 }
 
+interface ImageCarouselProps {
+  products: EquipmentProduct[];
+  onClose?: () => void;
+  equipment: Equipment;
+}
+
+const ImageCarousel: React.FC<ImageCarouselProps> = ({
+  products,
+  onClose,
+  equipment,
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (!products || products.length === 0) return;
+
+    const interval = setInterval(() => {
+      nextImage();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [products]);
+
+  const nextImage = () => {
+    if (isAnimating || !products || products.length === 0) return;
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
+      setIsAnimating(false);
+    }, 1000);
+  };
+
+  const previousImage = () => {
+    if (isAnimating || !products || products.length === 0) return;
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + products.length) % products.length
+      );
+      setIsAnimating(false);
+    }, 1000);
+  };
+
+  const getPositionClass = (index: number) => {
+    if (!products || products.length === 0) return "";
+    if (index === currentIndex)
+      return "translate-x-0 scale-100 opacity-100 z-10";
+    if (index === (currentIndex - 1 + products.length) % products.length)
+      return "-translate-x-64 scale-90 opacity-80 z-0";
+    if (index === (currentIndex + 1) % products.length)
+      return "translate-x-64 scale-90 opacity-80 z-0";
+    return "opacity-0 scale-75 absolute";
+  };
+
+  if (!products || products.length === 0) {
+    return (
+      <Card className="w-full max-w-4xl bg-black/90 border-none">
+        <div className="relative w-full h-full flex flex-col items-center justify-center gap-8 p-8">
+          <p className="text-white text-xl">
+            No product images available for {equipment.name}
+          </p>
+        </div>
+      </Card>
+    );
+  }
+
+  return (
+    <Card className="w-full max-w-4xl bg-black/90 border-none">
+      <div className="relative w-full h-full flex flex-col items-center justify-center gap-8 p-8">
+        <div className="relative w-full h-64 flex items-center justify-center overflow-hidden">
+          <div className="relative flex items-center justify-center w-full transition-transform duration-1000 ease-in-out">
+            {products.map((product, index) => (
+              <div
+                key={product.id}
+                className={`absolute transition-all duration-1000 ease-in-out ${getPositionClass(
+                  index
+                )}`}
+              >
+                <div className="relative w-96 h-64 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src={`http://localhost:8000${product.product}`}
+                    alt={`Product image ${index + 1} for ${equipment.name}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full z-20"
+            onClick={previousImage}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full z-20"
+            onClick={nextImage}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
+
+        <div className="flex gap-2">
+          {products.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                currentIndex === index ? "bg-white" : "bg-white/50"
+              }`}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
+        </div>
+      </div>
+    </Card>
+  );
+};
+
 function MachineryPage() {
-  const router = useRouter()
+  const router = useRouter();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
   const [equipment, setEquipment] = useState<Equipment[]>([]);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [showEditDialog, setShowEditDialog] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(false);
   const [selectedEquipment, setSelectedEquipment] = useState<Equipment | null>(
     null
   );
-  const [selectedEquipmentId, setSelectedEquipmentId] = useState(0);
+  const [selectedEquipmentId, setSelectedEquipmentId] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
   const [equipmentData, setEquipmentData] = useState({
     name: "",
@@ -67,6 +208,7 @@ function MachineryPage() {
     manufacturer: "",
     model_name: "",
     notes: "",
+    products: [] as File[],
   });
 
   useEffect(() => {
@@ -127,6 +269,9 @@ function MachineryPage() {
     if (equipmentData.image) {
       formData.append("image", equipmentData.image);
     }
+    equipmentData.products.forEach((product) => {
+      formData.append("products", product);
+    });
 
     try {
       const response = await fetch("http://localhost:8000/api/machinery/", {
@@ -151,6 +296,7 @@ function MachineryPage() {
         model_name: "",
         notes: "",
         image: null,
+        products: [],
       });
       setError(null);
     } catch (error) {
@@ -179,6 +325,9 @@ function MachineryPage() {
     if (equipmentData.image) {
       formData.append("image", equipmentData.image);
     }
+    equipmentData.products.forEach((product) => {
+      formData.append("products", product);
+    });
 
     try {
       const response = await fetch(
@@ -206,6 +355,7 @@ function MachineryPage() {
         model_name: "",
         notes: "",
         image: null,
+        products: [],
       });
       setError(null);
     } catch (error) {
@@ -255,32 +405,35 @@ function MachineryPage() {
       model_name: equipment.model_name,
       notes: equipment.notes,
       image: null,
+      products: [],
     });
     setShowEditDialog(true);
+  };
+
+  const removeImage = (index: number) => {
+    setEquipmentData((prev) => ({
+      ...prev,
+      products: prev.products.filter((_, i) => i !== index),
+    }));
   };
 
   const handleSignOut = () => {
     Cookies.remove("access");
     Cookies.remove("refresh");
     Cookies.remove("user");
-
     setIsLoggedIn(false);
-    setUser(null);
-    window.location.href = "/";
+    router.push("/");
   };
 
-  if (isLoggedIn && !isAdmin) {
+  if (!isLoggedIn || !isAdmin) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
         <h1 className="text-2xl font-bold text-red-600 mb-4">
-          Sorry! You do not have Admin Access !!
+          Sorry! You do not have Admin Access!
         </h1>
         <Button
-          className="bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg hover:bg-blue-800"
-          onClick={() => {
-            handleSignOut();
-            router.push("/");
-          }}
+          className="bg-blue-600 text-white hover:bg-blue-800"
+          onClick={handleSignOut}
         >
           Go Back to Home Page
         </Button>
@@ -304,12 +457,10 @@ function MachineryPage() {
           {isAdmin && (
             <div className="flex justify-center mx-auto items-center">
               <Wrench className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-3xl font-bold text-[#026bc0]">
-                Equipment
-              </h2>
+              <h2 className="text-3xl font-bold text-[#026bc0]">Equipment</h2>
             </div>
           )}
-        
+
           {isAdmin && (
             <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
               <div className="relative group mx-auto">
@@ -431,6 +582,53 @@ function MachineryPage() {
                       className="col-span-3"
                     />
                   </div>
+                  <div className="grid grid-cols-4 items-start gap-4">
+                    <Label htmlFor="products" className="text-right pt-2">
+                      Products
+                    </Label>
+                    <div className="col-span-3 space-y-4">
+                      <Input
+                        id="products"
+                        type="file"
+                        onChange={(e) => {
+                          const files = Array.from(e.target.files || []);
+                          setEquipmentData((prev) => ({
+                            ...prev,
+                            products: [...prev.products, ...files],
+                          }));
+                        }}
+                        accept="product/*"
+                        multiple
+                        className="w-full"
+                      />
+                      {equipmentData.products.length > 0 && (
+                        <div className="bg-gray-50 p-3 rounded-md">
+                          <p className="text-sm text-gray-500 mb-2">
+                            Selected images:
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {equipmentData.products.map((file, index) => (
+                              <div
+                                key={index}
+                                className="flex items-center bg-white px-3 py-1 rounded-md shadow-sm"
+                              >
+                                <span className="text-sm truncate max-w-[200px]">
+                                  {file.name}
+                                </span>
+                                <button
+                                  onClick={() => removeImage(index)}
+                                  className="ml-2 text-gray-400 hover:text-red-500"
+                                  type="button"
+                                >
+                                  <X className="h-4 w-4" />
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
                 <div className="flex justify-end gap-2">
                   <Button
@@ -467,11 +665,7 @@ function MachineryPage() {
                 </div>
                 <div className="relative aspect-[4/3] bg-white">
                   <Image
-                    src={
-                      item.image
-                        ? `http://localhost:8000${item.image}`
-                        : "/placeholder.svg?height=300&width=400"
-                    }
+                    src={item.image ? `http://localhost:8000${item.image}` : "/placeholder.svg?height=300&width=400"}
                     alt={item.name}
                     fill
                     className="object-contain p-3"
@@ -515,33 +709,72 @@ function MachineryPage() {
                   {isAdmin && (
                     <div className="flex justify-center gap-4 mt-4">
                       <Button
-                        size="lg"
+                        size="icon"
+                        className="bg-transparent"
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedEquipmentId(item.id);
                           initializeEditForm(item);
                         }}
                       >
-                        Edit
+                        <FileEditIcon className="h-5 w-5" />
                       </Button>
                       <Button
+                        size="icon"
                         variant="destructive"
-                        size="lg"
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedEquipmentId(item.id);
                           setShowDeleteDialog(true);
                         }}
                       >
-                        Delete
+                        <Trash className="w-5 h-5" />
                       </Button>
                     </div>
                   )}
+                  <div className="flex justify-center gap-4 mt-4">
+                    <Button
+                      size="lg"
+                      className=" bg-white font-bold text-[#027cc4] hover:bg-slate-200"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedEquipment(item);
+                        setShowCarousel(true);
+                      }}
+                    >
+                      Products
+                    </Button>
+                  </div>
                 </div>
               </div>
             </Card>
           ))}
         </div>
+
+        <Dialog open={showCarousel} onOpenChange={setShowCarousel}>
+          <DialogContent className="max-w-none w-screen h-screen p-0 bg-black/90 backdrop-blur-md">
+            <DialogTitle className="sr-only">Product Gallery</DialogTitle>
+            <div className="relative w-full h-full flex items-center justify-center">
+              {selectedEquipment && (
+                <>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute top-4 right-4 bg-white/80 hover:bg-white rounded-full z-50"
+                    onClick={() => setShowCarousel(false)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                  <ImageCarousel
+                    products={selectedEquipment.products}
+                    equipment={selectedEquipment}
+                    onClose={() => setShowCarousel(false)}
+                  />
+                </>
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
 
         <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
           <DialogContent className="sm:max-w-[425px]">
@@ -645,6 +878,53 @@ function MachineryPage() {
                   accept="image/*"
                   className="col-span-3"
                 />
+              </div>
+              <div className="grid grid-cols-4 items-start gap-4">
+                <Label htmlFor="edit-images" className="text-right pt-2">
+                  Products
+                </Label>
+                <div className="col-span-3 space-y-4">
+                  <Input
+                    id="edit-images"
+                    type="file"
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files || []);
+                      setEquipmentData((prev) => ({
+                        ...prev,
+                        products: [...prev.products, ...files],
+                      }));
+                    }}
+                    accept="product/*"
+                    multiple
+                    className="w-full"
+                  />
+                  {equipmentData.products.length > 0 && (
+                    <div className="bg-gray-50 p-3 rounded-md">
+                      <p className="text-sm text-gray-500 mb-2">
+                        New images to add:
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {equipmentData.products.map((file, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center bg-white px-3 py-1 rounded-md shadow-sm"
+                          >
+                            <span className="text-sm truncate max-w-[200px]">
+                              {file.name}
+                            </span>
+                            <button
+                              onClick={() => removeImage(index)} // Remove function for uploaded image
+                              className="ml-2 text-gray-400 hover:text-red-500"
+                              type="button"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <div className="flex justify-end gap-2">

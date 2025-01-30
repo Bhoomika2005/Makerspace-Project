@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
-from .models import Course,CourseHeader, FormDocument , EquipmentsModel, Event, EventImage,Project
+from .models import Course,CourseHeader, FormDocument , EquipmentsModel, Event, EventImage,Project, EquipmentProduct
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -75,11 +75,20 @@ class FormDocumentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class EquipmentProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EquipmentProduct
+        fields = ['id', 'product']
+
 class EquipmentSerializer(serializers.ModelSerializer):
+    products = EquipmentProductSerializer(many=True, read_only=True)
+    
     class Meta:
         model = EquipmentsModel
          # fields = ['name', 'image', 'quantity', 'manufacturer', 'model_name', 'notes']
         fields = '__all__'
+
+
 
 class AdminEquipmentSerializer(serializers.ModelSerializer):
     class Meta:
