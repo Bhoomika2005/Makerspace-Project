@@ -287,12 +287,12 @@ export default function ProjectsPage() {
             <table className="w-full border-collapse text-sm font-sans table-fixed">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="w-12 px-6 py-4 text-center font-bold text-lg text-[#026bc0]"></th>
-                  <th className="w-1/4 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Project Name</th>
-                  <th className="w-1/4 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Faculty Mentors</th>
-                  <th className="w-1/4 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Selected Students</th>
+                  <th className="w-12 px-6 py-4 text-center font-bold text-lg text-[#026bc0]">#</th>
+                  <th className="w-2/5 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Project Name</th>
+                  <th className="w-1/5 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Faculty Mentors</th>
+                  <th className="w-1/5 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Selected Students</th>
                   {isAdmin && (
-                    <th className="w-1/4 px-6 py-4 text-center font-bold text-lg text-[#026bc0]">Actions</th>
+                    <th className="w-1/5 px-6 py-4 text-center font-bold text-lg text-[#026bc0]">Actions</th>
                   )}
                 </tr>
               </thead>
@@ -306,7 +306,7 @@ export default function ProjectsPage() {
                       onMouseEnter={() => handleRowHover(project.id, true)}
                       onMouseLeave={() => handleRowHover(project.id, false)}
                     >
-                      <td className="w-12 px-4 py-4 text-center align-top">
+                      {/* <td className="w-12 px-4 py-4 text-center align-top">
                         <button 
                           onClick={() => toggleRow(project.id)}
                           className="transition-transform duration-300"
@@ -317,7 +317,8 @@ export default function ProjectsPage() {
                             <ChevronRight className="h-5 w-5 text-[#0610ab]" />
                           )}
                         </button>
-                      </td>
+                      </td> */}
+                      <td className="px-6 py-4 text-center">{index + 1}</td>
                       <td className="w-1/4 px-6 py-4 text-base text-[#0610ab] align-top">{project.project_name}</td>
                       <td className="w-1/4 px-6 py-4 text-base align-top">
                         <div className="space-y-1">
