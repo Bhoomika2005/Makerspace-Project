@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, PhoneIcon } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/Navbar";
@@ -9,9 +9,12 @@ export default function ContactPage() {
       <Header />
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-12 text-[#026bc0]">
-          Contact Us
-        </h1>
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className="flex items-center mb-12">
+            <PhoneIcon className="mr-2 h-6 w-6 text-[#026bc0] mt-2" />
+            <h1 className="text-3xl font-bold text-[#026bc0]">Contact Us</h1>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Map Section */}

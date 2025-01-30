@@ -479,7 +479,10 @@ function MachineryPage() {
                 </div>
               </div>
 
-              <DialogContent className="sm:max-w-[425px]">
+              <DialogContent
+                className="sm:max-w-[425px]"
+                style={{ maxHeight: "600px", overflowY: "auto" }}
+              >
                 <DialogHeader>
                   <DialogTitle className="text-center text-xl text-[#026bc0]">
                     Add New Equipment
@@ -667,7 +670,11 @@ function MachineryPage() {
                 </div>
                 <div className="relative aspect-[4/3] bg-white">
                   <Image
-                    src={item.image ? `http://localhost:8000${item.image}` : "/placeholder.svg?height=300&width=400"}
+                    src={
+                      item.image
+                        ? `http://localhost:8000${item.image}`
+                        : "/placeholder.svg?height=300&width=400"
+                    }
                     alt={item.name}
                     fill
                     className="object-contain p-3"
@@ -779,7 +786,10 @@ function MachineryPage() {
         </Dialog>
 
         <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent
+            className="sm:max-w-[425px]"
+            style={{ maxHeight: "600px", overflowY: "auto" }}
+          >
             <DialogHeader>
               <DialogTitle className="text-center text-xl text-[#026bc0]">
                 Edit Equipment
@@ -954,7 +964,10 @@ function MachineryPage() {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete} className="bg-red-500 hover:bg-red-700">
+              <AlertDialogAction
+                onClick={handleDelete}
+                className="bg-red-500 hover:bg-red-700"
+              >
                 Delete
               </AlertDialogAction>
             </AlertDialogFooter>

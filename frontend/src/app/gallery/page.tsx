@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Plus,ChevronLeft, ChevronRight, X } from "lucide-react"
+import { Plus,ChevronLeft, ChevronRight, X, ImageIcon } from "lucide-react"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -391,9 +391,12 @@ export default function GalleryPage() {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-8">
+          <ImageIcon className="mr-2 h-6 w-6 text-[#026bc0]" />
           <h1 className="text-3xl font-bold text-[#026bc0]">
             Events & Gallery
-          </h1>
+            </h1>
+            </div>
 
           {isAdmin && (
             <div className="relative group">
@@ -449,7 +452,7 @@ export default function GalleryPage() {
                     {new Date(event.event_date).toLocaleDateString()}
                   </p>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-tr from-[#027cc4] to-[#0610ab] mt-2"></div>
+                <div className="h-1 w-12 bg-gradient-to-tr from-[#027cc4] to-[#0610ab] mt-2 rounded-lg"></div>
                 <div>
                   <p className="text-gray-600 leading-relaxed">
                     {event.description}
@@ -517,7 +520,10 @@ export default function GalleryPage() {
 
         {/* Add Dialog */}
         <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
-          <DialogContent className="sm:max-w-[600px]">
+          <DialogContent
+            className="sm:max-w-[600px]"
+            style={{ maxHeight: "500px", overflowY: "auto" }}
+          >
             <DialogHeader>
               <DialogTitle className="text-center text-xl text-[#026bc0]">
                 Add New Event
@@ -628,7 +634,10 @@ export default function GalleryPage() {
 
         {/* Edit Dialog */}
         <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
-          <DialogContent className="sm:max-w-[600px]">
+          <DialogContent
+            className="sm:max-w-[600px]"
+            style={{ maxHeight: "600px", overflowY: "auto" }}
+          >
             <DialogHeader>
               <DialogTitle className="text-center text-xl text-[#026bc0]">
                 Edit Event
@@ -750,7 +759,10 @@ export default function GalleryPage() {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete} className="bg-red-500 hover:bg-red-700">
+              <AlertDialogAction
+                onClick={handleDelete}
+                className="bg-red-500 hover:bg-red-700"
+              >
                 Delete
               </AlertDialogAction>
             </AlertDialogFooter>
