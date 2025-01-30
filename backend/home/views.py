@@ -429,22 +429,19 @@ class EquipmentListCreateView(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        print("post request called")
-        print("data : ", request.data)
         serializer = EquipmentSerializer(data=request.data)
-        products = request.FILES.getlist('products')
-        for product in products:
-            EquipmentProduct.objects.create(equipment=equipment, product=product)
-
-        print("serializer : " , serializer)
         if serializer.is_valid():
-            print("is valid")
-            serializer.save()
-            print("saved")
+            equipment = serializer.save()
+            
+            # Handle multiple images
+            products = request.FILES.getlist('products')
+            for product in products:
+                EquipmentProduct.objects.create(equipment=equipment, product=product)
+            
+            # Get updated event with images
             updated_serializer = EquipmentSerializer(equipment)
             return Response(updated_serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class EquipmentDetailView(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
