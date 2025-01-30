@@ -544,7 +544,7 @@ export default function FacultyPage() {
             <AlertDialogCancel onClick={() => setShowDeleteDialog(false)}>
               Cancel
             </AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>
+            <AlertDialogAction onClick={handleDelete} className="bg-red-500 hover:bg-red-600 text-white">
               Delete
             </AlertDialogAction>
           </AlertDialogFooter>
