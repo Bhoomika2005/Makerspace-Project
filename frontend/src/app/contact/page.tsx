@@ -12,7 +12,7 @@ export default function ContactPage() {
         <div className="flex flex-col items-center justify-center text-center">
           <div className="flex items-center mb-12">
             <PhoneIcon className="mr-2 h-6 w-6 text-[#026bc0] mt-2" />
-            <h1 className="text-3xl font-bold text-[#026bc0]">Contact Us</h1>
+            <h1 className="text-2xl font-bold text-[#026bc0]">Contact Us</h1>
           </div>
         </div>
 

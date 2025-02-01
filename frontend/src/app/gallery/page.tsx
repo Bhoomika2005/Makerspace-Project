@@ -82,9 +82,9 @@ const ImageCarousel = ({ images, onClose, event }: { images: EventImage[]; onClo
   const getPositionClass = (index: number) => {
   if (index === currentIndex) return "translate-x-0 scale-100 opacity-100 z-10"; // Current image
   if (index === (currentIndex - 1 + images.length) % images.length)
-    return "-translate-x-[16rem] scale-90 opacity-80 z-0"; // Left image
+    return "-translate-x-[16rem] scale-90 opacity-50 z-0"; // Left image
   if (index === (currentIndex + 1) % images.length)
-    return "translate-x-[16rem] scale-90 opacity-80 z-0"; // Right image
+    return "translate-x-[16rem] scale-90 opacity-50 z-0"; // Right image
 
   // Ensure no black space by keeping images hidden properly
   return "opacity-0 scale-75 absolute"; // Hide other images but keep them ready off-screen
@@ -391,9 +391,9 @@ export default function GalleryPage() {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center ">
           <ImageIcon className="mr-2 h-6 w-6 text-[#026bc0]" />
-          <h1 className="text-3xl font-bold text-[#026bc0]">
+          <h1 className="text-2xl font-bold text-[#026bc0]">
             Events & Gallery
             </h1>
             </div>

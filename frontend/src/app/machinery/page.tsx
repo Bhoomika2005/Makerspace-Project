@@ -79,7 +79,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
     const interval = setInterval(() => {
       nextImage();
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [products]);
@@ -111,9 +111,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     if (index === currentIndex)
       return "translate-x-0 scale-100 opacity-100 z-10";
     if (index === (currentIndex - 1 + products.length) % products.length)
-      return "-translate-x-64 scale-90 opacity-80 z-0";
+      return "-translate-x-64 scale-90 opacity-50 z-0";
     if (index === (currentIndex + 1) % products.length)
-      return "translate-x-64 scale-90 opacity-80 z-0";
+      return "translate-x-64 scale-90 opacity-50 z-0";
     return "opacity-0 scale-75 absolute";
   };
 
@@ -453,13 +453,13 @@ function MachineryPage() {
           {!isAdmin && (
             <div className="flex justify-center items-center">
               <Wrench className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-3xl font-bold text-[#026bc0]">Equipment</h2>
+              <h2 className="text-2xl font-bold text-[#026bc0]">Equipment</h2>
             </div>
           )}
           {isAdmin && (
             <div className="flex justify-center mx-auto items-center">
               <Wrench className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-3xl font-bold text-[#026bc0]">Equipment</h2>
+              <h2 className="text-2xl font-bold text-[#026bc0]">Equipment</h2>
             </div>
           )}
 
@@ -719,7 +719,7 @@ function MachineryPage() {
                     <div className="flex justify-center gap-4 mt-4">
                       <Button
                         size="icon"
-                        className="bg-transparent"
+                        className="bg-transparent hover:bg-[#026BC0]"
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedEquipmentId(item.id);
