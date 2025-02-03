@@ -148,15 +148,6 @@ const ImageCarousel = ({ images, onClose, event }: { images: EventImage[]; onClo
             />
           ))}
         </div>
-
-        <Link
-          href={`https://drive.google.com/drive/folders/1azBfF4iQIgix9hEej9V-wqlp3eCcfLcA`}
-          target="_blank"
-          className="text-white hover:underline text-sm"
-          onClick={(e) => e.stopPropagation()}
-        >
-          View Gallery
-        </Link>
       </div>
     </Card>
   );
@@ -392,11 +383,11 @@ export default function GalleryPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <div className="flex justify-between items-center ">
-          <ImageIcon className="mr-2 h-6 w-6 text-[#026bc0]" />
-          <h1 className="text-2xl font-bold text-[#026bc0]">
-            Events & Gallery
+            <ImageIcon className="mr-2 h-6 w-6 text-[#026bc0]" />
+            <h1 className="text-2xl font-bold text-[#026bc0]">
+              Events & Gallery
             </h1>
-            </div>
+          </div>
 
           {isAdmin && (
             <div className="relative group">
@@ -436,7 +427,7 @@ export default function GalleryPage() {
                       src={`http://localhost:8000${event.images[0].image}`}
                       alt={event.title}
                       fill
-                      className="object-cover"
+                      className="object-cover hover:scale-110 transform transition duration-300"
                     />
                   ) : (
                     <div className="w-full h-full bg-gray-100 flex items-center justify-center">
