@@ -129,7 +129,7 @@ const StyledWrapper = styled.div`
     justify-content: center;
     font-size: 25px;
     font-weight: bold;
-    background-color: rgb(161, 246, 246);
+    background: linear-gradient(135deg, rgb(135, 206, 250), rgb(255, 255, 255));
     transition: all 0.5s;
   }
 
