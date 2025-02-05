@@ -308,7 +308,7 @@ if (courseId === null) {
                     ))}
                 </div>
                 <Dialog open={showAddEditDialog} onOpenChange={setShowAddEditDialog}>
-                    <DialogContent style={{ maxHeight: '800px', overflowY: 'auto' }}> 
+                    <DialogContent style={{ maxHeight: '500px', overflowY: 'auto' }}> 
                         <DialogHeader>
                             <DialogTitle>
                                 {selectedCourse?.courseId ? "Edit Course" : "Add Course"}

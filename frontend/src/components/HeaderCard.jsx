@@ -73,7 +73,7 @@ const StyledWrapper = styled.div`
     position: relative;
     width: 400px;
     height: 220px;
-    background: #027cc4;
+    background: linear-gradient(135deg, #027cc4, #0610ab);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,7 +129,7 @@ const StyledWrapper = styled.div`
     justify-content: center;
     font-size: 25px;
     font-weight: bold;
-    background-color: lightblue;
+    background-color: rgb(161, 246, 246);
     transition: all 0.5s;
   }
 
