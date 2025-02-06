@@ -75,8 +75,8 @@ export default function FacultyPage() {
   });
   const categories = [
     { key: "Faculty Mentors", label: "Faculty Mentors" },
-    { key: "Teaching Assistant", label: "Teaching Assistant" },
     { key: "Lab Technician", label: "Lab Technician" },
+    { key: "Teaching Assistant", label: "Teaching Assistant" },
   ];
 
   const router = useRouter();
@@ -324,7 +324,7 @@ export default function FacultyPage() {
         <Navbar />
         <div className="max-w-7xl mx-auto px-6">
           <Categories
-            categories={["Faculty Mentors", "Teaching Assistant", "Lab Technician"]}
+            categories={["Faculty Mentors", "Lab Technician", "Teaching Assistant"]}
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}
           />
@@ -338,7 +338,7 @@ export default function FacultyPage() {
           <div className="mb-8 flex justify-between items-center">
             <div className="flex items-center p-5 backdrop-blur-sm" >
               <Users className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-[#026bc0] text-2xl font-bold">Faculty Members </h2>
+              <h2 className="text-[#026bc0] text-2xl font-bold">{selectedCategory}</h2>
             </div>
             {/* <h1 className=" text-[#026bc0] text-2xl font-bold"> <Users size={20} />Our Faculty Members</h1> */}
             {isAdmin && (
