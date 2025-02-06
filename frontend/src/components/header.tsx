@@ -68,6 +68,7 @@ const Header = () => {
           <div className="relative w-32 self-stretch flex items-center justify-center mr-44">
             <Image
               src="/images/ms_logo.png"
+              // src="/images/new_logo.png"
               alt="MakerSpace Logo"
               width={130}
               height={130}

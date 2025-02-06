@@ -69,6 +69,7 @@ const Header = () => {
           <div className="relative w-36 self-stretch flex items-center justify-center mr-44 bg-white/90 backdrop-filter backdrop-blur-sm rounded-md p-2 hover:bg-white/20 transition-colors">
             <Image
               src="/images/ms_logo.png"
+              // src="/images/new_logo.png"
               alt="Right Logo"
               width={110}
               height={110}
