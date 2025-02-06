@@ -93,12 +93,18 @@ class EquipmentProduct(models.Model):
 
 
 class Faculty(models.Model):
+
+    CATEGORY_CHOICES = [
+        ('TA', 'Teaching Assistant'),
+        ('Faculty Mentors', 'Faculty Mentors'),
+        ('Lab Technician', 'Lab Technician'),
+    ]
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255)
     email = models.EmailField()
     location = models.CharField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='faculty_images/', blank=True, null=True)
-
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Faculty Mentors')
     def __str__(self):
         return self.name
 # class Event(models.Model):

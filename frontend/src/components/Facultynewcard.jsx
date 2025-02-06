@@ -2,7 +2,7 @@ import { Mail, Pencil, Trash } from 'lucide-react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete, isAdmin }) => {
+const Facultynewcard = ({ name, role, image, email, location,category, onEdit, onDelete, isAdmin }) => {
   const [copyMessage, setCopyMessage] = useState('');
 
   const handleEmailClick = async () => {

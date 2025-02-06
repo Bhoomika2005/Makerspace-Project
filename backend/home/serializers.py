@@ -102,7 +102,7 @@ from .models import Faculty
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
-        fields = ['id', 'name', 'role', 'email', 'location', 'image']
+        fields = ['id', 'name', 'role', 'email', 'location', 'image','category']
 # class EventSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = Event
