@@ -338,7 +338,7 @@ export default function FacultyPage() {
           <div className="mb-8 flex justify-between items-center">
             <div className="flex items-center p-5 backdrop-blur-sm" >
               <Users className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-[#026bc0] text-2xl font-bold">{selectedCategory}</h2>
+              <h2 className="text-[#026bc0] text-2xl font-bold">  {selectedCategory === 'Lab Technician' ? 'Lab Technicians' : selectedCategory}</h2>
             </div>
             {/* <h1 className=" text-[#026bc0] text-2xl font-bold"> <Users size={20} />Our Faculty Members</h1> */}
             {isAdmin && (
@@ -423,6 +423,7 @@ export default function FacultyPage() {
                         }
                         className="col-span-3 border rounded-md p-2"
                       >
+                        <option value="">Select Category</option>
                         <option value="TA">Teaching Assistant</option>
                         <option value="Faculty">Faculty Mentors</option>
                         <option value="Lab Technician">Lab Technician</option>
