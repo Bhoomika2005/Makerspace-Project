@@ -124,4 +124,4 @@ class EventSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'project_name', 'faculty_mentors', 'selected_students']
+        fields = ['id', 'project_name', 'faculty_mentors', 'selected_students','image']

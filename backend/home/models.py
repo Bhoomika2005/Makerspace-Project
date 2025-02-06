@@ -127,6 +127,6 @@ class Project(models.Model):
     project_name = models.CharField(max_length=255)
     faculty_mentors = models.TextField()
     selected_students = models.TextField()  # store emails as a comma-separated string
-
+    image = models.ImageField(upload_to='project_images/', blank=True, null=True)
     def __str__(self):
         return self.project_name

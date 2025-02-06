@@ -7,7 +7,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Plus, Edit, Trash, FileText, ChevronDown, ChevronRight } from "lucide-react";
+import { Plus, Edit, Trash, FileText, ChevronDown, ChevronRight, ImageIcon } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -34,12 +34,14 @@ interface Project {
   project_name: string;
   faculty_mentors: string;
   selected_students: string;
+  image: string;
 }
 
 interface FormData {
   project_name: string;
   faculty_mentors: string;
   selected_students: string;
+  image: File | null;
 }
 
 interface UserDetails {
@@ -60,7 +62,8 @@ export default function ProjectsPage() {
   const [formData, setFormData] = useState<FormData>({
     project_name: "",
     faculty_mentors: "",
-    selected_students: ""
+    selected_students: "",
+    image: null,
   });
   const [expandedRows, setExpandedRows] = useState<{ [key: number]: boolean }>({});
 
@@ -77,6 +80,16 @@ export default function ProjectsPage() {
       ...prev,
       [projectId]: isHovered
     }));
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setFormData({
+        ...formData,
+        image: file,
+      });
+    }
   };
 
   useEffect(() => {
@@ -125,6 +138,7 @@ export default function ProjectsPage() {
 
       const data: Project[] = await response.json();
       setProjects(data);
+      console.log(data);
       setError(null);
     } catch (error) {
       console.error("Error fetching projects:", error);
@@ -135,6 +149,18 @@ export default function ProjectsPage() {
   const handleSubmit = async () => {
     const token = Cookies.get("access");
     try {
+      const formDataToSend = new FormData();
+    formDataToSend.append("project_name", formData.project_name);
+    formDataToSend.append("faculty_mentors", formData.faculty_mentors);
+    formDataToSend.append("selected_students", formData.selected_students);
+    if (formData.image) {
+      formDataToSend.append("image", formData.image);
+    }
+    console.log("formData",formData.image);
+    console.log("formData",formDataToSend);
+    
+    console.log("formData",formData);
+
       const method = currentProject ? "PUT" : "POST";
       const url = currentProject
         ? `http://localhost:8000/api/projects/${currentProject.id}/`
@@ -143,10 +169,11 @@ export default function ProjectsPage() {
       const response = await fetch(url, {
         method: method,
         headers: {
-          "Content-Type": "application/json",
+         
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
+        // body: JSON.stringify(formData),
       });
 
       if (response.status === 401) {
@@ -165,7 +192,8 @@ export default function ProjectsPage() {
       setFormData({
         project_name: "",
         faculty_mentors: "",
-        selected_students: ""
+        selected_students: "",
+        image: null,
       });
       setCurrentProject(null);
       setError(null);
@@ -207,7 +235,9 @@ export default function ProjectsPage() {
     setFormData({
       project_name: project.project_name,
       faculty_mentors: project.faculty_mentors,
-      selected_students: project.selected_students
+      selected_students: project.selected_students,
+      image: null,
+
     });
     setShowProjectDialog(true);
   };
@@ -268,7 +298,8 @@ export default function ProjectsPage() {
                   setFormData({
                     project_name: "",
                     faculty_mentors: "",
-                    selected_students: ""
+                    selected_students: "",
+                    image: null
                   });
                   setShowProjectDialog(true);
                 }}
@@ -288,6 +319,7 @@ export default function ProjectsPage() {
               <thead>
                 <tr className="border-b border-gray-200">
                   <th className="w-9 px-6 py-4 text-center font-bold text-lg text-[#026bc0]">#</th>
+                  <th className="w-24 px-6 py-4 text-center font-bold text-lg text-[#026bc0]">Image</th>
                   <th className="w-2/6 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Project Name</th>
                   <th className="w-2/6 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Faculty Mentors</th>
                   <th className="w-1/6 px-6 py-4 text-left font-bold text-lg text-[#026bc0]">Selected Students</th>
@@ -306,19 +338,18 @@ export default function ProjectsPage() {
                       onMouseEnter={() => handleRowHover(project.id, true)}
                       onMouseLeave={() => handleRowHover(project.id, false)}
                     >
-                      {/* <td className="w-12 px-4 py-4 text-center align-top">
-                        <button 
-                          onClick={() => toggleRow(project.id)}
-                          className="transition-transform duration-300"
-                        >
-                          {expandedRows[project.id] ? (
-                            <ChevronDown className="h-5 w-5 text-[#0610ab]" />
-                          ) : (
-                            <ChevronRight className="h-5 w-5 text-[#0610ab]" />
-                          )}
-                        </button>
-                      </td> */}
                       <td className="px-6 py-4 text-center">{index + 1}</td>
+
+                      <td className="px-6 py-4">
+                          <div className="flex justify-center">
+                            <img 
+                              src={project.image ? `http://localhost:8000${project.image}` :  `http://localhost:8000/media/project_images/Projectimage.jpg`}
+                              alt={`Project ${index + 1}`}
+                              className="w-20 h-20 object-cover rounded-lg shadow-md"
+                            />
+                          </div>
+                        </td>
+
                       <td className="w-1/4 px-6 py-4 text-base text-[#0610ab] align-top">{project.project_name}</td>
                       <td className="w-1/4 px-6 py-4 text-base align-top">
                         <div className="space-y-1">
@@ -361,7 +392,7 @@ export default function ProjectsPage() {
 
                     {/* Expanded content */}
                     <tr className="transition-all duration-300 ease-in-out">
-                      <td colSpan={isAdmin ? 5 : 4} className="p-0">
+                      <td colSpan={isAdmin ? 6 : 5} className="p-0">
                         <div 
                           className="bg-[#eef2ff] overflow-hidden transition-all duration-300 ease-in-out"
                           style={{
@@ -467,6 +498,21 @@ export default function ProjectsPage() {
                   placeholder="Enter selected students (comma-separated)"
                 />
               </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="image" className="text-right font-medium">
+                Project Image
+              </Label>
+              <div className="col-span-3">
+                <Input
+                  id="image"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="w-full"
+                />
+              </div>
+            </div>
+
             </div>
             <div className="flex justify-end gap-3">
               <Button
