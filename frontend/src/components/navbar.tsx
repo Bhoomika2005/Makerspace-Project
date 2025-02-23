@@ -52,10 +52,10 @@ const Navbar: React.FC = () => {
     { href: "/", icon: <Home size={20} />, text: "Home" },
     { href: "/course", icon: <BookOpen size={20} />, text: "Courses" },
     { href: "/projects", icon: <Scroll size={20} />, text: "Projects" },
-    { href: "/machinery", icon: <Wrench size={20} />, text: "Machinery" },
+    { href: "/machinery", icon: <Wrench size={20} />, text: "Utilities" },
     { href: "/forms", icon: <FileText size={20} />, text: "Forms" },
     { href: "/gallery", icon: <Image size={20} />, text: "Gallery" },
-    { href: "/faculty", icon: <Users size={20} />, text: "Faculty" },
+    { href: "/faculty", icon: <Users size={20} />, text: "People" },
     { href: "/contact", icon: <Phone size={20} />, text: "Contact" },
     // { href: "/profile", icon: <UserCircle size={20} />, text: "Profile" },
   ];

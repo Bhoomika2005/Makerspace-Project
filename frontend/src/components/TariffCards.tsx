@@ -1,5 +1,5 @@
 import React from "react";
-import { Telescope, Link, Lightbulb } from "lucide-react";
+import { Telescope, Link, Zap } from "lucide-react";
 import styles from "./TariffCards.module.css";
 
 const TariffCards: React.FC = () => {
@@ -22,7 +22,7 @@ const TariffCards: React.FC = () => {
         </div>
         <div className={`${styles.card} ${styles.business}`}>
           <div className="flex flex-col items-center justify-center">
-            <Lightbulb className="text-gray-200" size={96} strokeWidth={1.5} />
+            <Zap className="text-gray-200" size={96} strokeWidth={1.5} />
             <h3 className="text-2xl font-semibold mb-2 text-center">Creativity</h3>
             <span className="text-gray-600 text-center">...........</span>
           </div>

@@ -453,13 +453,13 @@ function MachineryPage() {
           {!isAdmin && (
             <div className="flex justify-center items-center">
               <Wrench className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-2xl font-bold text-[#026bc0]">Equipment</h2>
+              <h2 className="text-2xl font-bold text-[#026bc0]">Utilities</h2>
             </div>
           )}
           {isAdmin && (
             <div className="flex justify-center mx-auto items-center">
               <Wrench className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-2xl font-bold text-[#026bc0]">Equipment</h2>
+              <h2 className="text-2xl font-bold text-[#026bc0]">Utilities</h2>
             </div>
           )}
 

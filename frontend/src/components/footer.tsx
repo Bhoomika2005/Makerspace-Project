@@ -1,16 +1,16 @@
 import Image from "next/image";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Circle } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="w-full">
       <div className="bg-gradient-to-tr from-[#027cc4] to-[#0610ab] text-white">
         <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-5 items-start">
             {/* Location Section */}
             <div className="space-y-4 md:pl-8">
               <h2 className="text-xl font-semibold uppercase tracking-wide">
-                Location :
+                Location
               </h2>
               <div className="flex gap-3">
                 <a
@@ -47,6 +47,51 @@ export default function Footer() {
                   <a href="tel:+917509202484" className="hover:underline">
                     +917509202484
                   </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Developers Section */}
+            <div className="space-y-4 md:pl-8">
+              <h2 className="text-xl font-semibold uppercase tracking-wide">
+                  Developed by
+              </h2>
+              <div className="grid grid-cols-2 gap-x-2">
+                {/* Names Column */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Circle className="h-2 w-2 flex-shrink-0" />
+                    <p>B.G.V.Shiva</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Circle className="h-2 w-2 flex-shrink-0" />
+                    <p>E.Bhoomika</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Circle className="h-2 w-2 flex-shrink-0" />
+                    <p>M.Sai Varshith</p>
+                  </div>
+                </div>
+                {/* Email Column */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 flex-shrink-0" />
+                    <a href="mailto:bgvshiva@gmail.com" className="text-gray-300 hover:underline">
+                      bgvshiva@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 flex-shrink-0" />
+                    <a href="mailto:bhoomikapdtr@gmail.com" className="text-gray-300 hover:underline">
+                      bhoomikapdtr@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 flex-shrink-0" />
+                    <a href="mailto:mvarshith2005@gmail.com" className="text-gray-300 hover:underline">
+                      mvarshith2005@gmail.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

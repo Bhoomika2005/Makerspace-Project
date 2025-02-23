@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Facultynewcard from '@/components/Facultynewcard';
 import Categories from '@/components/Categories';
-import { Textarea } from "@/components/ui/textarea"; // Removed: `bio` dependency
+import { Textarea } from "@/components/ui/textarea"; 
 import {
   Card,
   CardContent,
