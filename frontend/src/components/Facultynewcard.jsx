@@ -76,7 +76,7 @@ const Facultynewcard = ({ name, role, image, email, location,category, onEdit, o
           <div className="content">
             <span className="role about-me"> 💼 {role}</span>
             <br />
-            <span className="about-me">📍 {location}</span>
+            <span className="about-me">🏢 {location}</span>
           </div>
           <div className="bottom-bottom">
             <div className="name">{name}</div>
