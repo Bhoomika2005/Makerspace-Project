@@ -99,12 +99,12 @@ export default function Footer() {
             {/* Logos Section */}
             <div className="relative h-64 md:h-full">
               <div className="absolute right-0 bottom-32 md:bottom-1/2 md:translate-y-1/2 w-[200px] lg:w-[300px] h-32 flex items-center justify-center">
-                <div className="w-[120px] h-[120px] lg:w-[130px] lg:h-[130px] rounded-lg bg-slate-200 flex items-center justify-center">
+                <div className="w-[120px] h-[120px] lg:w-[130px] lg:h-[130px] rounded-lg flex items-center justify-center">
                   <Image
-                    src="/images/ms_logo.png"
+                    src="/images/makerspace_logo.png"
                     alt="IIT Indore MakerSpace Logo"
-                    width={100}
-                    height={100}
+                    width={160}
+                    height={160}
                     className="object-contain"
                   />
                 </div>

@@ -11,7 +11,7 @@ const Header = () => {
         <Link href='/'>
         
         <div className="flex py-2 px-2 ml-44">
-          <div className="relative w-36 self-stretch flex items-center justify-center bg-white/90 backdrop-filter backdrop-blur-sm rounded-md p-2 hover:bg-white/20 transition-colors">
+          <div className="relative w-36 self-stretch flex items-center justify-center bg-white/20 backdrop-filter backdrop-blur-sm rounded-md p-2 hover:bg-white/10 transition-colors">
             <Image
               src="/images/iiti.png"
               alt="Left Logo"
@@ -66,13 +66,13 @@ const Header = () => {
             </p>
           </div>
 
-          <div className="relative w-36 self-stretch flex items-center justify-center mr-44 bg-white/90 backdrop-filter backdrop-blur-sm rounded-md p-2 hover:bg-white/20 transition-colors">
+          <div className="relative w-36 self-stretch flex items-center bg-white/20 justify-center mr-44 backdrop-filter backdrop-blur-sm rounded-md p-2 hover:bg-white/10 transition-colors">
             <Image
-              src="/images/ms_logo.png"
+              src="/images/makerspace_logo.png"
               // src="/images/new_logo.png"
               alt="Right Logo"
-              width={110}
-              height={110}
+              width={160}
+              height={160}
               style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))" }}
             />
           </div>

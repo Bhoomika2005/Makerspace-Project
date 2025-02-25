@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect } from "react"
@@ -380,7 +379,7 @@ export default function GalleryPage() {
     <div>
       <Header />
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-20 py-8">
         <div className="flex justify-between items-center mb-8">
           <div className="flex justify-between items-center ">
             <ImageIcon className="mr-2 h-6 w-6 text-[#026bc0]" />
@@ -410,7 +409,7 @@ export default function GalleryPage() {
           </Alert>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event) => (
             <Card
               key={event.id}
