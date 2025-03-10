@@ -98,6 +98,7 @@ class Faculty(models.Model):
         ('TA', 'Teaching Assistant'),
         ('Faculty Mentors', 'Faculty Mentors'),
         ('Lab Technician', 'Lab Technician'),
+        ('Administrators', 'Administrators'),
     ]
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255)
@@ -105,6 +106,12 @@ class Faculty(models.Model):
     location = models.CharField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='faculty_images/', blank=True, null=True)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Faculty Mentors')
+    year = models.IntegerField(blank=True, null=True)  # Only for TA
+
+    def save(self, *args, **kwargs):
+        if self.category != 'TA':
+            self.year = None  # Ensure year is only set for TAs
+        super().save(*args, **kwargs)
     def __str__(self):
         return self.name
 # class Event(models.Model):

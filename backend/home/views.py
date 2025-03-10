@@ -506,11 +506,24 @@ from rest_framework.exceptions import NotFound
 @api_view(['POST'])
 def add_faculty(request):
     if request.method == 'POST':
+        print(request.data)
         serializer = FacultySerializer(data=request.data)
+        print(serializer)
+        
         if serializer.is_valid():
-            serializer.save()  # Save the new faculty data to the database
-            return Response(serializer.data, status=status.HTTP_201_CREATED)  # Respond with the created data
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Return errors if validation fails
+            category = serializer.validated_data.get("category")
+            year = serializer.validated_data.get("year", None)
+
+            if category == "TA" and year is None:
+                return Response({"year": "Year is required for Teaching Assistants."}, status=status.HTTP_400_BAD_REQUEST)
+            
+            if category != "TA" and year is not None:
+                serializer.validated_data.pop("year")  # Ensure non-TAs do not store 'year'
+
+            serializer.save()  # Save the new faculty data
+            return Response(serializer.data, status=status.HTTP_201_CREATED)  # Respond with created data
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Validation failed
 
 class EditFaculty(APIView):
     def get_object(self, pk):
@@ -521,12 +534,23 @@ class EditFaculty(APIView):
 
     def put(self, request, pk, format=None):
         faculty = self.get_object(pk)
-        serializer = FacultySerializer(faculty, data=request.data)  # Update with new data
+        serializer = FacultySerializer(faculty, data=request.data, partial=True)  # Allow partial updates
+        
         if serializer.is_valid():
-            serializer.save()  # Save the updated data to the database
-            return Response(serializer.data)  # Respond with updated data
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Validation failed, send errors  
-    
+            category = serializer.validated_data.get("category", faculty.category)
+            year = serializer.validated_data.get("year", None)
+
+            if category == "TA" and year is None:
+                return Response({"year": "Year is required for Teaching Assistants."}, status=status.HTTP_400_BAD_REQUEST)
+
+            if category != "TA" and "year" in serializer.validated_data:
+                serializer.validated_data.pop("year")  # Prevent 'year' update for non-TAs
+
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class DeleteFaculty(APIView):
     def get_object(self, pk):
         try:

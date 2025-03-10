@@ -20,7 +20,7 @@ const Categories = ({ categories, selectedCategory, onCategoryChange }) => {
                 transform skew-x-[20deg] text-sm font-medium
                 ${selectedCategory === category ? 'text-white' : 'text-gray-600 hover:text-gray-900'}
               `}>
-               {category === 'Lab Technician' ? 'Lab Technicians' : (category === 'Teaching Assistant' ? 'Teaching Assistants' : category)}
+               {category === 'Lab Technician' ? 'Lab Engineers' : (category === 'Teaching Assistant' ? 'Teaching Assistants' : category)}
               </span>
             </div>
           </div>

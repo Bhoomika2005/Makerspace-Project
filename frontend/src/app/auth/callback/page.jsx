@@ -1,3 +1,4 @@
+//frontend\src\app\auth\callback\page.jsx
 'use client';
 
 import { useEffect } from 'react';

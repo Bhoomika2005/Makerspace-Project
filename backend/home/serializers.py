@@ -96,14 +96,19 @@ class AdminEquipmentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
         # fields = ['name', 'image', 'quantity', 'manufacturer', 'model_name', 'notes']
-
 from .models import Faculty
-
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
-        fields = ['id', 'name', 'role', 'email', 'location', 'image','category']
-# class EventSerializer(serializers.ModelSerializer):
+        fields = ['id', 'name', 'role', 'email', 'location', 'image', 'category', 'year']
+
+    def validate(self, data):
+        """ Ensure that 'year' is only provided for Teaching Assistants. """
+        if data.get('category') == 'TA' and 'year' not in data:
+            raise serializers.ValidationError({"year": "Year is required for Teaching Assistants."})
+        if data.get('category') != 'TA' and 'year' in data:
+            data.pop('year')  # Remove year for non-TA categories
+        return data
 #     class Meta:
 #         model = Event
 #         # fields = ['title', 'event_date', 'description', 'image']

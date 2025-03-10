@@ -45,6 +45,7 @@ interface Faculty {
   location: string;
   email: string;
   category: string;
+  year?: number; // Optional, only for Teaching Assistants
 }
 
 interface User {
@@ -64,6 +65,7 @@ export default function FacultyPage() {
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
   const [selectedFacultyId, setSelectedFacultyId] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [selectedYear, setSelectedYear] = useState<number | "All">("All"); // "All" means no filtering by year
   const [facultyData, setFacultyData] = useState({
     name: '',
     role: '',
@@ -71,9 +73,10 @@ export default function FacultyPage() {
     email: '',
     location: '',
     category: '',
-
+    year: null as number | null, // Add year, default is null
   });
   const categories = [
+    { key: "Administrators", label: "Administrators" }, 
     { key: "Faculty Mentors", label: "Faculty Mentors" },
     { key: "Lab Technician", label: "Lab Technician" },
     { key: "Teaching Assistant", label: "Teaching Assistant" },
@@ -129,6 +132,15 @@ export default function FacultyPage() {
       setError('Failed to fetch faculty');
     }
   };
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedCategory = e.target.value;
+    setFacultyData((prevData) => ({
+      ...prevData,
+      category: selectedCategory,
+      year: selectedCategory === 'TA' ? prevData.year : null, // Reset year for non-TAs
+    }));
+  };
+  
 
   const handleAddFaculty = async () => {
     console.log(facultyData);
@@ -150,6 +162,9 @@ export default function FacultyPage() {
     formData.append('category', facultyData.category);
     if (facultyData.image) {
       formData.append('image', facultyData.image);
+    }
+    if (facultyData.category === "TA") {
+      formData.append('year', facultyData.year ? String(facultyData.year) : "");
     }
     //hello
     console.log("key, value");
@@ -181,6 +196,7 @@ export default function FacultyPage() {
         location: '',
         image: null,
         category: '',
+        year: null,
       });
       setSelectedFaculty(null);
       setError(null);
@@ -212,6 +228,11 @@ export default function FacultyPage() {
     if (facultyData.image) {
       formData.append('image', facultyData.image);
     }
+      // Only append 'year' if category is Teaching Assistant
+  if (facultyData.category === "TA") {
+    formData.append('year', facultyData.year ? String(facultyData.year) : "");
+  }
+
 
     try {
       const response = await fetch(`http://localhost:8000/api/faculty/edit/${selectedFacultyId}/`, {
@@ -234,7 +255,8 @@ export default function FacultyPage() {
         email: '',
         location: '',
         image: null,
-        category: ''
+        category: '',
+        year: null,
       });
       setSelectedFaculty(null);
       setSelectedFacultyId(0);
@@ -284,6 +306,7 @@ export default function FacultyPage() {
       location: faculty.location,
       image: null,
       category: faculty.category,
+      year: faculty.category === "TA" ? faculty.year || null : null,
     });
     setShowEditDialog(true);
   };
@@ -324,10 +347,29 @@ export default function FacultyPage() {
         <Navbar />
         <div className="max-w-7xl mx-auto px-6">
           <Categories
-            categories={["Faculty Mentors", "Lab Technician", "Teaching Assistant"]}
+            categories={["Faculty Mentors", "Lab Technician", "Teaching Assistant","Administrators"]}
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}
           />
+            {/* Show Year Filter only if Teaching Assistant is selected */}
+  {selectedCategory === "Teaching Assistant" && (
+    <div className="mt-4">
+      <label htmlFor="year-filter" className="block text-sm font-medium text-gray-700">
+        Filter by Year:
+      </label>
+      <select
+        id="year-filter"
+        className="mt-1 block w-40 p-2 border border-gray-300 rounded-md shadow-sm"
+        value={selectedYear}
+        onChange={(e) => setSelectedYear(e.target.value === "All" ? "All" : parseInt(e.target.value))}
+      >
+        <option value="All">All Years</option>
+        {[...new Set(faculty.filter(f => f.category === "TA").map(f => f.year))].map((year) => (
+          <option key={year} value={year}>{year}</option>
+        ))}
+      </select>
+    </div>
+  )}
         </div>
         <div className="max-w-7xl mx-auto p-6">
           {error && (
@@ -338,7 +380,7 @@ export default function FacultyPage() {
           <div className="mb-8 flex justify-between items-center">
             <div className="flex items-center p-5 backdrop-blur-sm" >
               <Users className="mr-2 h-6 w-6 text-[#026bc0]" />
-              <h2 className="text-[#026bc0] text-2xl font-bold">  {selectedCategory === 'Lab Technician' ? 'Lab Technicians' : selectedCategory}</h2>
+              <h2 className="text-[#026bc0] text-2xl font-bold">  {selectedCategory === 'Lab Technician' ? 'Lab Engineers' : selectedCategory}</h2>
             </div>
             {/* <h1 className=" text-[#026bc0] text-2xl font-bold"> <Users size={20} />Our Faculty Members</h1> */}
             {isAdmin && (
@@ -425,11 +467,27 @@ export default function FacultyPage() {
                       >
                         <option value="">Select Category</option>
                         <option value="TA">Teaching Assistant</option>
-                        <option value="Faculty">Faculty Mentors</option>
+                        <option value="Faculty Mentors">Faculty Mentors</option>
                         <option value="Lab Technician">Lab Technician</option>
+                        <option value="Administrators">Administrators</option>
                       </select>
                     </div>
-                  </div>
+                    {facultyData.category === "TA" && (
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="year" className="text-right">Year</Label>
+                      <Input
+                        id="year"
+                        type="number"
+                        value={facultyData.year || ""}
+                        onChange={(e) => setFacultyData({ ...facultyData, year: parseInt(e.target.value) || null })}
+                        className="col-span-3"
+                      />
+                    </div>
+                  )}
+
+                   
+                    </div>
+                 
                   <div className="flex justify-end gap-2">
                     <Button variant="outline" onClick={() => setShowAddDialog(false)}>
                       Cancel
@@ -507,8 +565,21 @@ export default function FacultyPage() {
                       <option value="TA">Teaching Assistant</option>
                       <option value="Faculty Mentors">Faculty Mentors</option>
                       <option value="Lab Technician">Lab Technician</option>
+                      <option value="Administrators">Administrators</option>
                     </select>
                   </div>
+                  {facultyData.category === "TA" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="year">Year</Label>
+                      <Input
+                        id="year"
+                        type="number"
+                        value={facultyData.year || ""}
+                        onChange={(e) => setFacultyData({ ...facultyData, year: parseInt(e.target.value) || null })}
+                      />
+                    </div>
+                  )}
+
 
                 </div>
 
@@ -552,16 +623,10 @@ export default function FacultyPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
             {faculty
               .filter(item => {
-                switch (selectedCategory) {
-                  case "Faculty Mentors":
-                    return item.category === "Faculty Mentors";
-                  case "Teaching Assistant":
-                    return item.category === "TA";
-                  case "Lab Technician":
-                    return item.category === "Lab Technician";
-                  default:
-                    return true;
+                if (selectedCategory === "Teaching Assistant") {
+                  return item.category === "TA" && (selectedYear === "All" || item.year === selectedYear);
                 }
+                return item.category === selectedCategory|| (selectedCategory === "Administrators" && item.category === "Administrators");
               })
               .map((item) => (
                 <Facultynewcard
