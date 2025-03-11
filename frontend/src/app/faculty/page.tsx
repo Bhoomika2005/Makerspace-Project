@@ -36,6 +36,7 @@ import Navbar from '@/components/Navbar';
 import { Plus, Users } from 'lucide-react';
 
 import { useRouter } from "next/navigation";
+import AdministratorGrid from '@/components/AdministratorGrid';
 
 interface Faculty {
   id: number;
@@ -347,7 +348,7 @@ export default function FacultyPage() {
         <Navbar />
         <div className="max-w-7xl mx-auto px-6">
           <Categories
-            categories={["Faculty Mentors", "Lab Technician", "Teaching Assistant","Administrators"]}
+            categories={["Administrators","Faculty Mentors", "Lab Technician", "Teaching Assistant",]}
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}
           />
@@ -620,7 +621,7 @@ export default function FacultyPage() {
     </div>
   ))}
 </div> */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
             {faculty
               .filter(item => {
                 if (selectedCategory === "Teaching Assistant") {
@@ -643,7 +644,44 @@ export default function FacultyPage() {
                   isAdmin={isAdmin}
                 />
               ))}
-          </div>
+          </div> */}
+{selectedCategory === "Administrators" ? (
+ <AdministratorGrid admins={faculty.filter(f => f.category === "Faculty Mentors")} 
+ onEdit={(id) => {
+  const facultyMember = faculty.find(item => item.id === id);
+  if (!facultyMember) return;
+  setSelectedFacultyId(id);
+  initializeEditForm(facultyMember);
+}}
+onDelete={(id) => {
+  setSelectedFacultyId(id);
+  setShowDeleteDialog(true);
+}}
+ isAdmin={isAdmin} />
+) : (
+  /* Default Faculty Cards */
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+    {faculty
+      .filter(item => selectedCategory === "Teaching Assistant"
+        ? item.category === "TA" && (selectedYear === "All" || item.year === selectedYear)
+        : item.category === selectedCategory)
+      .map((item) => (
+        <Facultynewcard
+          key={item.id}
+          {...item}
+          onEdit={() => {
+            setSelectedFacultyId(item.id);
+            initializeEditForm(item);
+          }}
+          onDelete={() => {
+            setSelectedFacultyId(item.id);
+            setShowDeleteDialog(true);
+          }}
+          isAdmin={isAdmin}
+        />
+      ))}
+  </div>
+)}
 
 
           <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
