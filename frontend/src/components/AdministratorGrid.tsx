@@ -48,7 +48,7 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin, 
     
     return (
       <div className="space-y-6">
-        <h3 className="text-lg font-bold text-center text-gray-800">{title}</h3>
+        <h3 className="text-lg font-bold text-center text-[#026bc0]">{title}</h3>
         {/* Increased gap from gap-8 to gap-12 for more horizontal spacing */}
         <div className={`grid ${colsClass} gap-12 mx-auto`}>
           {items.map((admin) => (
@@ -70,7 +70,7 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin, 
   // Function to center a single item (like Dean)
   const renderCenteredRow = (title: string, item: Faculty) => (
     <div className="space-y-8">
-      <h3 className="text-lg font-bold text-center text-gray-800">{title}</h3>
+      <h3 className="text-lg font-bold text-center text-[#026bc0]">{title}</h3>
       <div className="flex justify-center">
         <Facultynewcard
           {...item}
