@@ -16,10 +16,9 @@ interface AdministratorGridProps {
   isAdmin: boolean;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
-
 }
 
-const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin , onEdit, onDelete}) => {
+const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin, onEdit, onDelete }) => {
   if (!admins || admins.length === 0) {
     return <p className="text-center text-gray-500">No Administrators found.</p>;
   }
@@ -35,7 +34,7 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin ,
     ["Workshop", "Assistant"].includes(getRoleKey(admin.role))
   ).slice(0, 4);
 
-  // Function to render a row with responsive layout and equal spacing
+  // Function to render a row with responsive layout and increased spacing
   const renderRow = (title: string, items: Faculty[]) => {
     // Calculate grid columns based on number of items (up to 4)
     const columnClasses = {
@@ -48,11 +47,13 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin ,
     const colsClass = columnClasses[Math.min(items.length, 4) as 1 | 2 | 3 | 4];
     
     return (
-      <div className="space-y-4">
+      <div className="space-y-6">
         <h3 className="text-lg font-bold text-center text-gray-800">{title}</h3>
-        <div className={`grid ${colsClass} gap-6 mx-auto`}>
+        {/* Increased gap from gap-8 to gap-12 for more horizontal spacing */}
+        <div className={`grid ${colsClass} gap-12 mx-auto`}>
           {items.map((admin) => (
-            <div key={admin.id} className="flex justify-center">
+            // Added more padding and margin for better spacing
+            <div key={admin.id} className="p-4 flex justify-center">
               <Facultynewcard
                 {...admin}
                 onEdit={() => onEdit(admin.id)}
@@ -68,13 +69,13 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin ,
 
   // Function to center a single item (like Dean)
   const renderCenteredRow = (title: string, item: Faculty) => (
-    <div className="space-y-4">
+    <div className="space-y-8">
       <h3 className="text-lg font-bold text-center text-gray-800">{title}</h3>
       <div className="flex justify-center">
         <Facultynewcard
           {...item}
-          onEdit={() => {}}
-          onDelete={() => {}}
+          onEdit={() => onEdit(item.id)}
+          onDelete={() => onDelete(item.id)}
           isAdmin={isAdmin}
         />
       </div>
@@ -82,7 +83,8 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin ,
   );
 
   return (
-    <div className="space-y-8 p-6">
+ 
+    <div className="space-y-12 p-8">
       {/* Row 1: Dean (1 card, centered) */}
       {dean && renderCenteredRow("Dean of Education & Outreach", dean)}
 

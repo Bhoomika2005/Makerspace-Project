@@ -62,7 +62,7 @@ export default function FacultyPage() {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [showEditDialog, setShowEditDialog] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("Faculty Mentors");
+  const [selectedCategory, setSelectedCategory] = useState("Administrators");
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
   const [selectedFacultyId, setSelectedFacultyId] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -353,24 +353,7 @@ export default function FacultyPage() {
             onCategoryChange={setSelectedCategory}
           />
             {/* Show Year Filter only if Teaching Assistant is selected */}
-  {selectedCategory === "Teaching Assistant" && (
-    <div className="mt-4">
-      <label htmlFor="year-filter" className="block text-sm font-medium text-gray-700">
-        Filter by Year:
-      </label>
-      <select
-        id="year-filter"
-        className="mt-1 block w-40 p-2 border border-gray-300 rounded-md shadow-sm"
-        value={selectedYear}
-        onChange={(e) => setSelectedYear(e.target.value === "All" ? "All" : parseInt(e.target.value))}
-      >
-        <option value="All">All Years</option>
-        {[...new Set(faculty.filter(f => f.category === "TA").map(f => f.year))].map((year) => (
-          <option key={year} value={year}>{year}</option>
-        ))}
-      </select>
-    </div>
-  )}
+  
         </div>
         <div className="max-w-7xl mx-auto p-6">
           {error && (
@@ -566,20 +549,10 @@ export default function FacultyPage() {
                       <option value="TA">Teaching Assistant</option>
                       <option value="Faculty Mentors">Faculty Mentors</option>
                       <option value="Lab Technician">Lab Technician</option>
-                      <option value="Administrators">Administrators</option>
+                      
                     </select>
                   </div>
-                  {facultyData.category === "TA" && (
-                    <div className="space-y-2">
-                      <Label htmlFor="year">Year</Label>
-                      <Input
-                        id="year"
-                        type="number"
-                        value={facultyData.year || ""}
-                        onChange={(e) => setFacultyData({ ...facultyData, year: parseInt(e.target.value) || null })}
-                      />
-                    </div>
-                  )}
+                
 
 
                 </div>
@@ -645,6 +618,7 @@ export default function FacultyPage() {
                 />
               ))}
           </div> */}
+           <div className='max-w-10xl mx-auto p-1'>
 {selectedCategory === "Administrators" ? (
  <AdministratorGrid admins={faculty.filter(f => f.category === "Faculty Mentors")} 
  onEdit={(id) => {
@@ -658,30 +632,45 @@ onDelete={(id) => {
   setShowDeleteDialog(true);
 }}
  isAdmin={isAdmin} />
+) :   selectedCategory === 'Teaching Assistant' ? (
+  [...new Set(faculty.filter(f => f.category === 'TA').map(f => f.year))]
+    .sort((a, b) => (b || 0) - (a || 0))
+    .map((year) => (
+      <div key={year} className='mb-6'>
+        <h2 className='text-xl font-bold text-[#026bc0] mb-3'>Batch {year}</h2>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+          {faculty
+            .filter(f => f.category === 'TA' && f.year === year)
+            .map(f => (
+              <Facultynewcard key={f.id} {...f}  onEdit={() => {
+                setSelectedFacultyId(f.id);
+                initializeEditForm(f);
+              }}
+              onDelete={() => {
+                setSelectedFacultyId(f.id);
+                setShowDeleteDialog(true);
+              }} isAdmin={isAdmin} />
+            ))}
+        </div>
+      </div>
+    ))
 ) : (
-  /* Default Faculty Cards */
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+  <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6'>
     {faculty
-      .filter(item => selectedCategory === "Teaching Assistant"
-        ? item.category === "TA" && (selectedYear === "All" || item.year === selectedYear)
-        : item.category === selectedCategory)
-      .map((item) => (
-        <Facultynewcard
-          key={item.id}
-          {...item}
-          onEdit={() => {
-            setSelectedFacultyId(item.id);
-            initializeEditForm(item);
-          }}
-          onDelete={() => {
-            setSelectedFacultyId(item.id);
-            setShowDeleteDialog(true);
-          }}
-          isAdmin={isAdmin}
-        />
+      .filter(f => f.category === selectedCategory)
+      .map(f => (
+        <Facultynewcard key={f.id} {...f}  onEdit={() => {
+          setSelectedFacultyId(f.id);
+          initializeEditForm(f);
+        }}
+        onDelete={() => {
+          setSelectedFacultyId(f.id);
+          setShowDeleteDialog(true);
+        }} isAdmin={isAdmin} />
       ))}
   </div>
 )}
+</div>
 
 
           <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
