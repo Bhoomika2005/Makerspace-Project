@@ -11,7 +11,7 @@ const Header = () => {
         <Link href='/'>
         
         <div className="flex py-2 px-2 ml-44">
-          <div className="relative w-36 self-stretch flex items-center justify-center bg-white/20 backdrop-filter backdrop-blur-sm rounded-md p-2 hover:bg-white/10 transition-colors">
+          <div className="relative w-36 self-stretch flex items-center justify-center bg-slate-200 backdrop-filter backdrop-blur-sm rounded-md p-2 hover:bg-white/10 transition-colors">
             <Image
               src="/images/iiti.png"
               alt="Left Logo"

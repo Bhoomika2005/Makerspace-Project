@@ -57,43 +57,50 @@ export default function Footer() {
                   Developed by
               </h2>
               <div className="grid grid-cols-2 gap-x-2">
-                {/* Names Column */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Circle className="h-2 w-2 flex-shrink-0" />
-                    <p>B.G.V.Shiva</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Circle className="h-2 w-2 flex-shrink-0" />
-                    <p>E.Bhoomika</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Circle className="h-2 w-2 flex-shrink-0" />
-                    <p>M.Sai Varshith</p>
-                  </div>
-                </div>
-                {/* Email Column */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 flex-shrink-0" />
-                    <a href="mailto:bgvshiva@gmail.com" className="text-gray-300 hover:underline">
-                      bgvshiva@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 flex-shrink-0" />
-                    <a href="mailto:bhoomikapdtr@gmail.com" className="text-gray-300 hover:underline">
-                      bhoomikapdtr@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 flex-shrink-0" />
-                    <a href="mailto:mvarshith2005@gmail.com" className="text-gray-300 hover:underline">
-                      mvarshith2005@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </div>
+  {/* Names Column */}
+  <div className="space-y-2">
+    <div className="flex items-center gap-2">
+      <Circle className="h-2 w-2 flex-shrink-0" />
+      <a href="https://www.linkedin.com/in/b-g-v-shiva-a3346426b/" target="_blank" rel="noopener noreferrer">
+        B.G.V.Shiva
+      </a>
+    </div>
+    <div className="flex items-center gap-2">
+      <Circle className="h-2 w-2 flex-shrink-0" />
+      <a href="https://www.linkedin.com/in/edula-bhoomika-9a4333260/" target="_blank" rel="noopener noreferrer">
+        E.Bhoomika
+      </a>
+    </div>
+    <div className="flex items-center gap-2">
+      <Circle className="h-2 w-2 flex-shrink-0" />
+      <a href="https://www.linkedin.com/in/sai-varshith-mallavarapu-857742264/" target="_blank" rel="noopener noreferrer">
+        M.Sai Varshith
+      </a>
+    </div>
+  </div>
+  {/* Email Column */}
+  <div className="space-y-2">
+    <div className="flex items-center gap-2">
+      <Mail className="h-4 w-4 flex-shrink-0" />
+      <a href="mailto:bgvshiva@gmail.com" className="text-gray-300 hover:underline" target="_blank" rel="noopener noreferrer">
+        bgvshiva@gmail.com
+      </a>
+    </div>
+    <div className="flex items-center gap-2">
+      <Mail className="h-4 w-4 flex-shrink-0" />
+      <a href="mailto:bhoomikapdtr@gmail.com" className="text-gray-300 hover:underline" target="_blank" rel="noopener noreferrer">
+        bhoomikapdtr@gmail.com
+      </a>
+    </div>
+    <div className="flex items-center gap-2">
+      <Mail className="h-4 w-4 flex-shrink-0" />
+      <a href="mailto:mvarshith2005@gmail.com" className="text-gray-300 hover:underline" target="_blank" rel="noopener noreferrer">
+        mvarshith2005@gmail.com
+      </a>
+    </div>
+  </div>
+</div>
+
             </div>
 
             {/* Logos Section */}
