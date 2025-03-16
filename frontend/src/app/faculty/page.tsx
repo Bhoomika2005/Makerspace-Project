@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Facultynewcard from '@/components/Facultynewcard';
 import Categories from '@/components/Categories';
-import { Textarea } from "@/components/ui/textarea"; 
+import { Textarea } from "@/components/ui/textarea";
 import {
   Card,
   CardContent,
@@ -74,10 +74,11 @@ export default function FacultyPage() {
     email: '',
     location: '',
     category: '',
-    year: null as number | null, // Add year, default is null
+    year: 1 as number, // Default year to 1 to prevent null issues
+    // Add year, default is null
   });
   const categories = [
-    { key: "Administrators", label: "Administrators" }, 
+    { key: "Administrators", label: "Administrators" },
     { key: "Faculty Mentors", label: "Faculty Mentors" },
     { key: "Lab Technician", label: "Lab Technician" },
     { key: "Teaching Assistant", label: "Teaching Assistant" },
@@ -138,10 +139,10 @@ export default function FacultyPage() {
     setFacultyData((prevData) => ({
       ...prevData,
       category: selectedCategory,
-      year: selectedCategory === 'TA' ? prevData.year : null, // Reset year for non-TAs
+      year: selectedCategory === 'TA' ? prevData.year : 1, // Reset year for non-TAs
     }));
   };
-  
+
 
   const handleAddFaculty = async () => {
     console.log(facultyData);
@@ -154,6 +155,18 @@ export default function FacultyPage() {
       setError('You must be an admin to perform this action');
       return;
     }
+    // Validate that all required fields are non-empty
+  if (
+    !facultyData.name.trim() ||
+    !facultyData.role.trim() ||
+    !facultyData.email.trim() ||
+    !facultyData.location.trim() ||
+    !facultyData.category.trim() ||
+    (facultyData.category === "TA" && (!facultyData.year || facultyData.year <= 0))
+  ) {
+    alert("All fields must be filled out correctly.");
+    return;
+  }
 
     const formData = new FormData();
     formData.append('name', facultyData.name);
@@ -187,6 +200,8 @@ export default function FacultyPage() {
       if (!response.ok) {
         throw new Error('Failed to add faculty');
       }
+     
+
 
       await fetchFaculty();
       setShowAddDialog(false);
@@ -197,7 +212,7 @@ export default function FacultyPage() {
         location: '',
         image: null,
         category: '',
-        year: null,
+        year: 1,
       });
       setSelectedFaculty(null);
       setError(null);
@@ -219,6 +234,18 @@ export default function FacultyPage() {
       setError('You must be an admin to perform this action');
       return;
     }
+    // Validate that all required fields are non-empty
+  if (
+    !facultyData.name.trim() ||
+    !facultyData.role.trim() ||
+    !facultyData.email.trim() ||
+    !facultyData.location.trim() ||
+    !facultyData.category.trim() ||
+    (facultyData.category === "TA" && (!facultyData.year || facultyData.year <= 0))
+  ) {
+    alert("All fields must be filled out correctly.");
+    return;
+  }
 
     const formData = new FormData();
     formData.append('name', facultyData.name);
@@ -229,10 +256,10 @@ export default function FacultyPage() {
     if (facultyData.image) {
       formData.append('image', facultyData.image);
     }
-      // Only append 'year' if category is Teaching Assistant
-  if (facultyData.category === "TA") {
-    formData.append('year', facultyData.year ? String(facultyData.year) : "");
-  }
+    // Only append 'year' if category is Teaching Assistant
+    if (facultyData.category === "TA") {
+      formData.append('year', facultyData.year ? String(facultyData.year) : "");
+    }
 
 
     try {
@@ -257,7 +284,7 @@ export default function FacultyPage() {
         location: '',
         image: null,
         category: '',
-        year: null,
+        year: 1,
       });
       setSelectedFaculty(null);
       setSelectedFacultyId(0);
@@ -307,7 +334,7 @@ export default function FacultyPage() {
       location: faculty.location,
       image: null,
       category: faculty.category,
-      year: faculty.category === "TA" ? faculty.year || null : null,
+      year: faculty.category === "TA" ? faculty.year || 1 : 1,
     });
     setShowEditDialog(true);
   };
@@ -348,12 +375,12 @@ export default function FacultyPage() {
         <Navbar />
         <div className="max-w-7xl mx-auto px-6">
           <Categories
-            categories={["Administrators","Faculty Mentors", "Lab Technician", "Teaching Assistant",]}
+            categories={["Administrators", "Faculty Mentors", "Lab Technician", "Teaching Assistant",]}
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}
           />
-            {/* Show Year Filter only if Teaching Assistant is selected */}
-  
+          {/* Show Year Filter only if Teaching Assistant is selected */}
+
         </div>
         <div className="max-w-7xl mx-auto p-6">
           {error && (
@@ -453,25 +480,32 @@ export default function FacultyPage() {
                         <option value="TA">Teaching Assistant</option>
                         <option value="Faculty Mentors">Faculty Mentors</option>
                         <option value="Lab Technician">Lab Technician</option>
-                        <option value="Administrators">Administrators</option>
                       </select>
                     </div>
                     {facultyData.category === "TA" && (
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="year" className="text-right">Year</Label>
-                      <Input
-                        id="year"
-                        type="number"
-                        value={facultyData.year || ""}
-                        onChange={(e) => setFacultyData({ ...facultyData, year: parseInt(e.target.value) || null })}
-                        className="col-span-3"
-                      />
-                    </div>
-                  )}
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="year" className="text-right">Year</Label>
+                        <Input
+                          id="year"
+                          type="number"
+                          min="1" // Ensures year is > 0
+                          required // Makes it a required field
+                          value={facultyData.year !== null && facultyData.year > 0 ? facultyData.year : ""}
+                          onChange={(e) => {
+                            const newValue = parseInt(e.target.value, 10);
+                            if (!isNaN(newValue) && newValue > 0) {
+                              setFacultyData({ ...facultyData, year: newValue });
+                            }
+                          }}
+                          className="col-span-3"
+                        />
+                      </div>
+                    )}
 
-                   
-                    </div>
-                 
+
+
+                  </div>
+
                   <div className="flex justify-end gap-2">
                     <Button variant="outline" onClick={() => setShowAddDialog(false)}>
                       Cancel
@@ -494,6 +528,7 @@ export default function FacultyPage() {
 
                 {/* Edit Faculty Form */}
                 <div className="space-y-4">
+
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input
@@ -549,10 +584,21 @@ export default function FacultyPage() {
                       <option value="TA">Teaching Assistant</option>
                       <option value="Faculty Mentors">Faculty Mentors</option>
                       <option value="Lab Technician">Lab Technician</option>
-                      
+
                     </select>
                   </div>
-                
+                  {facultyData.category === "TA" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="year">Year</Label>
+                      <Input
+                        id="year"
+                        type="number"
+                        value={facultyData.year || ""}
+                        onChange={(e) => setFacultyData({ ...facultyData, year: parseInt(e.target.value) || 1 })}
+                      />
+                    </div>
+                  )}
+
 
 
                 </div>
@@ -618,59 +664,63 @@ export default function FacultyPage() {
                 />
               ))}
           </div> */}
-           <div className='max-w-10xl mx-auto p-1'>
-{selectedCategory === "Administrators" ? (
- <AdministratorGrid admins={faculty.filter(f => f.category === "Faculty Mentors")} 
- onEdit={(id) => {
-  const facultyMember = faculty.find(item => item.id === id);
-  if (!facultyMember) return;
-  setSelectedFacultyId(id);
-  initializeEditForm(facultyMember);
-}}
-onDelete={(id) => {
-  setSelectedFacultyId(id);
-  setShowDeleteDialog(true);
-}}
- isAdmin={isAdmin} />
-) :   selectedCategory === 'Teaching Assistant' ? (
-  [...new Set(faculty.filter(f => f.category === 'TA').map(f => f.year))]
-    .sort((a, b) => (b || 0) - (a || 0))
-    .map((year) => (
-      <div key={year} className='mb-6'>
-        <h2 className='text-xl font-bold text-[#026bc0] mb-3'>Batch {year}</h2>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {faculty
-            .filter(f => f.category === 'TA' && f.year === year)
-            .map(f => (
-              <Facultynewcard key={f.id} {...f}  onEdit={() => {
-                setSelectedFacultyId(f.id);
-                initializeEditForm(f);
-              }}
-              onDelete={() => {
-                setSelectedFacultyId(f.id);
-                setShowDeleteDialog(true);
-              }} isAdmin={isAdmin} />
-            ))}
-        </div>
-      </div>
-    ))
-) : (
-  <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6'>
-    {faculty
-      .filter(f => f.category === selectedCategory)
-      .map(f => (
-        <Facultynewcard key={f.id} {...f}  onEdit={() => {
-          setSelectedFacultyId(f.id);
-          initializeEditForm(f);
-        }}
-        onDelete={() => {
-          setSelectedFacultyId(f.id);
-          setShowDeleteDialog(true);
-        }} isAdmin={isAdmin} />
-      ))}
-  </div>
-)}
-</div>
+          <div className='max-w-10xl mx-auto p-1'>
+            {selectedCategory === "Administrators" ? (
+              <AdministratorGrid admins={faculty.filter(f => f.category === "Faculty Mentors")}
+                onEdit={(id) => {
+                  const facultyMember = faculty.find(item => item.id === id);
+                  if (!facultyMember) return;
+                  setSelectedFacultyId(id);
+                  initializeEditForm(facultyMember);
+                }}
+                onDelete={(id) => {
+                  setSelectedFacultyId(id);
+                  setShowDeleteDialog(true);
+                }}
+                isAdmin={isAdmin} />
+            ) : selectedCategory === 'Teaching Assistant' ? (
+              [...new Set(faculty.filter(f => f.category === 'TA').map(f => f.year))]
+                .sort((a, b) => (b || 0) - (a || 0))
+                .map((year) => (
+                  <div key={year} className='mb-6'>
+                    <h2 className="text-xl font-bold text-[#026bc0] mb-3">
+                      Academic Year {year ?? "N/A"}-{(year ?? 0) + 1}
+                    </h2>
+
+
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+                      {faculty
+                        .filter(f => f.category === 'TA' && f.year === year)
+                        .map(f => (
+                          <Facultynewcard key={f.id} {...f} onEdit={() => {
+                            setSelectedFacultyId(f.id);
+                            initializeEditForm(f);
+                          }}
+                            onDelete={() => {
+                              setSelectedFacultyId(f.id);
+                              setShowDeleteDialog(true);
+                            }} isAdmin={isAdmin} />
+                        ))}
+                    </div>
+                  </div>
+                ))
+            ) : (
+              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6'>
+                {faculty
+                  .filter(f => f.category === selectedCategory)
+                  .map(f => (
+                    <Facultynewcard key={f.id} {...f} onEdit={() => {
+                      setSelectedFacultyId(f.id);
+                      initializeEditForm(f);
+                    }}
+                      onDelete={() => {
+                        setSelectedFacultyId(f.id);
+                        setShowDeleteDialog(true);
+                      }} isAdmin={isAdmin} />
+                  ))}
+              </div>
+            )}
+          </div>
 
 
           <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>

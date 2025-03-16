@@ -28,31 +28,28 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin, 
 
   // Categorize based on role
   const dean = admins.find((admin) => getRoleKey(admin.role) === "Dean");
-  const conveners = admins.filter((admin) => getRoleKey(admin.role) === "Convener").slice(0, 4);
-  const coConveners = admins.filter((admin) => getRoleKey(admin.role) === "Co-convener").slice(0, 4);
+  const conveners = admins.filter((admin) => getRoleKey(admin.role) === "Convener");
+  const coConveners = admins.filter((admin) => getRoleKey(admin.role) === "Co-convener");
   const workshopSuperintendents = admins.filter((admin) =>
     ["Workshop", "Assistant"].includes(getRoleKey(admin.role))
-  ).slice(0, 4);
+  );
 
-  // Function to render a row with responsive layout and increased spacing
+  // Function to render rows with equal spacing
   const renderRow = (title: string, items: Faculty[]) => {
-    // Calculate grid columns based on number of items (up to 4)
-    const columnClasses = {
-      1: "grid-cols-1",
-      2: "grid-cols-1 sm:grid-cols-2",
-      3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-      4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-    };
-    
-    const colsClass = columnClasses[Math.min(items.length, 4) as 1 | 2 | 3 | 4];
-    
+    const gridCols =
+      items.length === 1
+        ? "grid-cols-1"
+        : items.length === 2
+        ? "grid-cols-2" // Changed to 2 columns for 2 items
+        : items.length === 3
+        ? "grid-cols-3"
+        : "grid-cols-4";
+
     return (
       <div className="space-y-6">
-        <h3 className="text-lg font-bold text-center text-[#026bc0]">{title}</h3>
-        {/* Increased gap from gap-8 to gap-12 for more horizontal spacing */}
-        <div className={`grid ${colsClass} gap-12 mx-auto`}>
+        <h3 className="text-2xl font-bold text-center text-[#026bc0]">{title}</h3>
+        <div className={`grid ${gridCols} gap-8 justify-items-center mx-auto`}>
           {items.map((admin) => (
-            // Added more padding and margin for better spacing
             <div key={admin.id} className="p-4 flex justify-center">
               <Facultynewcard
                 {...admin}
@@ -70,7 +67,7 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin, 
   // Function to center a single item (like Dean)
   const renderCenteredRow = (title: string, item: Faculty) => (
     <div className="space-y-8">
-      <h3 className="text-lg font-bold text-center text-[#026bc0]">{title}</h3>
+      <h3 className="text-2xl font-bold text-center text-[#026bc0]">{title}</h3>
       <div className="flex justify-center">
         <Facultynewcard
           {...item}
@@ -83,20 +80,11 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({ admins, isAdmin, 
   );
 
   return (
- 
     <div className="space-y-12 p-8">
-      {/* Row 1: Dean (1 card, centered) */}
       {dean && renderCenteredRow("Dean of Education & Outreach", dean)}
-
-      {/* Row 2: Conveners (max 4) */}
       {conveners.length > 0 && renderRow("Conveners", conveners)}
-
-      {/* Row 3: Co-Conveners (max 4) */}
       {coConveners.length > 0 && renderRow("Co-Conveners", coConveners)}
-
-      {/* Row 4: Workshop Superintendents (max 4) */}
-      {workshopSuperintendents.length > 0 && 
-        renderRow("Workshop Superintendents", workshopSuperintendents)}
+      {workshopSuperintendents.length > 0 && renderRow("Workshop Superintendents", workshopSuperintendents)}
     </div>
   );
 };
