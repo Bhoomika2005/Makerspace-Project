@@ -38,14 +38,14 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 flex-shrink-0" />
-                  <a href="mailto:makerspace@iiti.ac.in" className="hover:underline">
-                    makerspace@iiti.ac.in
+                  <a href="mailto:msloffice@iiti.ac.in" className="hover:underline">
+                    msloffice@iiti.ac.in
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 flex-shrink-0" />
                   <a href="tel:+917509202484" className="hover:underline">
-                    +917509202484
+                    +917316603389
                   </a>
                 </div>
               </div>

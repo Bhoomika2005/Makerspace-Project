@@ -55,10 +55,10 @@ export default function ContactPage() {
                   Email
                 </h2>
                 <a
-                  href="mailto:makerspace@iiti.ac.in"
+                  href="mailto:msloffice@iiti.ac.in"
                   className="text-gray-600 hover:text-[#026bc0] transition-colors pl-7 block"
                 >
-                  makerspace@iiti.ac.in
+                  msloffice@iiti.ac.in
                 </a>
               </div>
 
@@ -72,14 +72,14 @@ export default function ContactPage() {
                   href="tel:+917509202484"
                   className="text-gray-600 hover:text-[#026bc0] transition-colors pl-7 block"
                 >
-                  +91 7509202484
+                  +91 7316603389
                 </a>
               </div>
             </div>
 
             {/* IIT Indore Logo */}
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <div className="flex items-center justify-center gap-4">
+            <div className="mt-8 pt-5 border-t border-gray-200 bg-gray-300 pb-5 rounded-md">
+              <div className="flex items-center justify-center gap-7">
                 <Image
                   src="/images/iiti.png"
                   alt="IIT Indore Logo"
@@ -88,10 +88,10 @@ export default function ContactPage() {
                   className="object-contain"
                 />
                 <Image
-                  src="/images/ms_logo.png"
+                  src="/images/makerspace_logo.png"
                   alt="MakerSpace Logo"
-                  width={80}
-                  height={80}
+                  width={90}
+                  height={90}
                   className="object-contain"
                 />
               </div>
