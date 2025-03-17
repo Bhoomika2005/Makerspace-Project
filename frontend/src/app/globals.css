@@ -99,3 +99,14 @@ html {
   background: white;
   color: #0610ab;
 }
+
+/* Add animation for sliding images */ 
+ @keyframes slideUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}

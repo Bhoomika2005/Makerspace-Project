@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Circle } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full">
+    <footer className="w-full z-10">
       <div className="bg-gradient-to-tr from-[#027cc4] to-[#0610ab] text-white">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5 items-start">
