@@ -1,148 +1,222 @@
 .navbarContainer {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: transparent;
-    transition: background-image 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  transition: background-image 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
 .navbar {
-    height: 10vh;
-    width: 77%;
-    background:  rgba(255, 255, 255, 0.2);
-    /* background-image: linear-gradient(135deg, #027cc4, #0610ab); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: 0 auto;
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    transition: all 0.5s ease;
+  height: 10vh;
+  width: 77%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s ease;
 }
-
-/* .navbar::before,
-.navbar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 36px;
-    height: 64px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    z-index: 0; 
-    transform: translateY(11px) skewY(30deg);
-    transition: all 0.5s ease;
-} */
 
 .navbar::before {
-    left: 0;
-    transform: translateY(11px) skewY(30deg);
+  /* content: ""; */
+  /* position: absolute; */
+  left: 0;
+  transform: translateY(11px) skewY(30deg);
 }
 
 .navbar::after {
-    right: 0;
-    transform: translateY(11px) skewY(-30deg);
+  /* content: ""; */
+  /* position: absolute; */
+  right: 0;
+  transform: translateY(11px) skewY(-30deg);
 }
 
 .decor1,
 .decor2 {
-    position: absolute;
-    width: 100px;
-    border: 32px solid;
-    top: 22px;
-    z-index: 98; /* Bottommost layer */
-    transition: all 0.5s ease;
-    /* background: rgba(255, 255, 255, 0.2);  */
-    backdrop-filter: blur(10px);
+  position: absolute;
+  width: 100px;
+  border: 32px solid;
+  top: 22px;
+  z-index: 98;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
 }
 
 .decor1 {
-    right: calc(100% - 36px);
-    border-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) transparent;
-    backdrop-filter: blur(10px);
+  right: calc(100% - 36px);
+  border-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) transparent;
+  backdrop-filter: blur(10px);
 }
 
 .decor2 {
-    left: calc(100% - 36px);
-    border-color: rgba(255, 255, 255, 0.3) transparent rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
+  left: calc(100% - 36px);
+  border-color: rgba(255, 255, 255, 0.3) transparent rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 /* Styles for when header is hidden */
 .navbar.headerHidden {
-    width: 100%;
+  width: 100%;
 }
 
 .navbar.headerHidden::before,
 .navbar.headerHidden::after,
 .navbar.headerHidden .decor1,
 .navbar.headerHidden .decor2 {
-    transition: width 0.5s ease, opacity 1s ease 0.5s; /* Delay opacity transition by 1s */
-    visibility: hidden;
+  transition: width 0.5s ease, opacity 1s ease 0.5s;
+  visibility: hidden;
 }
 
 .navbar.headerHidden .decor1,
 .navbar.headerHidden .decor2 {
-    width: 700px; /* Expand to 700px width */
-    visibility: hidden; /* Make the decor hidden once the transition completes */
-    opacity: 0; /* After delay, opacity will be 0 */
+  width: 700px;
+  visibility: hidden;
+  opacity: 0;
 }
 
 /* Navbar links */
 .navbar nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar nav a {
-    font-size: 16px;
-    margin: 0 25px;
-    color: #fff; /* Changed text color to black */
-    text-decoration: none;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    padding: 8px 0;
+  font-size: 16px;
+  margin: 0 25px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 8px 0;
 }
 
 /* Enhanced hover effect */
 .navbar nav a:hover {
-    color: #000; /* Updated hover color for text */
-    transform: translateY(-2px) scale(1.05);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  color: #000;
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 /* Modern underline animation */
 .navbar nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #fff; /* Updated underline color to #000 */
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    opacity: 0;
-    transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0;
+  transform: translateX(-50%);
 }
 
 .navbar nav a:hover::after {
-    width: 100%;
-    opacity: 1;
+  width: 100%;
+  opacity: 1;
 }
 
 /* Active state for better UX */
 .navbar nav a:active {
-    transform: translateY(0) scale(0.95);
+  transform: translateY(0) scale(0.95);
 }
 
 .navbar.headerHidden nav a {
-    margin: 0 40px; /* Increase margin between sections */
-    transition: margin 0.5s ease, transform 0.5s ease;
+  margin: 0 40px;
+  transition: margin 0.5s ease, transform 0.5s ease;
 }
 
 .offerSection {
-    background: linear-gradient(135deg, #027cc4, #0610ab) !important;
-    backdrop-filter: none !important;
+  background: linear-gradient(135deg, #027cc4, #0610ab) !important;
+  backdrop-filter: none !important;
+}
+
+/* Active link styling */
+.activeLink {
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.activeLink::after {
+  width: 100% !important;
+  opacity: 1 !important;
+}
+
+/* Mobile menu button */
+.mobileMenuButton {
+  display: none;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    padding: 10px 0;
   }
+
+  .mobileMenuButton {
+    display: block;
+  }
+
+  .navbar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .navbar nav a {
+    margin: 8px 10px;
+    font-size: 14px;
+  }
+
+  .navbar.headerHidden nav a {
+    margin: 8px 10px;
+  }
+
+  /* Mobile menu open state */
+  .navbar.mobileMenuOpen {
+    height: auto;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .mobileNav a {
+    margin: 10px 0 !important;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 0;
+  }
+
+  .navbar nav a {
+    margin: 5px;
+    font-size: 12px;
+  }
+}

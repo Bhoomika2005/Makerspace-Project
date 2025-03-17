@@ -20,8 +20,8 @@
   transform-style: preserve-3d;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
 }
 
 .tariffCards > div {
@@ -65,7 +65,7 @@
 .economy {
   margin-top: 0;
   z-index: 3;
-  background-color:   #027cc4;
+  background-color: #027cc4;
   background-image: linear-gradient(135deg, #027cc4, #0610ab);
   box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #027cc4;
 }
@@ -73,9 +73,9 @@
 .premiumeconomy {
   margin-top: -70px;
   z-index: 2;
-  background-color: #3F58E3;
-  background-image: linear-gradient(135deg, #7F94FC, #3F58E3);
-  box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #3F58E3;
+  background-color: #3f58e3;
+  background-image: linear-gradient(135deg, #7f94fc, #3f58e3);
+  box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #3f58e3;
 }
 
 .business {
@@ -84,4 +84,97 @@
   background-color: #0610ab;
   background-image: linear-gradient(135deg, #0610ab, #027cc4);
   box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #027cc4;
+}
+
+/* Mobile Responsive Styles */
+.mobileWrapper {
+  padding: 20px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.mobileTariffCards {
+  padding: 5%;
+  transform: scale(0.9);
+}
+
+.mobileCard {
+  width: 220px;
+  height: 120px;
+  transform: rotateX(45deg) rotateY(-15deg) rotate(45deg) scale(0.85);
+}
+
+.mobileCard:hover {
+  transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-15px, 30px) scale(0.85);
+}
+
+/* Tablet Responsive Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .wrapper {
+    padding: 30px;
+  }
+
+  .tariffCards {
+    padding: 8% 15%;
+  }
+
+  .tariffCards > div {
+    width: 250px;
+    height: 130px;
+  }
+
+  .premiumeconomy,
+  .business {
+    margin-top: -60px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .mobileWrapper {
+    padding: 15px;
+  }
+
+  .mobileTariffCards {
+    transform: scale(0.8);
+  }
+
+  .mobileCard {
+    width: 200px;
+    height: 110px;
+  }
+
+  .premiumeconomy,
+  .business {
+    margin-top: -60px;
+  }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+  .tariffCards > div:active {
+    transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
+  }
+
+  .mobileCard:active {
+    transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-15px, 30px) scale(0.85);
+  }
+}
+
+
+.card.active {
+  transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
+}
+
+.mobileCard.active {
+  transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-15px, 30px) scale(0.85);
+}
+
+/* Reset active state when tapping elsewhere */
+.tariffCards:not(:hover) .card.active:not(:active) {
+  transform: rotateX(45deg) rotateY(-15deg) rotate(45deg);
+}
+
+.tariffCards:not(:hover) .mobileCard.active:not(:active) {
+  transform: rotateX(45deg) rotateY(-15deg) rotate(45deg) scale(0.85);
 }

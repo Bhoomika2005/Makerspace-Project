@@ -396,7 +396,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Header from "@/components/HeaderReplica";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import HeaderCard from "@/components/HeaderCard";
 import { BookOpen, Plus } from "lucide-react";
 import {

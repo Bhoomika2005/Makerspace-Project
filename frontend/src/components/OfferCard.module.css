@@ -1,108 +1,188 @@
 .cardm {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 300px;
-  margin: 2rem;
+  height: 200px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.card,
+.card2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  border: 2px solid #0610ab;
 }
 
 .card {
-  position: absolute;
-  border: 2px solid #0610ab;
-  width: 300px;
-  height: 150px;
-  border-radius: 25px;
-  background: whitesmoke;
-  color: #026bc0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
-  transition: 0.4s ease-in-out;
+  transform: rotateY(0deg);
+}
+
+.card2 {
+  background: linear-gradient(135deg, #027cc4, #0610ab);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.cardm:hover .card {
+  transform: rotateY(180deg);
+}
+
+.cardm:hover .card2 {
+  transform: rotateY(360deg);
 }
 
 .iconContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 .machineIcon {
-  stroke: #0610ab;
-  transition: all 0.4s ease-in-out;
-}
-
-.card2 {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 290px;
-  height: 220px;
-  border-radius: 35px;
-  background: white;
-  border: 2px solid #026bc0;
-  z-index: -1;
-  transition: 0.4s ease-in-out;
-}
-
-.card2.hidden {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-}
-
-.card:hover {
-  background: linear-gradient(135deg, #027cc4, #0610ab);
-  cursor: pointer;
-  border: none;
-}
-
-.card:hover .machineIcon {
-  stroke: white;
-}
-
-.card:hover + .card2 {
-  height: 270px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  opacity: 1;
-  overflow: visible;
+  color: #0610ab;
+  width: 64px;
+  height: 64px;
+  transition: all 0.3s ease;
 }
 
 .upper {
+  flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
-  color: #026bc0;
-  width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 8rem;
-}
-
-.titleText {
-  font-family: "Inter", sans-serif;
-  font-size: 1.2em;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1.4;
+  justify-content: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .lower {
+  flex: 2;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  padding: 20px;
+}
+
+.titleText {
+  font-size: 1.5rem;
+  font-weight: 700;
   text-align: center;
-  color: #026bc0;
-  width: 100%;
-  padding: 0.5rem 1.5rem;
-  margin-top: 2rem;
 }
 
 .descriptionText {
-  font-family: "Inter", sans-serif;
-  font-size: 0.9em;
-  font-weight: 500;
+  font-size: 1rem;
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.5;
+}
+
+/* Mobile Responsive Styles */
+.mobileCardm {
+  width: 250px;
+  height: 300px;
+}
+
+.mobileCard,
+.mobileCard2 {
+  border-radius: 15px;
+}
+
+.mobileTitleText {
+  font-size: 1.25rem;
+}
+
+.mobileDescriptionText {
+  font-size: 0.9rem;
+}
+
+/* Tablet Responsive Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cardm {
+    width: 280px;
+    height: 330px;
+  }
+
+  .titleText {
+    font-size: 1.4rem;
+  }
+
+  .descriptionText {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .mobileCardm {
+    width: 220px;
+    height: 280px;
+  }
+
+  .mobileTitleText {
+    font-size: 1.1rem;
+  }
+
+  .mobileDescriptionText {
+    font-size: 0.85rem;
+  }
+
+  .upper,
+  .lower {
+    padding: 15px;
+  }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+  .card2 {
+    transform: rotateY(0deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* These selectors are problematic because :active only works while pressing */
+  .cardm:active .card {
+    transform: rotateY(180deg);
+  }
+
+  .cardm:active .card2 {
+    transform: rotateY(0deg);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+.flipped.card {
+  transform: rotateY(180deg);
+}
+
+.flipped.card2 {
+  transform: rotateY(0deg);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Update your media query for touch devices */
+@media (hover: none) {
+  .card2 {
+    transform: rotateY(0deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Remove or comment out the problematic :active rules */
+  /* Keep the hover effect for desktop */
 }
