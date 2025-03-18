@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Header from "@/components/header";
 import Navbar from "@/components/navbar";
 import TariffCards from "@/components/TariffCards";
-import OfferCard from "@/components/OfferCard";
+import OfferCard from "@/components/offerCard";
 import { Cog, GraduationCap, Users } from "lucide-react";
 import styles from "@/components/OfferCard.module.css";
 import HomePageCard from "@/components/HomePageCard";
