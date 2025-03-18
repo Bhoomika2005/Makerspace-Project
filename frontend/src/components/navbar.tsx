@@ -96,12 +96,19 @@ const Navbar: React.FC = () => {
         }}
       >
         <button
-          className={styles.mobileMenuButton}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+  className={styles.mobileMenuButton}
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+  style={{
+    position: isMobileMenuOpen ? "fixed" : "absolute",
+    top: isMobileMenuOpen ? "15px" : "50%",
+    transform: isMobileMenuOpen ? "none" : "translateY(-50%)",
+    right: "20px",
+    zIndex: 100
+  }}
+>
+  {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+</button>
 
         <nav className={isMobileMenuOpen ? styles.mobileNav : ""}>
           {navItems.map((item) => (

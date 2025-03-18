@@ -18,6 +18,7 @@ const HomePageCard = ({ title, image, className = "" }: HomePageCardProps) => {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={styles.image}
+          priority
         />
         <div className={styles.info}>
           <h1>{title}</h1>
@@ -31,4 +32,3 @@ const HomePageCard = ({ title, image, className = "" }: HomePageCardProps) => {
 }
 
 export default HomePageCard
-

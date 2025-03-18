@@ -12,7 +12,7 @@
 body {
   background: rgb(249, 249, 249);
   /* overflow-x: hidden; */
-  /* width: 100%; */
+  width: 100%;
   /* position: relative; */
 }
 
@@ -148,4 +148,3 @@ html {
     color: #0610ab;
   }
 }
-

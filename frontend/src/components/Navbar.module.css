@@ -171,6 +171,11 @@
 
   .mobileMenuButton {
     display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
   }
 
   .navbar nav {
@@ -198,6 +203,7 @@
     flex-direction: column;
     width: 100%;
     padding: 10px 0;
+    padding-top: 40px;
   }
 
   .mobileNav a {

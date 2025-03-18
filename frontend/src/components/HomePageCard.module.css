@@ -18,17 +18,36 @@
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 
-.card:hover {
-  transform: translateY(10px);
+/* For desktop */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(10px);
+  }
+
+  .card:hover:before {
+    opacity: 1;
+  }
+
+  .card:hover .info {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
-.card:hover:before {
-  opacity: 1;
-}
-
-.card:hover .info {
-  opacity: 1;
-  transform: translateY(0px);
+/* For mobile devices - simulate hover effect on touch */
+@media (hover: none) {
+  .card:active:before {
+    opacity: 1;
+  }
+  
+  .card:active .info {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .card:active {
+    transform: translateY(10px);
+  }
 }
 
 .card:before {
@@ -85,3 +104,10 @@
   color: #0610ab;
 }
 
+/* Make buttons more tappable on small screens without changing appearance */
+@media (max-width: 480px) {
+  .info button {
+    min-height: 36px;
+    min-width: 80px;
+  }
+}

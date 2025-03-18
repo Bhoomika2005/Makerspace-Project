@@ -40,10 +40,12 @@
 
 .cardm:hover .card {
   transform: rotateY(180deg);
+  border: 2px solid #fff;
 }
 
 .cardm:hover .card2 {
   transform: rotateY(360deg);
+  border: 5px solid #fff;
 }
 
 .iconContainer {
