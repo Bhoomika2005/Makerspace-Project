@@ -965,7 +965,10 @@ export default function GalleryPage() {
         const userCookie = Cookies.get("user");
         if (userCookie) {
           const userDetails = JSON.parse(userCookie);
-          setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
+          // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
+          const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS.split(',');
+          
+          setIsAdmin(adminEmails.includes(userDetails.email));
         }
       } catch (error) {
         console.error("Error checking admin status:", error);

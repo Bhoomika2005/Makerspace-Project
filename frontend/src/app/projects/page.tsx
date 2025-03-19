@@ -654,7 +654,10 @@ export default function ProjectsPage() {
         if (userCookie) {
           const userDetails: UserDetails = JSON.parse(userCookie);
           setUser(userDetails);
-          setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
+          // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
+          const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS.split(',');
+          
+          setIsAdmin(adminEmails.includes(userDetails.email));
         }
       } catch (error) {
         console.error("Error checking the user status:", error);
