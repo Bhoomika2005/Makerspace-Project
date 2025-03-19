@@ -1210,7 +1210,7 @@ function MachineryPage() {
         if (userCookie) {
           const userDetails = JSON.parse(userCookie);
           // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
-          const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS.split(',');
+          const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
           
           setIsAdmin(adminEmails.includes(userDetails.email));
         }

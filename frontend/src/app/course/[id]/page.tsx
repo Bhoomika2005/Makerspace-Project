@@ -32,7 +32,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import Header from "@/components/HeaderReplica";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import { BookOpen, FileText, Plus } from "lucide-react";
 
 // Interfaces for TypeScript
@@ -99,7 +99,9 @@ if (courseId === null) {
             if (userCookie) {
                 const userDetails: User = JSON.parse(userCookie);
                 setUser(userDetails);
-                setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
+                // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
+                const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
+                setIsAdmin(adminEmails.includes(userDetails.email));
             }
         }
 

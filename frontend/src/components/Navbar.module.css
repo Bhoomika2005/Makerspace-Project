@@ -214,16 +214,28 @@
     top: 0;
     left: 0;
     background: linear-gradient(135deg, #027cc4, #0610ab);
-    padding: 60px 20px 20px;
+    padding: 60px 0 20px;
     z-index: 100;
+    overflow-y: auto;
   }
 
   .mobileNav a {
-    margin: 10px 0 !important;
+    margin: 0 !important;
     padding: 10px 20px;
     width: 100%;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 45px;
+  }
+
+  .mobileNav a:last-child {
+    border-bottom: none;
+  }
+  
+  .mobileNav a span {
+    margin-left: 15px;
+    font-size: 16px;
   }
 }
 
@@ -237,5 +249,17 @@
     margin: 5px;
     font-size: 12px;
   }
+  
+  .mobileNav {
+    padding-top: 50px;
+  }
+  
+  .mobileNav a {
+    height: 38px;
+    padding: 8px 20px;
+  }
+  
+  .mobileNav a span {
+    font-size: 14px;
+  }
 }
-

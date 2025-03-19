@@ -461,7 +461,7 @@ export default function CoursePage() {
                 const userDetails: User = JSON.parse(userCookie);
                 setUser(userDetails);
                 // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
-                const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS.split(',');
+                const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
           
                 setIsAdmin(adminEmails.includes(userDetails.email));
             }
@@ -616,7 +616,8 @@ export default function CoursePage() {
 
                 {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-6 sm:mt-10">
+            
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-6 sm:mt-10 sm:ml-14">
                     {headers.map((header) => (
                         <HeaderCard
                             key={header.id}
@@ -628,6 +629,8 @@ export default function CoursePage() {
                         />
                     ))}
                 </div>
+                
+                
 
                 <Dialog open={showAddEditDialog} onOpenChange={setShowAddEditDialog}>
                     <DialogContent className="max-w-sm sm:max-w-md mx-auto">
