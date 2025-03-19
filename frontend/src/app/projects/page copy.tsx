@@ -27,7 +27,7 @@ import {
 
 import { useRouter } from "next/navigation";
 import Header from "@/components/HeaderReplica";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 
 interface Project {
   id: number;
