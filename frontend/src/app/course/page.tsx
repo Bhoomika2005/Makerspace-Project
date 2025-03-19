@@ -567,7 +567,7 @@ export default function CoursePage() {
     if (isLoggedIn && !isAdmin) {
         return (
             <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-                <h1 className="text-2xl font-bold text-red-600 mb-4">
+                <h1 className="text-2xl font-bold text-red-600 mb-4 text-center px-4">
                     Sorry! You do not have Admin Access !!
                 </h1>
                 <Button
@@ -589,45 +589,45 @@ export default function CoursePage() {
             <Navbar />
 
             <div className="container mx-auto px-4 py-8">
-                <div className="flex justify-between items-center mb-8">
-                    <div className="flex items-center p-5 backdrop-blur-sm">
-                        <BookOpen className="mr-2 h-6 w-6 text-[#026bc0]" />
-                        <h2 className="text-[#026bc0] text-2xl font-bold">Course Categories</h2>
+                <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+                    <div className="flex items-center p-3 sm:p-5 backdrop-blur-sm mb-4 sm:mb-0">
+                        <BookOpen className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-[#026bc0]" />
+                        <h2 className="text-[#026bc0] text-xl sm:text-2xl font-bold">Course Categories</h2>
                     </div>
 
                     {isAdmin && (
-                        <div className="relative group mx-12">
+                        <div className="relative group mx-6 sm:mx-12">
                             <Button
                                 size="icon"
                                 className="bg-[#026bc0] p-2 rounded-full text-white text-xs shadow-lg hover:bg-[#0610ab] transition-colors duration-200"
                                 onClick={handleAddHeader}
                             >
-                                <Plus className="h-5 w-5" />
+                                <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
                             </Button>
-                            <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-sm rounded-md px-3 py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
+                            <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#0610ab] text-white text-xs sm:text-sm rounded-md px-2 py-1 sm:px-3 sm:py-2 transition-all duration-200 shadow-lg whitespace-nowrap">
                                 Add a new category
                             </div>
                         </div>
                     )}
                 </div>
 
-                {error && <div className="text-red-500 mb-4">{error}</div>}
+                {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center mt-10">
-          {headers.map((header) => (
-            <HeaderCard
-              key={header.id}
-              header={header}
-              isAdmin={isAdmin}
-              handleEditHeader={handleEditHeader}
-              setSelectedHeader={setSelectedHeader}
-              setShowDeleteDialog={setShowDeleteDialog}
-            />
-          ))}
-        </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-6 sm:mt-10">
+                    {headers.map((header) => (
+                        <HeaderCard
+                            key={header.id}
+                            header={header}
+                            isAdmin={isAdmin}
+                            handleEditHeader={handleEditHeader}
+                            setSelectedHeader={setSelectedHeader}
+                            setShowDeleteDialog={setShowDeleteDialog}
+                        />
+                    ))}
+                </div>
 
                 <Dialog open={showAddEditDialog} onOpenChange={setShowAddEditDialog}>
-                    <DialogContent>
+                    <DialogContent className="max-w-sm sm:max-w-md mx-auto">
                         <DialogHeader>
                             <DialogTitle>
                                 {isNewHeader ? "Add Category" : "Edit Category"}
@@ -674,7 +674,7 @@ export default function CoursePage() {
                 </Dialog>
 
                 <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-                    <AlertDialogContent>
+                    <AlertDialogContent className="max-w-sm sm:max-w-md mx-auto">
                         <AlertDialogHeader>
                             <AlertDialogTitle>Confirm Delete</AlertDialogTitle>
                             <AlertDialogDescription>
@@ -682,8 +682,8 @@ export default function CoursePage() {
                                 be undone.
                             </AlertDialogDescription>
                         </AlertDialogHeader>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogFooter className="flex-col sm:flex-row gap-2">
+                            <AlertDialogCancel className="mt-2 sm:mt-0">Cancel</AlertDialogCancel>
                             <AlertDialogAction onClick={handleDeleteHeader} className="bg-red-500 hover:bg-red-600 text-white">
                                 Delete
                             </AlertDialogAction>

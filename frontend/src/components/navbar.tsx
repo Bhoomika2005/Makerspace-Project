@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Home, Users, BookOpen, Wrench, FileText, Image, Scroll, Phone, Menu, X } from "lucide-react"
@@ -36,6 +36,8 @@ const Navbar: React.FC = () => {
   const [isOfferSection, setIsOfferSection] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [showMenuButton, setShowMenuButton] = useState(true)
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
     const header = document.querySelector("header")
@@ -52,7 +54,19 @@ const Navbar: React.FC = () => {
       const currentScrollY = window.scrollY
       const offerSection = document.getElementById("offer-section")
 
+      // Set header hidden state
       setIsHeaderHidden(currentScrollY > headerHeight)
+
+      // Handle menu button visibility on mobile
+      if (isMobile) {
+        // Hide menu button when scrolling down, show when scrolling up
+        if (currentScrollY > lastScrollY.current && currentScrollY > headerHeight) {
+          setShowMenuButton(false)
+        } else {
+          setShowMenuButton(true)
+        }
+        lastScrollY.current = currentScrollY
+      }
 
       if (offerSection) {
         const rect = offerSection.getBoundingClientRect()
@@ -60,9 +74,8 @@ const Navbar: React.FC = () => {
       }
     }
 
-    
-    // handleResize()
-    // handleScroll() 
+    handleResize()
+    handleScroll()
 
     window.addEventListener("scroll", handleScroll, { passive: true })
     window.addEventListener("resize", handleResize)
@@ -71,7 +84,7 @@ const Navbar: React.FC = () => {
       window.removeEventListener("scroll", handleScroll)
       window.removeEventListener("resize", handleResize)
     }
-  }, [])
+  }, [isMobile])
 
   const navItems = [
     { href: "/", icon: <Home size={20} />, text: "Home" },
@@ -95,20 +108,17 @@ const Navbar: React.FC = () => {
           backgroundImage: isSpecialPage ? undefined : "linear-gradient(135deg, #027cc4, #0610ab)",
         }}
       >
-        <button
-  className={styles.mobileMenuButton}
-  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-  aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-  style={{
-    position: isMobileMenuOpen ? "fixed" : "absolute",
-    top: isMobileMenuOpen ? "15px" : "50%",
-    transform: isMobileMenuOpen ? "none" : "translateY(-50%)",
-    right: "20px",
-    zIndex: 100
-  }}
->
-  {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-</button>
+        {isMobile && showMenuButton && !isMobileMenuOpen && (
+          <button className={styles.mobileMenuButton} onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu">
+            <Menu size={24} />
+          </button>
+        )}
+
+        {isMobileMenuOpen && (
+          <button className={styles.closeButton} onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
+            <X size={24} />
+          </button>
+        )}
 
         <nav className={isMobileMenuOpen ? styles.mobileNav : ""}>
           {navItems.map((item) => (
@@ -127,3 +137,4 @@ const Navbar: React.FC = () => {
 }
 
 export default Navbar
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
-import { Button } from "@/components/ui/button"; // Assuming this is the right Button component
+import { Button } from "@/components/ui/button";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Card = ({ header, isAdmin, handleEditHeader, setSelectedHeader, setShowDeleteDialog }) => {
@@ -68,10 +68,11 @@ const Card = ({ header, isAdmin, handleEditHeader, setSelectedHeader, setShowDel
 // Styled Component for Card with hover effect
 const StyledWrapper = styled.div`
   position: relative;
+  width: 100%;
   
   .card {
     position: relative;
-    width: 400px;
+    width: 100%;
     height: 220px;
     background: linear-gradient(135deg, #027cc4, #0610ab);
     display: flex;
@@ -84,12 +85,20 @@ const StyledWrapper = styled.div`
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     text-align: center;
+    
+    @media (min-width: 768px) {
+      width: 400px;
+    }
+    
+    @media (max-width: 480px) {
+      height: 180px;
+      font-size: 20px;
+    }
   }
 
   .card-content {
     text-align: center;
     padding: 20px;
-
     width: 100%;
     transition: opacity 0.3s ease-in-out;
   }
@@ -100,9 +109,14 @@ const StyledWrapper = styled.div`
     color: white;
     margin-bottom: 10px;
     position: absolute;
-    top: 50%; /* Adjust the title's vertical position */
+    top: 50%;
     left: 50%;
-     transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
   }
 
   .description {
@@ -114,7 +128,7 @@ const StyledWrapper = styled.div`
   }
 
   .card:hover .description {
-    opacity: 1; /* Show description on hover */
+    opacity: 1;
   }
 
   /* Card hover effect for description */
@@ -131,6 +145,10 @@ const StyledWrapper = styled.div`
     font-weight: bold;
     background: linear-gradient(135deg, rgb(135, 206, 250), rgb(255, 255, 255));
     transition: all 0.5s;
+    
+    @media (max-width: 480px) {
+      font-size: 18px;
+    }
   }
 
   .card::before {
@@ -152,6 +170,10 @@ const StyledWrapper = styled.div`
     text-align: center;
     width: 100%;
     height: 100%;
+    
+    @media (max-width: 480px) {
+      font-size: 16px;
+    }
   }
 
   .card:hover::after {
@@ -172,7 +194,7 @@ const StyledWrapper = styled.div`
     right: 10px;
     display: flex;
     gap: 10px;
-    z-index: 10; /* Ensures buttons are on top */
+    z-index: 10;
   }
 
   .relative {

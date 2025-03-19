@@ -148,3 +148,9 @@ html {
     color: #0610ab;
   }
 }
+
+@media (max-width: 768px) {
+  .video-background {
+    transform: scale(1.2);
+  }
+}
