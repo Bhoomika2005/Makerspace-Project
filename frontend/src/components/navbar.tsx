@@ -13,19 +13,24 @@ interface NavItemProps {
   icon: React.ReactNode
   text: string
   isMobileMenuOpen: boolean
+  isTablet: boolean
 }
 
-const NavItem: React.FC<NavItemProps> = ({ href, icon, text, isMobileMenuOpen }) => {
+const NavItem: React.FC<NavItemProps> = ({ href, icon, text, isMobileMenuOpen, isTablet }) => {
   const pathname = usePathname()
   const isActive = pathname === href
 
   return (
     <Link
       href={href}
-      className={`flex items-center space-x-2 hover:text-blue-400 transition-colors ${isActive ? styles.activeLink : ""}`}
+      className={`flex items-center space-x-2 hover:text-blue-400 transition-colors ${
+        isActive ? styles.activeLink : ""
+      } ${isTablet ? styles.tabletNavItem : ""}`}
     >
       {icon}
-      <span className={isMobileMenuOpen ? "" : "hidden md:inline"}>{text}</span>
+      <span className={isMobileMenuOpen ? "" : isTablet ? styles.tabletNavText : "hidden md:inline"}>
+        {text}
+      </span>
     </Link>
   )
 }
@@ -36,6 +41,7 @@ const Navbar: React.FC = () => {
   const [isOfferSection, setIsOfferSection] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isTablet, setIsTablet] = useState(false)
   const [showMenuButton, setShowMenuButton] = useState(true)
   const lastScrollY = useRef(0)
 
@@ -44,8 +50,11 @@ const Navbar: React.FC = () => {
     const headerHeight = header?.offsetHeight || 0
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-      if (window.innerWidth >= 768) {
+      const windowWidth = window.innerWidth
+      setIsMobile(windowWidth < 768)
+      setIsTablet(windowWidth >= 768 && windowWidth < 1024)
+      
+      if (windowWidth >= 768) {
         setIsMobileMenuOpen(false)
       }
     }
@@ -103,24 +112,34 @@ const Navbar: React.FC = () => {
   return (
     <div className={styles.navbarContainer}>
       <div
-        className={`${styles.navbar} ${isHeaderHidden ? styles.headerHidden : ""} ${isOfferSection ? styles.offerSection : ""} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}
+        className={`${styles.navbar} ${isHeaderHidden ? styles.headerHidden : ""} ${
+          isOfferSection ? styles.offerSection : ""
+        } ${isMobileMenuOpen ? styles.mobileMenuOpen : ""} ${isTablet ? styles.tabletNavbar : ""}`}
         style={{
           backgroundImage: isSpecialPage ? undefined : "linear-gradient(135deg, #027cc4, #0610ab)",
         }}
       >
-        {isMobile && showMenuButton && !isMobileMenuOpen && (
-          <button className={styles.mobileMenuButton} onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu">
+        {(isMobile || isTablet) && showMenuButton && !isMobileMenuOpen && (
+          <button 
+            className={styles.mobileMenuButton} 
+            onClick={() => setIsMobileMenuOpen(true)} 
+            aria-label="Open menu"
+          >
             <Menu size={24} />
           </button>
         )}
 
         {isMobileMenuOpen && (
-          <button className={styles.closeButton} onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
+          <button 
+            className={styles.closeButton} 
+            onClick={() => setIsMobileMenuOpen(false)} 
+            aria-label="Close menu"
+          >
             <X size={24} />
           </button>
         )}
 
-        <nav className={isMobileMenuOpen ? styles.mobileNav : ""}>
+        <nav className={isMobileMenuOpen ? styles.mobileNav : isTablet ? styles.tabletNav : ""}>
           {navItems.map((item) => (
             <NavItem
               key={item.href}
@@ -128,6 +147,7 @@ const Navbar: React.FC = () => {
               icon={item.icon}
               text={item.text}
               isMobileMenuOpen={isMobileMenuOpen}
+              isTablet={isTablet}
             />
           ))}
         </nav>
@@ -137,4 +157,3 @@ const Navbar: React.FC = () => {
 }
 
 export default Navbar
-
