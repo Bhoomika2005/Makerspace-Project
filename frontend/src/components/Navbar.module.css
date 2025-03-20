@@ -172,40 +172,6 @@
   z-index: 101;
 }
 
-/* Tablet specific styling */
-.tabletNavbar {
-  width: 90%;
-}
-
-.tabletNav {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.tabletNavItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 8px !important;
-  padding: 8px 4px !important;
-}
-
-.tabletNavText {
-  font-size: 12px;
-  margin-top: 4px;
-  margin-left: 0 !important;
-  white-space: nowrap;
-}
-
-@media (max-width: 1023px) {
-  /* Set decor width to 100% initially for tablets and mobile */
-  .decor1,
-  .decor2 {
-    width: 100%;
-  }
-}
-
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .navbar {
@@ -231,7 +197,7 @@
   }
 
   .navbar.headerHidden nav a {
-    margin: 8px 8px;
+    margin: 8px 10px;
   }
 
   /* Mobile menu open state */
@@ -248,78 +214,16 @@
     top: 0;
     left: 0;
     background: linear-gradient(135deg, #027cc4, #0610ab);
-    padding: 60px 0 20px;
+    padding: 60px 20px 20px;
     z-index: 100;
-    overflow-y: auto;
   }
 
   .mobileNav a {
-    margin: 0 !important;
+    margin: 10px 0 !important;
     padding: 10px 20px;
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    height: 45px;
-  }
-
-  .mobileNav a:last-child {
-    border-bottom: none;
-  }
-  
-  .mobileNav a span {
-    margin-left: 15px;
-    font-size: 16px;
-  }
-  
-  /* Improved spacing for the mobile menu text */
-  .mobileNav a svg {
-    min-width: 20px;
-  }
-  
-  .mobileNav a span {
-    margin-left: 20px; /* Increased margin for better spacing */
-    font-size: 16px;
-    font-weight: 500; /* Slightly bolder */
-  }
-}
-
-/* Tablet styles */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .navbar {
-    width: 90%;
-  }
-  
-  .mobileMenuButton {
-    display: block;
-  }
-  
-  .tabletNav a {
-    flex: 1;
-    margin: 0 5px !important;
-    justify-content: center;
-  }
-  
-  .mobileNav {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    height: auto;
-    min-height: 100vh;
-    padding: 60px 20px 20px;
-  }
-  
-  .mobileNav a {
-    height: 60px;
-    padding: 15px;
-    justify-content: flex-start;
-  }
-  
-  .mobileNav a span {
-    margin-left: 20px; /* Consistent spacing in tablet view too */
-  }
-  
-  .navbar.headerHidden .tabletNav a {
-    margin: 0 5px !important;
   }
 }
 
@@ -332,19 +236,5 @@
   .navbar nav a {
     margin: 5px;
     font-size: 12px;
-  }
-  
-  .mobileNav {
-    padding-top: 50px;
-  }
-  
-  .mobileNav a {
-    height: 38px;
-    padding: 8px 20px;
-  }
-  
-  .mobileNav a span {
-    font-size: 14px;
-    margin-left: 15px; /* Slightly less margin for very small screens */
   }
 }

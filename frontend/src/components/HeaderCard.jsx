@@ -1,10 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import styled from "styled-components";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-const Card = ({ header, isAdmin, handleEditHeader, setSelectedHeader, setShowDeleteDialog }) => {
+const Card = ({
+  header,
+  isAdmin,
+  handleEditHeader,
+  setSelectedHeader,
+  setShowDeleteDialog,
+}) => {
   const router = useRouter();
 
   const handleCardClick = () => {
@@ -29,7 +35,7 @@ const Card = ({ header, isAdmin, handleEditHeader, setSelectedHeader, setShowDel
           <div className="title">{header.title}</div>
         </div>
       </div>
-      
+
       {isAdmin && (
         <div className="admin-actions">
           <div className="relative group">
@@ -69,7 +75,7 @@ const Card = ({ header, isAdmin, handleEditHeader, setSelectedHeader, setShowDel
 const StyledWrapper = styled.div`
   position: relative;
   width: 100%;
-  
+
   .card {
     position: relative;
     width: 100%;
@@ -85,11 +91,11 @@ const StyledWrapper = styled.div`
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     text-align: center;
-    
+
     @media (min-width: 768px) {
       width: 400px;
     }
-    
+
     @media (max-width: 480px) {
       height: 180px;
       font-size: 20px;
@@ -113,7 +119,7 @@ const StyledWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    
+
     @media (max-width: 480px) {
       font-size: 20px;
     }
@@ -145,7 +151,7 @@ const StyledWrapper = styled.div`
     font-weight: bold;
     background: linear-gradient(135deg, rgb(135, 206, 250), rgb(255, 255, 255));
     transition: all 0.5s;
-    
+
     @media (max-width: 480px) {
       font-size: 18px;
     }
@@ -170,7 +176,7 @@ const StyledWrapper = styled.div`
     text-align: center;
     width: 100%;
     height: 100%;
-    
+
     @media (max-width: 480px) {
       font-size: 16px;
     }

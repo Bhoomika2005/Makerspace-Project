@@ -39,12 +39,12 @@
   .card:active:before {
     opacity: 1;
   }
-  
+
   .card:active .info {
     opacity: 1;
     transform: translateY(0px);
   }
-  
+
   .card:active {
     transform: translateY(10px);
   }

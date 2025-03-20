@@ -1,10 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Card = ({ onClick, title, description }) => {
-    console.log(title);
+  console.log(title);
   return (
-    
     <StyledCard onClick={onClick}>
       <div className="card-content">
         <h2 className="title">{title}</h2>
@@ -17,11 +16,11 @@ const Card = ({ onClick, title, description }) => {
 // Styled Component for Card with hover effects for showing description
 const StyledCard = styled.div`
   position: relative;
-  width: 240px;  /* Adjust as per your need */
-  height: 320px;  /* Adjust as per your need */
-  background:rgb(101, 107, 107); /* Background color */
+  width: 240px; /* Adjust as per your need */
+  height: 320px; /* Adjust as per your need */
+  background: rgb(101, 107, 107); /* Background color */
   display: flex;
-  flex-direction: column;  /* Stack content vertically */
+  flex-direction: column; /* Stack content vertically */
   justify-content: center;
   align-items: center;
   border-radius: 15px;
@@ -47,7 +46,7 @@ const StyledCard = styled.div`
   }
 
   .description {
-    color: #f1f1f1;  /* Description color */
+    color: #f1f1f1; /* Description color */
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     margin-top: 10px;

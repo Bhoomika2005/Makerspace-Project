@@ -1,81 +1,81 @@
-import { Mail, Pencil, Trash } from 'lucide-react';
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import { Mail, Pencil, Trash } from "lucide-react";
+import React, { useState } from "react";
+import styled from "styled-components";
 
-const Facultynewcard = ({ name, role, image, email, location, onEdit, onDelete, isAdmin }) => {
-  const [copyMessage, setCopyMessage] = useState('');
-  const [hoverEmailMessage, setHoverEmailMessage] = useState('');
+const Facultynewcard = ({
+  name,
+  role,
+  image,
+  email,
+  location,
+  onEdit,
+  onDelete,
+  isAdmin,
+}) => {
+  const [copyMessage, setCopyMessage] = useState("");
+  const [hoverEmailMessage, setHoverEmailMessage] = useState("");
 
   const handleEmailClick = async () => {
     try {
       await navigator.clipboard.writeText(email); // Copies the email to clipboard
-      setCopyMessage('Email copied!'); // Show notification that the email has been copied
-      setTimeout(() => setCopyMessage(''), 5000); // Clear message after 2 seconds
+      setCopyMessage("Email copied!"); // Show notification that the email has been copied
+      setTimeout(() => setCopyMessage(""), 5000); // Clear message after 2 seconds
     } catch (error) {
-      console.error('Failed to copy email: ', error);
-      setCopyMessage('Failed to copy'); // In case copying fails
-      setTimeout(() => setCopyMessage(''), 5000); // Clear message after 2 seconds
+      console.error("Failed to copy email: ", error);
+      setCopyMessage("Failed to copy"); // In case copying fails
+      setTimeout(() => setCopyMessage(""), 5000); // Clear message after 2 seconds
     }
   };
 
   const handleMailHover = () => {
     setHoverEmailMessage(email); // Show the email when the mail icon is hovered
-    setTimeout(() => setHoverEmailMessage(''), 5000); // Hide the email after 5 seconds
+    setTimeout(() => setHoverEmailMessage(""), 5000); // Hide the email after 5 seconds
   };
 
   return (
     <StyledWrapper>
       <div className="card">
         <div className="actions-row">
-        {isAdmin && (
-  <>
-    <div className="edit-action">
-      <button
-        className="action-btn"
-        onClick={onEdit}
-      >
-        <Pencil className="text-[#026bc0] group-hover:text-white transition-colors duration-200" />
-      </button>
-      <div className="tooltip">
-        Edit
-      </div>
-    </div>
+          {isAdmin && (
+            <>
+              <div className="edit-action">
+                <button className="action-btn" onClick={onEdit}>
+                  <Pencil className="text-[#026bc0] group-hover:text-white transition-colors duration-200" />
+                </button>
+                <div className="tooltip">Edit</div>
+              </div>
 
-    <div className="delete-action">
-      <button
-        className="action-btn delete"
-        onClick={onDelete}
-      >
-        <Trash className="text-[#c5303c] group-hover:text-white transition-colors duration-200" />
-      </button>
-      <div className="tooltip">
-        Delete
-      </div>
-    </div>
-  </>
-)}
+              <div className="delete-action">
+                <button className="action-btn delete" onClick={onDelete}>
+                  <Trash className="text-[#c5303c] group-hover:text-white transition-colors duration-200" />
+                </button>
+                <div className="tooltip">Delete</div>
+              </div>
+            </>
+          )}
 
-<div className="email-action">
-  <button className="action-btn" onClick={handleEmailClick} title="Copy Email">
-    <Mail className="group-hover:text-[#034a8f] transition-colors duration-200" />
-  </button>
-  <div className="tooltip">
-    Copy Email
-  </div>
-</div>
-        
+          <div className="email-action">
+            <button
+              className="action-btn"
+              onClick={handleEmailClick}
+              title="Copy Email"
+            >
+              <Mail className="group-hover:text-[#034a8f] transition-colors duration-200" />
+            </button>
+            <div className="tooltip">Copy Email</div>
+          </div>
         </div>
 
-        {copyMessage && (
-          <div className="copy-notification">
-            {copyMessage}
-          </div>
-        )}
+        {copyMessage && <div className="copy-notification">{copyMessage}</div>}
 
         {/* Profile Image */}
         <div className="profile-pic">
           <img
-            src={image ? `http://localhost:8000${image}` : '/placeholder.svg?height=300&width=500'}
+            src={
+              image
+                ? `http://localhost:8000${image}`
+                : "/placeholder.svg?height=300&width=500"
+            }
             alt="profile-pic"
           />
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Categories = ({ categories, selectedCategory, onCategoryChange }) => {
   return (
@@ -6,21 +6,33 @@ const Categories = ({ categories, selectedCategory, onCategoryChange }) => {
       <div className="flex flex-wrap md:flex-nowrap justify-center">
         {categories.map((category, index) => (
           <div key={category} className="relative  my-1 mx-0.5">
-            <div 
+            <div
               onClick={() => onCategoryChange(category)}
               className={`
                 h-10 transform skew-x-[-20deg] flex items-center justify-center cursor-pointer px-3 md:px-6
-                ${selectedCategory === category ? 'bg-[#026bc0]' : 'bg-gray-200'}
-                ${index === 0 ? 'rounded-l-xl' : ''}
-                ${index === categories.length - 1 ? 'rounded-r-xl' : ''}
+                ${
+                  selectedCategory === category ? "bg-[#026bc0]" : "bg-gray-200"
+                }
+                ${index === 0 ? "rounded-l-xl" : ""}
+                ${index === categories.length - 1 ? "rounded-r-xl" : ""}
                 overflow-hidden
               `}
             >
-              <span className={`
+              <span
+                className={`
                 transform skew-x-[20deg] text-xs md:text-sm font-medium whitespace-nowrap
-                ${selectedCategory === category ? 'text-white' : 'text-gray-600 hover:text-gray-900'}
-              `}>
-               {category === 'Lab Technician' ? 'Lab Engineers' : (category === 'Teaching Assistant' ? 'Teaching Assistants' : category)}
+                ${
+                  selectedCategory === category
+                    ? "text-white"
+                    : "text-gray-600 hover:text-gray-900"
+                }
+              `}
+              >
+                {category === "Lab Technician"
+                  ? "Lab Engineers"
+                  : category === "Teaching Assistant"
+                  ? "Teaching Assistants"
+                  : category}
               </span>
             </div>
           </div>

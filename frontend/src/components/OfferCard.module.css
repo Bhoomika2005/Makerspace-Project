@@ -184,7 +184,7 @@
     opacity: 0;
     pointer-events: none;
   }
-  
+
   /* Remove or comment out the problematic :active rules */
   /* Keep the hover effect for desktop */
 }

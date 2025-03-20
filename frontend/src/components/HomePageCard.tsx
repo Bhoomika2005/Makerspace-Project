@@ -1,11 +1,11 @@
-import Image from "next/image"
-import Link from "next/link"
-import styles from "./HomePageCard.module.css"
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./HomePageCard.module.css";
 
 interface HomePageCardProps {
-  title: string
-  image: string
-  className?: string
+  title: string;
+  image: string;
+  className?: string;
 }
 
 const HomePageCard = ({ title, image, className = "" }: HomePageCardProps) => {
@@ -28,7 +28,7 @@ const HomePageCard = ({ title, image, className = "" }: HomePageCardProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePageCard
+export default HomePageCard;

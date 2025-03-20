@@ -1,5 +1,5 @@
 // components/FacultyCard.tsx
-import React from 'react';
+import React from "react";
 
 interface FacultyCardProps {
   name: string;
@@ -9,7 +9,13 @@ interface FacultyCardProps {
   image: string;
 }
 
-const FacultyCard: React.FC<FacultyCardProps> = ({ name, role, email, location, image }) => {
+const FacultyCard: React.FC<FacultyCardProps> = ({
+  name,
+  role,
+  email,
+  location,
+  image,
+}) => {
   return (
     <div className="flex items-center p-4 bg-blue-50 rounded-lg shadow-md">
       <img

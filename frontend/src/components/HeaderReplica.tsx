@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { useState, useEffect } from "react"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const HeaderReplica = () => {
-  const [isMobile, setIsMobile] = useState(false)
-  const [isSmallMobile, setIsSmallMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(false);
+  const [isSmallMobile, setIsSmallMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-      setIsSmallMobile(window.innerWidth < 480)
-    }
+      setIsMobile(window.innerWidth < 768);
+      setIsSmallMobile(window.innerWidth < 480);
+    };
 
     // Initial check
-    handleResize()
+    handleResize();
 
     // Add event listener
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <header className={`relative w-full ${isMobile ? "" : "pt-3"}`}>
@@ -46,7 +46,11 @@ const HeaderReplica = () => {
             {/* Center Content */}
             <div className="flex-1 flex flex-col items-center w-auto">
               {/* Institute Name */}
-              <div className={`flex flex-col items-center border-b border-gray-200/30 w-auto mb-1 ${isSmallMobile ? "px-2 pt-3" : isMobile ? "pt-3" : ""}`}>
+              <div
+                className={`flex flex-col items-center border-b border-gray-200/30 w-auto mb-1 ${
+                  isSmallMobile ? "px-2 pt-3" : isMobile ? "pt-3" : ""
+                }`}
+              >
                 <div
                   className={`text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] ${
                     isSmallMobile ? "text-xs" : isMobile ? "text-sm" : "text-lg"
@@ -64,7 +68,15 @@ const HeaderReplica = () => {
               </div>
 
               {/* MakerSpace Title with Animation */}
-              <h1 className={`${isSmallMobile ? "text-2xl" : isMobile ? "text-3xl" : "text-5xl"} font-bold tracking-wide mb-1 font-sans text-center`}>
+              <h1
+                className={`${
+                  isSmallMobile
+                    ? "text-2xl"
+                    : isMobile
+                    ? "text-3xl"
+                    : "text-5xl"
+                } font-bold tracking-wide mb-1 font-sans text-center`}
+              >
                 <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                   M
                 </span>
@@ -97,7 +109,11 @@ const HeaderReplica = () => {
               {/* Tagline */}
               <p
                 className={`text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] ${
-                  isSmallMobile ? "text-xs pb-3" : isMobile ? "text-sm pb-3" : "text-lg"
+                  isSmallMobile
+                    ? "text-xs pb-3"
+                    : isMobile
+                    ? "text-sm pb-3"
+                    : "text-lg"
                 } text-center`}
               >
                 Curiosity-Connects-Creativity
@@ -120,7 +136,7 @@ const HeaderReplica = () => {
         </Link>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default HeaderReplica
+export default HeaderReplica;

@@ -1,10 +1,15 @@
 .wrapper {
-  background: rgb(255, 255, 255); /* Transparent background */
-  border-radius: 12px; /* Rounded corners */
+  background: rgb(255, 255, 255);
+  /* Transparent background */
+  border-radius: 12px;
+  /* Rounded corners */
   box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(50px); /* Glass effect with blur */
-  -webkit-backdrop-filter: blur(10px); /* Support for Safari */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for a frosted look */
+  backdrop-filter: blur(50px);
+  /* Glass effect with blur */
+  -webkit-backdrop-filter: blur(10px);
+  /* Support for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Light border for a frosted look */
   padding: 40px;
 }
 
@@ -24,7 +29,7 @@
   justify-content: center;
 }
 
-.tariffCards > div {
+.tariffCards>div {
   position: relative;
   width: 280px;
   height: 140px;
@@ -34,30 +39,35 @@
   transition: all 0.4s ease;
   overflow: hidden;
   cursor: pointer;
-  text-align: center; /* Center-align the text */
+  text-align: center;
+  /* Center-align the text */
 }
 
-.tariffCards > div h3 {
-  position: static; /* Ensure it's properly aligned */
+.tariffCards>div h3 {
+  position: static;
+  /* Ensure it's properly aligned */
   font-size: 18px;
   font-weight: 800;
-  text-align: center; /* Center-align the heading */
+  text-align: center;
+  /* Center-align the heading */
   margin-bottom: 0.5rem;
 }
 
-.tariffCards > div span {
-  position: static; /* Ensure proper alignment */
+.tariffCards>div span {
+  position: static;
+  /* Ensure proper alignment */
   font-weight: 700;
   font-size: 12px;
-  text-align: center; /* Center-align the subtext */
+  text-align: center;
+  /* Center-align the subtext */
   opacity: 0.8;
 }
 
-.tariffCards > div:hover {
+.tariffCards>div:hover {
   transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
 }
 
-.tariffCards > div:hover:after {
+.tariffCards>div:hover:after {
   transform: translateX(100%);
   transition: all 1.2s ease-in-out;
 }
@@ -118,7 +128,7 @@
     padding: 8% 15%;
   }
 
-  .tariffCards > div {
+  .tariffCards>div {
     width: 250px;
     height: 130px;
   }
@@ -152,7 +162,7 @@
 
 /* Touch Device Optimization */
 @media (hover: none) {
-  .tariffCards > div:active {
+  .tariffCards>div:active {
     transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
   }
 

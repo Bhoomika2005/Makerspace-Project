@@ -3,7 +3,6 @@ import Image from "next/image";
 import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/navbar";
 
-
 export default function ContactPage() {
   return (
     <div>
@@ -13,7 +12,9 @@ export default function ContactPage() {
         <div className="flex flex-col items-center justify-center text-center">
           <div className="flex items-center mb-8 sm:mb-12">
             <PhoneIcon className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-[#026bc0] mt-1 sm:mt-2" />
-            <h1 className="text-xl sm:text-2xl font-bold text-[#026bc0]">Contact Us</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-[#026bc0]">
+              Contact Us
+            </h1>
           </div>
         </div>
 
