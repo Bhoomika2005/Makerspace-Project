@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import {
   Plus,
   Wrench,
@@ -55,10 +55,6 @@ interface Equipment {
   products: EquipmentProduct[];
 }
 
-interface User {
-  email: string;
-  [key: string]: any;
-}
 
 interface ImageCarouselProps {
   products: EquipmentProduct[];
@@ -68,7 +64,6 @@ interface ImageCarouselProps {
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
   products,
-  onClose,
   equipment,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -145,7 +140,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               >
                 <div className="relative w-[90vw] h-[30vh] sm:w-[600px] sm:h-[400px] rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src={`http://localhost:8000${product.product}`}
+                    src={`http://10.203.4.202/backend${product.product}`}
                     alt={`Product image ${index + 1} for ${equipment.name}`}
                     fill
                     className="object-contain"
@@ -246,7 +241,7 @@ function MachineryPage() {
 
   const fetchEquipment = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/machinery/");
+      const response = await fetch("http://10.203.4.202/backend/api/machinery/");
       if (!response.ok) {
         throw new Error("Failed to fetch equipment");
       }
@@ -280,7 +275,7 @@ function MachineryPage() {
     });
 
     try {
-      const response = await fetch("http://localhost:8000/api/machinery/", {
+      const response = await fetch("http://10.203.4.202/backend/api/machinery/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -337,7 +332,7 @@ function MachineryPage() {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/machinery/${selectedEquipmentId}/`,
+        `http://10.203.4.202/backend/api/machinery/${selectedEquipmentId}/`,
         {
           method: "PUT",
           headers: {
@@ -378,7 +373,7 @@ function MachineryPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://localhost:8000/api/machinery/${selectedEquipmentId}/`,
+        `http://10.203.4.202/backend/api/machinery/${selectedEquipmentId}/`,
         {
           method: "DELETE",
           headers: {
@@ -685,7 +680,7 @@ function MachineryPage() {
                   <Image
                     src={
                       item.image
-                        ? `http://localhost:8000${item.image}`
+                        ? `http://10.203.4.202/backend${item.image}`
                         : "/placeholder.svg?height=300&width=400"
                     }
                     alt={item.name}

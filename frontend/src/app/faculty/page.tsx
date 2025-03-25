@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Cookies from "js-cookie";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -8,8 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Facultynewcard from "@/components/Facultynewcard";
 import Categories from "@/components/Categories";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -43,12 +40,12 @@ interface Faculty {
   location: string;
   email: string;
   category: string;
-  year?: number; // Optional, only for Teaching Assistants
+  year?: number; 
 }
 
 interface User {
   email: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function FacultyPage() {
@@ -63,7 +60,6 @@ export default function FacultyPage() {
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
   const [selectedFacultyId, setSelectedFacultyId] = useState(0);
   const [error, setError] = useState<string | null>(null);
-  const [selectedYear, setSelectedYear] = useState<number | "All">("All"); // "All" means no filtering by year
   const [facultyData, setFacultyData] = useState({
     name: "",
     role: "",
@@ -74,12 +70,14 @@ export default function FacultyPage() {
     year: 1 as number, // Default year to 1 to prevent null issues
     // Add year, default is null
   });
-  const categories = [
-    { key: "Administrators", label: "Administrators" },
-    { key: "Faculty Mentors", label: "Faculty Mentors" },
-    { key: "Lab Technician", label: "Lab Technician" },
-    { key: "Teaching Assistant", label: "Teaching Assistant" },
-  ];
+  
+  // const categories = [
+  //   { key: "Administrators", label: "Administrators" },
+  //   { key: "Faculty Mentors", label: "Faculty Mentors" },
+  //   { key: "Lab Technician", label: "Lab Technician" },
+  //   { key: "Teaching Assistant", label: "Teaching Assistant" },
+  // ];
+
 
   const router = useRouter();
 
@@ -119,7 +117,7 @@ export default function FacultyPage() {
 
   const fetchFaculty = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/faculty/");
+      const response = await fetch("http://10.203.4.202/backend/api/faculty/");
       if (!response.ok) {
         throw new Error("Failed to fetch faculty");
       }
@@ -128,21 +126,22 @@ export default function FacultyPage() {
       const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
       setFaculty(sortedData);
       console.log(sortedData);
-
+      console.log(error);
       setError(null);
+      console.log(error);
     } catch (error) {
-      console.error("Error fetching faculty:", error);
+      console.log("Error fetching faculty:", error);
       setError("Failed to fetch faculty");
     }
   };
-  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedCategory = e.target.value;
-    setFacultyData((prevData) => ({
-      ...prevData,
-      category: selectedCategory,
-      year: selectedCategory === "TA" ? prevData.year : 1, // Reset year for non-TAs
-    }));
-  };
+  // const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const selectedCategory = e.target.value;
+  //   setFacultyData((prevData) => ({
+  //     ...prevData,
+  //     category: selectedCategory,
+  //     year: selectedCategory === "TA" ? prevData.year : 1, // Reset year for non-TAs
+  //   }));
+  // };
 
   const handleAddFaculty = async () => {
     console.log(facultyData);
@@ -188,7 +187,7 @@ export default function FacultyPage() {
     });
     console.log(token);
     try {
-      const response = await fetch("http://localhost:8000/api/faculty/add/", {
+      const response = await fetch("http://10.203.4.202/backend/api/faculty/add/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -262,7 +261,7 @@ export default function FacultyPage() {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/faculty/edit/${selectedFacultyId}/`,
+        `http://10.203.4.202/backend/api/faculty/edit/${selectedFacultyId}/`,
         {
           method: "PUT",
           headers: {
@@ -302,7 +301,7 @@ export default function FacultyPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://localhost:8000/api/faculty/delete/${selectedFacultyId}/`,
+        `http://10.203.4.202/backend/api/faculty/delete/${selectedFacultyId}/`,
         {
           method: "DELETE",
           headers: {
@@ -319,7 +318,9 @@ export default function FacultyPage() {
       setShowDeleteDialog(false);
       setError(null);
     } catch (error) {
+      console.log("error " , error);
       setError("Failed to delete faculty");
+      return;
     }
   };
 
@@ -349,6 +350,7 @@ export default function FacultyPage() {
 
     setIsLoggedIn(false);
     setUser(null);
+    console.log("user : ",user)
     window.location.href = "/";
   };
 

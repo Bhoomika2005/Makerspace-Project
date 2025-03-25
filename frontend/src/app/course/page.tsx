@@ -421,7 +421,7 @@ interface CourseHeader {
 
 interface User {
   email: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function CoursePage() {
@@ -438,7 +438,7 @@ export default function CoursePage() {
   const [isNewHeader, setIsNewHeader] = useState(false);
 
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://10.203.4.202/backend";
 
   useEffect(() => {
     fetchHeaders();
@@ -459,6 +459,7 @@ export default function CoursePage() {
       if (userCookie) {
         const userDetails: User = JSON.parse(userCookie);
         setUser(userDetails);
+        console.log("user : ",user)
         // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
         const adminEmails =
           process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",") || [];
@@ -477,6 +478,7 @@ export default function CoursePage() {
       const data = await response.json();
       setHeaders(data);
     } catch (error) {
+      console.log("fetching error : ", error);
       setError("Failed to fetch course categories");
     }
   };
@@ -501,6 +503,7 @@ export default function CoursePage() {
 
     const token = Cookies.get("access");
     if (!token) {
+      console.log("authentication error : ", error);
       setError("Authentication required");
       return;
     }
@@ -525,6 +528,7 @@ export default function CoursePage() {
       setSelectedHeader(null);
       fetchHeaders();
     } catch (error) {
+      console.log("saving error : ", error);
       setError("Failed to save category");
     }
   };
@@ -534,6 +538,7 @@ export default function CoursePage() {
 
     const token = Cookies.get("access");
     if (!token) {
+      console.log("authentication error : ", error);
       setError("Authentication required");
       return;
     }
@@ -554,6 +559,7 @@ export default function CoursePage() {
       setSelectedHeader(null);
       fetchHeaders();
     } catch (error) {
+      console.log("delete error : ", error);
       setError("Failed to delete category");
     }
   };

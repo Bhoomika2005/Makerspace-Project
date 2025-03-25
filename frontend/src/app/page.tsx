@@ -27,7 +27,6 @@ export default function Home() {
   const [isAnimationDelayed, setIsAnimationDelayed] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  const [userDetails, setUserDetails] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -37,6 +36,8 @@ export default function Home() {
     once: true,
     amount: 0.2,
   });
+
+  console.log("isOffersInView : ", isOffersInView);
 
   const tariffCardX = useTransform(scrollYProgress, [0, 0.3], ["100%", "0%"]);
   const tariffCardOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
@@ -72,9 +73,13 @@ export default function Home() {
 
   useEffect(() => {
     const header = document.querySelector("header");
-    if (header) setHeaderHeight(header.offsetHeight);
+    if (header) {
+      setHeaderHeight(header.offsetHeight);
+      console.log("headerHeight : ", headerHeight);
+    }
 
     const timeout = setTimeout(() => setIsAnimationDelayed(true), 5000);
+    console.log("isAnimationDealyed : ", isAnimationDelayed);
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -108,6 +113,7 @@ export default function Home() {
         if (userCookie) {
           const userDetails = JSON.parse(userCookie);
           setUser(userDetails);
+          console.log("user : ",user)
           // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
 
           

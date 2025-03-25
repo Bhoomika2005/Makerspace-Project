@@ -11,9 +11,6 @@ import {
   Edit,
   Trash,
   FileText,
-  ChevronDown,
-  ChevronRight,
-  ImageIcon,
 } from "lucide-react";
 import {
   AlertDialog,
@@ -53,7 +50,7 @@ interface FormData {
 
 interface UserDetails {
   email: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function ProjectsPage() {
@@ -80,12 +77,13 @@ export default function ProjectsPage() {
 
   const router = useRouter();
 
-  const toggleRow = (id: number) => {
-    setExpandedRows((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+  // const toggleRow = (id: number) => {
+  //   setExpandedRows((prev) => ({
+  //     ...prev,
+  //     [id]: !prev[id],
+  //   }));
+  // };
+
   const handleRowHover = (projectId: number, isHovered: boolean) => {
     setExpandedRows((prev) => ({
       ...prev,
@@ -118,6 +116,7 @@ export default function ProjectsPage() {
         if (userCookie) {
           const userDetails: UserDetails = JSON.parse(userCookie);
           setUser(userDetails);
+          console.log("user : ",user)
           // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
           const adminEmails =
             process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",") || [];
@@ -139,7 +138,7 @@ export default function ProjectsPage() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/projects/", {
+      const response = await fetch("http://10.203.4.202/backend/api/projects/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -178,8 +177,8 @@ export default function ProjectsPage() {
 
       const method = currentProject ? "PUT" : "POST";
       const url = currentProject
-        ? `http://localhost:8000/api/projects/${currentProject.id}/`
-        : "http://localhost:8000/api/projects/";
+        ? `http://10.203.4.202/backend/api/projects/${currentProject.id}/`
+        : "http://10.203.4.202/backend/api/projects/";
 
       const response = await fetch(url, {
         method: method,
@@ -227,7 +226,7 @@ export default function ProjectsPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://localhost:8000/api/projects/${selectedProjectId}/`,
+        `http://10.203.4.202/backend/api/projects/${selectedProjectId}/`,
         {
           method: "DELETE",
           headers: {
@@ -244,6 +243,7 @@ export default function ProjectsPage() {
       setShowDeleteDialog(false);
       setError(null);
     } catch (err) {
+      console.log("error : ", err);
       setError("Failed to delete project");
     }
   };
@@ -378,8 +378,8 @@ export default function ProjectsPage() {
                           <img
                             src={
                               project.image
-                                ? `http://localhost:8000${project.image}`
-                                : `http://localhost:8000/media/project_images/Projectimage.jpg`
+                                ? `http://10.203.4.202/backend${project.image}`
+                                : `http://10.203.4.202/backend/media/project_images/Projectimage.jpg`
                             }
                             alt={`Project ${index + 1}`}
                             className="w-12 h-12 sm:w-20 sm:h-20 object-cover rounded-lg shadow-md"

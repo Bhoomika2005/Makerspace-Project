@@ -8,7 +8,6 @@ const Facultynewcard = ({
   image,
   email,
   location,
-  category,
   onEdit,
   onDelete,
   isAdmin,
@@ -63,7 +62,7 @@ const Facultynewcard = ({
           <img
             src={
               image
-                ? `http://localhost:8000${image}`
+                ? `http://10.203.4.202/backend${image}`
                 : "/placeholder.svg?height=300&width=500"
             }
             alt="profile-pic"

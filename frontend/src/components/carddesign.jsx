@@ -8,7 +8,6 @@ import {
   Building2,
   BookOpen,
   ChevronDown,
-  Trash,
 } from "lucide-react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
@@ -25,7 +24,6 @@ export const ModernSplitCard = ({
   onDelete,
   isAdmin,
 }) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
 
   return (
     <Card className="bg-gradient-to-br from-white to-gray-50 overflow-hidden relative w-[70%] mx-auto">

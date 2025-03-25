@@ -22,7 +22,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import { useRouter } from "next/navigation";
@@ -59,6 +58,7 @@ export default function FormsPage() {
         if (userCookie) {
           const userDetails = JSON.parse(userCookie);
           setUser(userDetails);
+          console.log("user : ", user)
           // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
           const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS.split(",");
 
@@ -79,8 +79,8 @@ export default function FormsPage() {
 
   const fetchForms = async () => {
     try {
-      const token = Cookies.get("access");
-      const response = await fetch("http://localhost:8000/api/forms/", {
+      
+      const response = await fetch("http://10.203.4.202/backend/api/forms/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default function FormsPage() {
 
     const token = Cookies.get("access");
     try {
-      const response = await fetch("http://localhost:8000/api/forms/", {
+      const response = await fetch("http://10.203.4.202/backend/api/forms/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -154,7 +154,7 @@ export default function FormsPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://localhost:8000/api/forms/${selectedFormId}/`,
+        `http://10.203.4.202/backend/api/forms/${selectedFormId}/`,
         {
           method: "DELETE",
           headers: {
@@ -171,20 +171,16 @@ export default function FormsPage() {
       setShowDeleteDialog(false);
       setError(null);
     } catch (err) {
+      console.log("error : ", err)
       setError("Failed to delete form");
     }
   };
 
   const handleDownload = async (formId) => {
-    const token = Cookies.get("access");
+    
     try {
       const response = await fetch(
-        `http://localhost:8000/api/forms/${formId}/download/`
-        // {
-        //   headers: {
-        //     Authorization: `Bearer ${token}`,
-        //   },
-        // }
+        `http://10.203.4.202/backend/api/forms/${formId}/download/`
       );
 
       if (!response.ok) {
@@ -209,7 +205,7 @@ export default function FormsPage() {
   const handleView = async (formId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/forms/${formId}/view/`
+        `http://10.203.4.202/backend/api/forms/${formId}/view/`
       );
 
       if (!response.ok) {

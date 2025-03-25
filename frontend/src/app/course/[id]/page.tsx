@@ -3,14 +3,11 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Cookies from "js-cookie";
-import CourseCard from "@/components/CourseCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   ModernSplitCard,
-  StackedAccentCard,
-  ExpandableCard,
 } from "@/components/carddesign";
 
 import {
@@ -18,7 +15,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   AlertDialog,
@@ -33,7 +29,7 @@ import {
 
 import Header from "@/components/HeaderReplica";
 import Navbar from "@/components/navbar";
-import { BookOpen, FileText, Plus } from "lucide-react";
+import { BookOpen, Plus } from "lucide-react";
 
 // Interfaces for TypeScript
 interface Course {
@@ -50,7 +46,7 @@ interface Course {
 
 interface User {
   email: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function CourseListPage() {
@@ -99,6 +95,7 @@ export default function CourseListPage() {
       if (userCookie) {
         const userDetails: User = JSON.parse(userCookie);
         setUser(userDetails);
+        console.log("user : ",user)
         // setIsAdmin(userDetails.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL);
         const adminEmails =
           process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",") || [];

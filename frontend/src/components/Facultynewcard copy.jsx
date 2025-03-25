@@ -13,7 +13,7 @@ const Facultynewcard = ({
   isAdmin,
 }) => {
   const [copyMessage, setCopyMessage] = useState("");
-  const [hoverEmailMessage, setHoverEmailMessage] = useState("");
+  // const [hoverEmailMessage, setHoverEmailMessage] = useState("");
 
   const handleEmailClick = async () => {
     try {
@@ -27,10 +27,11 @@ const Facultynewcard = ({
     }
   };
 
-  const handleMailHover = () => {
-    setHoverEmailMessage(email); // Show the email when the mail icon is hovered
-    setTimeout(() => setHoverEmailMessage(""), 5000); // Hide the email after 5 seconds
-  };
+  // const handleMailHover = () => {
+  //   setHoverEmailMessage(email); // Show the email when the mail icon is hovered
+  //   console.log("hoverEmailMessage : ", hoverEmailMessage);
+  //   setTimeout(() => setHoverEmailMessage(""), 5000); // Hide the email after 5 seconds
+  // };
 
   return (
     <StyledWrapper>
@@ -73,7 +74,7 @@ const Facultynewcard = ({
           <img
             src={
               image
-                ? `http://localhost:8000${image}`
+                ? `http://10.203.4.202/backend${image}`
                 : "/placeholder.svg?height=300&width=500"
             }
             alt="profile-pic"

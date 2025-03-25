@@ -13,24 +13,43 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
-from dotenv import load_dotenv
+import environ
+from django.core.exceptions import ImproperlyConfigured
 
-# Load environment variables
-load_dotenv()
+
 
 # Environment variables
-GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
-GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
-SECRET_KEY = os.getenv('SECRET_KEY')
-ADMIN_EMAIL = os.getenv('ADMIN_EMAIL')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+env = environ.Env()
+environ.Env.read_env(BASE_DIR / ".env")
 
-ALLOWED_HOSTS = []
+
+GOOGLE_CLIENT_ID = env('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = env('GOOGLE_CLIENT_SECRET')
+SECRET_KEY = env('SECRET_KEY')
+ADMIN_EMAIL = env('ADMIN_EMAIL')
+SECRET_KEY = env("SECRET_KEY")
+
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env.bool('DEBUG', default=True)
+
+if not DEBUG:
+    ALLOWED_HOSTS = []
+    HOST_URL = env('HOST_URL')
+    if HOST_URL:
+        ALLOWED_HOSTS.append(HOST_URL)
+        CSRF_TRUSTED_ORIGINS = [f"https://{HOST_URL}",f"http://{HOST_URL}"]
+    else:
+        raise ImproperlyConfigured("HOST_URL environment variable is not set")
+else:
+    ALLOWED_HOSTS = ['localhost','127.0.0.1','makerspace.iiti.ac.in','10.203.4.202']
+    CSRF_TRUSTED_ORIGINS = ["http://makerspace.iiti.ac.in","http://127.0.0.1:8000","http://localhost:8000","http://10.203.4.202/backend"]
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -118,9 +137,15 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/backend/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static") 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'staticfiles')
+]
+
+MEDIA_URL = "/backend/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
