@@ -138,7 +138,7 @@ export default function ProjectsPage() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("http://10.203.4.202/backend/api/projects/", {
+      const response = await fetch("http://localhost:8000/backend/api/projects/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -177,8 +177,8 @@ export default function ProjectsPage() {
 
       const method = currentProject ? "PUT" : "POST";
       const url = currentProject
-        ? `http://10.203.4.202/backend/api/projects/${currentProject.id}/`
-        : "http://10.203.4.202/backend/api/projects/";
+        ? `http://localhost:8000/backend/api/projects/${currentProject.id}/`
+        : "http://localhost:8000/backend/api/projects/";
 
       const response = await fetch(url, {
         method: method,
@@ -226,7 +226,7 @@ export default function ProjectsPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://10.203.4.202/backend/api/projects/${selectedProjectId}/`,
+        `http://localhost:8000/backend/api/projects/${selectedProjectId}/`,
         {
           method: "DELETE",
           headers: {
@@ -378,8 +378,8 @@ export default function ProjectsPage() {
                           <img
                             src={
                               project.image
-                                ? `http://10.203.4.202/backend${project.image}`
-                                : `http://10.203.4.202/backend/media/project_images/Projectimage.jpg`
+                                ? `http://localhost:8000${project.image}`
+                                : `http://localhost:8000/media/project_images/Projectimage.jpg`
                             }
                             alt={`Project ${index + 1}`}
                             className="w-12 h-12 sm:w-20 sm:h-20 object-cover rounded-lg shadow-md"

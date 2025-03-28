@@ -9,7 +9,7 @@
 // import { Input } from "@/components/ui/input";
 // import { Label } from "@/components/ui/label";
 // import Header from "@/components/HeaderReplica";
-// import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/navbar";
 // import HeaderCard from "@/components/HeaderCard";
 // import { BookOpen, Plus } from "lucide-react";
 // import {
@@ -55,7 +55,7 @@
 //   const [isNewHeader, setIsNewHeader] = useState(false);
 
 //   const router = useRouter();
-//   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+//   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/backend";
 
 //   // Sample images for the sliding reels
 //   const leftImages = [
@@ -438,7 +438,7 @@ export default function CoursePage() {
   const [isNewHeader, setIsNewHeader] = useState(false);
 
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://10.203.4.202/backend";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/backend";
 
   useEffect(() => {
     fetchHeaders();

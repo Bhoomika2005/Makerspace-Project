@@ -8,8 +8,9 @@ import Cookies from "js-cookie";
 function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const BACKEND_URL =
-    process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+  // const BACKEND_URL =
+  //   process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000/backend";
+  const BACKEND_URL = "http://localhost:8000/backend";
 
   useEffect(() => {
     const handleCallback = async () => {

@@ -119,7 +119,7 @@ const ImageCarousel = ({
               >
                 <div className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[200px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src={`http://10.203.4.202/backend${image.image}`}
+                    src={`http://localhost:8000${image.image}`}
                     alt="Gallery image"
                     fill
                     className="object-cover"
@@ -218,7 +218,7 @@ export default function GalleryPage() {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://10.203.4.202/backend/api/events/");
+      const response = await fetch("http://localhost:8000/backend/api/events/");
       if (!response.ok) {
         throw new Error("Failed to fetch events");
       }
@@ -247,7 +247,7 @@ export default function GalleryPage() {
     });
 
     try {
-      const response = await fetch("http://10.203.4.202/backend/api/events/", {
+      const response = await fetch("http://localhost:8000/backend/api/events/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -293,7 +293,7 @@ export default function GalleryPage() {
 
     try {
       const response = await fetch(
-        `http://10.203.4.202/backend/api/events/${selectedEventId}/`,
+        `http://localhost:8000/backend/api/events/${selectedEventId}/`,
         {
           method: "PUT",
           headers: {
@@ -329,7 +329,7 @@ export default function GalleryPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://10.203.4.202/backend/api/events/${selectedEventId}/`,
+        `http://localhost:8000/backend/api/events/${selectedEventId}/`,
         {
           method: "DELETE",
           headers: {
@@ -446,7 +446,7 @@ export default function GalleryPage() {
                 <div className="aspect-video relative overflow-hidden rounded-md">
                   {event.images && event.images.length > 0 ? (
                     <Image
-                      src={`http://10.203.4.202/backend${event.images[0].image}`}
+                      src={`http://localhost:8000/${event.images[0].image}`}
                       alt={event.title}
                       fill
                       className="object-cover hover:scale-110 transform transition duration-300"

@@ -80,7 +80,7 @@ export default function ContactPage() {
             </div>
 
             {/* IIT Indore Logo */}
-            <div className="mt-6 sm:mt-8 pt-4 sm:pt-5 border-t border-gray-200 bg-gray-300 pb-4 sm:pb-5 rounded-md">
+            <div className="mt-6 sm:mt-8 pt-4 sm:pt-5 border-t border-[#0532b3]-500 bg-gradient-to-b from-white to-[#0271c1] pb-4 sm:pb-5 rounded-md">
               <div className="flex items-center justify-center gap-4 sm:gap-7">
                 <Image
                   src="/images/iiti.png"

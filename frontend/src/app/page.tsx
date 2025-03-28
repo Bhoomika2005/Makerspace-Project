@@ -512,14 +512,14 @@ export default function Home() {
               <div className="flex justify-end">
                 {isLoggedIn ? (
                   <Button
-                    className="admin-button transition-all duration-300 hover:bg-white hover:text-[#0610ab] text-sm md:text-base"
+                    className="admin-button transition-all duration-300 hover:bg-white hover:text-[#0610ab] text-sm md:text-base mr-2"
                     onClick={handleSignOut}
                   >
                     Sign Out
                   </Button>
                 ) : (
                   <Button
-                    className="admin-button transition-all duration-300 hover:bg-white hover:text-[#0610ab] text-sm md:text-base"
+                    className="admin-button transition-all duration-300 hover:bg-white hover:text-[#0610ab] text-sm md:text-base mr-2"
                     onClick={handleGoogleLogin}
                   >
                     Admin Login

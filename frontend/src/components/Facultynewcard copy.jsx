@@ -74,7 +74,7 @@ const Facultynewcard = ({
           <img
             src={
               image
-                ? `http://10.203.4.202/backend${image}`
+                ? `http://localhost:8000${image}`
                 : "/placeholder.svg?height=300&width=500"
             }
             alt="profile-pic"
