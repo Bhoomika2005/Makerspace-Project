@@ -105,9 +105,9 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({
     <div className="space-y-8 md:space-y-12 p-4 md:p-8">
       {dean && renderCenteredRow("Dean of Education & Outreach", dean)}
       {convenersMakerspace.length > 0 && 
-      renderRow("Convenors Makerspace", convenersMakerspace)}
+      renderRow("Conveners Makerspace", convenersMakerspace)}
     {convenersCentralWorkshop.length > 0 && 
-      renderRow("Convenors Central Workshop", convenersCentralWorkshop)}
+      renderRow("Conveners Central Workshop", convenersCentralWorkshop)}
       {coConvenersMakerspace.length > 0 && 
       renderRow("Co-Conveners MakerSpace", coConvenersMakerspace)}
     {coConvenersCELITE.length > 0 && 
