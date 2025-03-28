@@ -32,7 +32,11 @@ const Categories = ({ categories, selectedCategory, onCategoryChange }) => {
                   ? "Lab Engineers"
                   : category === "Teaching Assistant"
                   ? "Teaching Assistants"
-                  : category}
+                  : category ==="Faculty Mentors"
+                  ? "Makerspace Committee"
+                  :category
+
+                  }
               </span>
             </div>
           </div>

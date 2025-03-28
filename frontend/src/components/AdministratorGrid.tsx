@@ -38,8 +38,20 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({
   const conveners = admins.filter(
     (admin) => getRoleKey(admin.role) === "Convener"
   );
-  const coConveners = admins.filter(
-    (admin) => getRoleKey(admin.role) === "Co-convener"
+  // const coConveners = admins.filter(
+  //   (admin) => getRoleKey(admin.role) === "Co-convener"
+  // );
+  const convenersMakerspace = admins.filter(
+    (admin) => admin.role === "Convener MakerSpace"
+  );
+  const convenersCentralWorkshop = admins.filter(
+    (admin) => admin.role === "Convener Central Workshop"
+  );
+  const coConvenersMakerspace = admins.filter(
+    (admin) => admin.role === "Co-Convener MakerSpace"
+  );
+  const coConvenersCELITE = admins.filter(
+    (admin) => admin.role === "Co-Convener CELITE"
   );
   const workshopSuperintendents = admins.filter((admin) =>
     ["Workshop", "Assistant"].includes(getRoleKey(admin.role))
@@ -53,10 +65,11 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({
           {title}
         </h3>
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-${Math.min(
-            items.length,
-            3
-          )} gap-4 md:gap-8 justify-items-center mx-auto`}
+          className={`grid ${
+            items.length === 1 
+              ? 'flex justify-center' 
+              : `grid-cols-1 md:grid-cols-2 xl:grid-cols-${Math.min(items.length, 3)}`
+          } gap-4 md:gap-8 justify-items-center mx-auto`}
         >
           {items.map((admin) => (
             <div key={admin.id} className="p-2 md:p-4 flex justify-center">
@@ -91,8 +104,14 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({
   return (
     <div className="space-y-8 md:space-y-12 p-4 md:p-8">
       {dean && renderCenteredRow("Dean of Education & Outreach", dean)}
-      {conveners.length > 0 && renderRow("Conveners", conveners)}
-      {coConveners.length > 0 && renderRow("Co-Conveners", coConveners)}
+      {convenersMakerspace.length > 0 && 
+      renderRow("Convenors Makerspace", convenersMakerspace)}
+    {convenersCentralWorkshop.length > 0 && 
+      renderRow("Convenors Central Workshop", convenersCentralWorkshop)}
+      {coConvenersMakerspace.length > 0 && 
+      renderRow("Co-Conveners MakerSpace", coConvenersMakerspace)}
+    {coConvenersCELITE.length > 0 && 
+      renderRow("Co-Conveners CELITE", coConvenersCELITE)}
       {workshopSuperintendents.length > 0 &&
         renderRow("Workshop Superintendents", workshopSuperintendents)}
     </div>

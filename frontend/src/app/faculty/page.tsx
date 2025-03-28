@@ -40,7 +40,7 @@ interface Faculty {
   location: string;
   email: string;
   category: string;
-  year?: number; 
+  year?: number;
 }
 
 interface User {
@@ -70,7 +70,7 @@ export default function FacultyPage() {
     year: 1 as number, // Default year to 1 to prevent null issues
     // Add year, default is null
   });
-  
+
   // const categories = [
   //   { key: "Administrators", label: "Administrators" },
   //   { key: "Faculty Mentors", label: "Faculty Mentors" },
@@ -123,10 +123,11 @@ export default function FacultyPage() {
       }
       // const data = await response.json();
       const data: Faculty[] = await response.json();
-      const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
-      setFaculty(sortedData);
-      console.log(sortedData);
-      console.log(error);
+      // const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
+      // setFaculty(sortedData);
+      // console.log(sortedData);
+      // console.log(error);
+      setFaculty(data);
       setError(null);
       console.log(error);
     } catch (error) {
@@ -318,7 +319,7 @@ export default function FacultyPage() {
       setShowDeleteDialog(false);
       setError(null);
     } catch (error) {
-      console.log("error " , error);
+      console.log("error ", error);
       setError("Failed to delete faculty");
       return;
     }
@@ -350,7 +351,7 @@ export default function FacultyPage() {
 
     setIsLoggedIn(false);
     setUser(null);
-    console.log("user : ",user)
+    console.log("user : ", user)
     window.location.href = "/";
   };
 
@@ -404,7 +405,7 @@ export default function FacultyPage() {
                 {" "}
                 {selectedCategory === "Lab Technician"
                   ? "Lab Engineers"
-                  : selectedCategory}
+                  : (selectedCategory === "Faculty Mentors" ? "Makerspace Committee" : selectedCategory )}
               </h2>
             </div>
             {/* <h1 className=" text-[#026bc0] text-2xl font-bold"> <Users size={20} />Our Faculty Members</h1> */}
@@ -446,20 +447,28 @@ export default function FacultyPage() {
                       />
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="name" className="text-right">
+                      <Label htmlFor="role" className="text-right">
                         Role
                       </Label>
-                      <Input
+                      <select
                         id="role"
                         value={facultyData.role}
-                        onChange={(e) =>
-                          setFacultyData({
-                            ...facultyData,
-                            role: e.target.value,
-                          })
-                        }
-                        className="col-span-3"
-                      />
+                        onChange={(e) => setFacultyData({
+                          ...facultyData,
+                          role: e.target.value,
+                        })}
+                        className="col-span-3 border rounded-md p-2"
+                      >
+                        <option value="Member">Member</option>
+                        <option value="Dean of Education & Outreach">Dean of Education & Outreach</option>
+                        <option value="Convener MakerSpace">Convener MakerSpace</option>
+                        <option value="Convener Central Workshop">Convener Central Workshop</option>
+                        <option value="Co-Convener MakerSpace">Co-Convener MakerSpace</option>
+                        <option value="Co-Convener CELITE">Co-Convener CELITE</option>
+                        <option value="Workshop Superintendent">Workshop Superintendent</option>
+                        <option value="Lab Technician">Lab Technician</option>
+                        <option value="Teaching Assistant">Teaching Assistant</option>
+                      </select>
                     </div>
 
                     <div className="grid grid-cols-4 items-center gap-4">
@@ -600,13 +609,25 @@ export default function FacultyPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="role">Role</Label>
-                    <Input
+                    <select
                       id="role"
                       value={facultyData.role}
-                      onChange={(e) =>
-                        setFacultyData({ ...facultyData, role: e.target.value })
-                      }
-                    />
+                      onChange={(e) => setFacultyData({
+                        ...facultyData,
+                        role: e.target.value,
+                      })}
+                      className="w-full p-2 border rounded-md"
+                    >
+                      <option value="Member">Member</option>
+                      <option value="Dean of Education & Outreach">Dean of Education & Outreach</option>
+                      <option value="Convener MakerSpace">Convener MakerSpace</option>
+                      <option value="Convener Central Workshop">Convener Central Workshop</option>
+                      <option value="Co-Convener MakerSpace">Co-Convener MakerSpace</option>
+                      <option value="Co-Convener CELITE">Co-Convener CELITE</option>
+                      <option value="Workshop Superintendent">Workshop Superintendent</option>
+                      <option value="Lab Technician">Lab Technician</option>
+                      <option value="Teaching Assistant">Teaching Assistant</option>
+                    </select>
                   </div>
 
                   <div className="space-y-2">
