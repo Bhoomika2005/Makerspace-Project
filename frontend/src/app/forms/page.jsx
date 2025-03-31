@@ -275,7 +275,7 @@ export default function FormsPage() {
           <div className="flex items-center p-3 sm:p-5 backdrop-blur-sm">
             <FileText className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-[#026bc0]" />
             <h2 className="text-[#026bc0] text-xl sm:text-2xl font-bold">
-              Forms Available
+              Forms
             </h2>
           </div>
           {isAdmin && (

@@ -13,11 +13,13 @@ interface SlidingImagesProps {
 export default function SlidingImages({
   side,
   images,
-  speed = 50,
+  speed = 40,
   containerClass = "",
 }: SlidingImagesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [duplicatedImages, setDuplicatedImages] = useState<string[]>([]);
+  const positionRef = useRef(0);
+  const lastTimeRef = useRef(0);
 
   useEffect(() => {
     // Duplicate images to create a seamless loop
@@ -28,19 +30,24 @@ export default function SlidingImages({
     if (!containerRef.current) return;
 
     let animationId: number;
-    let position = 0;
-
-    const animate = () => {
+    positionRef.current = 0;
+    
+    const animate = (currentTime: number) => {
       if (!containerRef.current) return;
-
-      position -= 1.0;
+      
+      // Calculate time elapsed since last frame
+      const deltaTime = lastTimeRef.current ? (currentTime - lastTimeRef.current) / 1000 : 0.016;
+      lastTimeRef.current = currentTime;
+      
+      // Use time-based animation instead of frame-based
+      positionRef.current -= speed * deltaTime;
 
       // Reset position when all images have scrolled through
-      if (position <= -(images.length * 200)) {
-        position = 0;
+      if (positionRef.current <= -(images.length * 200)) {
+        positionRef.current = 0;
       }
 
-      containerRef.current.style.transform = `translateY(${position}px)`;
+      containerRef.current.style.transform = `translateY(${positionRef.current}px)`;
       animationId = requestAnimationFrame(animate);
     };
 

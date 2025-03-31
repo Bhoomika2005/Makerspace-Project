@@ -92,7 +92,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background: #0610ab !important;
-  border-radius: 40px !important;
+  border-radius: 6px !important;
 }
 
 .admin-button,
@@ -154,3 +154,20 @@ html {
     transform: scale(1.2);
   }
 }
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    height: 3px !important; 
+    width: 3px !important; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #0610ab !important;
+    border-radius: 6px !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+}
+

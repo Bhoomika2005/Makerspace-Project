@@ -748,3 +748,13 @@ class ProjectDetailView(APIView):
 
         project.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+class EquipmentProductGetView(generics.ListAPIView):
+    queryset = EquipmentProduct.objects.all()
+    serializer_class = EquipmentProductSerializer
+
+    def get_queryset(self):
+        queryset = EquipmentProduct.objects.all()
+        return queryset

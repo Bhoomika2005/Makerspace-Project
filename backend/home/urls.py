@@ -30,6 +30,7 @@ urlpatterns = [
     #machinery
     path('machinery/', EquipmentListCreateView.as_view(), name='equipment-list-create'),
     path('machinery/<int:pk>/', EquipmentDetailView.as_view(), name='equipment-detail'),
+    path('productImages/',EquipmentProductGetView.as_view(),name='product-images'),
     
     #faculty
     path('faculty/', FacultyListView.as_view(), name='faculty-list'),

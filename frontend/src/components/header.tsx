@@ -27,7 +27,11 @@ const Header = () => {
 
   return (
     <header className={`relative w-full ${isMobile ? "" : "pt-3"}`}>
-      <div className="max-w-6xl mx-auto rounded-t-lg shadow-[0_4px_7px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-md bg-white/20">
+      <div
+        className={`max-w-6xl mx-auto shadow-[0_4px_7px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-md bg-white/20 ${
+          isMobile ? "" : "rounded-t-lg"
+        }`}
+      >
         <Link href="/">
           <div
             className={`flex flex-col py-2 px-2 ${

@@ -27,7 +27,10 @@ const HeaderReplica = () => {
 
   return (
     <header className={`relative w-full ${isMobile ? "" : "pt-3"}`}>
-      <div className="max-w-6xl mx-auto rounded-t-lg shadow-[0_4px_7px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] bg-gradient-to-r from-[#027cc4] to-[#0610ab]">
+      <div className={`max-w-6xl mx-auto shadow-[0_4px_7px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.2)] bg-gradient-to-r from-[#027cc4] to-[#0610ab]
+      ${
+        isMobile ? "" : "rounded-t-lg"
+      }`}>
         <Link href="/">
           <div className={`flex ${isMobile ? "flex-col" : "py-2 px-2 ml-44"}`}>
             {/* Left Logo - Only visible on desktop */}
