@@ -35,9 +35,9 @@ const AdministratorGrid: React.FC<AdministratorGridProps> = ({
 
   // Categorize based on role
   const dean = admins.find((admin) => getRoleKey(admin.role) === "Dean");
-  const conveners = admins.filter(
-    (admin) => getRoleKey(admin.role) === "Convener"
-  );
+  // const conveners = admins.filter(
+  //   (admin) => getRoleKey(admin.role) === "Convener"
+  // );
   // const coConveners = admins.filter(
   //   (admin) => getRoleKey(admin.role) === "Co-convener"
   // );
