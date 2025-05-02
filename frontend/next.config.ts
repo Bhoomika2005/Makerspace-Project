@@ -4,12 +4,12 @@ import type { NextConfig } from "next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: ['172.16.1.81'],
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 'localhost',
-        port: '8000',
+        hostname: '172.16.1.81',
+        port: "",
         pathname: '/media/**',
       },
     ],
