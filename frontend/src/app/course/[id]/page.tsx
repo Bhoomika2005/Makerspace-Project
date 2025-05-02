@@ -78,7 +78,7 @@ export default function CourseListPage() {
   const title = searchParams.get("title") || "";
   console.log(title);
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://172.16.1.81/backend";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://makerspace.iiti.ac.in/backend";
 
   useEffect(() => {
     async function checkAdminStatus() {

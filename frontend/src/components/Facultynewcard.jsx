@@ -62,7 +62,7 @@ const Facultynewcard = ({
           <img
             src={
               image
-                ? `http://172.16.1.81${image}`
+                ? `http://makerspace.iiti.ac.in${image}`
                 : "/placeholder.svg?height=300&width=500"
             }
             alt="profile-pic"

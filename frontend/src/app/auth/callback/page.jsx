@@ -9,8 +9,8 @@ function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   // const BACKEND_URL =
-  //   process.env.NEXT_PUBLIC_BACKEND_URL || "http://172.16.1.81/backend";
-  const BACKEND_URL = "http://172.16.1.81/backend";
+  //   process.env.NEXT_PUBLIC_BACKEND_URL || "http://makerspace.iiti.ac.in/backend";
+  const BACKEND_URL = "http://makerspace.iiti.ac.in/backend";
 
   useEffect(() => {
     const handleCallback = async () => {
