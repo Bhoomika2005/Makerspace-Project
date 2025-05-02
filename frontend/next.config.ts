@@ -4,11 +4,11 @@ import type { NextConfig } from "next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['172.16.1.81'],
+    domains: ['makerspace.iiti.ac.in'],
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '172.16.1.81',
+        protocol: 'https',
+        hostname: 'makerspace.iiti.ac.in',
         port: "",
         pathname: '/media/**',
       },
