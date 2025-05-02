@@ -55,7 +55,7 @@
 //   const [isNewHeader, setIsNewHeader] = useState(false);
 
 //   const router = useRouter();
-//   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://makerspace.iiti.ac.in/backend";
+//   const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://makerspace.iiti.ac.in/backend";
 
 //   // Sample images for the sliding reels
 //   const leftImages = [
@@ -438,7 +438,7 @@ export default function CoursePage() {
   const [isNewHeader, setIsNewHeader] = useState(false);
 
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://makerspace.iiti.ac.in/backend";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://makerspace.iiti.ac.in/backend";
 
   useEffect(() => {
     fetchHeaders();

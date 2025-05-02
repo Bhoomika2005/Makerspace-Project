@@ -80,7 +80,7 @@ export default function FormsPage() {
   const fetchForms = async () => {
     try {
       
-      const response = await fetch("http://makerspace.iiti.ac.in/backend/api/forms/", {
+      const response = await fetch("https://makerspace.iiti.ac.in/backend/api/forms/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default function FormsPage() {
 
     const token = Cookies.get("access");
     try {
-      const response = await fetch("http://makerspace.iiti.ac.in/backend/api/forms/", {
+      const response = await fetch("https://makerspace.iiti.ac.in/backend/api/forms/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -154,7 +154,7 @@ export default function FormsPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://makerspace.iiti.ac.in/backend/api/forms/${selectedFormId}/`,
+        `https://makerspace.iiti.ac.in/backend/api/forms/${selectedFormId}/`,
         {
           method: "DELETE",
           headers: {
@@ -180,7 +180,7 @@ export default function FormsPage() {
     
     try {
       const response = await fetch(
-        `http://makerspace.iiti.ac.in/backend/api/forms/${formId}/download/`
+        `https://makerspace.iiti.ac.in/backend/api/forms/${formId}/download/`
       );
 
       if (!response.ok) {
@@ -205,7 +205,7 @@ export default function FormsPage() {
   const handleView = async (formId) => {
     try {
       const response = await fetch(
-        `http://makerspace.iiti.ac.in/backend/api/forms/${formId}/view/`
+        `https://makerspace.iiti.ac.in/backend/api/forms/${formId}/view/`
       );
 
       if (!response.ok) {

@@ -117,7 +117,7 @@ export default function FacultyPage() {
 
   const fetchFaculty = async () => {
     try {
-      const response = await fetch("http://makerspace.iiti.ac.in/backend/api/faculty/");
+      const response = await fetch("https://makerspace.iiti.ac.in/backend/api/faculty/");
       if (!response.ok) {
         throw new Error("Failed to fetch faculty");
       }
@@ -188,7 +188,7 @@ export default function FacultyPage() {
     });
     console.log(token);
     try {
-      const response = await fetch("http://makerspace.iiti.ac.in/backend/api/faculty/add/", {
+      const response = await fetch("https://makerspace.iiti.ac.in/backend/api/faculty/add/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -262,7 +262,7 @@ export default function FacultyPage() {
 
     try {
       const response = await fetch(
-        `http://makerspace.iiti.ac.in/backend/api/faculty/edit/${selectedFacultyId}/`,
+        `https://makerspace.iiti.ac.in/backend/api/faculty/edit/${selectedFacultyId}/`,
         {
           method: "PUT",
           headers: {
@@ -302,7 +302,7 @@ export default function FacultyPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://makerspace.iiti.ac.in/backend/api/faculty/delete/${selectedFacultyId}/`,
+        `https://makerspace.iiti.ac.in/backend/api/faculty/delete/${selectedFacultyId}/`,
         {
           method: "DELETE",
           headers: {
