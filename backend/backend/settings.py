@@ -47,8 +47,8 @@ if not DEBUG:
     else:
         raise ImproperlyConfigured("HOST_URL environment variable is not set")
 else:
-    ALLOWED_HOSTS = ['localhost','127.0.0.1','makerspace.iiti.ac.in','10.203.4.202']
-    CSRF_TRUSTED_ORIGINS = ["http://makerspace.iiti.ac.in","http://127.0.0.1:8000","http://localhost:8000","http://10.203.4.202/backend"]
+    ALLOWED_HOSTS = ['localhost','127.0.0.1','makerspace.iiti.ac.in','172.16.1.81']
+    CSRF_TRUSTED_ORIGINS = ["http://makerspace.iiti.ac.in","http://127.0.0.1:8000","http://localhost:8000","http://172.16.1.81/backend"]
 
 
 # Application definition
@@ -111,6 +111,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        
     }
 }
 

@@ -80,7 +80,7 @@ export default function FormsPage() {
   const fetchForms = async () => {
     try {
       
-      const response = await fetch("http://localhost:8000/backend/api/forms/", {
+      const response = await fetch("http://172.16.1.81/backend/api/forms/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default function FormsPage() {
 
     const token = Cookies.get("access");
     try {
-      const response = await fetch("http://localhost:8000/backend/api/forms/", {
+      const response = await fetch("http://172.16.1.81/backend/api/forms/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -154,7 +154,7 @@ export default function FormsPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://localhost:8000/backend/api/forms/${selectedFormId}/`,
+        `http://172.16.1.81/backend/api/forms/${selectedFormId}/`,
         {
           method: "DELETE",
           headers: {
@@ -180,7 +180,7 @@ export default function FormsPage() {
     
     try {
       const response = await fetch(
-        `http://localhost:8000/backend/api/forms/${formId}/download/`
+        `http://172.16.1.81/backend/api/forms/${formId}/download/`
       );
 
       if (!response.ok) {
@@ -205,7 +205,7 @@ export default function FormsPage() {
   const handleView = async (formId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/backend/api/forms/${formId}/view/`
+        `http://172.16.1.81/backend/api/forms/${formId}/view/`
       );
 
       if (!response.ok) {
