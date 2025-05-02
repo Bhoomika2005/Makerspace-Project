@@ -140,7 +140,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               >
                 <div className="relative w-[90vw] h-[30vh] sm:w-[600px] sm:h-[400px] rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src={`http://localhost:8000${product.product}`}
+                    src={`http://172.16.1.81${product.product}`}
                     alt={`Product image ${index + 1} for ${equipment.name}`}
                     fill
                     className="object-contain"
@@ -241,7 +241,7 @@ function MachineryPage() {
 
   const fetchEquipment = async () => {
     try {
-      const response = await fetch("http://localhost:8000/backend/api/machinery/");
+      const response = await fetch("http://172.16.1.81/backend/api/machinery/");
       if (!response.ok) {
         throw new Error("Failed to fetch equipment");
       }
@@ -275,7 +275,7 @@ function MachineryPage() {
     });
 
     try {
-      const response = await fetch("http://localhost:8000/backend/api/machinery/", {
+      const response = await fetch("http://172.16.1.81/backend/api/machinery/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -332,7 +332,7 @@ function MachineryPage() {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/backend/api/machinery/${selectedEquipmentId}/`,
+        `http://172.16.1.81/backend/api/machinery/${selectedEquipmentId}/`,
         {
           method: "PUT",
           headers: {
@@ -373,7 +373,7 @@ function MachineryPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://localhost:8000/backend/api/machinery/${selectedEquipmentId}/`,
+        `http://172.16.1.81/backend/api/machinery/${selectedEquipmentId}/`,
         {
           method: "DELETE",
           headers: {
@@ -680,7 +680,7 @@ function MachineryPage() {
                   <Image
                     src={
                       item.image
-                        ? `http://localhost:8000${item.image}`
+                        ? `http://172.16.1.81${item.image}`
                         : "/placeholder.svg?height=300&width=400"
                     }
                     alt={item.name}

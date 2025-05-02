@@ -138,7 +138,7 @@
 
 //   const fetchProjects = async () => {
 //     try {
-//       const response = await fetch("http://localhost:8000/backend/api/projects/", {
+//       const response = await fetch("http://172.16.1.81/backend/api/projects/", {
 //         method: "GET",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -177,8 +177,8 @@
 
 //       const method = currentProject ? "PUT" : "POST";
 //       const url = currentProject
-//         ? `http://localhost:8000/backend/api/projects/${currentProject.id}/`
-//         : "http://localhost:8000/backend/api/projects/";
+//         ? `http://172.16.1.81/backend/api/projects/${currentProject.id}/`
+//         : "http://172.16.1.81/backend/api/projects/";
 
 //       const response = await fetch(url, {
 //         method: method,
@@ -226,7 +226,7 @@
 //     const token = Cookies.get("access");
 //     try {
 //       const response = await fetch(
-//         `http://localhost:8000/backend/api/projects/${selectedProjectId}/`,
+//         `http://172.16.1.81/backend/api/projects/${selectedProjectId}/`,
 //         {
 //           method: "DELETE",
 //           headers: {
@@ -378,8 +378,8 @@
 //                           <img
 //                             src={
 //                               project.image
-//                                 ? `http://localhost:8000${project.image}`
-//                                 : `http://localhost:8000/media/project_images/Projectimage.jpg`
+//                                 ? `http://172.16.1.81${project.image}`
+//                                 : `http://172.16.1.81/media/project_images/Projectimage.jpg`
 //                             }
 //                             alt={`Project ${index + 1}`}
 //                             className="w-12 h-12 sm:w-20 sm:h-20 object-cover rounded-lg shadow-md"
@@ -759,7 +759,7 @@ export default function ProjectsPage() {
 
   const fetchSliderImages = async () => {
     try {
-      const response = await fetch("http://localhost:8000/backend/api/productImages/", {
+      const response = await fetch("http://172.16.1.81/backend/api/productImages/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -780,11 +780,11 @@ export default function ProjectsPage() {
         }
         // Check if the product path already has a leading /
         else if (item.product.startsWith('/')) {
-          return `http://localhost:8000${item.product}`;
+          return `http://172.16.1.81${item.product}`;
         }
         // Otherwise, add a leading / before appending to the base URL
         else {
-          return `http://localhost:8000/${item.product}`;
+          return `http://172.16.1.81/${item.product}`;
         }
       });
       setSliderImages(imageUrls);
@@ -796,7 +796,7 @@ export default function ProjectsPage() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("http://localhost:8000/backend/api/projects/", {
+      const response = await fetch("http://172.16.1.81/backend/api/projects/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -835,8 +835,8 @@ export default function ProjectsPage() {
 
       const method = currentProject ? "PUT" : "POST";
       const url = currentProject
-        ? `http://localhost:8000/backend/api/projects/${currentProject.id}/`
-        : "http://localhost:8000/backend/api/projects/";
+        ? `http://172.16.1.81/backend/api/projects/${currentProject.id}/`
+        : "http://172.16.1.81/backend/api/projects/";
 
       const response = await fetch(url, {
         method: method,
@@ -884,7 +884,7 @@ export default function ProjectsPage() {
     const token = Cookies.get("access");
     try {
       const response = await fetch(
-        `http://localhost:8000/backend/api/projects/${selectedProjectId}/`,
+        `http://172.16.1.81/backend/api/projects/${selectedProjectId}/`,
         {
           method: "DELETE",
           headers: {
@@ -1061,8 +1061,8 @@ export default function ProjectsPage() {
                           <img
                             src={
                               project.image
-                                ? `http://localhost:8000${project.image}`
-                                : `http://localhost:8000/media/project_images/Projectimage.jpg`
+                                ? `http://172.16.1.81${project.image}`
+                                : `http://172.16.1.81/media/project_images/Projectimage.jpg`
                             }
                             alt={`Project ${index + 1}`}
                             className="w-12 h-12 sm:w-20 sm:h-20 object-cover rounded-lg shadow-md"
