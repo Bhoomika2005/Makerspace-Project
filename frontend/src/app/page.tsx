@@ -144,7 +144,7 @@ export default function Home() {
   const handleGoogleLogin = () => {
     const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     const redirectUri = encodeURIComponent(
-      "http://localhost:3000/auth/callback"
+      "https://makerspace.iiti.ac.in/auth/callback"
     );
     const scope = encodeURIComponent("email profile openid");
 
