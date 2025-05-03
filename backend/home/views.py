@@ -98,7 +98,8 @@ class GoogleLoginView(APIView):
                 "code": code,
                 "client_id": settings.GOOGLE_CLIENT_ID,
                 "client_secret": settings.GOOGLE_CLIENT_SECRET,
-                "redirect_uri": "http://localhost:3000/auth/callback",
+                # "redirect_uri": "http://localhost:3000/auth/callback",
+                "redirect_uri": "https://makerspace.iiti.ac.in/auth/callback",
                 "grant_type": "authorization_code",
             }
 

@@ -48,7 +48,7 @@ if not DEBUG:
         raise ImproperlyConfigured("HOST_URL environment variable is not set")
 else:
     ALLOWED_HOSTS = ['localhost','127.0.0.1','makerspace.iiti.ac.in','172.16.1.81']
-    CSRF_TRUSTED_ORIGINS = ["http://makerspace.iiti.ac.in","http://127.0.0.1:8000","http://localhost:8000","http://172.16.1.81/backend"]
+    CSRF_TRUSTED_ORIGINS = ["https://makerspace.iiti.ac.in","http://127.0.0.1:8000","http://localhost:8000","http://172.16.1.81/backend","https://makerspace.iiti.ac.in/backend"]
 
 
 # Application definition
@@ -83,6 +83,7 @@ MIDDLEWARE = [
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'https://makerspace.iiti.ac.in',
 ]
 CORS_ALLOW_CREDENTIALS = True
 
